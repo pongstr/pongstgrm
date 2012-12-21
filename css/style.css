@@ -1,0 +1,248 @@
+/* ==|=== Pongstagr.am - jQuery Instagram Plugin v1.0 ===============================
+ *  by Pongstr [twiz.tickler@gmail.com | www.pongstr.com ]
+ *  Free to use under the MIT license.
+ *  http://www.opensource.org/licenses/mit-license.php
+ *
+ *  Special Thanks to: GAPiangco [ http://www.gapiangco.com/ ]
+ * =============================================================================== */
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
+
+html, body { height: 100%; }
+
+::-moz-selection {
+    background: #000;
+    color: #fff;
+    text-shadow: none;
+}
+
+::selection {
+    background: #000;
+    color: #fff;
+    text-shadow: none;
+}
+
+a, a:active, a:visited { color: #2589ed; text-decoration: none; 
+  -moz-transition: color 150ms linear;
+  -webkit-transition: color 150ms linear;
+  -o-transition: color 150ms linear;
+  transition: color 150ms linear; 
+}
+
+a:hover { color: #FF2A9C;
+  -moz-transition: color 150ms linear;
+  -webkit-transition: color 150ms linear;
+  -o-transition: color 150ms linear;
+  transition: color 150ms linear; 
+}
+
+a:active, a:focus { outline: 0 none; }
+
+/* @ Images Main Container */
+#instagram { 
+  width: 745px; 
+  margin: 220px auto 30px auto; 
+  padding: 30px; 
+  background: #fafafa; 
+  border: 1px solid #ddd;
+  -moz-box-shadow: 0 0 4px rgba(66,66,66,0.25);
+  -webkit-box-shadow: 0 0 4px rgba(66,66,66,0.25);
+  -o-box-shadow: 0 0 4px rgba(66,66,66,0.25);
+  box-shadow: 0 0 4px rgba(66,66,66,0.25); 
+  position: relative;
+  z-index: 100
+}
+
+/* @ Images Main Container Clearfix */
+#instagram:after { display: table; content: ""; clear: both; }
+
+/* @ For IE 6/7 only * Include this rule to trigger hasLayout and contain floats. */
+#instagram { *zoom: 1; }
+
+/* Container for Each Images */
+.imageBlock { display: block; float: left; width: 160px; min-height: 187px; margin: 15px 12px 30px 12px; position: relative; border: 1px solid #eee; font-size: 12px; }
+
+/* @ Anchor for Images Links */
+.imageBlock a { display: block; margin: 0; padding: 5px; background: #fff; position: absolute; top: 0; left: 0; text-decoration: none; text-align: center; color: #333; 
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  -moz-transition: box-shadow 150ms linear;
+  -webkit-transition: box-shadow 150ms linear;
+  -o-transition: box-shadow 150ms linear;
+  transition: box-shadow 150ms linear; 
+  z-index: 100
+}
+
+/* @ Anchor Hover Effect for Images Links */
+.imageBlock a:hover { position: absolute; top: -16px; left: -16px; margin: 0; padding: 20px; border: 1px solid #2589ED; border-bottom: 5px solid #2589ED;
+  -moz-box-shadow: 0 0 15px #4096ee;
+  -webkit-box-shadow: 0 0 15px #4096ee;
+  -o-box-shadow: 0 0 15px #4096ee;
+  box-shadow: 0 0 15px #4096ee;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  -moz-transition: box-shadow 150ms linear;
+  -webkit-transition: box-shadow 150ms linear;
+  -o-transition: box-shadow 150ms linear;
+  transition: box-shadow 150ms linear; 
+  z-index: 101
+}
+
+
+/* @ Text Container for Each Images */
+.imageBlock a span { color: #2589ED; vertical-align: bottom; line-height: 1; }
+
+/* @ .visuallyhidden helper hides the inline 'big image' that reveal calls
+ * when user clicks on an image. */
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+
+/* @ User Details Styles */
+#userDetails { display: block; clear: both; width: 100%; height: 340px; margin: 0 auto; padding: 0; position: fixed; left: 0; top: 0; background: url('../images/patterns-webtreats.jpg') left top repeat-x; z-index: 5; }
+#userDetails .wrapper { display: block; width: 806px; min-height: 240px; margin: 20px auto; }
+
+/* @ User Details Clearfixes */
+#userDetails .wrapper:after { display: table; content: ""; clear: both; }
+#userDetails .wrapper{ *zoom: 1; }
+
+.userProfileImg { display: block; float: left; width: 140px; height: 140px; margin: 5px 20px 10px 0; padding: 0; overflow: hidden; border: 5px solid #fff; 
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+}
+
+#userDetails h1 { margin: 0; padding: 0; line-height: 1; font-family: 'ChunkFive', sans-serif; font-size: 52px; font-weight: normal !important; color: #fff; text-transform: uppercase; text-shadow: 0 2px 2px #000; }
+#userDetails p { font-family: 'Open Sans', sans-serif; font-weight: 300; font-size: 18px; color: #fff; }
+#userDetails strong { font-weight: 300; }
+#userDetails h4 { display: block; float: left; min-width: 90px; margin: 5px; padding: 10px; background: rgba(0,0,0,0.65); color: #fff; font-family: 'ChunkFive', sans-serif; font-size: 24px; font-weight: normal; text-align: center; line-height: 1; 
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+}
+#userDetails h4 small { display: block; clear: both; font-size: 14px; }
+
+
+footer { display: block; margin: 0; padding: 5px 0; width: 100%; font-size: 12px; color: #999; background: #fafafa; border-top: 1px solid #f4f4f4; text-align: center; }
+
+/* ==|=== Fontkit ===================================================================
+ * Customise your font-icons from: http://fontello.com/
+ * =============================================================================== */
+ @font-face {
+  font-family: "ChunkFive";
+  src: url("../fontkit/chunkfive-webfont.eot");
+  src: url("../fontkit/chunkfive-webfont.eot?#iefix") format("embedded-opentype"), 
+       url("../fontkit/chunkfive-webfont.woff") format("woff"), 
+       url("../fontkit/chunkfive-webfont.ttf") format("truetype"), 
+       url("../fontkit/chunkfive-webfont.svg#chunkfive-webfont") format("svg");
+  font-weight: normal;
+  font-style: normal; 
+}
+
+@font-face {
+  font-family: "ModernPictogramsNormal";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fontkit/fontello.eot");
+  src: url("../fontkit/fontello.eot?#iefix") format("embedded-opentype"), 
+       url("../fontkit/fontello.woff") format("woff"), 
+       url("../fontkit/fontello.ttf") format("truetype"), 
+       url("../fontkit/fontello.svg#ModernPictogramsNormal") format("svg");
+  font-weight: normal;
+  font-style: normal
+}
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  display: inline-block;
+  font-family: "ModernPictogramsNormal";
+  font-size: 120%;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1 !important;
+  margin-right: 0.2em;
+  padding: 4px;
+  speak: none;
+  text-align: center;
+  text-decoration: inherit;
+  vertical-align: middle;
+  width: 0.75em;
+}
+
+/* Fontkit Characters */
+.icon-thumbs-up:before    { content: "\79"; }
+.icon-chat:before         { content: "\42"; }
+.icon-calendar-inv:before { content: "\49"; }
+
+
+/* ==|=== Reveal Modals Override ====================================================
+ * Custom styles for Reveal Modals, you may edit this as you please.
+ * =============================================================================== */
+
+.reveal-modal { color: #222; text-align: center; line-height: 1.4; font-family: 'Open Sans', sans-serif; font-weight: 300 !important; font-size: 14px; }
+.reveal-modal span { color: #2589ed; }
+.reveal-modal a { color: #FF2A9C; } 
+.reveal-modal a:hover { color: #2589ed; }
+.reveal-modal .heading { margin: 0; padding: 0; font-family: 'ChunkFive', sans-serif; font-size: 28px; font-weight: normal; text-transform: capitalize; text-align: center; }
+.reveal-modal h4 { margin: 0; padding: 0; font-family: 'ChunkFive', sans-serif; font-size: 18px; font-weight: normal; text-align: center; }
+.reveal-modal img { display: block; margin: 10px auto; }
+.reveal-modal strong { font-weight: 400 !important; }
+
+
+/* ==|=== Reveal Modals ============================================================= 
+ * jQuery Reveal Plugin 1.0
+ * www.ZURB.com
+ * Copyright 2010, ZURB
+ * Free to use under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ * =============================================================================== */
+    
+.reveal-modal-bg { 
+  position: fixed; 
+  height: 100%;
+  width: 100%;
+  background: #000;
+  background: rgba(0,0,0,.8);
+  z-index: 103;
+  display: none;
+  top: 0;
+  left: 0; 
+}
+
+.reveal-modal {
+  visibility: hidden;
+  top: 100px; 
+  left: 50%;
+  margin-left: -300px;
+  width: 520px;
+  background: #eee url('../images/modal-gloss.png') no-repeat -200px -80px;
+  position: absolute;
+  z-index: 104;
+  padding: 30px 40px 34px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -moz-box-shadow: 0 0 10px rgba(0,0,0,.4);
+  -webkit-box-shadow: 0 0 10px rgba(0,0,0,.4);
+  -box-shadow: 0 0 10px rgba(0,0,0,.4);
+}
+
+.reveal-modal.small   { width: 200px; margin-left: -140px;}
+.reveal-modal.medium  { width: 400px; margin-left: -240px;}
+.reveal-modal.large   { width: 600px; margin-left: -340px;}
+.reveal-modal.xlarge  { width: 800px; margin-left: -440px;}
+
+.reveal-modal .close-reveal-modal {
+  font-size: 22px;
+  line-height: .5;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  color: #aaa;
+  text-shadow: 0 -1px 1px rbga(0,0,0,.6);
+  font-weight: bold;
+  cursor: pointer;
+} 
