@@ -2,38 +2,38 @@
 @import "compass/css3"
 
 // Google Webfont : Open Sans
-// @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300)
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300)
 
-// Pongstr's Mods
-*, *:before, *:after
-  @include box-sizing(border-box)
-
-// Bootstrap Stylesheets
+// Framework Styles
+@import "foundation.min.css"
 @import "bootstrap.min.css"
 
-// Helper Classes
-@import "modules/helpers.sass"
+// Helpers 
+@import "modules/helpers"
 
 // Defaults
 html, body
   height: 100%
 
+// Override Modules
+@import "modules/overrides"
+
 // Header Module
 @import "modules/header"
 
 // Main Content
-#main-content.container-fluid
-  padding-top: 20px
-  padding-bottom: 20px
+#main-content
+  padding: 20px 10px
+  margin-top: 20px
+  margin-bottom: 20px
   min-height: 70%
 
-#sidebar 
-  .nav.nav-list 
-    width: 258px
-    border: 1px solid #ddd
-    
 .pongstgrm-btn
-  display: block
   clear: both
-  padding: 10px 0
-  margin: 10px 0
+  padding: 20px 0
+  margin-top: 30px
+  background: #f4f4f4
+  border: 1px solid #eee
+  @include border-radius(3px)
+  a
+    display: block !important

@@ -1,0 +1,255 @@
+/*! normalize.css 2011-08-12T17:28 UTC · http://github.com/necolas/normalize.css */
+
+/*******************************************************************************
+ * HTML5 display definitions
+ ******************************************************************************/
+
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section
+  // Corrects block display not defined in IE6/7/8/9 & FF3
+  display: block
+
+audio, canvas, video
+  // Corrects inline-block display not defined in IE6/7/8/9 & FF3
+  display: inline-block
+  *display: inline
+  *zoom: 1
+
+audio:not([controls])
+  // Prevents modern browsers from displaying 'audio' without controls
+  display: none
+
+[hidden]
+  // Addresses styling for 'hidden' attribute not present in IE7/8/9, FF3, S4
+  // Known issue: no IE6 support
+  display: none
+
+/*******************************************************************************
+ * Base
+ ******************************************************************************/
+
+html
+  // Corrects text resizing oddly in IE6/7 when body font-size is in ems
+  font-size: 100%
+  // Keeps page centred in all browsers regardless of content height
+  overflow-y: scroll
+  // Prevents iOS text size adjust after orientation change, without disabling
+  // user zoom
+  -webkit-text-size-adjust: 100%
+  -ms-text-size-adjust: 100%
+
+body
+  // Addresses margins handled incorrectly in IE6/7
+  margin: 0
+
+body, button, input, select, textarea
+  // Addresses font-family inconsistency between 'textarea' and other form
+  // elements.
+  font-family: sans-serif
+
+/*******************************************************************************
+ * Links
+ ******************************************************************************/
+
+a
+  color: #00e
+  &:visited
+    color: #551a8b
+  &:focus
+    // Addresses outline displayed oddly in Chrome
+    outline: thin dotted
+  &:hover, &:active
+    // Improves readability when focused and also mouse hovered in all browsers
+    // people.opera.com/patrickl/experiments/keyboard/test
+    outline: 0
+
+/*******************************************************************************
+ * Typography
+ ******************************************************************************/
+
+abbr[title]
+  // Addresses styling not present in IE7/8/9, S5, Chrome
+  border-bottom: 1px dotted
+
+b, strong
+  // Addresses style set to 'bolder' in FF3/4, S4/5, Chrome
+  font-weight: bold
+
+dfn
+  // Addresses styling not present in S5, Chrome
+  font-style: italic
+
+mark
+  // Addresses styling not present in IE6/7/8/9
+  background: #ff0
+  color: #000
+
+pre, code, kbd, samp
+  //  Corrects font family set oddly in IE6, S4/5, Chrome
+  // en.wikipedia.org/wiki/User:Davidgothberg/Test59
+  font-family: monospace, serif
+  _font-family: 'courier new', monospace
+  font-size: 1em
+
+pre
+  // Improves readability of pre-formatted text in all browsers
+  white-space: pre
+  white-space: pre-wrap
+  word-wrap: break-word
+
+q
+  // Addresses CSS quotes not supported in IE6/7
+  quotes: none
+
+  // Addresses quote property not supported in S4
+  &:before, &:after
+    content: ''
+    content: none
+
+small
+  font-size: 75%
+
+blockquote
+  margin: 1em 40px
+
+// Prevents sub and sup affecting line-height in all browsers
+// gist.github.com/413930
+sub
+  font-size: 75%
+  line-height: 0
+  position: relative
+  vertical-align: baseline
+sup
+  font-size: 75%
+  line-height: 0
+  position: relative
+  vertical-align: baseline
+  top: -0.5em
+sub
+  bottom: -0.25em
+
+/*******************************************************************************
+ * Lists
+ ******************************************************************************/
+
+ul, ol
+  margin: 1em 0
+  padding: 0 0 0 40px
+
+dd
+  margin: 0 0 0 40px
+
+nav
+  ul, ol
+    list-style: none
+    list-style-image: none
+
+/*******************************************************************************
+ * Embedded content
+ ******************************************************************************/
+
+/*
+
+img
+  // Removes border when inside 'a' element in IE6/7/8/9
+  border: 0
+  // Improves image quality when scaled in IE7
+  // code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
+  -ms-interpolation-mode: bicubic
+
+svg:not(:root)
+  // Corrects overflow displayed oddly in IE9
+  overflow: hidden
+
+/*******************************************************************************
+ * Figures
+ ******************************************************************************/
+
+figure
+  // Addresses margin not present in IE6/7/8/9, S5, O11
+  margin: 0
+
+/*******************************************************************************
+ * Forms
+ ******************************************************************************/
+
+form
+  // Corrects margin displayed oddly in IE6/7
+  margin: 0
+
+fieldset
+  // Define consistent margin and padding
+  margin: 0 2px
+  padding: 0.35em 0.625em 0.75em
+
+legend
+  // Corrects color not being inherited in IE6/7/8/9
+  border: 0
+  // Corrects alignment displayed oddly in IE6/7
+  *margin-left: -7px
+
+button, input, select, textarea
+  // Corrects font size not being inherited in all browsers
+  font-size: 100%
+  // Addresses margins set differently in IE6/7, F3/4, S5, Chrome
+  margin: 0
+  // Improves appearance and consistency in all browsers
+  vertical-align: baseline
+  *vertical-align: middle
+
+button, input
+  // Addresses FF3/4 setting line-height using !important in the UA stylesheet
+  line-height: normal
+  // Corrects inner spacing displayed oddly in IE6/7
+  *overflow: visible
+
+table
+  button, input
+    // Corrects overlap and whitespace issue for buttons and inputs in IE6/7
+    // Known issue: reintroduces inner spacing
+    *overflow: auto
+
+button, html input[type="button"], html input[type="reset"], html input[type="submit"]
+  // Improves usability and consistency of cursor style between image-type
+  // 'input' and others
+  cursor: pointer
+  // Corrects inability to style clickable 'input' types in iOS
+  -webkit-appearance: button
+
+input
+  &[type="checkbox"], &[type="radio"]
+    // Addresses box sizing set to content-box in IE8/9
+    box-sizing: border-box
+    // Addresses excess padding in IE8/9
+    padding: 0
+  &[type="search"]
+    // Addresses appearance set to searchfield in S5, Chrome
+    -webkit-appearance: textfield
+    -moz-box-sizing: content-box
+    // Addresses box sizing set to border-box in S5, Chrome (Include -moz to
+    // future-proof)
+    -webkit-box-sizing: content-box
+    box-sizing: content-box
+    &::-webkit-search-decoration
+      // Corrects inner padding displayed oddly in S5, Chrome on OSX
+      -webkit-appearance: none
+
+button::-moz-focus-inner, input::-moz-focus-inner
+  // Corrects inner padding and border displayed oddly in FF3/4
+  // www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/
+  border: 0
+  padding: 0
+
+textarea
+  // remove default vertical scrollbar in IE6/7/8/9
+  overflow: auto
+  // improve readability and alignment in all browsers
+  vertical-align: top
+
+/*******************************************************************************
+ * Tables
+ ******************************************************************************/
+
+table
+  // Remove most spacing between table cells
+  border-collapse: collapse
+  border-spacing: 0

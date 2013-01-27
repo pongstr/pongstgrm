@@ -14,11 +14,6 @@
   -moz-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55) inset;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55) inset;
 }
-#masthead .row-fluid {
-  background: url("../img/pattern.png");
-  margin: 0 !important;
-  padding: 40px 20px;
-}
 #masthead h1, #masthead h2, #masthead h3 {
   font-family: "ChunkFive", sans-serif;
   font-weight: 300;
@@ -71,4 +66,11 @@
   -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.55);
   -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.55);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.55);
+}
+
+#masthead > div {
+  background: url("../img/pattern.png");
+  min-height: 160px;
+  margin: 0 !important;
+  padding: 40px 20px;
 }

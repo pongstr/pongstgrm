@@ -10,10 +10,7 @@
   @include filter-gradient(#ad2281, #7a116c, vertical)
   @include background-image(linear-gradient(top,  #ad2281 14%,#7a116c 100%))
   @include box-shadow( 0 4px 20px rgba(0,0,0,0.55) inset)
-  .row-fluid
-    background: url('../img/pattern.png')
-    margin: 0 !important
-    padding: 40px 20px
+
   h1, h2, h3 
     font-family: 'ChunkFive', sans-serif
     font-weight: 300
@@ -50,3 +47,9 @@
       font-size: 12px
 .btn 
   @include box-shadow( 0 3px 6px rgba(0,0,0,0.55))
+
+#masthead > div
+  background: url('../img/pattern.png')
+  min-height: 160px
+  margin: 0 !important
+  padding: 40px 20px

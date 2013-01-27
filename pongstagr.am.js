@@ -34,7 +34,7 @@
         // Append Button Function
         function btn(){
           var btn_id   = ( options.show == null ) ? "recent_media-btn" : options.show + "-btn";
-              btn_html = "<div class='pongstgrm-btn'><a href='javascript:void(0);' id='" + btn_id + "' class='btn btn-primary btn-medium'>load more</a></div>";
+              btn_html = "<div class='row pongstgrm-btn'><a href='javascript:void(0);' id='" + btn_id + "' class='four columns centered btn btn-success btn-large'>Load More Photos</a></div>";
           $(element).after( btn_html );
         }
         
@@ -47,6 +47,7 @@
             // Load Request
             ajx( endpoint );
             btn();
+
             return true;
             
           } else if ( content_type === 'user_profile'){
@@ -95,19 +96,30 @@
           success      : function(data){
             
             if ( options.show !== 'user_profile' ){
-              
+
+                // Iterate through api data
                 $.each( data.data, function( key, value){
-                    var image_id = value.id;
-                    $( element ).append( "<div class='span3'><a href='javascript:void(0);' id='" + image_id + "' data-toggle='modal'>" + value.user.username + "</a><br /><img class='instaImg' src='" + value.images.thumbnail.url + "' /></div>" );
+
+                  // Thumbnail Images and stats
+                  var thumb_img = ( value.images.thumbnail.url ) ? "<a href='javascript:void(0);' id='" + value.id + "' class='th'><img src='" + value.images.thumbnail.url + "' alt='' /></a>" : "";
+
+                  // Thumbnail Block
+                  var thumblock  = "<div class='three mobile-two columns'>";
+                      thumblock += thumb_img;
+                      thumblock += "</div><!-- end of .three.columns -->";
+
+                  // Append Thumbnail Block
+                  $( element ).append( thumblock );
+
                 });
-                
+
                 // Pagination next url
                 var next_page = data.pagination.next_url;
                     next_btn  = ( options.show == null ) ? "recent_media-btn" : options.show + "-btn";
                 
                 // Load more media when button is clicked
                 load_more( next_btn, next_page );
-                
+                // return false;
               } else {
                 var user_info = data.data;
                 // Load
@@ -116,7 +128,6 @@
           }          
         });
       }
-
       
       // Load more requests button
       function load_more( button_selector, pagination ){
@@ -129,7 +140,9 @@
               $(this).unbind(event);
             });
         }
-      }      
+      }
+
+        
     });
   };
   
