@@ -113,7 +113,6 @@
                 // Load
                 console.log( user_info.username + '\'s Profile Information');
             }
-
           }          
         });
       }
@@ -126,8 +125,8 @@
             $( '#' + button_selector ).addClass('secondary').css({ cursor: 'default', opacity: '0.4' });
           } else { 
             $( '#' + button_selector ).click(function(event){
-                ajx( pagination );
-               $(this).unbind(event);
+              ajx( pagination );
+              $(this).unbind(event);
             });
         }
       }      
