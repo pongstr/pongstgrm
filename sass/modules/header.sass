@@ -1,0 +1,52 @@
+// Compass Mixins
+@import "compass/css3"
+
+// Page Header
+#masthead
+  padding-left: 0
+  padding-right: 0
+  border-bottom: 1px solid #7a116c
+  background-color: #ad2281
+  @include filter-gradient(#ad2281, #7a116c, vertical)
+  @include background-image(linear-gradient(top,  #ad2281 14%,#7a116c 100%))
+  @include box-shadow( 0 4px 20px rgba(0,0,0,0.55) inset)
+  .row-fluid
+    background: url('../img/pattern.png')
+    margin: 0 !important
+    padding: 40px 20px
+  h1, h2, h3 
+    font-family: 'ChunkFive', sans-serif
+    font-weight: 300
+    color: #fff
+    text-shadow: 0 2px 2px lighten( #000, 20% )
+    text-transform: uppercase
+    margin: 0
+    padding: 0
+    line-height: 1
+    
+    // Masthead Links
+    a, a:visited 
+      color: #fff
+      text-decoration: none
+      @include transition( all 200ms linear )
+      &:hover 
+        text-shadow: 0 10px 80px #fff
+        @include transition( all 200ms linear )
+      &:active 
+        text-shadow: 0 0 120px #fff
+        @include transition( all 200ms linear )
+      &:focus 
+        outline: 0 none  
+    
+    // Masthead Subheading   
+    &.subheading, & small
+      font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif !important
+      font-weight: 300 !important
+      text-transform: none !important
+      color: #fff
+    &.subheading 
+      font-size: 22px
+    & small
+      font-size: 12px
+.btn 
+  @include box-shadow( 0 3px 6px rgba(0,0,0,0.55))

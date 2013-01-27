@@ -14,37 +14,103 @@
 </head>
 <body>
 
-  <header id="masthead">
-    <div class="row">
+  <header id="masthead" class="container-fluid">
+    <div class="row-fluid">
       
-      <div class="six columns">
+      <div class="span8">
         <h1><a href="#">Pongstagr.am</a></h1>
         <h2 class="subheading">Instagram jQuery Plugin <small>v2.0</small></h2>
       </div>
       
-      <div class="six columns">
+      <div class="span4 alignright">
+        <h3><a href="https://raw.github.com/pongstr/pongstagr.am/v2.0/pongstagr.am.js" title="Download Latest v2.0 from GitHub" class="btn btn-primary btn-large">Download <br /><small class="subheading">Latest from Github v2.0</small></a></h3>
       </div>
       
-    </div><!-- end of .row -->
+    </div><!-- end of .row -->      
   </header>
+  <div id="main-content" class="container-fluid">
 
-  <div id="main-content">
-    <div class="row">
+    <div class="row-fluid">
       
-      <div class="three columns" style="min-height: 100px; background: #fafafa;"></div>
+      <div id="sidebar" class="span4">
+        <h3>Sidebar</h3>
+      </div><!-- end of #sidebar -->
       
-      <div class="nine columns" style="min-height: 100px; background: #fafafa;"></div>
+      <div id="index" class="span8">
+        <h3>Index</h3>
+        
+        <div id="recent-media" class="row">
+        </div><!-- end of .row-fluid -->
+        
+        
+      </div><!-- end of #index -->
       
-    </div><!-- end of .row -->
+      
+      
+      
+      
+    </div><!-- end of .row-fluid -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   </div><!-- end of #main-content -->
-
   <footer>
   </footer>
   
+  <!-- jQuery CDN & fallback -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="assets/js/jquery.min.js"><\/script>')</script>
   
+  <!-- bootstrap plugins -->
+  <script src="assets/js/bootstrap.min.js"></script>
+  
+  <!-- Pongstagrm Plugin -->
   <script src="pongstagr.am.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#recent-media').pongstgrm({
+        user_id      : 39666111,
+        access_token : "39666111.1fb234f.c3901000b4944a549fd5fd2310c63780",
+        show : 'recent_media'
+      });    
+    
+      // $('#user-feed').pongstgrm({
+      //   user_id      : 39666111,
+      //   access_token : "39666111.1fb234f.c3901000b4944a549fd5fd2310c63780",
+      //   display_type : 'user_feed'
+      // });    
+    
+    });
+  </script>
 
   <script>
     var _gaq = _gaq || [];

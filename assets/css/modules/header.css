@@ -1,30 +1,3 @@
-@import url(bootstrap.min.css);
-*, *:before, *:after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.alignleft {
-  text-align: left;
-}
-
-.alignright {
-  text-align: right;
-}
-
-.aligncenter {
-  text-align: center;
-}
-
-.alignjustify {
-  text-align: justify;
-}
-
-html, body {
-  height: 100%;
-}
-
 #masthead {
   padding-left: 0;
   padding-right: 0;
@@ -98,22 +71,4 @@ html, body {
   -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.55);
   -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.55);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.55);
-}
-
-#main-content.container-fluid {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  min-height: 70%;
-}
-
-#sidebar .nav.nav-list {
-  width: 258px;
-  border: 1px solid #dddddd;
-}
-
-.pongstgrm-btn {
-  display: block;
-  clear: both;
-  padding: 10px 0;
-  margin: 10px 0;
 }
