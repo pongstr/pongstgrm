@@ -172,18 +172,77 @@ hr {
   min-height: 70%;
 }
 
+.gallery {
+  padding: 30px 20px;
+  margin-top: 20px;
+  margin-bottom: 0;
+  border: 1px solid #dddddd;
+  border-bottom: 1px solid #fafafa;
+  background: #f4f4f4;
+  -moz-border-radius-topleft: 6px;
+  -webkit-border-top-left-radius: 6px;
+  border-top-left-radius: 6px;
+  -moz-border-radius-topright: 6px;
+  -webkit-border-top-right-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.gallery > .column, .gallery > .columns {
+  min-height: 240px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .pongstgrm-btn {
   clear: both;
   padding: 20px 0;
-  margin-top: 30px;
-  background: #f4f4f4;
-  border: 1px solid #eeeeee;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  border-radius: 3px;
+  margin-bottom: 40px;
+  background: #eeeeee;
+  border: 1px solid #dddddd;
+  -moz-border-radius-bottomleft: 6px;
+  -webkit-border-bottom-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  -moz-border-radius-bottomright: 6px;
+  -webkit-border-bottom-right-radius: 6px;
+  border-bottom-right-radius: 6px;
 }
 .pongstgrm-btn a {
   display: block !important;
+}
+
+a.th {
+  display: block;
+  padding: 5px;
+  margin: 0 5px;
+  background: white;
+  border: 1px solid #dddddd;
+  border-bottom: 4px solid #dddddd;
+  position: relative;
+  -webkit-transition: all 150ms ease;
+  -moz-transition: all 150ms ease;
+  -o-transition: all 150ms ease;
+  transition: all 150ms ease;
+  overflow: hidden;
+}
+a.th:hover {
+  border: 1px solid #2589ed;
+  border-bottom: 4px solid #2589ed;
+  -webkit-transition: all 150ms ease;
+  -moz-transition: all 150ms ease;
+  -o-transition: all 150ms ease;
+  transition: all 150ms ease;
+  -webkit-box-shadow: 0 0 15px #4096ee;
+  -moz-box-shadow: 0 0 15px #4096ee;
+  box-shadow: 0 0 15px #4096ee;
+}
+a.th .stats {
+  display: block;
+  width: 100%;
+  height: 32px;
+  padding-top: 8px;
+  position: absolute;
+  bottom: -32px;
+  left: 0;
+  background: rgba(255, 255, 255, 0.5);
+  color: black;
 }

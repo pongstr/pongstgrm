@@ -38,14 +38,14 @@
     <!-- INDEX -->
     <div id="index" class="nine columns">
 
-      <div class="row">
-        <div class="twelve columns">
-          <h3 class="subheader">Recent Media</h3>
-          <hr />
-        </div>
-      </div><!-- end of .row -->
-      <div id="recent-media" class="row">
+
+      <h3 class="subheader">Recent Media</h3>
+      <div id="recent-media" class="row gallery">
       </div><!-- end of #recent-media -->
+
+      <h3 class="subheader">User Feed</h3>
+      <div id="user-feed" class="row gallery">
+      </div><!-- end of #user-feed -->
 
 
     </div><!-- end of #index -->
@@ -101,11 +101,15 @@
         show : 'recent_media'
       });    
     
-      // $('#user-feed').pongstgrm({
-      //   user_id      : 39666111,
-      //   access_token : "39666111.1fb234f.c3901000b4944a549fd5fd2310c63780",
-      //   display_type : 'user_feed'
-      // });    
+      $('#user-feed').pongstgrm({
+        user_id      : 39666111,
+        access_token : "39666111.1fb234f.c3901000b4944a549fd5fd2310c63780",
+        show : 'user_feed'
+      });    
+
+                  $('.th img').hover(function(){
+                    $('.stats').fadeIn();
+                  });
     
     });
   </script>

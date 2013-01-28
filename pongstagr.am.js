@@ -1,5 +1,6 @@
 /*!
  * Pongstagr.am v2.0 - Instagram Plugin
+ * 
  * Original author: @pongstr
  * Further changes, comments: @pongstr
  * Licensed under the MIT license
@@ -101,7 +102,10 @@
                 $.each( data.data, function( key, value){
 
                   // Thumbnail Images and stats
-                  var thumb_img = ( value.images.thumbnail.url ) ? "<a href='javascript:void(0);' id='" + value.id + "' class='th'><img src='" + value.images.thumbnail.url + "' alt='' /></a>" : "";
+                  var thumb_likes    = ( value.likes.count ) ? "<div class='six columns mobile-two alignleft'><i class='icon-heart'></i> &nbsp;<strong>" + value.likes.count + "</strong></div>" : "<div class='six columns mobile-two alignleft'><i class='icon-heart'></i> &nbsp;<strong>0</strong></div>";
+                      thumb_comments = ( value.comments.count ) ? "<div class='six columns mobile-two alignright'><i class='icon-comment'></i> &nbsp;<strong>" + value.comments.count  + "</strong></div>" : "<div class='six columns mobile-two alignright'><i class='icon-comment'></i> &nbsp;<strong>0</strong></div>";
+                      thumb_img      = ( value.images.low_resolution.url ) ? "<a href='javascript:void(0);' id='" + value.id + "' class='th'><img src='" + value.images.low_resolution.url + "' alt='' /><div class='stats'>" + thumb_likes + thumb_comments + "</div></a>" : "";
+                      
 
                   // Thumbnail Block
                   var thumblock  = "<div class='three mobile-two columns'>";
@@ -119,7 +123,13 @@
                 
                 // Load more media when button is clicked
                 load_more( next_btn, next_page );
-                // return false;
+
+                $('.th').hover(function(){
+                  $('.stats', this).animate({ position: 'absolute', left: '0', bottom: '5px'}, 150);
+                }, function(){
+                  $('.stats', this).animate({ position: 'absolute', left: '0', bottom: '-50px'}, 150);
+                });
+
               } else {
                 var user_info = data.data;
                 // Load
@@ -154,12 +164,12 @@
     
     // Display Option
     show   : null,
-    media_count    : 4,
+    media_count    : 8,
     more_button    : null,
 
     // Presentation
-    img_resolution : null,
-    modal_lightbox : null
+    clearing: null,
+    modal   : null
 
   }
 

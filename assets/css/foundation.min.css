@@ -56,7 +56,7 @@ aside p { font-size: 12px; line-height: 1.35; font-style: italic; }
 
 em, i { font-style: italic; line-height: inherit; }
 
-strong, b { font-weight: 400; line-height: inherit; }
+strong, b { font-weight: bold; line-height: inherit; }
 
 small { font-size: 60%; line-height: inherit; }
 
