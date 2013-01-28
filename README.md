@@ -10,4 +10,4 @@ It uses Instagram API and Zurb's Reveal Modal.
 
 ### Instructions Coming Soon! Checkout Demo
 ## http://pongstr.com/projects/pongstagr.am/
-a more raw demo here: http://pongstr.com/projects/pongstagr.am/demo
+a more raw demo here: http://pongstr.com/projects/pongstagr.am/demo.html
