@@ -130,12 +130,12 @@
                   $('[data-reveal-id="'+ value.id +'"]').click(function(){
                     $('.' + options.show + '-modal' ).attr('id', value.id );
                     // Captions Check
-                    caption = ( value.caption != null ) ? (value.caption.text != null ) ? "<h4>" + value.caption.text + "</h4><hr />" : "<h4>" + value.username + "</h4><hr />" : "";
+                    caption = ( value.caption != null ) ? (value.caption.text != null ) ? "<h4>" + value.caption.text + "</h4><hr />" : "" : "<h4>@" +  value.user.username + "</h4><hr />";
                                       
                     // Modal Image Block
                     var imageblock    = "<img src='" + value.images.standard_resolution.url + "' alt='' width='"+ value.images.standard_resolution.width +"' height='"+ value.images.standard_resolution.height +"' />";
                         contentblock  =  "<div class='row'><div class='twelve columns'>" + caption + "</div></div>";
-                        contentblock += "<div class='row'>" + thumb_likes + thumb_comments + "</div>";
+                        contentblock += "<div class='row'>" + thumb_likes + thumb_comments + "</div><br />";
 
                     $('#' + value.id ).reveal({
                       animationSpeed: 200,
@@ -143,7 +143,21 @@
                       dismissModalClass: 'close-reveal-modal',
                       open: function(){
                         $('.' + options.show + '-modal .modal-content').append( contentblock );
-                        $('.' + options.show + '-modal .modal-image').append( imageblock );                        
+                        $('.' + options.show + '-modal .modal-image').append( imageblock ); 
+                        $.each( value.comments.data, function( group, key ){
+                          
+                          var commentblock  = "<div class='row'>";
+                              commentblock += "<div class='twelve  mobile-four columns'>";
+                              commentblock += "<div class='two mobile-one columns'><img src='" +  key.from.profile_picture + "' alt='" +  key.from.username + "'  /></div>";
+                              commentblock += "<div class='ten mobile-three columns'>";
+                              commentblock += "<strong>" + key.from.username + "</strong>";
+                              commentblock += "<p>" + key.text + "</p><hr />";
+                              commentblock += "</div>";
+                              commentblock += "</div></div>";
+                              no_comment = "<p>No comments</p>";
+
+                            $('.' + options.show + '-modal .modal-content').append( commentblock );
+                        });         
                       },
                       close: function(){
                         $('.modal-content, .modal-image').empty();

@@ -37,7 +37,7 @@ hr { border: solid #dddddd; border-width: 1px 0 0; clear: both; margin: 22px 0 2
 
 .subheader { line-height: 1.3; color: #6f6f6f; font-weight: 300; margin-bottom: 17px; }
 
-[class*="column"] + [class*="column"]:last-child { float: left; }
+[class*="column"] + [class*="column"]:last-child, .mobile-four:last-child { float: left; }
 
 #masthead { padding-left: 0; padding-right: 0; border-bottom: 1px solid #7a116c; background-color: #ad2281; *zoom: 1; filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFAD2281', endColorstr='#FF7A116C'); background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(14%, #ad2281), color-stop(100%, #7a116c)); background-image: -webkit-linear-gradient(top, #ad2281 14%, #7a116c 100%); background-image: -moz-linear-gradient(top, #ad2281 14%, #7a116c 100%); background-image: -o-linear-gradient(top, #ad2281 14%, #7a116c 100%); background-image: linear-gradient(top, #ad2281 14%, #7a116c 100%); -webkit-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55) inset; -moz-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55) inset; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55) inset; }
 #masthead h1, #masthead h2, #masthead h3 { font-family: "ChunkFive", sans-serif; font-weight: 300; color: white; text-shadow: 0 2px 2px #333333; text-transform: uppercase; margin: 0; padding: 0; line-height: 1; }
@@ -69,6 +69,6 @@ a.th { display: block; padding: 5px; margin: 0 5px; background: white; border: 1
 a.th:hover { border: 1px solid #2589ed; border-bottom: 4px solid #2589ed; -webkit-transition: all 150ms ease; -moz-transition: all 150ms ease; -o-transition: all 150ms ease; transition: all 150ms ease; -webkit-box-shadow: 0 0 15px #4096ee; -moz-box-shadow: 0 0 15px #4096ee; box-shadow: 0 0 15px #4096ee; }
 a.th .stats { display: block; width: 100%; height: 32px; padding-top: 8px; position: absolute; bottom: -32px; left: 0; background: rgba(255, 255, 255, 0.5); color: black; }
 
-.reveal-modal { -webkit-border-radius: 6px; -moz-border-radius: 6px; -ms-border-radius: 6px; -o-border-radius: 6px; border-radius: 6px; -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.75); -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.75); box-shadow: 0 0 30px rgba(0, 0, 0, 0.75); }
+.reveal-modal { padding: 15px 5px; -webkit-border-radius: 6px; -moz-border-radius: 6px; -ms-border-radius: 6px; -o-border-radius: 6px; border-radius: 6px; -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.75); -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.75); box-shadow: 0 0 30px rgba(0, 0, 0, 0.75); }
 .reveal-modal hr { margin-top: 5px; margin-bottom: 5px; }
 .reveal-modal h4 { margin-top: 0; font-weight: 300; color: #2589ed; }
