@@ -1,248 +1,72 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
 @import url(foundation.min.css);
 @import url(bootstrap.min.css);
-.alignleft {
-  text-align: left;
-}
+.alignleft { text-align: left; }
 
-.alignright {
-  text-align: right;
-}
+.alignright { text-align: right; }
 
-.aligncenter {
-  text-align: center;
-}
+.aligncenter { text-align: center; }
 
-.alignjustify {
-  text-align: justify;
-}
+.alignjustify { text-align: justify; }
 
-html, body {
-  height: 100%;
-}
+a:focus, a.btn:focus { outline: 0 none; }
 
-::selection {
-  background: black;
-  color: white;
-  text-shadow: none;
-}
+html, body { height: 100%; }
 
-::-moz-selection {
-  background: black;
-  color: white;
-  text-shadow: none;
-}
+::selection { background: black; color: white; text-shadow: none; }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-  font-weight: 300;
-  font-style: normal;
-  text-rendering: optimizeLegibility;
-  line-height: 1.1;
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
+::-moz-selection { background: black; color: white; text-shadow: none; }
 
-h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
-  font-size: 60%;
-  color: #6f6f6f;
-  line-height: 0;
-}
+h1, h2, h3, h4, h5, h6 { font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; font-weight: 300; font-style: normal; text-rendering: optimizeLegibility; line-height: 1.1; margin-bottom: 10px; margin-top: 10px; }
 
-h1 {
-  font-size: 44px;
-}
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small { font-size: 60%; color: #6f6f6f; line-height: 0; }
 
-h2 {
-  font-size: 34px;
-}
+h1 { font-size: 44px; }
 
-h3 {
-  font-size: 27px;
-}
+h2 { font-size: 34px; }
 
-h4 {
-  font-size: 21px;
-}
+h3 { font-size: 27px; }
 
-h5 {
-  font-size: 17px;
-}
+h4 { font-size: 21px; }
 
-h6 {
-  font-size: 13px;
-}
+h5 { font-size: 17px; }
 
-hr {
-  border: solid #dddddd;
-  border-width: 1px 0 0;
-  clear: both;
-  margin: 22px 0 21px;
-  height: 0;
-}
+h6 { font-size: 13px; }
 
-.subheader {
-  line-height: 1.3;
-  color: #6f6f6f;
-  font-weight: 300;
-  margin-bottom: 17px;
-}
+hr { border: solid #dddddd; border-width: 1px 0 0; clear: both; margin: 22px 0 21px; height: 0; }
 
-#masthead {
-  padding-left: 0;
-  padding-right: 0;
-  border-bottom: 1px solid #7a116c;
-  background-color: #ad2281;
-  *zoom: 1;
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFAD2281', endColorstr='#FF7A116C');
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(14%, #ad2281), color-stop(100%, #7a116c));
-  background-image: -webkit-linear-gradient(top, #ad2281 14%, #7a116c 100%);
-  background-image: -moz-linear-gradient(top, #ad2281 14%, #7a116c 100%);
-  background-image: -o-linear-gradient(top, #ad2281 14%, #7a116c 100%);
-  background-image: linear-gradient(top, #ad2281 14%, #7a116c 100%);
-  -webkit-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55) inset;
-  -moz-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55) inset;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55) inset;
-}
-#masthead h1, #masthead h2, #masthead h3 {
-  font-family: "ChunkFive", sans-serif;
-  font-weight: 300;
-  color: white;
-  text-shadow: 0 2px 2px #333333;
-  text-transform: uppercase;
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-}
-#masthead h1 a, #masthead h1 a:visited, #masthead h2 a, #masthead h2 a:visited, #masthead h3 a, #masthead h3 a:visited {
-  color: white;
-  text-decoration: none;
-  -webkit-transition: all 200ms linear;
-  -moz-transition: all 200ms linear;
-  -o-transition: all 200ms linear;
-  transition: all 200ms linear;
-}
-#masthead h1 a:hover, #masthead h1 a:visited:hover, #masthead h2 a:hover, #masthead h2 a:visited:hover, #masthead h3 a:hover, #masthead h3 a:visited:hover {
-  text-shadow: 0 10px 80px white;
-  -webkit-transition: all 200ms linear;
-  -moz-transition: all 200ms linear;
-  -o-transition: all 200ms linear;
-  transition: all 200ms linear;
-}
-#masthead h1 a:active, #masthead h1 a:visited:active, #masthead h2 a:active, #masthead h2 a:visited:active, #masthead h3 a:active, #masthead h3 a:visited:active {
-  text-shadow: 0 0 120px white;
-  -webkit-transition: all 200ms linear;
-  -moz-transition: all 200ms linear;
-  -o-transition: all 200ms linear;
-  transition: all 200ms linear;
-}
-#masthead h1 a:focus, #masthead h1 a:visited:focus, #masthead h2 a:focus, #masthead h2 a:visited:focus, #masthead h3 a:focus, #masthead h3 a:visited:focus {
-  outline: 0 none;
-}
-#masthead h1.subheading, #masthead h1 small, #masthead h2.subheading, #masthead h2 small, #masthead h3.subheading, #masthead h3 small {
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-  font-weight: 300 !important;
-  text-transform: none !important;
-  color: white;
-}
-#masthead h1.subheading, #masthead h2.subheading, #masthead h3.subheading {
-  font-size: 22px;
-}
-#masthead h1 small, #masthead h2 small, #masthead h3 small {
-  font-size: 12px;
-}
+.subheader { line-height: 1.3; color: #6f6f6f; font-weight: 300; margin-bottom: 17px; }
 
-.btn {
-  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.55);
-  -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.55);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.55);
-}
+[class*="column"] + [class*="column"]:last-child { float: left; }
 
-#masthead > div {
-  background: url("../img/pattern.png");
-  min-height: 160px;
-  margin: 0 !important;
-  padding: 40px 20px;
-}
+#masthead { padding-left: 0; padding-right: 0; border-bottom: 1px solid #7a116c; background-color: #ad2281; *zoom: 1; filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFAD2281', endColorstr='#FF7A116C'); background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(14%, #ad2281), color-stop(100%, #7a116c)); background-image: -webkit-linear-gradient(top, #ad2281 14%, #7a116c 100%); background-image: -moz-linear-gradient(top, #ad2281 14%, #7a116c 100%); background-image: -o-linear-gradient(top, #ad2281 14%, #7a116c 100%); background-image: linear-gradient(top, #ad2281 14%, #7a116c 100%); -webkit-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55) inset; -moz-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55) inset; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55) inset; }
+#masthead h1, #masthead h2, #masthead h3 { font-family: "ChunkFive", sans-serif; font-weight: 300; color: white; text-shadow: 0 2px 2px #333333; text-transform: uppercase; margin: 0; padding: 0; line-height: 1; }
+#masthead h1 a, #masthead h1 a:visited, #masthead h2 a, #masthead h2 a:visited, #masthead h3 a, #masthead h3 a:visited { color: white; text-decoration: none; -webkit-transition: all 200ms linear; -moz-transition: all 200ms linear; -o-transition: all 200ms linear; transition: all 200ms linear; }
+#masthead h1 a:hover, #masthead h1 a:visited:hover, #masthead h2 a:hover, #masthead h2 a:visited:hover, #masthead h3 a:hover, #masthead h3 a:visited:hover { text-shadow: 0 10px 80px white; -webkit-transition: all 200ms linear; -moz-transition: all 200ms linear; -o-transition: all 200ms linear; transition: all 200ms linear; }
+#masthead h1 a:active, #masthead h1 a:visited:active, #masthead h2 a:active, #masthead h2 a:visited:active, #masthead h3 a:active, #masthead h3 a:visited:active { text-shadow: 0 0 120px white; -webkit-transition: all 200ms linear; -moz-transition: all 200ms linear; -o-transition: all 200ms linear; transition: all 200ms linear; }
+#masthead h1 a:focus, #masthead h1 a:visited:focus, #masthead h2 a:focus, #masthead h2 a:visited:focus, #masthead h3 a:focus, #masthead h3 a:visited:focus { outline: 0 none; }
+#masthead h1.subheading, #masthead h1 small, #masthead h2.subheading, #masthead h2 small, #masthead h3.subheading, #masthead h3 small { font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important; font-weight: 300 !important; text-transform: none !important; color: white; }
+#masthead h1.subheading, #masthead h2.subheading, #masthead h3.subheading { font-size: 22px; }
+#masthead h1 small, #masthead h2 small, #masthead h3 small { font-size: 12px; }
 
-#main-content {
-  padding: 20px 10px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  min-height: 70%;
-}
+.btn { -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.55); -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.55); box-shadow: 0 3px 6px rgba(0, 0, 0, 0.55); }
 
-.gallery {
-  padding: 30px 20px;
-  margin-top: 20px;
-  margin-bottom: 0;
-  border: 1px solid #dddddd;
-  border-bottom: 1px solid #fafafa;
-  background: #f4f4f4;
-  -moz-border-radius-topleft: 6px;
-  -webkit-border-top-left-radius: 6px;
-  border-top-left-radius: 6px;
-  -moz-border-radius-topright: 6px;
-  -webkit-border-top-right-radius: 6px;
-  border-top-right-radius: 6px;
-}
+#masthead > div { background: url("../img/pattern.png"); min-height: 160px; margin: 0 !important; padding: 40px 20px; }
 
-.gallery > .column, .gallery > .columns {
-  min-height: 240px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
+#main-content { padding: 20px 10px; margin-top: 20px; margin-bottom: 20px; min-height: 70%; }
 
-.pongstgrm-btn {
-  clear: both;
-  padding: 20px 0;
-  margin-bottom: 40px;
-  background: #eeeeee;
-  border: 1px solid #dddddd;
-  -moz-border-radius-bottomleft: 6px;
-  -webkit-border-bottom-left-radius: 6px;
-  border-bottom-left-radius: 6px;
-  -moz-border-radius-bottomright: 6px;
-  -webkit-border-bottom-right-radius: 6px;
-  border-bottom-right-radius: 6px;
-}
-.pongstgrm-btn a {
-  display: block !important;
-}
+.gallery { padding: 30px 20px; margin-top: 20px; margin-bottom: 0; border: 1px solid #dddddd; border-bottom: 1px solid #fafafa; background: #f4f4f4; -moz-border-radius-topleft: 6px; -webkit-border-top-left-radius: 6px; border-top-left-radius: 6px; -moz-border-radius-topright: 6px; -webkit-border-top-right-radius: 6px; border-top-right-radius: 6px; }
 
-a.th {
-  display: block;
-  padding: 5px;
-  margin: 0 5px;
-  background: white;
-  border: 1px solid #dddddd;
-  border-bottom: 4px solid #dddddd;
-  position: relative;
-  -webkit-transition: all 150ms ease;
-  -moz-transition: all 150ms ease;
-  -o-transition: all 150ms ease;
-  transition: all 150ms ease;
-  overflow: hidden;
-}
-a.th:hover {
-  border: 1px solid #2589ed;
-  border-bottom: 4px solid #2589ed;
-  -webkit-transition: all 150ms ease;
-  -moz-transition: all 150ms ease;
-  -o-transition: all 150ms ease;
-  transition: all 150ms ease;
-  -webkit-box-shadow: 0 0 15px #4096ee;
-  -moz-box-shadow: 0 0 15px #4096ee;
-  box-shadow: 0 0 15px #4096ee;
-}
-a.th .stats {
-  display: block;
-  width: 100%;
-  height: 32px;
-  padding-top: 8px;
-  position: absolute;
-  bottom: -32px;
-  left: 0;
-  background: rgba(255, 255, 255, 0.5);
-  color: black;
-}
+.gallery > .column, .gallery > .columns { min-height: 240px; margin-top: 10px; margin-bottom: 10px; }
+
+.user { clear: both; padding: 5px -2px; margin: 8px 0; font-size: 13px; color: #2589ed; }
+.user .icon-user { opacity: 0.65; }
+
+.pongstgrm-btn { clear: both; padding: 20px 0; margin-bottom: 40px; background: #eeeeee; border: 1px solid #dddddd; -moz-border-radius-bottomleft: 6px; -webkit-border-bottom-left-radius: 6px; border-bottom-left-radius: 6px; -moz-border-radius-bottomright: 6px; -webkit-border-bottom-right-radius: 6px; border-bottom-right-radius: 6px; }
+.pongstgrm-btn a { display: block !important; }
+
+a.th { display: block; padding: 5px; margin: 0 5px; background: white; border: 1px solid #dddddd; border-bottom: 4px solid #dddddd; position: relative; -webkit-transition: all 150ms ease; -moz-transition: all 150ms ease; -o-transition: all 150ms ease; transition: all 150ms ease; overflow: hidden; }
+a.th:hover { border: 1px solid #2589ed; border-bottom: 4px solid #2589ed; -webkit-transition: all 150ms ease; -moz-transition: all 150ms ease; -o-transition: all 150ms ease; transition: all 150ms ease; -webkit-box-shadow: 0 0 15px #4096ee; -moz-box-shadow: 0 0 15px #4096ee; box-shadow: 0 0 15px #4096ee; }
+a.th .stats { display: block; width: 100%; height: 32px; padding-top: 8px; position: absolute; bottom: -32px; left: 0; background: rgba(255, 255, 255, 0.5); color: black; }
+
+.reveal-modal { -webkit-border-radius: 6px; -moz-border-radius: 6px; -ms-border-radius: 6px; -o-border-radius: 6px; border-radius: 6px; }

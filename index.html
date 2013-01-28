@@ -38,12 +38,16 @@
     <!-- INDEX -->
     <div id="index" class="nine columns">
 
-
-      <h3 class="subheader">Recent Media</h3>
+      <div class="row">
+        <h3 class="subheader">Recent Media</h3>
+      </div>
       <div id="recent-media" class="row gallery">
       </div><!-- end of #recent-media -->
-
-      <h3 class="subheader">User Feed</h3>
+      
+      
+      <div class="row">
+        <h3 class="subheader">User Feed</h3>
+      </div>
       <div id="user-feed" class="row gallery">
       </div><!-- end of #user-feed -->
 
@@ -89,27 +93,27 @@
   <script>window.jQuery || document.write('<script src="assets/js/jquery.min.js"><\/script>')</script>
   
   <!-- bootstrap plugins -->
-  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/jquery.foundation.reveal.js"></script>
   
   <!-- Pongstagrm Plugin -->
   <script src="pongstagr.am.js"></script>
   <script>
     $(document).ready(function() {
+      
+       var insta_id = 39666111;
+           insta_token = '39666111.1fb234f.c3901000b4944a549fd5fd2310c63780';
+      
       $('#recent-media').pongstgrm({
-        user_id      : 39666111,
-        access_token : "39666111.1fb234f.c3901000b4944a549fd5fd2310c63780",
+        user_id      : insta_id,
+        access_token : insta_token,
         show : 'recent_media'
       });    
     
       $('#user-feed').pongstgrm({
-        user_id      : 39666111,
-        access_token : "39666111.1fb234f.c3901000b4944a549fd5fd2310c63780",
+        user_id      : insta_id,
+        access_token : insta_token,
         show : 'user_feed'
-      });    
-
-                  $('.th img').hover(function(){
-                    $('.stats').fadeIn();
-                  });
+      });
     
     });
   </script>

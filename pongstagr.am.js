@@ -20,7 +20,7 @@
           // !!! Console log error message !!!
           console.log(' \"user_id\"\ & \"access_token\" must be set to access Instagram API.');
         } else {   
-               
+
           // Load Content
           load_content( options.show );
           
@@ -33,10 +33,17 @@
         var api_url = 'https://api.instagram.com/v1/users/';
         
         // Append Button Function
-        function btn(){
+        function add_ons(){
           var btn_id   = ( options.show == null ) ? "recent_media-btn" : options.show + "-btn";
               btn_html = "<div class='row pongstgrm-btn'><a href='javascript:void(0);' id='" + btn_id + "' class='four columns centered btn btn-success btn-large'>Load More Photos</a></div>";
+          
           $(element).after( btn_html );
+          
+          var reveal  = "<div id='' class='reveal-modal medium " + options.show +"-modal'>";
+              reveal += "<div class='modal-content'></div>";
+              reveal += "<a href='javascript:void(0);' class='close-reveal-modal'>&#215;</a></div>";
+          
+          $('body').append( reveal );
         }
         
         if ( content_type === null || content_type === 'recent_media'){
@@ -47,7 +54,7 @@
             
             // Load Request
             ajx( endpoint );
-            btn();
+            add_ons();
 
             return true;
             
@@ -68,7 +75,7 @@
 
             // Load Request
             ajx( endpoint );
-            btn();
+            add_ons();
 
             return true;
 
@@ -80,7 +87,7 @@
 
             // Load Request
             ajx( endpoint );
-            btn();
+            add_ons();
             
             return true;
         }        
@@ -105,15 +112,29 @@
                   var thumb_likes    = ( value.likes.count ) ? "<div class='six columns mobile-two alignleft'><i class='icon-heart'></i> &nbsp;<strong>" + value.likes.count + "</strong></div>" : "<div class='six columns mobile-two alignleft'><i class='icon-heart'></i> &nbsp;<strong>0</strong></div>";
                       thumb_comments = ( value.comments.count ) ? "<div class='six columns mobile-two alignright'><i class='icon-comment'></i> &nbsp;<strong>" + value.comments.count  + "</strong></div>" : "<div class='six columns mobile-two alignright'><i class='icon-comment'></i> &nbsp;<strong>0</strong></div>";
                       thumb_img      = ( value.images.low_resolution.url ) ? "<a href='javascript:void(0);' id='" + value.id + "' class='th'><img src='" + value.images.low_resolution.url + "' alt='' /><div class='stats'>" + thumb_likes + thumb_comments + "</div></a>" : "";
-                      
+                  
+                  // User Feed | Media Liked : Show media owner
+                  var media_user = ( options.show !== 'recent_media') ? "<div class='twelve columns user'><i class='icon-user'></i> &nbsp;<strong>" + value.user.username + "</strong></div>" : "";
 
                   // Thumbnail Block
                   var thumblock  = "<div class='three mobile-two columns'>";
+                      thumblock += media_user;
                       thumblock += thumb_img;
                       thumblock += "</div><!-- end of .three.columns -->";
 
                   // Append Thumbnail Block
                   $( element ).append( thumblock );
+                  
+                  $('#' + value.id ).click(function(){
+                    $( '.' + options.show + '-modal').attr('id', value.id + "_modal" )
+                    $('.modal-content').append( "<img src='" + value.images.low_resolution.url + "' />");
+                    $('#' + value.id + '_modal' ).reveal();
+                  });
+                  
+                  $('.close-reveal-modal, .reveal-modal-bg').click(function(){
+                    $('.reveal-modal').removeAttr('id');
+                    $('.modal-content').empty();
+                  });
 
                 });
 
@@ -123,12 +144,16 @@
                 
                 // Load more media when button is clicked
                 load_more( next_btn, next_page );
-
+                
+                // Slide comment/likes up and down
                 $('.th').hover(function(){
-                  $('.stats', this).animate({ position: 'absolute', left: '0', bottom: '5px'}, 150);
+                  $('.stats', this).show().animate({ position: 'absolute', left: '0', bottom: '5px'}, 150);
                 }, function(){
-                  $('.stats', this).animate({ position: 'absolute', left: '0', bottom: '-50px'}, 150);
+                  $('.stats', this).animate({ position: 'absolute', left: '0', bottom: '-50px'}, 150).hide();
                 });
+                
+                //
+                
 
               } else {
                 var user_info = data.data;
@@ -143,7 +168,7 @@
       function load_more( button_selector, pagination ){
         // Check if pagination is defined, if not disable button & exit.
         if ( pagination === undefined ){
-            $( '#' + button_selector ).addClass('secondary').css({ cursor: 'default', opacity: '0.4' });
+            $( '#' + button_selector ).removeClass('btn-success').css({ cursor: 'default', opacity: '0.3', boxShadow: 'none' });
           } else { 
             $( '#' + button_selector ).click(function(event){
               ajx( pagination );
@@ -164,7 +189,7 @@
     
     // Display Option
     show   : null,
-    media_count    : 8,
+    media_count    : null,
     more_button    : null,
 
     // Presentation

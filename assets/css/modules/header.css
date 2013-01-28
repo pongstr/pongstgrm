@@ -1,76 +1,13 @@
-#masthead {
-  padding-left: 0;
-  padding-right: 0;
-  border-bottom: 1px solid #7a116c;
-  background-color: #ad2281;
-  *zoom: 1;
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFAD2281', endColorstr='#FF7A116C');
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(14%, #ad2281), color-stop(100%, #7a116c));
-  background-image: -webkit-linear-gradient(top, #ad2281 14%, #7a116c 100%);
-  background-image: -moz-linear-gradient(top, #ad2281 14%, #7a116c 100%);
-  background-image: -o-linear-gradient(top, #ad2281 14%, #7a116c 100%);
-  background-image: linear-gradient(top, #ad2281 14%, #7a116c 100%);
-  -webkit-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55) inset;
-  -moz-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55) inset;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55) inset;
-}
-#masthead h1, #masthead h2, #masthead h3 {
-  font-family: "ChunkFive", sans-serif;
-  font-weight: 300;
-  color: white;
-  text-shadow: 0 2px 2px #333333;
-  text-transform: uppercase;
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-}
-#masthead h1 a, #masthead h1 a:visited, #masthead h2 a, #masthead h2 a:visited, #masthead h3 a, #masthead h3 a:visited {
-  color: white;
-  text-decoration: none;
-  -webkit-transition: all 200ms linear;
-  -moz-transition: all 200ms linear;
-  -o-transition: all 200ms linear;
-  transition: all 200ms linear;
-}
-#masthead h1 a:hover, #masthead h1 a:visited:hover, #masthead h2 a:hover, #masthead h2 a:visited:hover, #masthead h3 a:hover, #masthead h3 a:visited:hover {
-  text-shadow: 0 10px 80px white;
-  -webkit-transition: all 200ms linear;
-  -moz-transition: all 200ms linear;
-  -o-transition: all 200ms linear;
-  transition: all 200ms linear;
-}
-#masthead h1 a:active, #masthead h1 a:visited:active, #masthead h2 a:active, #masthead h2 a:visited:active, #masthead h3 a:active, #masthead h3 a:visited:active {
-  text-shadow: 0 0 120px white;
-  -webkit-transition: all 200ms linear;
-  -moz-transition: all 200ms linear;
-  -o-transition: all 200ms linear;
-  transition: all 200ms linear;
-}
-#masthead h1 a:focus, #masthead h1 a:visited:focus, #masthead h2 a:focus, #masthead h2 a:visited:focus, #masthead h3 a:focus, #masthead h3 a:visited:focus {
-  outline: 0 none;
-}
-#masthead h1.subheading, #masthead h1 small, #masthead h2.subheading, #masthead h2 small, #masthead h3.subheading, #masthead h3 small {
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-  font-weight: 300 !important;
-  text-transform: none !important;
-  color: white;
-}
-#masthead h1.subheading, #masthead h2.subheading, #masthead h3.subheading {
-  font-size: 22px;
-}
-#masthead h1 small, #masthead h2 small, #masthead h3 small {
-  font-size: 12px;
-}
+#masthead { padding-left: 0; padding-right: 0; border-bottom: 1px solid #7a116c; background-color: #ad2281; *zoom: 1; filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFAD2281', endColorstr='#FF7A116C'); background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(14%, #ad2281), color-stop(100%, #7a116c)); background-image: -webkit-linear-gradient(top, #ad2281 14%, #7a116c 100%); background-image: -moz-linear-gradient(top, #ad2281 14%, #7a116c 100%); background-image: -o-linear-gradient(top, #ad2281 14%, #7a116c 100%); background-image: linear-gradient(top, #ad2281 14%, #7a116c 100%); -webkit-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55) inset; -moz-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55) inset; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55) inset; }
+#masthead h1, #masthead h2, #masthead h3 { font-family: "ChunkFive", sans-serif; font-weight: 300; color: white; text-shadow: 0 2px 2px #333333; text-transform: uppercase; margin: 0; padding: 0; line-height: 1; }
+#masthead h1 a, #masthead h1 a:visited, #masthead h2 a, #masthead h2 a:visited, #masthead h3 a, #masthead h3 a:visited { color: white; text-decoration: none; -webkit-transition: all 200ms linear; -moz-transition: all 200ms linear; -o-transition: all 200ms linear; transition: all 200ms linear; }
+#masthead h1 a:hover, #masthead h1 a:visited:hover, #masthead h2 a:hover, #masthead h2 a:visited:hover, #masthead h3 a:hover, #masthead h3 a:visited:hover { text-shadow: 0 10px 80px white; -webkit-transition: all 200ms linear; -moz-transition: all 200ms linear; -o-transition: all 200ms linear; transition: all 200ms linear; }
+#masthead h1 a:active, #masthead h1 a:visited:active, #masthead h2 a:active, #masthead h2 a:visited:active, #masthead h3 a:active, #masthead h3 a:visited:active { text-shadow: 0 0 120px white; -webkit-transition: all 200ms linear; -moz-transition: all 200ms linear; -o-transition: all 200ms linear; transition: all 200ms linear; }
+#masthead h1 a:focus, #masthead h1 a:visited:focus, #masthead h2 a:focus, #masthead h2 a:visited:focus, #masthead h3 a:focus, #masthead h3 a:visited:focus { outline: 0 none; }
+#masthead h1.subheading, #masthead h1 small, #masthead h2.subheading, #masthead h2 small, #masthead h3.subheading, #masthead h3 small { font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important; font-weight: 300 !important; text-transform: none !important; color: white; }
+#masthead h1.subheading, #masthead h2.subheading, #masthead h3.subheading { font-size: 22px; }
+#masthead h1 small, #masthead h2 small, #masthead h3 small { font-size: 12px; }
 
-.btn {
-  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.55);
-  -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.55);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.55);
-}
+.btn { -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.55); -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.55); box-shadow: 0 3px 6px rgba(0, 0, 0, 0.55); }
 
-#masthead > div {
-  background: url("../img/pattern.png");
-  min-height: 160px;
-  margin: 0 !important;
-  padding: 40px 20px;
-}
+#masthead > div { background: url("../img/pattern.png"); min-height: 160px; margin: 0 !important; padding: 40px 20px; }
