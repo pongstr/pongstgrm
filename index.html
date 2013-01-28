@@ -51,6 +51,12 @@
       <div id="user-feed" class="row gallery">
       </div><!-- end of #user-feed -->
 
+      <div class="row">
+        <h3 class="subheader">User Liked Media</h3>
+      </div>
+      <div id="user-likes" class="row gallery">
+      </div><!-- end of user-likes -->
+
 
     </div><!-- end of #index -->
 
@@ -106,13 +112,19 @@
       $('#recent-media').pongstgrm({
         user_id      : insta_id,
         access_token : insta_token,
-        show : 'recent_media'
+        show : 'recent'
       });    
     
       $('#user-feed').pongstgrm({
         user_id      : insta_id,
         access_token : insta_token,
-        show : 'user_feed'
+        show : 'feed'
+      });
+
+      $('#user-likes').pongstgrm({
+        user_id      : insta_id,
+        access_token : insta_token,
+        show : 'liked'
       });
     
     });

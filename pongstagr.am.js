@@ -39,14 +39,17 @@
           
           $(element).after( btn_html );
           
-          var reveal  = "<div id='' class='reveal-modal medium " + options.show +"-modal'>";
-              reveal += "<div class='modal-content'></div>";
+          var reveal  = "<div id='' class='reveal-modal large " + options.show +"-modal'>";
+              reveal += "<div class='row'>";
+              reveal += "<div class='six columns modal-image'></div>";
+              reveal += "<div class='six columns modal-content'></div>";
+              reveal += "</div>";
               reveal += "<a href='javascript:void(0);' class='close-reveal-modal'>&#215;</a></div>";
           
           $('body').append( reveal );
         }
         
-        if ( content_type === null || content_type === 'recent_media'){
+        if ( content_type === null || content_type === 'recent'){
 
             // Load Recent Media
             var check_count = ( options.media_count != null ) ? "/media/recent?count=" + options.media_count + "&": "/media/recent?";
@@ -58,7 +61,7 @@
 
             return true;
             
-          } else if ( content_type === 'user_profile'){
+          } else if ( content_type === 'user'){
             
             // Load User Information
             var endpoint = api_url + options.user_id + "/?access_token=" + options.access_token;
@@ -67,7 +70,7 @@
             ajx( endpoint );            
             return true;
             
-          } else if ( content_type === 'user_feed' ){
+          } else if ( content_type === 'feed' ){
             
             // Load User Feed
             var check_count = ( options.media_count != null ) ? "/self/feed?count=" + options.media_count + "&access_token=" + options.access_token: "/self/feed?access_token=" + options.access_token;
@@ -79,7 +82,7 @@
 
             return true;
 
-          } else if ( content_type === 'user_liked_media' ){
+          } else if ( content_type === 'liked' ){
             
             // Load User Liked Media
             var check_count = ( options.media_count != null ) ? "/self/media/liked?count=" + options.media_count + "&access_token=" + options.access_token : "/sefl/media/liked?access_token=" + options.access_token;
@@ -107,11 +110,10 @@
 
                 // Iterate through api data
                 $.each( data.data, function( key, value){
-
                   // Thumbnail Images and stats
                   var thumb_likes    = ( value.likes.count ) ? "<div class='six columns mobile-two alignleft'><i class='icon-heart'></i> &nbsp;<strong>" + value.likes.count + "</strong></div>" : "<div class='six columns mobile-two alignleft'><i class='icon-heart'></i> &nbsp;<strong>0</strong></div>";
                       thumb_comments = ( value.comments.count ) ? "<div class='six columns mobile-two alignright'><i class='icon-comment'></i> &nbsp;<strong>" + value.comments.count  + "</strong></div>" : "<div class='six columns mobile-two alignright'><i class='icon-comment'></i> &nbsp;<strong>0</strong></div>";
-                      thumb_img      = ( value.images.low_resolution.url ) ? "<a href='javascript:void(0);' id='" + value.id + "' class='th'><img src='" + value.images.low_resolution.url + "' alt='' /><div class='stats'>" + thumb_likes + thumb_comments + "</div></a>" : "";
+                      thumb_img      = ( value.images.low_resolution.url ) ? "<a href='javascript:void(0);' data-reveal-id='" + value.id + "' class='th'><img src='" + value.images.low_resolution.url + "' alt='' /><div class='stats'>" + thumb_likes + thumb_comments + "</div></a>" : "";
                   
                   // User Feed | Media Liked : Show media owner
                   var media_user = ( options.show !== 'recent_media') ? "<div class='twelve columns user'><i class='icon-user'></i> &nbsp;<strong>" + value.user.username + "</strong></div>" : "";
@@ -121,19 +123,37 @@
                       thumblock += media_user;
                       thumblock += thumb_img;
                       thumblock += "</div><!-- end of .three.columns -->";
-
+                       
                   // Append Thumbnail Block
                   $( element ).append( thumblock );
                   
-                  $('#' + value.id ).click(function(){
-                    $( '.' + options.show + '-modal').attr('id', value.id + "_modal" )
-                    $('.modal-content').append( "<img src='" + value.images.low_resolution.url + "' />");
-                    $('#' + value.id + '_modal' ).reveal();
+                  $('[data-reveal-id="'+ value.id +'"]').click(function(){
+                    $('.' + options.show + '-modal' ).attr('id', value.id );
+                    // Captions Check
+                    caption = ( value.caption != null ) ? (value.caption.text != null ) ? "<h4>" + value.caption.text + "</h4><hr />" : "<h4>" + value.username + "</h4><hr />" : "";
+                                      
+                    // Modal Image Block
+                    var imageblock    = "<img src='" + value.images.standard_resolution.url + "' alt='' width='"+ value.images.standard_resolution.width +"' height='"+ value.images.standard_resolution.height +"' />";
+                        contentblock  =  "<div class='row'><div class='twelve columns'>" + caption + "</div></div>";
+                        contentblock += "<div class='row'>" + thumb_likes + thumb_comments + "</div>";
+
+                    $('#' + value.id ).reveal({
+                      animationSpeed: 200,
+                      closeOnBackgroundClick: false,
+                      dismissModalClass: 'close-reveal-modal',
+                      open: function(){
+                        $('.' + options.show + '-modal .modal-content').append( contentblock );
+                        $('.' + options.show + '-modal .modal-image').append( imageblock );                        
+                      },
+                      close: function(){
+                        $('.modal-content, .modal-image').empty();
+                      }
+                    });
+                    
                   });
                   
-                  $('.close-reveal-modal, .reveal-modal-bg').click(function(){
-                    $('.reveal-modal').removeAttr('id');
-                    $('.modal-content').empty();
+                  $('.close-reveal-modal').click(function(){
+                    $('.modal-content, .modal-image').empty();
                   });
 
                 });
@@ -188,14 +208,8 @@
     access_token   : null,
     
     // Display Option
-    show   : null,
-    media_count    : null,
-    more_button    : null,
-
-    // Presentation
-    clearing: null,
-    modal   : null
-
+    show        : null,
+    media_count : 4
   }
 
 })( jQuery, window, document );
