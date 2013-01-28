@@ -39,6 +39,12 @@ hr { border: solid #dddddd; border-width: 1px 0 0; clear: both; margin: 22px 0 2
 
 [class*="column"] + [class*="column"]:last-child, .mobile-four:last-child { float: left; }
 
+.row { width: 980px; }
+
+@media only screen and (max-width: 480px) and (min-width: 320px) { #masthead h1, #masthead h2, #masthead h3 { font-size: 230%; }
+  #masthead .eight.columns { padding: 20px 0; text-align: center; }
+  #masthead > div { min-height: 180px; margin: 0 !important; padding: 40px 20px; }
+  #main-content h1, #main-content h2, #main-content h3, #main-content h4, #main-content h5 { font-size: 220%; } }
 #masthead { padding-left: 0; padding-right: 0; border-bottom: 1px solid #7a116c; background-color: #ad2281; *zoom: 1; filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFAD2281', endColorstr='#FF7A116C'); background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(14%, #ad2281), color-stop(100%, #7a116c)); background-image: -webkit-linear-gradient(top, #ad2281 14%, #7a116c 100%); background-image: -moz-linear-gradient(top, #ad2281 14%, #7a116c 100%); background-image: -o-linear-gradient(top, #ad2281 14%, #7a116c 100%); background-image: linear-gradient(top, #ad2281 14%, #7a116c 100%); -webkit-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55) inset; -moz-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55) inset; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55) inset; }
 #masthead h1, #masthead h2, #masthead h3 { font-family: "ChunkFive", sans-serif; font-weight: 300; color: white; text-shadow: 0 2px 2px #333333; text-transform: uppercase; margin: 0; padding: 0; line-height: 1; }
 #masthead h1 a, #masthead h1 a:visited, #masthead h2 a, #masthead h2 a:visited, #masthead h3 a, #masthead h3 a:visited { color: white; text-decoration: none; -webkit-transition: all 200ms linear; -moz-transition: all 200ms linear; -o-transition: all 200ms linear; transition: all 200ms linear; }
@@ -55,11 +61,11 @@ hr { border: solid #dddddd; border-width: 1px 0 0; clear: both; margin: 22px 0 2
 
 #main-content { padding: 20px 10px; margin-top: 20px; margin-bottom: 20px; min-height: 70%; }
 
-.gallery { padding: 30px 20px; margin-top: 20px; margin-bottom: 0; border: 1px solid #dddddd; border-bottom: 1px solid #fafafa; background: #f4f4f4; -moz-border-radius-topleft: 6px; -webkit-border-top-left-radius: 6px; border-top-left-radius: 6px; -moz-border-radius-topright: 6px; -webkit-border-top-right-radius: 6px; border-top-right-radius: 6px; }
+.gallery { margin-top: 20px; margin-bottom: 0; border: 1px solid #dddddd; border-bottom: 1px solid #fafafa; background: #f4f4f4; -moz-border-radius-topleft: 6px; -webkit-border-top-left-radius: 6px; border-top-left-radius: 6px; -moz-border-radius-topright: 6px; -webkit-border-top-right-radius: 6px; border-top-right-radius: 6px; }
 
-.gallery > .column, .gallery > .columns { min-height: 240px; margin-top: 10px; margin-bottom: 10px; }
+.gallery > .column, .gallery > .columns { min-height: 170px; margin-top: 10px; margin-bottom: 10px; }
 
-.user { clear: both; padding: 5px -2px; margin: 8px 0; font-size: 13px; color: #2589ed; }
+.user { clear: both; padding: 5px -2px; margin: 8px 0; font-size: 11px; color: #2589ed; }
 .user .icon-user { opacity: 0.65; }
 
 .pongstgrm-btn { clear: both; padding: 20px 0; margin-bottom: 40px; background: #eeeeee; border: 1px solid #dddddd; -moz-border-radius-bottomleft: 6px; -webkit-border-bottom-left-radius: 6px; border-bottom-left-radius: 6px; -moz-border-radius-bottomright: 6px; -webkit-border-bottom-right-radius: 6px; border-bottom-right-radius: 6px; }

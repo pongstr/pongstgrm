@@ -55,3 +55,24 @@ hr
 
 [class*="column"] + [class*="column"]:last-child, .mobile-four:last-child
   float: left
+
+
+.row 
+  width: 980px
+
+@media only screen and (max-width: 480px) and (min-width: 320px)
+  #masthead
+    h1, h2, h3 
+      font-size: 230%
+    .eight.columns 
+      padding: 20px 0
+      text-align: center
+      
+  #masthead > div
+    min-height: 180px
+    margin: 0 !important
+    padding: 40px 20px
+  
+  #main-content
+    h1, h2, h3, h4, h5
+      font-size: 220%

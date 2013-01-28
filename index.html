@@ -22,22 +22,35 @@
         <h2 class="subheading">Instagram jQuery Plugin <small>v2.0</small></h2>
       </div>
       
-      <div class="four columns alignright">
+      <div class="four columns hide-for-small alignright">
         <h3><a href="https://raw.github.com/pongstr/pongstagr.am/v2.0/pongstagr.am.js" title="Download Latest v2.0 from GitHub" class="btn btn-primary btn-large">Download <br /><small class="subheading">Latest from Github v2.0</small></a></h3>
       </div>
       
     </div>
   </header>
   <div id="main-content">
-
+    <div class="row">
+      
     <!-- SIDEBAR -->
-    <div class="three columns">
+    <div class="four columns">
       
     </div>
 
     <!-- INDEX -->
-    <div id="index" class="nine columns">
-
+    <div id="index" class="eight columns">
+      <div class="row">
+        <h2>Pongstagr.am jQuery plugin v2.0</h2>
+        <hr />
+        
+        <p>Hello boys &amp; girls! I decided to write a jQuery plugin that displays media from <a href="http://www.instagram.com" target="_blank">Instagram</a> to my webpage
+           as a direction I can take while learning how to author a jQuery plugin. Version 2 is actually an upgrade from the <a href="https://github.com/pongstr/pongstagr.am" target="_blank">previous one</a> 
+           where it was just a straight forward implementation that's kind of reusable. So here it is!, <a href="https://raw.github.com/pongstr/pongstagr.am/v2.0/pongstagr.am.js">v2</a> hit me up on <a href="https://twitter.com/pongstr">twitter</a> if you find this
+          useful, I'd like to know what you think.</p>
+          
+          
+      </div><!-- end of .row -->
+      
+      
       <div class="row">
         <h3 class="subheader">Recent Media</h3>
       </div>
@@ -59,37 +72,7 @@
 
 
     </div><!-- end of #index -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    </div><!-- end of .row -->
   </div><!-- end of #main-content -->
   <footer>
   </footer>
@@ -112,20 +95,24 @@
       $('#recent-media').pongstgrm({
         user_id      : insta_id,
         access_token : insta_token,
-        show : 'recent'
+        show : 'recent',
+        media_count : 4
       });    
     
       $('#user-feed').pongstgrm({
         user_id      : insta_id,
         access_token : insta_token,
-        show : 'feed'
+        show : 'feed',
+        media_count: 4
       });
 
       $('#user-likes').pongstgrm({
         user_id      : insta_id,
         access_token : insta_token,
-        show : 'liked'
+        show : 'liked',
+        media_count: 4
       });
+
     
     });
   </script>
@@ -144,7 +131,7 @@
 
   <div style="width: 100%; position: fixed; left: 0; bottom: 0; border-top: 1px solid #ddd; background: #f4f4f4; margin: 0; padding: 10px 5px; text-align: center;">
     <div class="twelve columns aligncenter">
-      <small style="font-size: 12px; color: #666;">Pongstagrm - Instagram Plugin. Copyright &copy; 2013 Pongstr. <a href="http://opensource.org/licenses/MIT">Licensed under the MIT license</a>.</small>
+      <small style="font-size: 12px; color: #666;">Copyright &copy; 2013 <strong>Pongstagrm</strong> - Instagram Plugin. <a href="http://opensource.org/licenses/MIT">Licensed under the MIT license</a>.</small>
     </div>
   </div>
 
