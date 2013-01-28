@@ -29,4 +29,4 @@ hr { border: solid #dddddd; border-width: 1px 0 0; clear: both; margin: 22px 0 2
 @media only screen and (max-width: 480px) and (min-width: 320px) { #masthead h1, #masthead h2, #masthead h3 { font-size: 230%; }
   #masthead .eight.columns { padding: 20px 0; text-align: center; }
   #masthead > div { min-height: 180px; margin: 0 !important; padding: 40px 20px; }
-  #main-content h1, #main-content h2, #main-content h3, #main-content h4, #main-content h5 { font-size: 220%; } }
+  #main-content h1, #main-content h2, #main-content h3, #main-content h4, #main-content h5 { font-size: 200%; } }

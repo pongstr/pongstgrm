@@ -135,7 +135,7 @@
                     // Modal Image Block
                     var imageblock    = "<img src='" + value.images.standard_resolution.url + "' alt='' width='"+ value.images.standard_resolution.width +"' height='"+ value.images.standard_resolution.height +"' />";
                         contentblock  =  "<div class='row'><div class='twelve columns'>" + caption + "</div></div>";
-                        contentblock += "<div class='row'>" + thumb_likes + "<div class='six columns alignright'><i class='icon-comment'></i> &nbsp;<strong>" + value.comments.count + "</strong></div>" + "</div><br />";
+                        contentblock += "<div class='row'>" + thumb_likes + "<div class='six mobile-two columns alignright'><i class='icon-comment'></i> &nbsp;<strong>" + value.comments.count + "</strong></div>" + "</div><br />";
 
                     $('#' + value.id ).reveal({
                       animationSpeed: 200,
@@ -146,7 +146,7 @@
                         $('.' + options.show + '-modal .modal-image').append( imageblock ); 
                         $.each( value.comments.data, function( group, key ){
                           
-                          var commentblock  = "<div class='row mobile-four'>";
+                          var commentblock  = "<div class='row'>";
                               commentblock += "<div class='twelve  mobile-four columns'>";
                               commentblock += "<div class='two mobile-one columns'><img src='" +  key.from.profile_picture + "' alt='" +  key.from.username + "'  /></div>";
                               commentblock += "<div class='ten mobile-three columns'>";

@@ -9,6 +9,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   
   <link rel="stylesheet" href="assets/css/style.css" media="all" />
+  <style type="text/css">
+      /* Codebox */
+    .codebox { font-family: Consolas, Monaco, 'Courier New', monospace !important; color: #666; line-height: 18px; font-weight: normal !important; margin: 10px 0; padding: 15px; clear: both; background: #fafafa; border: 1px solid #eee; }
+  </style>
   <script src="assets/js/modernizr.min.js"></script>
 
 </head>
@@ -32,40 +36,79 @@
     <div class="row">
       
     <!-- SIDEBAR -->
-    <div class="four columns">
-      
+    <div class="three columns">
+      <div class="row">
+        <div id="sidebar"  class="ten columns">
+          <h4 class="subheader">Pre-requisites</h4>
+          <p>In order to use this plugin, you will need your user-id and access token to access Instagram API. <a href="http://instagram.com/developer/authentication/" target="_blank">more here</a></p>
+          
+          <strong>So, set your user-id & access_token</strong>
+          <ul class="square">
+            <li>If you have zero idea what your user id is, you may head to this link: <a href="http://jelled.com/instagram/lookup-user-id">http://bit.ly/WIz7xe</a></li>
+            <li>If you have zero idea what your access token is, you may head to this link: <a href="http://jelled.com/instagram/access-token">http://bit.ly/TLUOjB</a>
+                make sure you follow the instructions on the <em>"How do I get my client id?"</em> link.</li>
+            <li>and we're set!</li>
+          </ul>
+        </div>
+      </div>
     </div>
 
     <!-- INDEX -->
-    <div id="index" class="eight columns">
+    <div id="index" class="nine columns">
       <div class="row">
         <h2>Pongstagr.am jQuery plugin v2.0</h2>
+        <p>It's on alpha, but it's available use it in any way you can, licensed under MIT. Let me know what you think! hit me up! <a href="https://twitter.com/pongstr" target="_blank">@pongstr</a></p>
         <hr />
-        
-        <p>Hello boys &amp; girls! I decided to write a jQuery plugin that displays media from <a href="http://www.instagram.com" target="_blank">Instagram</a> to my webpage
-           as a direction I can take while learning how to author a jQuery plugin. Version 2 is actually an upgrade from the <a href="https://github.com/pongstr/pongstagr.am" target="_blank">previous one</a> 
-           where it was just a straight forward implementation that's kind of reusable. So here it is!, <a href="https://raw.github.com/pongstr/pongstagr.am/v2.0/pongstagr.am.js">v2</a> hit me up on <a href="https://twitter.com/pongstr">twitter</a> if you find this
-          useful, I'd like to know what you think.</p>
-          
-          
       </div><!-- end of .row -->
       
       
       <div class="row">
-        <h3 class="subheader">Recent Media</h3>
+        <h3 class="subheader">Example: Recent Media</h3>
+        <div class="twelve columns codebox">
+          <pre>
+<code>$('div#selector').pongstgrm({</code>
+<code>  user_id      : insta_id   ,  /*! Your Instagram User-ID          */</code>
+<code>  access_token : insta_token,  /*! Your Instagram Access Token     */</code>
+<code>  show         : 'recent'   ,  /*! Type of media to be returned    */</code>
+<code>  media_count  : 8             /*! Number of media to be displayed */</code>
+<code>}); </code></pre>
+        </div>
       </div>
       <div id="recent-media" class="row gallery">
       </div><!-- end of #recent-media -->
       
       
       <div class="row">
-        <h3 class="subheader">User Feed</h3>
+        <h3 class="subheader">Example: User Feed</h3>
+        <div class="twelve columns codebox">
+          <pre>
+<code>$('div#selector').pongstgrm({</code>
+<code>  user_id      : insta_id   ,  /*! Your Instagram User-ID          */</code>
+<code>  access_token : insta_token,  /*! Your Instagram Access Token     */</code>
+<code>  show         : 'feed'   ,    /*! Type of media to be returned    */</code>
+<code>  media_count  : 4             /*! Number of media to be displayed */</code>
+<code>}); </code></pre>
+        </div>
       </div>
       <div id="user-feed" class="row gallery">
       </div><!-- end of #user-feed -->
 
+      <br />
+      <br />
+      <br />
+
       <div class="row">
-        <h3 class="subheader">User Liked Media</h3>
+        <h3 class="subheader">Example: User Liked Media</h3>
+        <div class="twelve columns codebox">
+          <pre>
+<code>$('div#selector').pongstgrm({</code>
+<code>  user_id      : insta_id   ,  /*! Your Instagram User-ID          */</code>
+<code>  access_token : insta_token,  /*! Your Instagram Access Token     */</code>
+<code>  show         : 'liked'   ,   /*! Type of media to be returned    */</code>
+<code>  media_count  : 4             /*! Number of media to be displayed */</code>
+<code>}); </code></pre>
+        </div>
+        <p>Yea, unfortunately you might have to declare your user-id and access token everytime, but hey we're in the alpha version and you can contribute anytime by forking to this <a href="https://github.com/pongstr/pongstagr.am">repository</a>.</p>
       </div>
       <div id="user-likes" class="row gallery">
       </div><!-- end of user-likes -->
