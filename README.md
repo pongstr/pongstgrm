@@ -8,6 +8,6 @@ Pongstagr.am is a jQuery plugin that lets you display your Instagram photos to y
 It uses Instagram API and Zurb's Reveal Modal.
 
 
-### Instructions Coming Soon! Checkout Demo
+### Instructions Coming Soon! Checkout the demo here:
 ## http://pongstr.com/projects/pongstagr.am/
-a more raw demo here: http://pongstr.com/projects/pongstagr.am/demo.html
+a more raw demo here: http://pongstr.com/projects/pongstagr.am/raw
