@@ -1,0 +1,17 @@
+
+# Remove .php extensions
+RewriteEngine On
+
+ RewriteCond %{SCRIPT_FILENAME}/ -d
+ RewriteCond %{SCRIPT_FILENAME}.php !-f
+ RewriteRule [^/]$ %{REQUEST_URI}/ [R=301,L]
+
+ RewriteCond %{ENV:REDIRECT_STATUS} ^$
+ RewriteRule ^(.+)\.php$ /$1 [R=301,L]
+ RewriteRule ^(.+)\.html$ /$1 [R=301,L]
+
+ RewriteCond %{SCRIPT_FILENAME}.php -f
+ RewriteRule [^/]$ %{REQUEST_URI}.php [QSA,L]
+
+ RewriteCond %{SCRIPT_FILENAME}.html -f
+ RewriteRule [^/]$ %{REQUEST_URI}.html [QSA,L]
