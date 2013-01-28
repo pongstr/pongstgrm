@@ -1,4 +1,4 @@
-Pongstagr.am - jQuery Instagram Plugin v2.0
+Pongstagr.am - jQuery Instagram Plugin v2.0a
 ===========================================
 by Pongstr [twiz.tickler@gmail.com | www.pongstr.com ]
 Free to use under the MIT license.
