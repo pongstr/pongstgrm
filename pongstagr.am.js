@@ -85,7 +85,7 @@
           } else if ( content_type === 'liked' ){
             
             // Load User Liked Media
-            var check_count = ( options.media_count != null ) ? "/self/media/liked?count=" + options.media_count + "&access_token=" + options.access_token : "/sefl/media/liked?access_token=" + options.access_token;
+            var check_count = ( options.media_count != null ) ? "self/media/liked?count=" + options.media_count + "&access_token=" + options.access_token : "/self/media/liked?access_token=" + options.access_token;
                 endpoint    = api_url + check_count;
 
             // Load Request
@@ -116,7 +116,7 @@
                       thumb_img      = ( value.images.low_resolution.url ) ? "<a href='javascript:void(0);' data-reveal-id='" + value.id + "' class='th'><img src='" + value.images.low_resolution.url + "' alt='' /><div class='stats'>" + thumb_likes + thumb_comments + "</div></a>" : "";
                   
                   // User Feed | Media Liked : Show media owner
-                  var media_user = ( options.show !== 'recent_media') ? "<div class='twelve columns user'><i class='icon-user'></i> &nbsp;<strong>" + value.user.username + "</strong></div>" : "";
+                  var media_user = ( options.show !== 'recent') ? "<div class='twelve columns user'><i class='icon-user'></i> &nbsp;<strong>" + value.user.username + "</strong></div>" : "";
 
                   // Thumbnail Block
                   var thumblock  = "<div class='three mobile-two columns'>";
@@ -218,12 +218,12 @@
   // Default Options
   $.fn.pongstgrm.defaults = {
     // User Authentication
-    user_id        : null,
-    access_token   : null,
+    user_id      : null,
+    access_token : null,
     
     // Display Option
     show        : null,
-    media_count : 4
+    media_count : null
   }
 
 })( jQuery, window, document );
