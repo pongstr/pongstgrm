@@ -9,114 +9,83 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   
   <link rel="stylesheet" href="assets/css/style.css" media="all" />
-  <style type="text/css">
-      /* Codebox */
-    .codebox { font-family: Consolas, Monaco, 'Courier New', monospace !important; color: #666; line-height: 18px; font-weight: normal !important; margin: 10px 0; padding: 15px; clear: both; background: #fafafa; border: 1px solid #eee; }
-  </style>
   <script src="assets/js/modernizr.min.js"></script>
 
 </head>
 <body>
-
+    <div class="fixed">
+      <div class="twelve mobile-four">
+        <nav class="top-bar">
+           <ul>
+            <li class="name"><a href="#">Pongstagr.am jQuery Plugin</a></li>
+            <li class="toggle-topbar"><a href="#"></a></li>
+           </ul>
+           <ul class="left">
+              <li class="divider"></li>
+              <li><a href="#">pre-requisites</a></li>
+              <li class="divider"></li>
+              <li><a href="#">how-to</a></li>
+              <li class="divider"></li>
+              <li><a href="#">examples</a></li>
+              <li class="divider"></li>
+              <li><a href="#">download</a></li>
+              <li class="divider"></li>
+           </ul>
+           <ul class="right hide-for-small">
+              <li class="divider"></li>            
+              <li><a href="https://github.com/pongstr/pongstagr.am/tree/master" target="_blank">Fork me on Github</a></li>
+           </ul>
+        </nav>
+      </div>
+    </div>
+    
   <header id="masthead">
-    <div>
-      
+    <div class="row">
       <div class="eight columns">
         <h1><a href="#">Pongstagr.am</a></h1>
         <h2 class="subheading">Instagram jQuery Plugin <small>v2.0</small></h2>
       </div>
       
       <div class="four columns hide-for-small alignright">
-        <h3><a href="https://raw.github.com/pongstr/pongstagr.am/v2.0/pongstagr.am.js" title="Download Latest v2.0 from GitHub" class="btn btn-primary btn-large">Download <br /><small class="subheading">Latest from Github v2.0</small></a></h3>
+        <h3><a href="https://raw.github.com/pongstr/pongstagr.am/v2.0/pongstagr.am.js" title="Download Latest v2.0 from GitHub" class="large button">Download <br /><small class="subheading">Latest from Github v2.0</small></a></h3>
       </div>
-      
     </div>
   </header>
+  
   <div id="main-content">
+    
     <div class="row">
-      
-    <!-- SIDEBAR -->
-    <div class="three columns">
-      <div class="row">
-        <div id="sidebar"  class="ten columns">
-          <h4 class="subheader">Pre-requisites</h4>
-          <p>In order to use this plugin, you will need your user-id and access token to access Instagram API. <a href="http://instagram.com/developer/authentication/" target="_blank">more here</a></p>
-          
-          <strong>So, set your user-id & access_token</strong>
-          <ul class="square">
-            <li>If you have zero idea what your user id is, you may head to this link: <a href="http://jelled.com/instagram/lookup-user-id">http://bit.ly/WIz7xe</a></li>
-            <li>If you have zero idea what your access token is, you may head to this link: <a href="http://jelled.com/instagram/access-token">http://bit.ly/TLUOjB</a>
-                make sure you follow the instructions on the <em>"How do I get my client id?"</em> link.</li>
-            <li>and we're set!</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- INDEX -->
-    <div id="index" class="nine columns">
-      <div class="row">
-        <h2>Pongstagr.am jQuery plugin v2.0</h2>
-        <p>It's on alpha, but it's available use it in any way you can, licensed under MIT. Let me know what you think! hit me up! <a href="https://twitter.com/pongstr" target="_blank">@pongstr</a></p>
+      <div class="twelve columns">
+        <h4>Example: Recent Media</h4>
         <hr />
-      </div><!-- end of .row -->
-      
-      
-      <div class="row">
-        <h3 class="subheader">Example: Recent Media</h3>
-        <div class="twelve columns codebox">
-          <pre>
-<code>$('div#selector').pongstgrm({</code>
-<code>  user_id      : insta_id   ,  /*! Your Instagram User-ID          */</code>
-<code>  access_token : insta_token,  /*! Your Instagram Access Token     */</code>
-<code>  show         : 'recent'   ,  /*! Type of media to be returned    */</code>
-<code>  media_count  : 8             /*! Number of media to be displayed */</code>
-<code>}); </code></pre>
-        </div>
       </div>
-      <div id="recent-media" class="row gallery">
-      </div><!-- end of #recent-media -->
       
-      
-      <div class="row">
-        <h3 class="subheader">Example: User Feed</h3>
-        <div class="twelve columns codebox">
-          <pre>
-<code>$('div#selector').pongstgrm({</code>
-<code>  user_id      : insta_id   ,  /*! Your Instagram User-ID          */</code>
-<code>  access_token : insta_token,  /*! Your Instagram Access Token     */</code>
-<code>  show         : 'feed'   ,    /*! Type of media to be returned    */</code>
-<code>  media_count  : 4             /*! Number of media to be displayed */</code>
-<code>}); </code></pre>
-        </div>
+      <div id="recent-media" class="twelve columns gallery">
       </div>
-      <div id="user-feed" class="row gallery">
-      </div><!-- end of #user-feed -->
-
-      <br />
-      <br />
-      <br />
-
-      <div class="row">
-        <h3 class="subheader">Example: User Liked Media</h3>
-        <div class="twelve columns codebox">
-          <pre>
-<code>$('div#selector').pongstgrm({</code>
-<code>  user_id      : insta_id   ,  /*! Your Instagram User-ID          */</code>
-<code>  access_token : insta_token,  /*! Your Instagram Access Token     */</code>
-<code>  show         : 'liked'   ,   /*! Type of media to be returned    */</code>
-<code>  media_count  : 4             /*! Number of media to be displayed */</code>
-<code>}); </code></pre>
-        </div>
-        <p>Yea, unfortunately you might have to declare your user-id and access token everytime, but hey we're in the alpha version and you can contribute anytime by forking to this <a href="https://github.com/pongstr/pongstagr.am">repository</a>.</p>
-      </div>
-      <div id="user-likes" class="row gallery">
-      </div><!-- end of user-likes -->
-
-
-    </div><!-- end of #index -->
     </div><!-- end of .row -->
+
+    <div class="row">
+      <div class="twelve columns">
+        <h4>Example: User Feed</h4>
+        <hr />
+      </div>
+      
+      <div id="user-feed" class="twelve columns gallery">
+      </div>
+    </div><!-- end of .row -->
+        
+    <div class="row">
+      <div class="twelve columns">
+        <h4>Example: User Likes</h4>
+        <hr />
+      </div>
+      
+      <div id="user-likes" class="twelve columns gallery">
+      </div>
+    </div><!-- end of .row -->
+        
   </div><!-- end of #main-content -->
+  
   <footer>
   </footer>
   
@@ -124,8 +93,10 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="assets/js/jquery.min.js"><\/script>')</script>
   
-  <!-- jQuery reveal plugin -->
-  <script src="assets/js/jquery.foundation.reveal.js"></script>
+  <!-- foundation plugins -->
+  <script src="assets/js/plugins.js"></script>
+  <script src="assets/js/foundation/app.js"></script>
+  
   
   <!-- Pongstagrm Plugin -->
   <script src="pongstagr.am.js"></script>
@@ -156,7 +127,6 @@
         resolution: 'standard_resolution'
       });
 
-    
     });
   </script>
 

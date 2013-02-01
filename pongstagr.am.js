@@ -108,7 +108,7 @@
           // show option is not set. btn_html is the markup that is 
           // appended after the plug ins selector.
           var btn_id   = ( options.show === null ) ? "recent_media-btn" : options.show + "-btn";
-              btn_html = "<div class='row pongstgrm-btn'><a href='javascript:void(0);' id='" + btn_id + "' class='four columns centered btn btn-success btn-large'>Load More Photos</a></div>";
+              btn_html = "<div class='twelve mobile-four columns pongstgrm-btn'><a href='javascript:void(0);' id='" + btn_id + "' class='four columns centered button large success radius'>Load More Photos</a></div>";
           
           // Append btn_html markup after the plugins' selector.
           $(element).after(btn_html);

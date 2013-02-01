@@ -45,12 +45,39 @@
       font-size: 22px
     & small
       font-size: 12px
-.btn 
-  @include box-shadow( 0 3px 6px rgba(0,0,0,0.55))
-
-#masthead > div
+      
+  .button
+    font-weight: normal !important 
+    background-color: #00b7ea
+    @include filter-gradient(#00b7ea, #009ec3, vertical)
+    @include background-image(linear-gradient(top,  #00b7ea 0%,#009ec3 100%))
+    @include box-shadow( 0 3px 6px rgba(0,0,0,0.55))
+    @include border-radius(8px)
+    border: 0 none
+    text-shadow: 0 2px 2px darken(#009ec3, 10%)
+  
+#masthead > .row
   background: url('../img/pattern.png')
-  min-height: 160px
+  width: 100% !important
+  min-width: 100% !important
+  max-width: 100% !important
   margin: 0 !important
-  padding: 40px 20px
+  padding: 0 !important
+  .twelve.column, .twelve.columns
+    padding: 0 !important
+  .twelve .top-bar
+    margin-bottom: 0 !important
+  .eight.columns, .four.columns
+    padding-top: 70px
+    padding-bottom: 30px
+    min-height: 100px
 
+.fixed .top-bar
+  background-color: #27282b
+  @include filter-gradient(#27282b, #000000, vertical)
+  @include background-image(linear-gradient(top,  #27282b 0%,#000000 100%))
+
+.fixed .top-bar a
+  font-family: 'Open Sans', sans-serif
+  font-weight: 300 !important
+  text-transform: capitalize
