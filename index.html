@@ -138,21 +138,22 @@
       $('#recent-media').pongstgrm({
         user_id      : insta_id,
         access_token : insta_token,
-        show : 'recent'
+        count: 8
       });    
     
       $('#user-feed').pongstgrm({
         user_id      : insta_id,
         access_token : insta_token,
         show : 'feed',
-        media_count: 4
+        count: 4
       });
 
       $('#user-likes').pongstgrm({
         user_id      : insta_id,
         access_token : insta_token,
         show : 'liked',
-        media_count: 4
+        count: 4,
+        resolution: 'standard_resolution'
       });
 
     
@@ -173,7 +174,7 @@
 
   <div style="width: 100%; position: fixed; left: 0; bottom: 0; border-top: 1px solid #ddd; background: #f4f4f4; margin: 0; padding: 10px 5px; text-align: center;">
     <div class="twelve columns aligncenter">
-      <small style="font-size: 12px; color: #666;">Copyright &copy; 2013 <strong>Pongstagrm</strong> - Instagram Plugin. <a href="http://opensource.org/licenses/MIT">Licensed under the MIT license</a>.</small>
+      <small style="font-size: 11px; color: #666;"><strong>Pongstagrm</strong> - jQuery Plugin. &copy; Copyright 2012-2013 Pongstr Ordillo. Code license under <a href="http://www.apache.org/licenses/LICENSE-2.0" title="Apache v2.0 License">Apache v2.0</a> &nbsp; | &nbsp; <a href="http://www.zurb.com/playground/reveal-modal-plugin" title="Reveal jQuery Modal Plugin">Reveal jQuery Modal Plugin</a> by Zurb.</small>
     </div>
   </div>
 
