@@ -1,7 +1,7 @@
-Pongstagr.am - jQuery Instagram Plugin v2.0.30a
-===========================================
+Pongstagr.am - jQuery Instagram Plugin v2.0.30
+==============================================
 by Pongstr [twiz.tickler@gmail.com | www.pongstr.com ]
-Free to use under Code license under Apache v2.0
+Free to use, Code license under Apache v2.0
 http://www.apache.org/licenses/LICENSE-2.0
 
 Pongstagr.am is a jQuery plugin that lets you display your Instagram photos to your website.
