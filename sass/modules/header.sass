@@ -65,19 +65,30 @@
   padding: 0 !important
   .twelve.column, .twelve.columns
     padding: 0 !important
-  .twelve .top-bar
-    margin-bottom: 0 !important
+  // .twelve .top-bar
+  //   margin-bottom: 0 !important
   .eight.columns, .four.columns
-    padding-top: 70px
-    padding-bottom: 30px
+    padding-top: 60px
+    padding-bottom: 20px
     min-height: 100px
+    color: #ddd
+    small a 
+      color: #fff
+      &:hover
+        text-decoration: underline
+        color: #f4f4f4
+    small
+      font-size: 11px
 
-.fixed .top-bar
-  background-color: #27282b
-  @include filter-gradient(#27282b, #000000, vertical)
-  @include background-image(linear-gradient(top,  #27282b 0%,#000000 100%))
-
-.fixed .top-bar a
+.expanded.top-bar
+  background-color: #2b2d30
+  @include filter-gradient(#2b2d30, #232323, vertical)
+  @include background-image(linear-gradient(top,  #2b2d30 0%,#232323 100%))
+  @include box-shadow(0 -1px 1px #3c3c3c inset)
+  border-bottom: 1px solid #222
+  
+.expanded.top-bar a, .expanded .top-bar label
   font-family: 'Open Sans', sans-serif
   font-weight: 300 !important
   text-transform: capitalize
+  color: #fff

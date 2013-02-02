@@ -1,3 +1,6 @@
+// Compass Mixins
+@import "compass/css3"
+
 // Helper Classes
 .alignleft
   text-align: left
@@ -27,6 +30,9 @@ a:focus, a.btn:focus
 [class*="column"] + [class*="column"]:last-child, .mobile-four:last-child
   float: left
 .reveal-modal-bg
+  height: 500%
+  min-height: 500%
+  max-height: 500%
   background: rgba(0,0,0,0.85) 
   
 .reveal-modal
@@ -40,3 +46,8 @@ a:focus, a.btn:focus
     margin-top: 0
     font-weight: 300
     color: #2589ED
+
+table .columns
+  padding: 10px
+table th 
+  padding: 10px !important

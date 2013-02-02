@@ -27,6 +27,11 @@
          // The load content function decides which request to send to send
          // to instagram. Inside this function also adds appends a button 
          function load_content(content_type){
+
+            // Enable/Disable Load more buttons to load more images.
+            if ( options.pager == true || options.pager === null ){ add_ons(true, true); } else { add_ons( false, true); }
+
+
             // Construct URL
             function url(count_url){
                // api_url: base url request to access Instagram API.
@@ -65,8 +70,6 @@
               
             }
 
-            // Enable/Disable Load more buttons to load more images.
-            if (options.pager === true || options.pager === null ){ add_ons(); }
          }
          
          // ajx_request function does all ajax request and loads user's
@@ -102,8 +105,8 @@
         }
         
         // add_ons function writes the button and the reveal modal plugin. 
-        function add_ons(){
-          
+        function add_ons(button, reveal){
+          if ( button === true ){
           // btn_id variable defaults to 'recent_media-btn' if 
           // show option is not set. btn_html is the markup that is 
           // appended after the plug ins selector.
@@ -111,11 +114,13 @@
               btn_html = "<div class='twelve mobile-four columns pongstgrm-btn'><a href='javascript:void(0);' id='" + btn_id + "' class='four columns centered button large success radius'>Load More Photos</a></div>";
           
           // Append btn_html markup after the plugins' selector.
-          $(element).after(btn_html);
+          
+            $(element).after(btn_html);
+          }
           
           // media prefix for modal container
           var media = (options.show === null ) ? "recent-modal" : options.show + "-modal";
-          
+          if ( reveal === true ){
           // reveal varaible is the modal container that is fired when
           // the image thumbnail is clicked. this markup heavily depends
           // on the reveal plugin and its stylesheets.        
@@ -127,7 +132,9 @@
                          <a href='javascript:void(0);' class='close-reveal-modal'>&#215;</a></div>";
           
           // Append reveal markup to the document's body.
-          $('body').append(reveal);  
+          
+            $('body').append(reveal);
+          }
         }
         
         // thumbnails
@@ -163,7 +170,7 @@
                 $('[data-reveal-id="'+ value.id +'"]').click(function(){
                   // Modal selector class 
                   var modal_class = (options.show === null ) ? "recent-modal" : options.show + "-modal";
-                      media_owner = "<a href='http://www.instagram.com/" + value.user.username + "/'><strong>@" + value.user.username + "</strong></a>";
+                      media_owner = "<p><a href='http://www.instagram.com/" + value.user.username + "/'><strong>@" + value.user.username + "</strong></a></p>";
                   // imageblock: block of html for the big image
                   // this condition switches the image resolution from
                   // low_resolution to standard_resolution

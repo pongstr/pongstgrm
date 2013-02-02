@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en">
+<!--[if IE 8]><html class="no-js lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]-->
 
 <head>
   <meta charset="UTF-8">
@@ -13,122 +14,167 @@
 
 </head>
 <body>
-    <div class="fixed">
-      <div class="twelve mobile-four">
-        <nav class="top-bar">
-           <ul>
-            <li class="name"><a href="#">Pongstagr.am jQuery Plugin</a></li>
-            <li class="toggle-topbar"><a href="#"></a></li>
-           </ul>
-           <ul class="left">
-              <li class="divider"></li>
-              <li><a href="#">pre-requisites</a></li>
-              <li class="divider"></li>
-              <li><a href="#">how-to</a></li>
-              <li class="divider"></li>
-              <li><a href="#">examples</a></li>
-              <li class="divider"></li>
-              <li><a href="#">download</a></li>
-              <li class="divider"></li>
-           </ul>
-           <ul class="right hide-for-small">
-              <li class="divider"></li>            
-              <li><a href="https://github.com/pongstr/pongstagr.am/tree/master" target="_blank">Fork me on Github</a></li>
-           </ul>
-        </nav>
-      </div>
+  <div class="fixed">
+    <div class="twelve mobile-four">
+      <nav class="top-bar expanded">
+         <ul>
+          <li class="name"><a href="http://pongstr.com/projects/pongstagr.am/">Pongstagr.am jQuery Plugin</a></li>
+          <li class="toggle-topbar"><a href="#"></a></li>
+         </ul>
+         <ul class="left">
+            <li class="divider"></li>
+            <li><a href="#requirements">Requirements</a></li>
+            <li class="divider"></li>
+            <li><a href="#howto">how-to</a></li>
+            <li class="divider"></li>
+            <li class="has-dropdown">
+              <a href="#examples">examples</a>
+              <ul class="dropdown">
+                <li><a href="#example-recent">Recent Media</a></li>
+                <li><a href="#example-feed">User Feed</a></li>
+                <li><a href="#example-liked">User Liked Media</a></li>
+              </ul>
+            </li>
+            <li class="divider"></li>
+            <li><a href="https://github.com/pongstr/pongstagr.am/archive/master.zip">download</a></li>
+            <li class="divider"></li>
+         </ul>
+         <ul class="right hide-for-small">
+            <li class="divider"></li>            
+            <li><a href="https://github.com/pongstr/pongstagr.am/" target="_blank">Fork me on Github</a></li>
+         </ul>
+      </nav>
     </div>
-    
+  </div>
+  
   <header id="masthead">
     <div class="row">
       <div class="eight columns">
-        <h1><a href="#">Pongstagr.am</a></h1>
+        <h1><a href="http://pongstr.com/projects/pongstagr.am/">Pongstagr.am</a></h1>
         <h2 class="subheading">Instagram jQuery Plugin <small>v2.0</small></h2>
       </div>
       
       <div class="four columns hide-for-small alignright">
-        <h3><a href="https://raw.github.com/pongstr/pongstagr.am/v2.0/pongstagr.am.js" title="Download Latest v2.0.27a from GitHub" class="large button">Download <br /><small class="subheading">Latest from Github v2.0.27a</small></a></h3>
+        <h3><a href="https://raw.github.com/pongstr/pongstagr.am/master/pongstagr.am.js" title="Download Stable v2.0.30 from GitHub" class="large button">Download <br /><small class="subheading">Get it from Github v2.0.30</small></a></h3>
+        <br />
+        <small><a href="" title="Latest v2.0.30">Current version v2.0.30</a> Code License under Apache v2.0</small>
       </div>
     </div>
   </header>
   
-  <div id="main-content">
-    
-    <div class="row">
-      <div class="twelve columns">
-        <h4>Example: Recent Media</h4>
+  <div id="main-content">   
+    <div class="row" id="requirements">
+      <article class="twelve columns">
+        <h4 class="chunky">Some stuff required to run the plugin.</h4>
         <hr />
-      </div>
+        <p>For the most part, Instagram’s API only requires the use of a client_id. A client_id simply associates your server, script, or program with a specific application. However, some requests require authentication - specifically requests made on behalf of a user. Authenticated requests require an access_token. These tokens are unique to a user and should be stored securely. Access tokens may expire at any time in the future. <a href="http://instagram.com/developer/authentication/" target="_blank">More here.</a></p>
+        <ol>
+          <li><strong>jQuery 1.8+</strong>, the plugin should also work with 1.4+ but it's not tested.</li>
+          <li>
+              <strong>Zurb's Reveal Modal Plugin</strong> to display Image details, comments and likes when
+              a thumbnail is clicked. Pongstagr.am works best if you are using Zurb's 
+              Foundation front-end framework. <a href="http://foundation.zurb.com/" target="_blank">Get it here</a>
+          </li>
+          <li>
+              <strong>User ID</strong> If you have zero idea what your user id is, you may head to this link:
+              <code>http://jelled.com/instagram/lookup-user-id </code>
+          </li>
+          <li>
+            <strong>Access Token</strong> If you have zero idea what your access token is, you may head to this
+            link: <br /><code>http://jelled.com/instagram/access-token</code> make sure you follow the instructions on the <em><a href="http://jelled.com/instagram/access-token">"How do I get my client id?"</a></em> link. 
+          </li>
+        </ol>
+      </article>
       
-      <div id="recent-media" class="twelve columns gallery">
+      <article class="twelve columns" id="howto">
+        <h4 class="chunky">How to use the plugin? Super easy, here's how:</h4>
+        <hr />
+        <p><strong>jQuery must be initialised first and so as the plugin:</strong></p>
+        <pre class="brush: js; toolbar: false;">
+          &lt;script src='path/to/js/jquery.min.js'&gt;&lt;/script&gt;
+          &lt;script src='path/to/js/foundation.reveal.js'&gt;&lt;/script&gt;
+          &lt;script src='path/to/js/pongstagr.am.js'&gt;&lt;/script&gt;
+        </pre>
+        <p>and that's that! we're all set :)</p>
+      </article>
+    </div><!-- end of .row -->
+    
+    <div  id="examples" class="row">
+      <div class="twelve columns">
+        <h1 class="chunky" style="color: #000;">Examples</h1>
+        <hr />
       </div>
     </div><!-- end of .row -->
 
-    <div class="row">
+    <div class="row" id="example-recent">
       <div class="twelve columns">
-        <h4>Example: User Feed</h4>
-        <hr />
+        <h4 class="chunky">Example: Recent Media</h4>
+        <p><strong>Call on the plugin:</strong> the vanilla call below will display the recent media you've uploaded.</p>
+        <pre class="brush: js; toolbar: false;">
+          $('div#selector').pongstgrm({
+              user_id      : 'your_user_id',      // Required by Instagram to access the api
+              access_token : 'your.access.token', // Required by Instagram to access the api
+              show         : 'recent',            // Shows your 'recent' media
+              count        : 8,                   // Displays the number of photos
+              pager        : true                 // Enable or Disable the 'Load More' button
+          });
+        </pre>        
+      </div>
+      <div id="recent-media" class="twelve columns gallery">
+      </div>      
+    </div><!-- end of .row -->
+    
+    <div class="row" id="example-feed">
+      <div class="twelve columns">
+        <h4 class="chunky">Example: User Feed</h4>
+        <pre class="brush: js; toolbar: false; highlight: [4,6];">
+          $('div#selector').pongstgrm({
+              user_id      : 'your_user_id',      
+              access_token : 'your.access.token', 
+              show         : 'feed',              // Shows the 'feed' media uploaded by the people you follow
+              count        : 4,                   // Displays the number of photos
+              pager        : false                // image size with: 306 x 306 (width x height)             
+          });
+        </pre>            
       </div>
       
       <div id="user-feed" class="twelve columns gallery">
       </div>
     </div><!-- end of .row -->
-        
-    <div class="row">
+    
+    <div class="row" id="example-liked">
       <div class="twelve columns">
-        <h4>Example: User Likes</h4>
-        <hr />
+        <h4 class="chunky">Example: User Likes</h4>
+        <pre class="brush: js; toolbar: false; highlight: [4,6];">
+          $('div#selector').pongstgrm({
+              user_id      : 'your_user_id',      
+              access_token : 'your.access.token', 
+              show : 'liked',                     // Shows the 'feed' media uploaded by the people you follow
+              count: 4,                           // Displays the number of photos
+              resolution: 'low_resolution'        // Displays the number of photos
+          });
+        </pre>        
       </div>
-      
       <div id="user-likes" class="twelve columns gallery">
       </div>
     </div><!-- end of .row -->
-        
+    
   </div><!-- end of #main-content -->
   
   <footer>
   </footer>
   
   <!-- jQuery CDN & fallback -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="assets/js/jquery.min.js"><\/script>')</script>
-  
-  <!-- foundation plugins -->
+
+  <!-- plugins -->
   <script src="assets/js/plugins.js"></script>
-  <script src="assets/js/foundation/app.js"></script>
-  
-  
-  <!-- Pongstagrm Plugin -->
+  <script src="assets/js/shBrushJScript.js"></script>
   <script src="pongstagr.am.js"></script>
-  <script>
-    $(document).ready(function() {
-      
-       var insta_id = 39666111;
-           insta_token = '39666111.1fb234f.c3901000b4944a549fd5fd2310c63780';
-      
-      $('#recent-media').pongstgrm({
-        user_id      : insta_id,
-        access_token : insta_token,
-        count: 8
-      });    
-    
-      $('#user-feed').pongstgrm({
-        user_id      : insta_id,
-        access_token : insta_token,
-        show : 'feed',
-        count: 4
-      });
+  <script src="assets/js/script.js"></script>
+  
 
-      $('#user-likes').pongstgrm({
-        user_id      : insta_id,
-        access_token : insta_token,
-        show : 'liked',
-        count: 4,
-        resolution: 'standard_resolution'
-      });
-
-    });
-  </script>
 
   <script>
     var _gaq = _gaq || [];

@@ -1,9 +1,6 @@
 // Compass Mixins
 @import "compass/css3"
 
-// Google Webfont : Open Sans
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300)
-
 // Compass CSS3 Mixins
 @import "compass/css3/"
 
@@ -34,6 +31,7 @@
 @import "foundation/components/modules/reveal"
 @import "foundation/components/modules/tabs"
 @import "foundation/components/modules/topbar"
+@import "foundation/components/modules/ui"
 
 
 // Foundation Media Queries Overrides
@@ -54,20 +52,22 @@
 // Header Module
 @import "modules/header"
 
+// // Syntax Highlighter
+@import "modules/syntax-highlighter.sass"
+
 // Main Content
 #main-content
   padding: 20px 10px
   margin-top: 20px
   margin-bottom: 20px
   min-height: 70%
-
+  
 .gallery 
   padding-top: 20px
   padding-bottom: 20px
   margin-top: 20px
   margin-bottom: 0
   border: 1px solid #ddd
-  border-bottom: 1px solid #fafafa
   background: #f4f4f4
   @include border-top-radius(6px)
 .gallery > .column, .gallery > .columns
@@ -86,9 +86,10 @@
 .pongstgrm-btn
   clear: both
   padding: 20px !important
-  margin-bottom: 40px
+  margin-bottom: 20px
   background: #eee
   border: 1px solid #ddd
+  border-top: 1px solid #fafafa 
   @include border-bottom-radius(6px)
   a
     display: block !important
@@ -104,11 +105,6 @@ a.th
   @include transition(all 150ms ease)
   overflow: hidden
   &:hover 
-    // position: absolute
-    // top: -7px
-    // left: -4px
-    // z-index: 100
-    // padding: 10px
     border: 1px solid #2589ED
     border-bottom: 4px solid #2589ED
     @include transition(all 150ms ease)
@@ -124,27 +120,26 @@ a.th
     left: 0
     background: rgba(255,255,255,0.5)
     color: #000
+.th img
+  border: 0 none !important
+  @include box-shadow(none)
+  @include border-radius(0)
 
-.reveal-modal
-  padding: 15px 5px
-  @include border-radius(6px)
-  @include box-shadow( 0 0 30px rgba(0,0,0,0.75))
-  hr 
-    margin-top: 5px
-    margin-bottom: 5px
-  h4 
-    margin-top: 0
-    font-weight: 300
-    color: #2589ED
+.chunky
+  font-family: 'ChunkFive', 'Open Sans', sans-serif
+  font-weight: normal !important
+  font-size: 32px
+  margin-bottom: 5px
+  color: #6DA800
 
-#sidebar 
+.syntaxhighlighter
+  padding: 10px 0
   border: 1px solid #ddd
-  background: #f4f4f4
-  font-size: 80% !important
-  line-height: 1.3
-  p, ul, li
-    font-size: 11px !important
-  
+  &:hover
+    border: 1px solid #2589ED
+    @include transition(all 150ms ease)
+
+      
 @media only screen and (max-width: $screenSmall )
   #masthead
     h1, h2, h3 
@@ -156,9 +151,23 @@ a.th
       padding: 0 !important
       margin: 0 !important
 
-      
-
-  
   #main-content
     h1, h2, h3, h4, h5
       font-size: 200%
+      
+  .spaceman
+    clear: both
+    min-height: 100px
+    max-height: 100px
+    height: 100px
+    
+  // Internet Explorer 8 Shits!
+  .lt-ie9
+    .modal-image
+      width: 612px !important
+      height: 612px !important
+    .reveal, .reveal.large
+      width: 780px !important
+      height: 780px !important
+    .stats
+      background: #fff !important
