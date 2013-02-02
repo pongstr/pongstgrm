@@ -1,0 +1,53 @@
+// Compass Mixins
+@import "compass/css3"
+
+// Helper Classes
+.alignleft
+  text-align: left
+  
+.alignright
+  text-align: right
+  
+.aligncenter
+  text-align: center
+  
+.alignjustify
+  text-align: justify
+  
+a:focus, a.btn:focus
+  outline: 0 none
+  
+::selection 
+  background: #000
+  color: #fff
+  text-shadow: none
+
+::-moz-selection
+  background: #000
+  color: #fff
+  text-shadow: none
+
+[class*="column"] + [class*="column"]:last-child, .mobile-four:last-child
+  float: left
+.reveal-modal-bg
+  height: 500%
+  min-height: 500%
+  max-height: 500%
+  background: rgba(0,0,0,0.85) 
+  
+.reveal-modal
+  padding: 15px 5px
+  @include border-radius(6px)
+  @include box-shadow( 0 0 30px rgba(0,0,0,0.75))
+  hr 
+    margin-top: 5px
+    margin-bottom: 5px
+  h4 
+    margin-top: 0
+    font-weight: 300
+    color: #2589ED
+
+table .columns
+  padding: 10px
+table th 
+  padding: 10px !important

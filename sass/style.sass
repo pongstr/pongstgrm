@@ -1,0 +1,173 @@
+// Compass Mixins
+@import "compass/css3"
+
+// Compass CSS3 Mixins
+@import "compass/css3/"
+
+// Basic Theme Overrides for Foundation
+@import "modules/settings"
+
+// Foundation Settings
+@import "foundation/settings.scss"
+@import "foundation/functions/all.scss"
+
+// Foundation Mixins
+@import "foundation/mixins/all.scss"
+
+// Foundation Semantic Grid
+@import "foundation/mixins/respond-to"
+@import "foundation/mixins/semantic-grid"
+
+@import "modular-scale"
+@import "foundation/common/globals"
+
+// Foundation Grid
+@import "foundation/components/grid"
+
+// Foundation Common Styles
+@import "foundation/common/typography"
+@import "foundation/common/forms"
+@import "foundation/components/modules/buttons"
+@import "foundation/components/modules/reveal"
+@import "foundation/components/modules/tabs"
+@import "foundation/components/modules/topbar"
+@import "foundation/components/modules/ui"
+
+
+// Foundation Media Queries Overrides
+@import "foundation/components/modules/mqueries"
+
+
+/* ==|=== Pongstagr.am jQuery Plugin =========================================== 
+ * By Pongstr Ordillo [twiz.tickler@gmail.com | http://pongstr.com/]
+ * Created: Friday 1, February 2013
+ * ========================================================================== */
+
+// Bootstrap Icons
+@import "modules/icons"
+
+// Override Modules
+@import "modules/overrides"
+
+// Header Module
+@import "modules/header"
+
+// // Syntax Highlighter
+@import "modules/syntax-highlighter.sass"
+
+// Main Content
+#main-content
+  padding: 20px 10px
+  margin-top: 20px
+  margin-bottom: 20px
+  min-height: 70%
+  
+.gallery 
+  padding-top: 20px
+  padding-bottom: 20px
+  margin-top: 20px
+  margin-bottom: 0
+  border: 1px solid #ddd
+  background: #f4f4f4
+  @include border-top-radius(6px)
+.gallery > .column, .gallery > .columns
+  min-height: 170px
+  margin-top: 10px
+  margin-bottom: 10px
+.user 
+  clear: both
+  padding: 5px -2px
+  margin: 8px 0
+  font-size: 11px
+  color: #2589ED
+  .icon-user 
+    opacity: 0.65
+  
+.pongstgrm-btn
+  clear: both
+  padding: 20px !important
+  margin-bottom: 20px
+  background: #eee
+  border: 1px solid #ddd
+  border-top: 1px solid #fafafa 
+  @include border-bottom-radius(6px)
+  a
+    display: block !important
+
+a.th
+  display: block
+  padding: 5px 
+  margin: 0 5px
+  background: #fff
+  border: 1px solid #ddd
+  border-bottom: 4px solid #ddd
+  position: relative
+  @include transition(all 150ms ease)
+  overflow: hidden
+  &:hover 
+    border: 1px solid #2589ED
+    border-bottom: 4px solid #2589ED
+    @include transition(all 150ms ease)
+    @include box-shadow( 0 0 15px #4096ee)
+
+  .stats 
+    display: block
+    width: 100%
+    height: 32px
+    padding-top: 8px
+    position: absolute
+    bottom: -32px
+    left: 0
+    background: rgba(255,255,255,0.5)
+    color: #000
+.th img
+  border: 0 none !important
+  @include box-shadow(none)
+  @include border-radius(0)
+
+.chunky
+  font-family: 'ChunkFive', 'Open Sans', sans-serif
+  font-weight: normal !important
+  font-size: 32px
+  margin-bottom: 5px
+  color: #6DA800
+
+.syntaxhighlighter
+  padding: 10px 0
+  border: 1px solid #ddd
+  &:hover
+    border: 1px solid #2589ED
+    @include transition(all 150ms ease)
+
+      
+@media only screen and (max-width: $screenSmall )
+  #masthead
+    h1, h2, h3 
+      font-size: 230%
+    .eight.columns 
+      padding: 20px 0
+      text-align: center
+    .twelve.column, .twelve.columns, .mobile-four
+      padding: 0 !important
+      margin: 0 !important
+
+  #main-content
+    h1, h2, h3, h4, h5
+      font-size: 200%
+      
+  .spaceman
+    clear: both
+    min-height: 100px
+    max-height: 100px
+    height: 100px
+    
+  // Internet Explorer 8 Shits!
+  .lt-ie9
+    .modal-image
+      width: 612px !important
+      height: 612px !important
+    .reveal, .reveal.large
+      width: 780px !important
+      height: 780px !important
+    .stats
+      background: #fff !important
