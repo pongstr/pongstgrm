@@ -1,4 +1,4 @@
-Pongstagr.am - jQuery Instagram Plugin v2.0.30
+Pongstagr.am - jQuery Instagram Plugin v2.0.33
 ==============================================
 by Pongstr [twiz.tickler@gmail.com | www.pongstr.com ]
 Free to use, Code license under Apache v2.0
@@ -55,7 +55,7 @@ For the most part, Instagram’s API only requires the use of a client_id. A cli
         feed  : displays the media uploaded by the people you follow.
         liked : displays the media you liked.
   
-  ### More Options
+  ## More Options
   
   * count - is an integer value, options range from 1(minimum value) to 40(maximum value),
             by default, instagram only lets you display 40 photos, you may use the 'pager'
@@ -69,16 +69,16 @@ For the most part, Instagram’s API only requires the use of a client_id. A cli
   * pager - true or false value. enable/disable the button that paginates or loads
             more images that were uploaded by you or the people you are following.
             
-  Example of the plugin's full use:
+  ## Example of the plugin's full use:
   
-    - $('div#selector').pongstgrm({
-         user_id      : 'your_user_id_goes_here',
-         access_token : 'your.access.token.goes.here',
-         show         : 12,
-         resolution   : 'standard_resolution',
-         pager        : true
-      });
+  - $('div#selector').pongstgrm({
+       user_id      : 'your_user_id_goes_here',
+       access_token : 'your.access.token.goes.here',
+       show         : 12,
+       resolution   : 'standard_resolution',
+       pager        : true
+    });
     
-    - unfortunately, you'll have to declare your user_id and access_token everytime
-      you call on the plugin. This plugin is open-sourced so if you'd like to make
-      improvements you may do so by forking it on Github: https://github.com/pongstr/pongstagr.am
+unfortunately, you'll have to declare your user_id and access_token everytime
+you call on the plugin. This plugin is open-sourced so if you'd like to make
+improvements you may do so by forking it on Github: https://github.com/pongstr/pongstagr.am
