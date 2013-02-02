@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+
+  <title>Pongstagr.am - Instagram jQuery Plugin</title>
+  <meta name="description" content="Pongstagr.am - Instagram jQuery Plugin.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body style="padding-bottom: 60px;">
+  
+  <header class="row">
+    <div class="six columns" style="min-height: 100px;height: 100px;">
+        <h1 class="chunky" style="font-size:42px;margin: 0;padding:0;line-height:1;"><a href="http://pongstr.com/projects/pongstagr.am/">Pongstagr.am</a></h1>
+        <h2 class="subheading" style="font-size: 22px;margin: 0;padding:0;line-height:1;">Instagram jQuery Plugin <small>v2.0</small></h2>
+    </div>
+    <div class="six columns" style="padding-top: 10px; min-height: 60px;height: 60px;text-align:right;">
+      <a href="https://github.com/pongstr/pongstagr.am/archive/master.zip" title="Download Stable v2.0.32 from GitHub" class="large button success">Download <br /><small class="subheading">Get it from Github v2.0.32</small></a>
+    </div>
+    <hr />
+  </header>
+  
+  <div class="row">
+    <!-- Recent Media -->
+    <h4 class="chunky">Example: Recent Media</h4>
+    <div id="recent-media" class="twelve columns gallery"></div>
+  </div>
+
+  <div class="row">    
+    <!-- User Likes -->
+    <h4 class="chunky">Example: User Likes</h4>
+    <div id="user-likes" class="twelve columns gallery"></div>
+  </div>
+  
+  <div class="row">    
+    <!-- User Feed -->
+    <h4 class="chunky">Example: User Feed</h4>
+    <div id="user-feed" class="twelve columns gallery"></div>
+    
+  </div><!-- end of .row -->
+
+  <!-- jQuery CDN with fallback -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/library/jquery-1.9.0.min.js"><\/script>')</script>
+  
+  <!-- jQuery plugins -->
+  <script src="js/jquery.foundation.reveal.js"></script>
+  <script src="js/pongstagr.am.min.js"></script>
+  <script>
+    $(document).ready(function(){
+
+      var insta_id = 39666111;
+          insta_token = '39666111.1fb234f.c3901000b4944a549fd5fd2310c63780';
+      
+      // Demo Recent Media
+      $('#recent-media').pongstgrm({
+        user_id      : insta_id,
+        access_token : insta_token,
+        count: 8
+      });
+      
+      // Demo User Feed
+      $('#user-feed').pongstgrm({
+        user_id      : insta_id,
+        access_token : insta_token,
+        show : 'feed',
+        count: 4,
+        pager: false
+      });  
+      
+      // Demo User Likes
+      $('#user-likes').pongstgrm({
+        user_id      : insta_id,
+        access_token : insta_token,
+        show : 'liked',
+        count: 4,
+        resolution: 'low_resolution'
+      });
+      
+    });
+  </script>
+      
+  <script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37214026-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+  <div style="width: 100%; position: fixed; left: 0; bottom: 0; border-top: 1px solid #ddd; background: #f4f4f4; margin: 0; padding: 10px 5px; text-align: center;">
+    <div class="twelve columns aligncenter">
+      <small style="font-size: 11px; color: #666;"><strong>Pongstagrm</strong> - jQuery Plugin. &copy; Copyright 2012-2013 Pongstr Ordillo. Code license under <a href="http://www.apache.org/licenses/LICENSE-2.0" title="Apache v2.0 License">Apache v2.0</a> &nbsp; | &nbsp; <a href="http://www.zurb.com/playground/reveal-modal-plugin" title="Reveal jQuery Modal Plugin">Reveal jQuery Modal Plugin</a> by Zurb.</small>
+    </div>
+  </div>
+</body>
+</html>  
+  
