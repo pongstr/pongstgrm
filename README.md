@@ -1,65 +1,84 @@
-Pongstagr.am - jQuery Instagram Plugin v1.0
+Pongstagr.am - jQuery Instagram Plugin v2.0.30a
 ===========================================
 by Pongstr [twiz.tickler@gmail.com | www.pongstr.com ]
-Free to use under the MIT license.
-http://www.opensource.org/licenses/mit-license.php
+Free to use under Code license under Apache v2.0
+http://www.apache.org/licenses/LICENSE-2.0
 
 Pongstagr.am is a jQuery plugin that lets you display your Instagram photos to your website.
-It uses Instagram API and Zurb's Reveal Modal.
 
-## Demo Here: http://pongstr.com/projects/pongstagr.am/ ##
-
-## How to Use ##
-
- + Step 1: Open the file js/pongstagr.am.js and begin modifying values on line: 31
-
-           If you have zero idea what your user id is, you may head to this link
-           http://jelled.com/instagram/lookup-user-id 
-
-           e.g.,  user_id  =  "39666111";
-
- + Step 2: On Line: 42, add your Instagram Accesss Token
-
-           If you have zero idea what your access token is, you may head to this
-           link: http://jelled.com/instagram/access-token make sure you follow 
-           the instructions on the " How do I get my client id?" link.
-
-           e.g., access_token = "39666111.1fb234f.c3901000b4944a549fd5fd2310c63780";
-
- + Step 3: On Line: 52, you must set how many pictures you would like to display. This also 
-           depends on how many pictures you have in your instagram account.
-
-           e.g., display_count = "200"; 
-
- + Step 4: On Line: 62, you may set your Target Placeholder. This is the Target 
-           selector of your div in your html where the images will appear. 
-           You must include the '#' or '.' before the selector name.
-
-           e.g., placeholder = "#instagram";
-
- + Step 5: On Line: 74, you may set each image's container css class. This is the selector 
-           where each image and image info will be placed this must be a pseudo selector 
-           ( it will be a wrong markup if it was an ID selector), No need to include 
-           the '.' at the beginning of the selector name. 
-
-           e.g.,   divClass = "imageBlock";
-
- + Step 6: On Line: 84, you may decide whether or not to display your Instagram user info,
-           by setting the value 'True' or 'False'.
-
-           e.g., displayUserInfo = true;
-
-
-And that's it! You're all set. You may change the stylesheet ( css/style.css ), anyway you
-want, if you'd like to extend it further just start playing on Line: 87
-
-
-### Special Thanks to: ### 
- + Benjamin Bjurstrom [ http://jelled.com/ ] for providing awesome tools to get your Instagram ID and Access Tokens
- + GAPiangco          [ http://www.gapiangco.com/ ] for the Javascript assistance.
-
-I'm still learning about Javascript and jQuery and this is my first time to publish my 
-work for public use, so I may learn how to do things the right way and improve on these. 
-Thanks a lot! Cheers!
-
-
+## Requirements: Instagram Authentication
+For the most part, Instagram’s API only requires the use of a client_id. A client_id simply associates your server, script, or program with a specific application. However, some requests require authentication - specifically requests made on behalf of a user. Authenticated requests require an access_token. These tokens are unique to a user and should be stored securely. Access tokens may expire at any time in the future. more here: http://instagram.com/developer/authentication/
+  
+  1. jQuery 1.8+, the plugin should also work with 1.4+ but it's not tested.
+  
+  2. Zurb's Reveal Modal Plugin to display Image details, comments and likes when
+     a thumbnail is clicked. Pongstagr.am works best if you are using Zurb's 
+     Foundation front-end framework. Get it here: http://foundation.zurb.com/ 
+  
+  3. User ID
+     - If you have zero idea what your user id is, you may head to this link:
+       http://jelled.com/instagram/lookup-user-id 
+  
+  4. Access Token
+     - If you have zero idea what your access token is, you may head to this
+       link: http://jelled.com/instagram/access-token make sure you follow 
+       the instructions on the " How do I get my client id?" link. 
+       
+  ## How to use the plugin. Super easy, here's how:
+  
+    ### jQuery must be initialised first and so as the plugin:
+    
+    - <script src='//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'></script>
+      <script src='path/to/js/foundation.reveal.js'></script>
+      <script src='path/to/js/pongstagr.am.js'></script>
+      
+      * and that's it! all we need now is the plugin, you may continue reading :)
+  
+    - $('div#selector').pongstgrm({
+         user_id      : 'your_user_id_goes_here',
+         access_token : 'your.access.token.goes.here'
+      });
+      
+      * this vanilla call to the plugin will display the recent media you've uploaded.
+      
+    - $('div#selector').pongstgrm({
+        user_id      : insta_id,
+        access_token : insta_token,
+        show         : 'feed'       // options: 'recent', 'feed' or  'liked'
+      }); 
+      
+      * this call will display your instagram feed, these are the images that
+        had been uploaded by the people you are following.
+        
+      * the available options are: 'recent', 'feed' or 'liked'.
+        recent: displays your recent instagram media.
+        feed  : displays the media uploaded by the people you follow.
+        liked : displays the media you liked.
+  
+  ### More Options
+  
+  * count - is an integer value, options range from 1(minimum value) to 40(maximum value),
+            by default, instagram only lets you display 40 photos, you may use the 'pager'
+            option to enable pagination or the 'load more' button.
+            
+  * resoultion - is a string value, it lets you choose the big image's resolution 
+                 if this option is not set, it displays the standard resolution. available options are: 
+                 'low_resoulution' which is 306 x 306 (width x height)
+                 'standard_resolution' which is 612 x 612 (width x height)
+                 
+  * pager - true or false value. enable/disable the button that paginates or loads
+            more images that were uploaded by you or the people you are following.
+            
+  Example of the plugin's full use:
+  
+    - $('div#selector').pongstgrm({
+         user_id      : 'your_user_id_goes_here',
+         access_token : 'your.access.token.goes.here',
+         show         : 12,
+         resolution   : 'standard_resolution',
+         pager        : true
+      });
+    
+    - unfortunately, you'll have to declare your user_id and access_token everytime
+      you call on the plugin. This plugin is open-sourced so if you'd like to make
+      improvements you may do so by forking it on Github: https://github.com/pongstr/pongstagr.am
