@@ -1,10 +1,8 @@
 
 .DS_Store
 .sass-cache
-pongsatgrm.md
-test.html
 
-#
+# ignore foundation stuff & modules
 assets/js/foundation/
 assets/img/foundation/
 assets/css/modules/
