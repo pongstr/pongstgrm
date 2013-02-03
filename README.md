@@ -7,7 +7,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 Pongstagr.am is a jQuery plugin that lets you display your Instagram photos to your website.
 
 ## Requirements: Instagram Authentication
-For the most part, Instagram’s API only requires the use of a client_id. A client_id simply associates your server, script, or program with a specific application. However, some requests require authentication - specifically requests made on behalf of a user. Authenticated requests require an access_token. These tokens are unique to a user and should be stored securely. Access tokens may expire at any time in the future. more here: http://instagram.com/developer/authentication/
+For the most part, Instagram's API only requires the use of a client_id. A client_id simply associates your server, script, or program with a specific application. However, some requests require authentication - specifically requests made on behalf of a user. Authenticated requests require an access_token. These tokens are unique to a user and should be stored securely. Access tokens may expire at any time in the future. more here: http://instagram.com/developer/authentication/
   
   1. jQuery 1.8+, the plugin should also work with 1.4+ but it's not tested.
   
@@ -24,39 +24,40 @@ For the most part, Instagram’s API only requires the use of a client_id. A cli
        link: http://jelled.com/instagram/access-token make sure you follow 
        the instructions on the " How do I get my client id?" link. 
        
-  ## How to use the plugin. Super easy, here's how:
-  
-    ### jQuery must be initialised first and so as the plugin:
-    
-    - <script src='//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'></script>
-      <script src='path/to/js/foundation.reveal.js'></script>
-      <script src='path/to/js/pongstagr.am.js'></script>
+## How to use the plugin. Super easy, here's how:
+
+### jQuery must be initialised first and so as the plugin:
+
+    <script src='//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'></script>
+    <script src='path/to/js/foundation.reveal.js'></script>
+    <script src='path/to/js/pongstagr.am.js'></script>
       
-      * and that's it! all we need now is the plugin, you may continue reading :)
-  
-    - $('div#selector').pongstgrm({
-         user_id      : 'your_user_id_goes_here',
-         access_token : 'your.access.token.goes.here'
-      });
+and that's it! all we need now is a call to the plugin, you may continue reading :)
+
+    $('div#selector').pongstgrm({
+       user_id      : 'your_user_id_goes_here',
+       access_token : 'your.access.token.goes.here'
+    });
+
+this vanilla call to the plugin will display the recent media you've uploaded.
+
       
-      * this vanilla call to the plugin will display the recent media you've uploaded.
-      
-    - $('div#selector').pongstgrm({
-        user_id      : insta_id,
-        access_token : insta_token,
-        show         : 'feed'       // options: 'recent', 'feed' or  'liked'
-      }); 
-      
-      * this call will display your instagram feed, these are the images that
-        had been uploaded by the people you are following.
-        
-      * the available options are: 'recent', 'feed' or 'liked'.
-        recent: displays your recent instagram media.
-        feed  : displays the media uploaded by the people you follow.
-        liked : displays the media you liked.
+    $('div#selector').pongstgrm({
+      user_id      : insta_id,
+      access_token : insta_token,
+      show         : 'feed'       // options: 'recent', 'feed' or  'liked'
+    }); 
   
-  ## More Options
-  
+this call will display your instagram feed, these are the images that
+had been uploaded by the people you are following.
+
+the available options are: 'recent', 'feed' or 'liked'.
+ * recent: displays your recent instagram media.
+ * feed  : displays the media uploaded by the people you follow.
+ * liked : displays the media you liked.
+
+## More Options
+
   * count - is an integer value, options range from 1(minimum value) to 40(maximum value),
             by default, instagram only lets you display 40 photos, you may use the 'pager'
             option to enable pagination or the 'load more' button.
@@ -69,9 +70,9 @@ For the most part, Instagram’s API only requires the use of a client_id. A cli
   * pager - true or false value. enable/disable the button that paginates or loads
             more images that were uploaded by you or the people you are following.
             
-  ## Example of the plugin's full use:
-  
-  - $('div#selector').pongstgrm({
+## Example of the plugin's full use:
+
+    $('div#selector').pongstgrm({
        user_id      : 'your_user_id_goes_here',
        access_token : 'your.access.token.goes.here',
        show         : 12,
@@ -81,4 +82,4 @@ For the most part, Instagram’s API only requires the use of a client_id. A cli
     
 unfortunately, you'll have to declare your user_id and access_token everytime
 you call on the plugin. This plugin is open-sourced so if you'd like to make
-improvements you may do so by forking it on Github: https://github.com/pongstr/pongstagr.am
+improvements you may do so by forking it here. :)

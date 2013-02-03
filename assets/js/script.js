@@ -39,7 +39,7 @@ $(window).load(function(){
     user_id      : insta_id,
     access_token : insta_token,
     show : 'feed',
-    count: 4,
+    count: 5,
     pager: false
   });  
   
