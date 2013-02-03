@@ -15,14 +15,12 @@ For the most part, Instagram's API only requires the use of a client_id. A clien
      a thumbnail is clicked. Pongstagr.am works best if you are using Zurb's 
      Foundation front-end framework. Get it here: http://foundation.zurb.com/ 
   
-  3. User ID
-     - If you have zero idea what your user id is, you may head to this link:
-       http://jelled.com/instagram/lookup-user-id 
+  3. User ID - If you have zero idea what your user id is, you may head to this 
+     link:http://jelled.com/instagram/lookup-user-id 
   
-  4. Access Token
-     - If you have zero idea what your access token is, you may head to this
-       link: http://jelled.com/instagram/access-token make sure you follow 
-       the instructions on the " How do I get my client id?" link. 
+  4. Access Token - If you have zero idea what your access token is, you may head to this
+     link: http://jelled.com/instagram/access-token make sure you follow the instructions 
+     on the " How do I get my client id?" link. 
        
 ## How to use the plugin. Super easy, here's how:
 
