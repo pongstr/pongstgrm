@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+
+  <title>Pongstagr.am Tests</title>
+  <meta name="description" content="">
+
+  <!-- Mobile viewport optimized: h5bp.com/viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+
+</head>
+<body>
+  
+  <div id="recent-media"></div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="pongstagr.am.js"></script>
+  <script>
+    $(window).load(function(){
+      
+      var $instaId    = '39666111',
+          $instaToken = '39666111.1fb234f.c3901000b4944a549fd5fd2310c63780';
+      
+      // Demo Recent Media
+      $('#recent-media').pongstgrm({
+        accessId: $instaId,
+        accessToken: $instaToken
+      });
+            
+    });
+  </script>    
+
+</body>
+</html> 
+  
