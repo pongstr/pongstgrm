@@ -22,12 +22,12 @@
 
 // Base modal
 .modal {
-  position: fixed;
+  position: absolute;
   top: 10%;
   left: 50%;
   z-index: @zindexModal;
-  width: 560px;
-  margin-left: -280px;
+  width: 780px;
+  margin-left: -360px;
   background-color: @white;
   border: 1px solid #999;
   border: 1px solid rgba(0,0,0,.3);
@@ -40,7 +40,7 @@
 
   &.fade {
     .transition(e('opacity .1s linear, top .1s ease-out'));
-    top: -25%;
+    top: -10%;
   }
   &.fade.in { top: 10%; }
 }
@@ -60,7 +60,7 @@
 .modal-body {
   position: relative;
   overflow-y: auto;
-  max-height: 400px;
+  max-height: 650px;
   padding: 15px;
 }
 // Remove bottom margin if need be

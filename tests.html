@@ -11,7 +11,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 
 
-  <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="bootstrap/css/style.css">
+  <style type="text/css">
+  
+    *:focus { outline: 0 none !important; }
+  
+    .thumbnails > li { position: relative; }
+    .thumbnails > li img { width: 100%; height: auto; }
+    
+    .modal-header { position: relative; }
+    .modal-header .close { position: absolute; top: 0; right: 10px; }
+  
+    .btn-likes, .btn-comments { font-weight: bold; position: absolute; bottom: 15px; }
+    .btn-likes    { left: 15px; }
+    .btn-comments { right: 15px; }
+  
+  </style>
 
 </head>
 <body>
@@ -22,6 +37,7 @@
   <script>window.jQuery || document.write('<script src="bootstrap/js/jquery.js"><\/script>')</script>
     
   <script src="pongstagr.am.js"></script>
+  <script src="bootstrap/js/bootstrap.js"></script>
   <script>
     $(window).load(function(){
       
@@ -32,7 +48,8 @@
       $('#recent-media').pongstgrm({
         accessId: $instaId,
         accessToken: $instaToken,
-        count: 4
+        count: 20,
+        show: 'liked'
       });
             
     });

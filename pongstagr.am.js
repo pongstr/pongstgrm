@@ -15,12 +15,45 @@
   function renderHTML( targetElement, request ){
     var galleryList      = '<ul class="thumbnails"></ul>',
         galleryContainer = '<div class="row-fluid">' + galleryList + '</div>',
-        paginateBtn      = '<div class="row-fluid"><a href="#" data-paginate="'+ request +'-pages" class="span6 offset3 btn btn-large btn-block btn-success">Load More</a></div>';
+        paginateBtn      = '<div class="row-fluid"><a href="javascript:void(0);" data-paginate="'+ request +'-pages" class="span4 offset4 btn btn-large btn-block btn-success">Load More</a></div>';
 
     $( targetElement ).append( galleryContainer );  
     $( targetElement ).after( paginateBtn );  
   }
   
+  function renderModal( imageId, imageTitle, imageUrl, imgUser, comments ){
+
+    var modal  = '<div id="' + imageId + '" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">';
+        modal += '<div class="modal-header">';
+        modal += '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>';
+        modal += '<div class="row-fluid">';
+        modal += '<div class="span1"><img src="' + imgUser + '" alt="" class="img-polaroid" style="width: 32px; height: 32px; margin-right: 10px; vertical-align: middle;" /></div>';
+        modal += '<div class="span11"><strong>' + imageTitle + '</strong></div>';
+        modal += '</div><!-- end of .row-fluid -->';
+        modal += '</div><!-- end of .modal-header -->';
+        modal += '<div class="modal-body">';
+        modal += '<div class="row-fluid">';
+    
+    if ( comments !== 0 ) {
+        modal += '<div class="span7"><img src="' + imageUrl +'" alt="' + imageTitle + '" class="img-polaroid" /><br /></div>';
+        modal += '<div id="modalComments" class="span5"></div>';
+      } else {
+        modal += '<div class="span10 offset1"><img src="' + imageUrl +'" alt="' + imageTitle + '" class="img-polaroid" /><br /></div>';
+    }
+        modal += '</div><!-- end of .modal-fluid -->';
+        modal += '</div><!-- end of .modal-body -->';
+        modal += '<div class="modal-footer">';
+        modal += '<button class="btn btn-inverse btn-mini" data-dismiss="modal" aria-hidden="true">Close</button>';
+        modal += '</div><!-- end of .modal-footer -->';
+        modal += '</div><!-- end of .modal -->';
+                
+    $('body').append( modal ); // Append modal window to body 
+    $('#' + imageId ).on('hidden', function(){
+      $(this).remove();
+      $('body').removeAttr('style');
+    });
+    
+  }
 
   function ajaxRequest( endpoint ){
     $.ajax({
@@ -30,38 +63,76 @@
       dataType : "jsonp"  ,
       success  : function(data){
         
-        $.each( data.data, function( key, value){
+        $.each( data.data, function( key, value ){
 
           var thumbnail  = value.images.low_resolution.url, 
-          // ( value.images.standard_resolution.url ) ? value.images.standard_resolution.url : value.images.low_resolution.url,
-              caption    = ( value.caption !== null ) ? ( value.caption.text !== null ) ? value.caption.text : '' : value.user.username,
-              nextUrl    = data.pagination.next_url,
-              // comments   = ( value.comments.count   ) ? value.comments.count : '0',
+              // ( value.images.standard_resolution.url ) ? value.images.standard_resolution.url : value.images.low_resolution.url,
+              imgCaption = ( value.caption !== null ) ? ( value.caption.text !== null ) ? value.caption.text : '' : value.user.username,
+              comments   = ( value.comments.count !== null ) ? value.comments.count : '0',
+              likes      = ( value.likes.count !== null ) ? value.comments.count : '0',
+              imageUrl   = value.images.standard_resolution.url,
+              imageId    = value.id,
+              imgUser    = value.user.profile_picture;
+                            
+          var thumbBlock  = '<li class="span3">';
+              thumbBlock += '<div class="thumbnail">';
+              thumbBlock += '<a href="#" class="btn btn-mini btn-info btn-likes"><i class="icon-heart icon-white"></i> &nbsp;' + likes + '</a>';
+              thumbBlock += '<a href="#" class="btn btn-mini btn-info btn-comments"><i class="icon-comment icon-white"></i> &nbsp;' + comments + '</a>';
+              thumbBlock += '<a href="#" role="button" data-toggle="modal" data-reveal-id="' + imageId + '"><img src="' + thumbnail + '" alt="' + imgCaption + '" /></a>';
+              thumbBlock += '</div>';
+              thumbBlock += '</li>';
               
-              thumbBlock  = '<li class="span3"><div class="thumbnail">';
-              thumbBlock += '<img src="' + thumbnail + '" alt="' + caption + '" />';
-              thumbBlock += '</div></li>';
               
           $('.thumbnails').append( thumbBlock );
           
+          $('[data-reveal-id="' + imageId + '"]').click(function(){
+            
+            // add padding to body to be able to scroll
+            var modalHeight = $('body').height(); 
+            
+                $('.modal').attr('id', imageId );
+                $('body').css({ 'padding-bottom' : modalHeight * 1.5 });
+            
+            renderModal( imageId, imgCaption, imageUrl, imgUser, comments );
+            
+            $.each( value.comments.data, function( group, key ){
+              
+              var commentBlock  = '<div class="row-fluid">';
+                  commentBlock += '<div class="span2"><img src="' + key.from.profile_picture + '" style="width: 36px; height: 36px; margin-right: 10px; vertical-align: middle;" class="img-polaroid" /></div>';
+                  commentBlock += '<div class="span10">';
+                  commentBlock += '<a href="http://www.instagram.com/' + key.from.username + '"><strong>' + key.from.username + '</strong></a><br />';
+                  commentBlock += key.text;
+                  commentBlock += '</div>';
+                  commentBlock += '</div><!-- end of .row-fluid -->';
+              
+              $('#modalComments').append(commentBlock);
+              
+            });            
+            
+            // fire modal window
+            $('#' + imageId ).modal();
+            
+          });
         });
-        
+        // 
         paginate( data.pagination.next_url );
       }
     });
   }
 
   function paginate( nextUrl ){
-    if ( nextUrl !== undefined || nextUrl !== null ) {
-      $('.btn').click(function(event){
-        
-        ajaxRequest( nextUrl ); // Load Succeeding Pages.
-        
-       $(this).unbind(event);   // Unbind all attached events.
+    if ( nextUrl === undefined || nextUrl === null ) {
+      $('.btn').click(function(e){
+        e.preventDefault();
+        $(this)
+          .removeClass('btn-success')
+          .addClass('disabled btn-secondary');
       });
     } else {
-      $('.btn').click(function(){
-        
+      $('.btn').click(function(event){
+        event.preventDefault();
+          ajaxRequest( nextUrl );  // Load Succeeding Pages.
+          $(this).unbind(event);   // Unbind all attached events.
       });
     }
   }
@@ -91,6 +162,7 @@
           ajaxRequest( $feedMedia );
     }
     renderHTML( targetElement, loadBtnData );
+    // renderModal();
   }
 
   function accessDetails( accessID, accessToken ){
