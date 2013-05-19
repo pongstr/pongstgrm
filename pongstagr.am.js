@@ -1,11 +1,10 @@
 /*!
  * jQuery Pongstagr.am Plugin 
- * Examples and documentation at: http://pongstr.com/projects/pongstagr.am
  * Copyright (c) 2013 Pongstr Ordillo
- * Version: 2.0.32
+ * Version: 2.0.5
  * Code license under Apache License v2.0
  * http://www.apache.org/licenses/LICENSE-2.0
- * Requires: jQuery v1.8 and Reveal Plugin
+ * Requires: jQuery v1.9 and Bootstrap JS
  */
 
 ;(function ($, window, document, undefined){

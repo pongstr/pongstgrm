@@ -18,7 +18,7 @@ http://www.apache.org/licenses/LICENSE-2.0
      link: http://jelled.com/instagram/access-token make sure you follow the instructions 
      on the " How do I get my client id?" link. 
 
-### ```jQuery``` must be initialised first and so as ```bootstrap-modal.js``` plugin:
+ ```jQuery``` ***must be initialised first and so as*** ```bootstrap-modal.js``` plugin:
 
   ```html
   <script src='//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
@@ -63,3 +63,9 @@ http://www.apache.org/licenses/LICENSE-2.0
     });
   </script>
   ```
+
+  ***Some Notes:***
+  In order to add the nice smooth transitions to the modal boxes, you may add
+  ```bootstrap-transition.js``` before ```bootstrap-modal.js``` or you may just
+  use the entire plugin included in Bootstrap v2.3.2 by replacing it with 
+  ```bootstrap.js or bootstrap.min.js```
