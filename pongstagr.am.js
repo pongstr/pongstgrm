@@ -21,14 +21,14 @@
     $( targetElement ).after( paginateBtn );  
   }
   
-  function renderModal( imageId, imageTitle, imageUrl, imgUser, comments ){
+  function renderModal( imageOwner, imageId, imageTitle, imageUrl, imgUser, comments ){
 
     var modal  = '<div id="' + imageId + '" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">';
         modal += '<div class="modal-header">';
         modal += '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>';
         modal += '<div class="row-fluid">';
         modal += '<div class="span1"><img src="' + imgUser + '" alt="" class="img-polaroid" style="width: 32px; height: 32px; margin-right: 10px; vertical-align: middle;" /></div>';
-        modal += '<div class="span11"><strong>' + imageTitle + '</strong></div>';
+        modal += '<div class="span10"><strong><a href="http://www.instagram.com/' + imageOwner + '">' + imageOwner + '</a>&nbsp;' + imageTitle + '</strong></div>';
         modal += '</div><!-- end of .row-fluid -->';
         modal += '</div><!-- end of .modal-header -->';
         modal += '<div class="modal-body">';
@@ -36,7 +36,7 @@
     
     if ( comments !== 0 ) {
         modal += '<div class="span7"><img src="' + imageUrl +'" alt="' + imageTitle + '" class="img-polaroid" /><br /></div>';
-        modal += '<div id="modalComments" class="span5"></div>';
+        modal += '<div class="modal-comments span5"></div>';
       } else {
         modal += '<div class="span10 offset1"><img src="' + imageUrl +'" alt="' + imageTitle + '" class="img-polaroid" /><br /></div>';
     }
@@ -72,7 +72,8 @@
               likes      = ( value.likes.count !== null ) ? value.comments.count : '0',
               imageUrl   = value.images.standard_resolution.url,
               imageId    = value.id,
-              imgUser    = value.user.profile_picture;
+              imgUser    = value.user.profile_picture,
+              imageOwner = value.user.username;
                             
           var thumbBlock  = '<li class="span3">';
               thumbBlock += '<div class="thumbnail">';
@@ -93,19 +94,19 @@
                 $('.modal').attr('id', imageId );
                 $('body').css({ 'padding-bottom' : modalHeight * 1.5 });
             
-            renderModal( imageId, imgCaption, imageUrl, imgUser, comments );
+            renderModal( imageOwner, imageId, imgCaption, imageUrl, imgUser, comments );
             
             $.each( value.comments.data, function( group, key ){
               
               var commentBlock  = '<div class="row-fluid">';
                   commentBlock += '<div class="span2"><img src="' + key.from.profile_picture + '" style="width: 36px; height: 36px; margin-right: 10px; vertical-align: middle;" class="img-polaroid" /></div>';
-                  commentBlock += '<div class="span10">';
+                  commentBlock += '<div class="span9 offset1">';
                   commentBlock += '<a href="http://www.instagram.com/' + key.from.username + '"><strong>' + key.from.username + '</strong></a><br />';
                   commentBlock += key.text;
                   commentBlock += '</div>';
                   commentBlock += '</div><!-- end of .row-fluid -->';
               
-              $('#modalComments').append(commentBlock);
+              $('.modal-comments').append(commentBlock);
               
             });            
             

@@ -10,4 +10,74 @@
 // Remove outline on focused stuff
 *:focus { outline: 0 none !important; }
 
-//
+// Modals
+.modal {
+  width: 790px;
+  margin-left: -395px;
+  position: absolute;
+  
+  &.fade {
+    .transition(e('opacity .1s linear, top .1s ease-out'));
+    top: -10%;
+  }
+  &.fade.in { top: 10%; } 
+
+  .modal-header { 
+    position: relative;
+    .close { 
+      position: absolute; 
+      top: 0; 
+      right: 10px; 
+    }
+  }
+  
+  .modal-body { max-height: 620px; }
+  
+  .modal-comments > .row-fluid {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    
+    &:nth-of-type(odd)  { background-color: #f4f4f4; }
+    &:nth-of-type(even) { background-color: #fff; }
+  }
+  
+}
+
+// Thumbnails
+.thumbnails > li {
+  padding: 6px;
+  cursor: pointer;
+  .box-sizing(border-box);
+  .transition(all 100ms linear);
+  
+  .thumbnail {
+    position: relative;
+    &:hover {
+      border: 1px solid lighten(@linkColor,30%);
+      .transition(all 100ms linear);
+      .box-shadow(0 0 10px lighten(@grayLight,10%));
+    }
+
+    &:active {
+      border: 1px solid lighten(@linkColor,10%);
+      .transition(all 100ms linear);
+      .box-shadow(0 0 5px lighten(@grayLight,2%));
+    }    
+  }
+  
+  &.span2:nth-child(6n+1),
+  &.span3:nth-child(4n+1),
+  &.span4:nth-child(3n+1),
+  &.span6:nth-child(2n+3) { margin-left: 0 !important; }
+  
+  > img { width: 100%; height: auto; }
+  
+  .btn-likes, .btn-comments {
+    font-weight: bold; 
+    position: absolute; 
+    bottom: 18px;
+  }
+  .btn-likes    { left: 15px; }
+  .btn-comments { right: 15px; }
+}
