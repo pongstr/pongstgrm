@@ -1,8 +1,2 @@
 
 .DS_Store
-.sass-cache
-
-# ignore foundation stuff & modules
-assets/js/foundation/
-assets/img/foundation/
-assets/css/modules/
