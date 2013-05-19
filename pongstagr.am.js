@@ -12,13 +12,17 @@
   
   "use strict";
   
-  function renderHTML( targetElement, request ){
+  function renderHTML( targetElement, request, pager ){
     var galleryList      = '<ul class="thumbnails"></ul>',
         galleryContainer = '<div class="row-fluid">' + galleryList + '</div>',
         paginateBtn      = '<div class="row-fluid"><a href="javascript:void(0);" data-paginate="'+ request +'-pages" class="span4 offset4 btn btn-large btn-block btn-success">Load More</a></div>';
 
-    $( targetElement ).append( galleryContainer );  
-    $( targetElement ).after( paginateBtn );  
+    $( targetElement ).append( galleryContainer ); 
+    
+    if ( pager === null || pager === true ){
+      $( targetElement ).after( paginateBtn );
+    }
+      
   }
   
   function renderModal( imageOwner, imageId, imageTitle, imageUrl, imgUser, comments ){
@@ -47,7 +51,8 @@
         modal += '</div><!-- end of .modal-footer -->';
         modal += '</div><!-- end of .modal -->';
                 
-    $('body').append( modal ); // Append modal window to body 
+    $('body').append( modal ); //*! Append modal window to body 
+    
     $('#' + imageId ).on('hidden', function(){
       $(this).remove();
       $('body').removeAttr('style');
@@ -66,7 +71,6 @@
         $.each( data.data, function( key, value ){
 
           var thumbnail  = value.images.low_resolution.url, 
-              // ( value.images.standard_resolution.url ) ? value.images.standard_resolution.url : value.images.low_resolution.url,
               imgCaption = ( value.caption !== null ) ? ( value.caption.text !== null ) ? value.caption.text : '' : value.user.username,
               comments   = ( value.comments.count !== null ) ? value.comments.count : '0',
               likes      = ( value.likes.count !== null ) ? value.comments.count : '0',
@@ -107,16 +111,14 @@
                   commentBlock += '</div><!-- end of .row-fluid -->';
               
               $('.modal-comments').append(commentBlock);
-              
             });            
-            
-            // fire modal window
-            $('#' + imageId ).modal();
+
+            $('#' + imageId ).modal(); //*! fire modal window
             
           });
         });
-        // 
-        paginate( data.pagination.next_url );
+
+        paginate( data.pagination.next_url ); //*! paginate through images
       }
     });
   }
@@ -132,13 +134,13 @@
     } else {
       $('.btn').click(function(event){
         event.preventDefault();
-          ajaxRequest( nextUrl );  // Load Succeeding Pages.
-          $(this).unbind(event);   // Unbind all attached events.
+          ajaxRequest( nextUrl );  //*! Load Succeeding Pages.
+          $(this).unbind(event);   //*! Unbind all attached events.
       });
     }
   }
   
-  function requestData ( request, count, accessID, accessToken, targetElement ){
+  function requestData ( request, count, accessID, accessToken, targetElement, pager ){
     var $apiRequest   = 'https://api.instagram.com/v1/users/',  
         $requestCount = ( count !== null ) ?  
           '?count=' +  count + '&access_token=' + accessToken :
@@ -162,8 +164,13 @@
           // Load User Feed
           ajaxRequest( $feedMedia );
     }
-    renderHTML( targetElement, loadBtnData );
-    // renderModal();
+    
+    if ( request === 'tag' ){
+      var $displayTag = $apiRequest 
+    }
+        
+    renderHTML( targetElement, loadBtnData, pager );
+
   }
 
   function accessDetails( accessID, accessToken ){
@@ -177,17 +184,21 @@
   }
 
   $.fn.pongstgrm = function( options ){
+    
+    if ( typeof callback == 'function'){
+      callback.call(this);
+    }
+    
     // Plugin Options
     var option  = $.extend({}, $.fn.pongstgrm.defaults, options);
     
     return this.each( function(i, element){
-      
       if ( accessDetails( option.accessId, option.accessToken ) !== false ){
-        requestData( option.show, option.count, option.accessId, option.accessToken, element );
-        
+        requestData( option.show, option.count, option.accessId, option.accessToken, element, option.pager );
       }
-      
     });  //*! end return this.each;
+  
+  
   };     //*! end $.fn.pongstagrm;
    
   // Pongstagram Default Options
@@ -202,7 +213,7 @@
     count        : null,    // integer, options: 1(min) - 40(max), instagram limits the maximum number of photos to 40
     resolution   : null,    // string,  options: 'low_resolution', 'standard_resolution'
     pager        : null     // boolean, options:  true or false (enables/disable load more button)
-
+    
   };
    
  })(jQuery, window, document);
