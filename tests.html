@@ -16,9 +16,11 @@
 </head>
 <body>
   
-  <div id="recent-media"></div>
+  <div id="recent-media" class="container" style="margin-top: 40px; margin-bottom: 25px;"></div>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="bootstrap/js/jquery.js"><\/script>')</script>
+    
   <script src="pongstagr.am.js"></script>
   <script>
     $(window).load(function(){
@@ -29,7 +31,8 @@
       // Demo Recent Media
       $('#recent-media').pongstgrm({
         accessId: $instaId,
-        accessToken: $instaToken
+        accessToken: $instaToken,
+        count: 4
       });
             
     });

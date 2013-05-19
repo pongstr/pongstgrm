@@ -21,17 +21,33 @@
   float: left; // Explicity set the float since we don't require .span* classes
   margin-bottom: @baseLineHeight;
   margin-left: @gridGutterWidth;
+  &.span2:nth-child(6n+1),
+  &.span3:nth-child(4n+1),
+  &.span4:nth-child(3n+1),
+  &.span6:nth-child(2n+3) { margin-left: 0 !important; } 
 }
 
 // The actual thumbnail (can be `a` or `div`)
 .thumbnail {
   display: block;
-  padding: 4px;
+  padding: 6px;
   line-height: @baseLineHeight;
   border: 1px solid #ddd;
+  cursor: pointer;
+  .box-sizing( border-box );
   .border-radius(@baseBorderRadius);
   .box-shadow(0 1px 3px rgba(0,0,0,.055));
-  .transition(all .2s ease-in-out);
+  .transition(all 100ms linear);
+  &:hover {
+    border: 1px solid lighten(@linkColor,30%);
+    .transition(all 100ms linear);
+    .box-shadow(0 0 10px lighten(@grayLight,10%));
+  }
+  &:active {
+    border: 1px solid lighten(@linkColor,10%);
+    .transition(all 100ms linear);
+    .box-shadow(0 0 5px lighten(@grayLight,2%));
+  }
 }
 // Add a hover/focus state for linked versions only
 a.thumbnail:hover,
