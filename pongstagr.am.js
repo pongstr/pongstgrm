@@ -41,7 +41,7 @@
         modal += '<div class="span7"><img src="' + imageUrl +'" alt="' + imageTitle + '" class="img-polaroid" /><br /></div>';
         modal += '<div class="modal-comments span5"></div>';
       } else {
-        modal += '<div class="span10 offset1"><img src="' + imageUrl +'" alt="' + imageTitle + '" class="img-polaroid" /><br /></div>';
+        modal += '<img src="' + imageUrl +'" alt="' + imageTitle + '" class="img-polaroid" />';
     }
         modal += '</div><!-- end of .modal-fluid -->';
         modal += '</div><!-- end of .modal-body -->';

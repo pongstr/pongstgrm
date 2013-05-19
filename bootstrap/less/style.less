@@ -12,8 +12,8 @@
 
 // Modals
 .modal {
-  width: 790px;
-  margin-left: -395px;
+  width: 612px;
+  margin-left: -306px;
   position: absolute;
   
   &.fade {
@@ -31,12 +31,20 @@
     }
   }
   
-  .modal-body { max-height: 620px; }
+  .modal-body { 
+    max-height: 620px;
+    > .row-fluid > .img-polaroid {
+      margin-left: -6px;
+    }
+  }
   
   .modal-comments > .row-fluid {
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 10px;
+    
+    font-size: 12px;
+    line-height: 1.5;
     
     &:nth-of-type(odd)  { background-color: #f4f4f4; }
     &:nth-of-type(even) { background-color: #fff; }
