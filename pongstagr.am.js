@@ -20,8 +20,7 @@
     
     if ( pager === null || pager === true ){
       $( targetElement ).after( paginateBtn );
-    }
-      
+    }      
   }
   
   function renderModal( imageOwner, imageId, imageTitle, imageUrl, imgUser, comments ){
@@ -56,17 +55,18 @@
       $(this).remove();
       $('body').removeAttr('style');
     });
-    
   }
 
-  function ajaxRequest( endpoint ){
+  function ajaxRequest( endpoint, targetElement ){
     $.ajax({
       method   : "GET"    ,
       url      : endpoint ,
       cache    : true     ,
       dataType : "jsonp"  ,
       success  : function(data){
-        
+
+      var injectTo = '#' + $(targetElement).attr('id');    
+                
         $.each( data.data, function( key, value ){
 
           var thumbnail  = value.images.low_resolution.url, 
@@ -85,9 +85,8 @@
               thumbBlock += '<a href="#" role="button" data-toggle="modal" data-reveal-id="' + imageId + '"><img src="' + thumbnail + '" alt="' + imgCaption + '" /></a>';
               thumbBlock += '</div>';
               thumbBlock += '</li>';
-              
-              
-          $('.thumbnails').append( thumbBlock );
+                        
+          $( injectTo + ' .thumbnails' ).append( thumbBlock );
           
           $('[data-reveal-id="' + imageId + '"]').click(function(){
             
@@ -117,12 +116,12 @@
           });
         });
 
-        paginate( data.pagination.next_url ); //*! paginate through images
+        paginate( data.pagination.next_url, injectTo ); //*! paginate through images
       }
     });
   }
 
-  function paginate( nextUrl ){
+  function paginate( nextUrl, targetElement ){
     if ( nextUrl === undefined || nextUrl === null ) {
       $('.btn').click(function(e){
         e.preventDefault();
@@ -133,7 +132,7 @@
     } else {
       $('.btn').click(function(event){
         event.preventDefault();
-          ajaxRequest( nextUrl );  //*! Load Succeeding Pages.
+          ajaxRequest( nextUrl, targetElement );  //*! Load Succeeding Pages.
           $(this).unbind(event);   //*! Unbind all attached events.
       });
     }
@@ -149,27 +148,22 @@
     if ( request === null || request === 'recent' ){
       var $recentMedia = $apiRequest + accessID + '/media/recent' + $requestCount; 
           // Load Recent Media
-          ajaxRequest( $recentMedia, request );
+          ajaxRequest( $recentMedia, targetElement );
     }
     
     if ( request === 'liked' ){
       var $likedMedia = $apiRequest + 'self/media/liked' + $requestCount;
           // Load Liked Media
-          ajaxRequest( $likedMedia );
+          ajaxRequest( $likedMedia, targetElement );
     }
 
     if ( request === 'feed' ){
       var $feedMedia = $apiRequest + 'self/feed' + $requestCount;
           // Load User Feed
-          ajaxRequest( $feedMedia );
-    }
-    
-    if ( request === 'tag' ){
-      var $displayTag = $apiRequest 
+          ajaxRequest( $feedMedia, targetElement );
     }
         
     renderHTML( targetElement, loadBtnData, pager );
-
   }
 
   function accessDetails( accessID, accessToken ){
@@ -183,11 +177,7 @@
   }
 
   $.fn.pongstgrm = function( options ){
-    
-    if ( typeof callback == 'function'){
-      callback.call(this);
-    }
-    
+        
     // Plugin Options
     var option  = $.extend({}, $.fn.pongstgrm.defaults, options);
     
@@ -196,8 +186,6 @@
         requestData( option.show, option.count, option.accessId, option.accessToken, element, option.pager );
       }
     });  //*! end return this.each;
-  
-  
   };     //*! end $.fn.pongstagrm;
    
   // Pongstagram Default Options
