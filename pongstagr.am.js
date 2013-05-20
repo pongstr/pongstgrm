@@ -155,19 +155,15 @@
     if ( request === 'liked' ){
       var $likedMedia = $apiRequest + 'self/media/liked' + $requestCount;
           // Load Liked Media
-          ajaxRequest( $likedMedia );
+          ajaxRequest( $likedMedia, request );
     }
 
     if ( request === 'feed' ){
       var $feedMedia = $apiRequest + 'self/feed' + $requestCount;
           // Load User Feed
-          ajaxRequest( $feedMedia );
+          ajaxRequest( $feedMedia, request );
     }
-    
-    if ( request === 'tag' ){
-      var $displayTag = $apiRequest 
-    }
-        
+            
     renderHTML( targetElement, loadBtnData, pager );
 
   }
