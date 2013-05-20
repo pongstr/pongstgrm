@@ -14,7 +14,8 @@
   function renderHTML( targetElement, request, pager ){
     var galleryList      = '<ul class="thumbnails"></ul>',
         galleryContainer = '<div class="row-fluid">' + galleryList + '</div>',
-        paginateBtn      = '<div class="row-fluid"><a href="javascript:void(0);" data-paginate="'+ request +'-pages" class="span4 offset4 btn btn-large btn-block btn-success">Load More</a></div>';
+        paginateTarget   = $(targetElement).attr('id'),
+        paginateBtn      = '<div class="row-fluid"><a href="javascript:void(0);" data-paginate="'+ paginateTarget +'" class="span4 offset4 btn btn-large btn-block btn-success">Load More</a></div>';
 
     $( targetElement ).append( galleryContainer ); 
     
@@ -122,18 +123,22 @@
   }
 
   function paginate( nextUrl, targetElement ){
+    
+    var pagBtn = $(targetElement).attr('id');
+    
     if ( nextUrl === undefined || nextUrl === null ) {
-      $('.btn').click(function(e){
-        e.preventDefault();
+      $('[data-paginate="' + pagBtn + '"]').click(function(event){
+        event.preventDefault();
         $(this)
           .removeClass('btn-success')
           .addClass('disabled btn-secondary');
       });
     } else {
-      $('.btn').click(function(event){
+      $('[data-paginate="' + pagBtn + '"]').click(function(event){
         event.preventDefault();
           ajaxRequest( nextUrl, targetElement );  //*! Load Succeeding Pages.
           $(this).unbind(event);   //*! Unbind all attached events.
+          console.log( )
       });
     }
   }

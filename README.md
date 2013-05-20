@@ -52,7 +52,7 @@ http://www.apache.org/licenses/LICENSE-2.0
   <script>
     $(document).ready(function(){
       
-      $('selectore').pongstgrm({
+      $('selector').pongstgrm({
         accessId    : YourAccessID,
         accessToken : YourAccessToken,
         show        : 'liked',
