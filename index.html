@@ -31,12 +31,12 @@
             <small> a jQuery plugin that lets you display instagram photos to your website.</small>
           </h1>
         </div>
-        <div id="links" class="span6">
+        <div id="links" class="span6 text-center">
           <!-- <div class="btn-group pull-right"> -->
-            <a href="https://github.com/pongstr/pongstagr.am/zipball/master" class="btn btn-small btn-info">
+            <a href="https://github.com/pongstr/pongstagr.am/zipball/master" class="btn btn-small btn-warning">
               <i class="glyphicon glyphicon-download"></i> &nbsp; Download Zip
             </a>
-            <a href="https://github.com/pongstr/pongstagr.am/tarball/master" class="btn btn-small btn-info">
+            <a href="https://github.com/pongstr/pongstagr.am/tarball/master" class="btn btn-small btn-warning">
               <i class="glyphicon glyphicon-download"></i> &nbsp; Download .tar.gz
             </a>
             <a href="https://github.com/pongstr/pongstagr.am/fork" class="btn btn-small btn-inverse">
@@ -54,21 +54,27 @@
       <div class="row-fluid">
       
         <div role="complementary" class="span3">
-          <ul class="nav nav-tabs nav-stacked">
+          <ul class="nav nav-tabs nav-stacked" data-spy="affix" data-offset-top="0">
             <li class="nav-header">Documentation</li>
-            <li class="active"><a href="#">Read Me</a></li>
-            <li><a href="#">Usage</a></li>
-            <li><a href="#">Examples</a></li>
+            <li><a href="#readme">Read Me</a></li>
+            <li><a href="#examples">Examples</a></li>
+            <li><a href="#usage">Usage</a></li>
+            <li><a href="#comments">Comments</a></li>
           </ul>
         </div><!-- end of [role="complementary"] -->
         
         <div role="main" class="span9">
           <div class="row-fluid">
-            <div class="span12">
+            <div id="readme" class="span12">
               <h2>Read Me</h2>
               <hr />
               <p>by <a href="http://www.pongstr.com">Pongstr</a>. Free to use, Code license under <a href="http://www.apache.org/licenses/LICENSE-2.0"> Apache v2.0</a></p>              
-              
+              <p>For the most part, Instagram’s API only requires the use of a client_id. 
+                A client_id simply associates your server, script, or program with a specific application. 
+                However, some requests require authentication - specifically requests made on behalf of a user. 
+                Authenticated requests require an access_token. These tokens are unique to a user and should be stored securely. 
+                Access tokens may expire at any time in the future. <a href="http://instagram.com/developer/authentication/">More here</a>.</p>
+                
               <h3>Plugin Requirements</h3> 
               <ul>
                 <li><a href="http://instagram.com/" class="label label-important" title="Instagram.com"> get it here </a> &nbsp; Instagram Account, User ID and Access Token</li>
@@ -79,7 +85,32 @@
             </div><!-- end of .span12 -->
           </div><!-- end of .row-fluid -->
           <div class="row-fluid">
-            <div class="span12">
+            <div id="examples" class="span12">
+              <h2>Examples</h2>
+              <hr />
+              
+              <h3><strong>Recent Media</strong></h3>
+              <div id="recent" class="well well-small"></div>
+              
+              <br />
+              <hr />
+              
+              <h3><strong>Liked Media</strong></h3>
+              <div id="liked" class="well well-small"></div>
+
+              <br />
+              <hr />
+
+              <h3><strong>User Feed</strong></h3>
+              <div id="feed" class="well well-small"></div>
+              
+              <br />
+              <hr />
+
+            </div><!-- end of .span12 -->
+          </div><!-- end of .row-fluid -->
+          <div class="row-fluid">
+            <div id="usage" class="span12">
               <h2>Usage</h2>
               <hr />
               <ul>
@@ -136,26 +167,31 @@ $('div#selector').pongstgrm({
           </div><!-- end of .row-fluid -->
           
           <div class="row-fluid">
-            <div class="span12">
-              <h2>Examples</h2>
-              <hr />
-              
-              <h3><strong>Recent Media</strong></h3>
-              <div id="recent"></div>
-              
-              
-              <h3><strong>Liked Media</strong></h3>
-              <div id="liked"></div>
+            <div id="comments" class="span12">
+            <h1>Comments</h1>
+            <hr />
+            <br />
+            <div class="well">
+                  <div id="disqus_thread"></div>
+                  <script type="text/javascript">
+                      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                      var disqus_shortname = 'pongstagram'; // required: replace example with your forum shortname
 
-              <h3><strong>User Feed</strong></h3>
-              <div id="feed"></div>
-
+                      /* * * DON'T EDIT BELOW THIS LINE * * */
+                      (function() {
+                          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                      })();
+                  </script>
+                  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div>
             </div><!-- end of .span12 -->
           </div><!-- end of .row-fluid -->
         </div><!-- end of [role="main"] -->
         
-        
-      </div><!-- end of .row-fluid -->    
+      </div><!-- end of .row-fluid -->
   </div><!-- end of [role="main"] -->
 
   <!-- FOOTER -->
@@ -172,10 +208,21 @@ $('div#selector').pongstgrm({
   </footer>
   
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="bootstrap/js/bootstrap.min.js"></script>
-  <script src="https://raw.github.com/pongstr/pongstagr.am/master/pongstagr.am.js"></script>
+  <script src="bootstrap/js/bootstrap.js"></script>
   <script src="bootstrap/js/script.js"></script>    
 
+  <script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37214026-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  
 </body>
 </html> 
   

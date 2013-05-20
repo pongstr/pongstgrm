@@ -1,0 +1,98 @@
+// Pongstagr.am LESS Stylesheet  v2.0.5
+// Copyright (c) 2013 Pongstr Ordillo 
+// Code license under Apache License v2.0
+// http://www.apache.org/licenses/LICENSE-2.0
+// ==========================================
+// Use this less file if you would like to compile the plugin's styles with your
+// heavily-customised bootstrap less files.
+
+// Pongstagr.am Custom Stuff
+// =========================
+
+// Remove outline on focused stuff
+// -------------------------------
+*:focus { outline: 0 none !important; }
+
+// Modals
+// ------
+.modal {
+  width: 612px;
+  margin-left: -306px;
+  position: absolute;
+  
+  &.fade {
+    .transition(e('opacity .1s linear, top .1s ease-out'));
+    top: -10%;
+  }
+  &.fade.in { top: 10%; } 
+
+  .modal-header { 
+    position: relative;
+    .close { 
+      position: absolute; 
+      top: 0; 
+      right: 10px; 
+    }
+  }
+  
+  .modal-body { 
+    max-height: 620px;
+    > .row-fluid > .img-polaroid { margin-left: -6px; }
+  }
+  
+  .modal-comments > .row-fluid {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    
+    font-size: 12px;
+    line-height: 1.5;
+    
+    &:nth-of-type(odd)  { background-color: #f4f4f4; }
+    &:nth-of-type(even) { background-color: #fff; }
+  }
+  
+}
+
+// Thumbnails
+// ----------
+.thumbnails { margin-bottom: 0; }
+.thumbnails > li {
+  margin-bottom: 5px;
+  padding: 6px;
+  cursor: pointer;
+  .box-sizing(border-box);
+  .transition(all 100ms linear);
+  
+  .thumbnail {
+    position: relative;
+    &:hover {
+      border: 1px solid lighten(@linkColor,30%);
+      .transition(all 100ms linear);
+      .box-shadow(0 0 10px lighten(@grayLight,10%));
+    }
+
+    &:active {
+      border: 1px solid lighten(@linkColor,10%);
+      .transition(all 100ms linear);
+      .box-shadow(0 0 5px lighten(@grayLight,2%));
+    }    
+  }
+  
+  // Fix for .thumbnails > li loop
+  // -----------------------------
+  &.span2:nth-child(6n+1),
+  &.span3:nth-child(4n+1),
+  &.span4:nth-child(3n+1),
+  &.span6:nth-child(2n+3) { margin-left: 0 !important; }
+  
+  > img { width: 100%; height: auto; }
+  
+  .btn-likes, .btn-comments {
+    font-weight: bold; 
+    position: absolute; 
+    bottom: 18px;
+  }
+  .btn-likes    { left: 15px; }
+  .btn-comments { right: 15px; }
+}
