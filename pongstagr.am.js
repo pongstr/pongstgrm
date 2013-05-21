@@ -97,7 +97,7 @@
                 $('body').css({ 'padding-bottom' : modalHeight * 1.5 });
             
             renderModal( imageOwner, imageId, imgCaption, imageUrl, imgUser, comments, injectTo );
-            console.log( injectTo );
+
             $.each( value.comments.data, function( group, key ){
               
               var commentBlock  = '<div class="row-fluid">';
