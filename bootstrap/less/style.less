@@ -132,13 +132,26 @@ footer {
   .hero-unit {
     text-align: center;
     h1 { font-size: 50px; }
-  }
-  .links .text-right {
-    text-align: center !important;
-    .btn { 
-      margin-top: 5px; 
-      margin-bottom: 5px; 
+    padding-top: 20px;
+    padding-bottom: 20px;
+    > .container {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      margin-left: 10px;
+      margin-right: 10px;
+      background-color: rgba(255,255,255,0.75);
+      .border-radius(4px);
     }
+  }
+  header {
+    .links {
+      margin: 20px 0 0 0;
+      .text-right { text-align: center !important; }
+      .btn { 
+        margin-top: 5px; 
+        margin-bottom: 5px; 
+      }
+    }    
   }
   
 }
