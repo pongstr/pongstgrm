@@ -24,9 +24,9 @@
     }      
   }
   
-  function renderModal( imageOwner, imageId, imageTitle, imageUrl, imgUser, comments ){
+  function renderModal( imageOwner, imageId, imageTitle, imageUrl, imgUser, comments, targetElement ){
 
-    var modal  = '<div id="' + imageId + '" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">';
+    var modal  = '<div id="' + imageId + '-' + targetElement + '" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="' + imageId + '_label" aria-hidden="true">';
         modal += '<div class="modal-header">';
         modal += '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>';
         modal += '<div class="row-fluid">';
@@ -51,8 +51,7 @@
         modal += '</div><!-- end of .modal -->';
                 
     $('body').append( modal ); //*! Append modal window to body 
-    
-    $('#' + imageId ).on('hidden', function(){
+    $('#' + imageId + '-' + targetElement).on('hidden', function(){
       $(this).remove();
       $('body').removeAttr('style');
     });
@@ -66,7 +65,7 @@
       dataType : "jsonp"  ,
       success  : function(data){
 
-      var injectTo = '#' + $(targetElement).attr('id');    
+      var injectTo = $(targetElement).attr('id');    
                 
         $.each( data.data, function( key, value ){
 
@@ -83,13 +82,13 @@
               thumbBlock += '<div class="thumbnail">';
               thumbBlock += '<a href="#" class="btn btn-mini btn-info btn-likes"><i class="icon-heart icon-white"></i> &nbsp;' + likes + '</a>';
               thumbBlock += '<a href="#" class="btn btn-mini btn-info btn-comments"><i class="icon-comment icon-white"></i> &nbsp;' + comments + '</a>';
-              thumbBlock += '<a href="#" role="button" data-toggle="modal" data-reveal-id="' + imageId + '"><img src="' + thumbnail + '" alt="' + imgCaption + '" /></a>';
+              thumbBlock += '<a href="#" role="button" data-toggle="modal" data-modal-trigger="' + imageId + '-' + injectTo + '"><img src="' + thumbnail + '" alt="' + imgCaption + '" /></a>';
               thumbBlock += '</div>';
               thumbBlock += '</li>';
                         
-          $( injectTo + ' .thumbnails' ).append( thumbBlock );
+          $( '#' + injectTo + ' .thumbnails' ).append( thumbBlock );
           
-          $('[data-reveal-id="' + imageId + '"]').click(function(){
+          $('[data-modal-trigger="' + imageId + '-' + injectTo + '"]').click(function(){
             
             // add padding to body to be able to scroll
             var modalHeight = $('body').height(); 
@@ -97,8 +96,8 @@
                 $('.modal').attr('id', imageId );
                 $('body').css({ 'padding-bottom' : modalHeight * 1.5 });
             
-            renderModal( imageOwner, imageId, imgCaption, imageUrl, imgUser, comments );
-            
+            renderModal( imageOwner, imageId, imgCaption, imageUrl, imgUser, comments, injectTo );
+            console.log( injectTo );
             $.each( value.comments.data, function( group, key ){
               
               var commentBlock  = '<div class="row-fluid">';
@@ -112,7 +111,7 @@
               $('.modal-comments').append(commentBlock);
             });            
 
-            $('#' + imageId ).modal(); //*! fire modal window
+            $('#' + imageId + '-' + injectTo ).modal(); //*! fire modal window
             
           });
         });
