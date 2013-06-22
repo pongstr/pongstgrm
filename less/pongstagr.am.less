@@ -1,26 +1,35 @@
+// ============================================================================
 // Pongstagr.am LESS Stylesheet  v2.0.5
 // Copyright (c) 2013 Pongstr Ordillo 
 // Code license under Apache License v2.0
 // http://www.apache.org/licenses/LICENSE-2.0
-// ==========================================
-// Use this less file if you would like to compile the plugin's styles with your
-// heavily-customised bootstrap less files.
+//
+// Use this less file if you would like to compile the plugin's styles with 
+// your heavily-customised bootstrap less files.
+//
+// ============================================================================
+
 
 // Bootstrap Stylesheets
-// =====================
-@import "bootstrap/bootstrap.less" ;
-@import "bootstrap/responsive.less";
+// ============================================================================
+@import "bootstrap/css/bootstrap.css" ;
+@import "bootstrap/css/bootstrap-responsive.css";
+
+
+
+// Bootstrap Less Stylesheets
+// ============================================================================
+@import "bootstrap/variables.less";
+@import "bootstrap/mixins.less";
+
 
 
 // Pongstagr.am Custom Stuff
-// =========================
+// ============================================================================
 
-// Remove outline on focused stuff
-// -------------------------------
-*:focus { outline: 0 none !important; }
+*:focus { outline: 0 none !important; } // Remove outline on focused stuff
 
 // Modals
-// ------
 .modal {
   width: 612px;
   margin-left: -306px;
