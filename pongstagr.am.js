@@ -137,6 +137,7 @@
         event.preventDefault();
           ajaxRequest( nextUrl, targetElement );  //*! Load Succeeding Pages.
           $(this).unbind(event);   //*! Unbind all attached events.
+          console.log( )
       });
     }
   }
