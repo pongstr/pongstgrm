@@ -49,7 +49,7 @@
     $('body').append( modal ); //*! Append modal window to body 
     
     $('#' + imageId ).on('hidden', function(){
-      $(this).remove();
+      $(this).remove(); //*! completely remove modal
     });
   }
 
