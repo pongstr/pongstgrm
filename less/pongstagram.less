@@ -35,11 +35,12 @@
 // ------------
 
 .modal {
-  width      : 940px;
-  max-width  : 940px; 
-  margin-left: -470px;
-  // position   : absolute;
-  // top        : 50px;
+  width      : 75%;
+  max-width  : 75%; 
+  margin-left: -37.5%;
+  position   : absolute;
+  top        : 50px;
+  left       : 50%;
   
   .border-radius(@baseBorderRadius * 3);
   
@@ -70,20 +71,9 @@
     padding    : 0;
     margin     : 0;
     
-    .modal-img,
-    .modal-comments {
-      float      : left;
-      margin     : 0;
-      padding    : 0; 
-      overflow-y : auto;
-     .box-sizing(border-box);
-    }
-    .modal-img      { width: 60%; }
-    .modal-comments { width: 40%; }
-    
-    .modal-img {
-      overflow : hidden; 
-      .border-bottom-left-radius(@baseBorderRadius * 3);
+    img {
+      width: 100%;
+      height: auto;
     }
     .modal-comments > .row-fluid {
       padding : 10px;

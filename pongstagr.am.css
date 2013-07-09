@@ -1,8 +1,5 @@
-@import "bootstrap/css/bootstrap.css";
-
-@import "bootstrap/css/bootstrap-responsive.css";
 /**
- * Pongstagr.am LESS Stylesheet v2.0.5
+ * Pongstagr.am LESS Stylesheet v2.0.6
  * Copyright (c) 2013 Pongstr Ordillo 
  * Code license under Apache License v2.0
  * http://www.apache.org/licenses/LICENSE-2.0
@@ -41,22 +38,65 @@
   outline: 0 none !important;
 }
 .modal {
-  width: 680px;
-  margin-left: -340px;
+  width: 75%;
+  max-width: 75%;
+  margin-left: -37.5%;
   position: absolute;
+  top: 50px;
+  left: 50%;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
 }
 .modal.fade {
-  -webkit-transition: opacity .1s linear, top .1s ease-out;
-  -moz-transition: opacity .1s linear, top .1s ease-out;
-  -o-transition: opacity .1s linear, top .1s ease-out;
-  transition: opacity .1s linear, top .1s ease-out;
+  -webkit-transition: opacity 150ms linear, top 150ms ease-out;
+  -moz-transition: opacity 150ms linear, top 150ms ease-out;
+  -o-transition: opacity 150ms linear, top 150ms ease-out;
+  transition: opacity 150ms linear, top 150ms ease-out;
   top: -10%;
 }
 .modal.fade.in {
   top: 10%;
 }
 .modal .modal-header {
+  min-height: 20px;
   position: relative;
+  -webkit-border-top-left-radius: 6px;
+  -moz-border-radius-topleft: 6px;
+  border-top-left-radius: 6px;
+  -webkit-border-top-right-radius: 6px;
+  -moz-border-radius-topright: 6px;
+  border-top-right-radius: 6px;
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #006dcc;
+  background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
+  background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
+  background-image: -o-linear-gradient(top, #0088cc, #0044cc);
+  background-image: linear-gradient(to bottom, #0088cc, #0044cc);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
+  border-color: #0044cc #0044cc #002a80;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #0044cc;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.modal .modal-header:hover,
+.modal .modal-header:focus,
+.modal .modal-header:active,
+.modal .modal-header.active,
+.modal .modal-header.disabled,
+.modal .modal-header[disabled] {
+  color: #ffffff;
+  background-color: #0044cc;
+  *background-color: #003bb3;
+}
+.modal .modal-header:active,
+.modal .modal-header.active {
+  background-color: #003399 \9;
 }
 .modal .modal-header .close {
   position: absolute;
@@ -64,25 +104,36 @@
   right: 10px;
 }
 .modal .modal-body {
-  max-height: 660px;
+  max-height: 640px;
+  padding: 0;
+  margin: 0;
 }
-.modal .modal-body > .row-fluid > .img-polaroid {
-  margin-left: -6px;
+.modal .modal-body img {
+  width: 100%;
+  height: auto;
 }
-.modal .modal-comments > .row-fluid {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
+.modal .modal-body .modal-comments > .row-fluid {
+  padding: 10px;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   font-size: 12px;
   line-height: 1.5;
 }
-.modal .modal-comments > .row-fluid:nth-of-type(odd) {
+.modal .modal-body .modal-comments > .row-fluid:nth-of-type(odd) {
+  border-bottom: 1px dashed #eee;
   background-color: #f4f4f4;
 }
-.modal .modal-comments > .row-fluid:nth-of-type(even) {
+.modal .modal-body .modal-comments > .row-fluid:nth-of-type(even) {
+  border-bottom: 1px dashed #ddd;
   background-color: #fff;
 }
+.thumbnails {
+  margin: 0;
+}
 .thumbnails > li {
+  margin: 0;
   padding: 6px;
   cursor: pointer;
   -webkit-box-sizing: border-box;
@@ -94,7 +145,9 @@
   transition: all 100ms linear;
 }
 .thumbnails > li .thumbnail {
+  min-height: 150px;
   position: relative;
+  background: #fff;
 }
 .thumbnails > li .thumbnail:hover {
   border: 1px solid #66ccff;
@@ -116,25 +169,38 @@
   -moz-box-shadow: 0 0 5px #9e9e9e;
   box-shadow: 0 0 5px #9e9e9e;
 }
+.thumbnails > li .thumbnail img {
+  width: 100%;
+  height: auto;
+  z-index: 2;
+}
+.thumbnails > li .thumbnail .loader {
+  width: 50px;
+  height: 50px;
+  margin-top: -25px;
+  margin-left: -25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  background: url("http://img.cdn.tl/loading2.gif") center center no-repeat;
+}
+.thumbnails > li .thumbnail .btn-likes,
+.thumbnails > li .thumbnail .btn-comments {
+  font-weight: bold;
+  position: absolute;
+  bottom: 18px;
+  z-index: 3;
+}
+.thumbnails > li .thumbnail .btn-likes {
+  left: 15px;
+}
+.thumbnails > li .thumbnail .btn-comments {
+  right: 15px;
+}
 .thumbnails > li.span2:nth-child(6n+1),
 .thumbnails > li.span3:nth-child(4n+1),
 .thumbnails > li.span4:nth-child(3n+1),
 .thumbnails > li.span6:nth-child(2n+3) {
   margin-left: 0 !important;
-}
-.thumbnails > li > img {
-  width: 100%;
-  height: auto;
-}
-.thumbnails > li .btn-likes,
-.thumbnails > li .btn-comments {
-  font-weight: bold;
-  position: absolute;
-  bottom: 18px;
-}
-.thumbnails > li .btn-likes {
-  left: 15px;
-}
-.thumbnails > li .btn-comments {
-  right: 15px;
 }

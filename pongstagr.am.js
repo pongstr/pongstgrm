@@ -27,7 +27,7 @@
   function renderModal( imageOwner, imageId, imageTitle, imageUrl, imgUser ){
 
     var modal  = '<div id="' + imageId + '" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">';
-        modal += '<div class="modal-header">';
+        modal += '<div class="modal-header" style="min-height: 10px;">';
         modal += '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>';
         modal += '</div><!-- end of .modal-header -->';
         modal += '<div class="modal-body">';
@@ -40,8 +40,8 @@
         modal += '<div class="span5">';
         modal += '<div class="modal-comments">';
         modal += '<div id="user-caption" class="row-fluid">';
-        modal += '<div class="span2 text-center"><a href="http://www.instagram.com/' + imageOwner + '"><img src="' + imgUser + '" alt="" class="img-polaroid" style="width: 32px; height: 32px; margin-right: 10px; vertical-align: middle;" /></a></div>';
-        modal += '<div class="span10"><a href="http://www.instagram.com/' + imageOwner + '">' + imageOwner + '</a>&nbsp;' + imageTitle + '</div>';
+        modal += '<div class="span2"><a href="http://www.instagram.com/' + imageOwner + '"><img src="' + imgUser + '" alt="" class="img-polaroid" style="width: 32px; height: 32px; margin-right: 10px; vertical-align: middle;" /></a></div>';
+        modal += '<div class="span10"><a href="http://www.instagram.com/' + imageOwner + '"><strong>' + imageOwner + '</strong></a>&nbsp;' + imageTitle + '</div>';
         modal += '</div>';
         modal += '</div><!-- end of .row-fluid -->';
         modal += '</div>';
@@ -115,7 +115,7 @@
             
             $.each( value.comments.data, function( group, key ){
               var commentBlock  = '<div class="row-fluid">';
-                  commentBlock += '<div class="span2 text-center"><img src="' + key.from.profile_picture + '" style="width: 36px; height: 36px; margin-right: 10px; vertical-align: middle;" class="img-polaroid" /></div>';
+                  commentBlock += '<div class="span2"><img src="' + key.from.profile_picture + '" style="width: 36px; height: 36px; margin-right: 10px; vertical-align: middle;" class="img-polaroid" /></div>';
                   commentBlock += '<div class="span10">';
                   commentBlock += '<a href="http://www.instagram.com/' + key.from.username + '"><strong>' + key.from.username + '</strong></a><br />';
                   commentBlock +=  key.text;
