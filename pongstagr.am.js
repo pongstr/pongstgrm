@@ -32,13 +32,17 @@
         modal += '</div><!-- end of .modal-header -->';
         modal += '<div class="modal-body">';
         modal += '<div class="row-fluid">';
-    
+        
+        modal += '<div class="span7">';
         modal += '<div class="modal-img"><img src="' + imageUrl +'" alt="' + imageTitle + '" /></div>';
-
+        modal += '</div>';
+        
+        modal += '<div class="span5">';
         modal += '<div class="modal-comments">';
         modal += '<div id="user-caption" class="row-fluid">';
         modal += '<div class="span2 text-center"><a href="http://www.instagram.com/' + imageOwner + '"><img src="' + imgUser + '" alt="" class="img-polaroid" style="width: 32px; height: 32px; margin-right: 10px; vertical-align: middle;" /></a></div>';
         modal += '<div class="span10"><a href="http://www.instagram.com/' + imageOwner + '">' + imageOwner + '</a>&nbsp;' + imageTitle + '</div>';
+        modal += '</div>';
         modal += '</div><!-- end of .row-fluid -->';
         modal += '</div>';
 
