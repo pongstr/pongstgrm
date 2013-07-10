@@ -1,4 +1,4 @@
-Pongstagr.am - Instagram Plugin
+Pongstagr.am
 ==============================================
 by Pongstr [twiz.tickler@gmail.com | www.pongstr.com ]
 
