@@ -1,0 +1,226 @@
+
+// Compass Mixins
+@import "compass/css3";
+
+
+/* Thumbnails Fix
+ * ------------------------------------------------------------------------- */
+
+.thumbnails {
+  margin-bottom: 0;
+}
+
+/* This prevents thumbnails to break after the first row. */
+.thumbnails {
+  > li.span2:nth-child(6n+1),
+  > li.span3:nth-child(4n+1),
+  > li.span4:nth-child(3n+1),
+  > li.span6:nth-child(2n+3){ margin-left: 0 !important; }
+}
+
+/* Thumbnail Styles */
+.thumbnail {
+  position:   relative;
+  min-height: 150px;
+  background: #fff;
+  
+  /* force the image to occupy the entire div/container */
+  img {
+    width:    100%;
+    height:   auto;
+  }
+  
+  .btn-likes,
+  .btn-comments {
+    position:   absolute;
+    bottom:     10px;
+  }
+  
+  .btn-likes { left: 10px; }
+  .btn-comments { right: 10px; }
+
+  /* Add a spinner so viewers will know that a media is loading */
+  .loader {
+    width: 50px;
+    height: 50px;
+    margin-top: -25px;
+    margin-left: -25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    background: url("http://img.cdn.tl/loading2.gif") center center no-repeat;
+  }
+}
+
+/**
+ * Modal Styles
+ * you may use default bootstrap modal, but since we would like the modal 
+ * window to show a slightly larger size of the media, I think it's a good 
+ * idea to modify it and expand the width a bit with a faster fade-in transition
+ * speed.
+ *
+ */
+ 
+
+.modal {
+  top:                10%;
+  left:               50%;
+  z-index:            1050;
+  
+  width:              820px;
+  margin-left:        -410px;
+  
+  border:             0 none !important;
+  @include border-radius(0);
+  
+  &.fade {
+    top: -25%;
+    @include transition(all 100ms linear);
+  }
+  
+  .modal-header {
+    position:         relative;
+    
+    height:           0;
+    padding:          0;
+    border-bottom:    0 none;
+    
+    .close {
+      position:       absolute;
+      top:            -28px;
+      right:          5px;
+      color:          #fff;
+      opacity:        1;
+      text-shadow:    0 1px 1px #000;
+    }    
+  } 
+   
+  .modal-body {
+    position:       relative;
+    max-height:     460px;
+    padding:        0;
+    margin:         0;
+    overflow:       hidden;
+  }
+  
+  .modal-img {
+    height: 460px;
+  }
+  
+  .modal-comments {
+    height:         460px;
+    margin:         0;
+    padding:        0;
+    overflow-y:     auto;
+    border-top:     5px solid #E76E66;
+    color:          #232323;
+  }
+
+  .media { 
+    padding: 10px; 
+    &:nth-of-type(odd)  { background: lighten(#eee,5%); }
+    &:nth-of-type(even) { background: #fff; }
+  }  
+}
+
+
+// Media Query for Screens below 768px
+@media (max-width: 767px) {
+  
+  .modal {
+    top:            0;
+    left:           0;
+    width:          100%;
+    height:         100%;
+    margin-left:    0;
+    padding:        0;
+    background:     rgba(#000,0.45);
+
+    &.fade.in { top: -2px; }
+
+    .modal-header {
+      height: 0;
+      
+      .close {
+        position:       absolute;
+        top:            5px;
+        right:          50%;
+        z-index:        1050 + 1;
+        
+        display:        block;
+        width:          200px;
+        margin-right:   -100px;
+        padding:        5px 20px 2px 20px;
+        overflow:       hidden;
+        
+        color:          #fff;
+        opacity:        0.25;
+        text-shadow:    0 1px 1px #000;
+        border-bottom:  5px solid #000;
+        background:     #000;
+                
+        &:after {
+          font-family:    inherit;
+          font-size:      13px;
+          font-weight:    normal;
+          vertical-align: middle;
+          content:        " \00a0 Tap Here to Close";
+        }
+        
+        &:hover { color: #E76E66; }
+      }
+    }
+    
+    .modal-body {
+      height:           100%;
+      min-height:       100%;
+      max-height:       100%;
+      @include box-sizing(border-box);
+      
+      > .row-fluid,
+        .modal-img,
+        .modal-comments {
+        height:         100%;
+        min-height:     100%;
+        max-height:     100%;
+        @include box-sizing(border-box);
+      }
+      
+      > .row-fluid > [class*="span"]:first-child { 
+        height:         70%;
+        min-height:     70%;
+        max-height:     70%; 
+        @include box-sizing(border-box);
+      }
+      > .row-fluid > [class*="span"]:last-child  { 
+        height:         30%;
+        min-height:     30%;
+        max-height:     30%; 
+        @include box-sizing(border-box);
+      }
+      
+      .modal-img > img {
+        width:          100%;
+        height:         100%;
+        margin-left:    auto;
+        margin-right:   auto;
+      }
+      
+      .modal-comments {
+        margin-top:     0;
+        font-size:      12px;
+        color:          #fff;
+        background:     rgba(#232323,0.25);
+        .media {
+          padding:      2px 10px;
+          color:        #fff;
+          
+          &:nth-of-type(odd)  { background: rgba(#232323,0.75); }
+          &:nth-of-type(even) { background: rgba(#232323,0.75); }
+          a.pull-left { float: left; }
+        }        
+      }      
+    }
+  }
+}

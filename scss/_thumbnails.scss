@@ -1,0 +1,56 @@
+
+.thumbnails > li.span2:nth-child(6n+1),
+.thumbnails > li.span3:nth-child(4n+1),
+.thumbnails > li.span4:nth-child(3n+1),
+.thumbnails > li.span6:nth-child(2n+3){ margin-left: 0 !important; }
+
+.thumbnail {
+  min-width: 175px;
+  min-height: 175px;
+  margin-bottom: 20px;
+  padding: 0;
+  border: 0 none;
+  position: relative;
+  background: $white;
+  @include box-shadow(0 2px 8px rgba(#000,0.75));
+  
+  img {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+  }
+  
+  > .btn-likes,
+  > .btn-comments {
+    display: block;
+    margin: 0;
+    padding: 5px 10px;
+    position: absolute;
+    background: rgba(#000,0.75);
+    border: 0 none !important;
+    font-size: 13px;
+  }
+  
+  > .btn-likes {
+    bottom: 53px;
+    right: 0;
+  }
+  
+  > .btn-comments {
+    bottom: 20px;
+    right: 0;
+  }
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  margin-top: -25px;
+  margin-left: -25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  background: url("http://img.cdn.tl/loading2.gif") center center no-repeat;
+}

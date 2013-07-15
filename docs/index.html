@@ -1,0 +1,82 @@
+---
+layout: default
+title: Home
+---
+  
+  <div class="container">
+    <div class="row-fluid">
+
+      <div id="sidebar" class="span3">
+        <div class="substitute-btn text-center visible-tablet visible-phone">
+          <a href="#readme" class="btn btn-info btn-large" title="View Read Me">
+            <i class="icon-book"></i>
+          </a>
+          
+          <a href="#examples" class="btn btn-info btn-large" title="View Examples">
+            <i class="icon-beaker"></i>
+          </a>
+
+          <a href="#acknowlegements" class="btn btn-info btn-large" title="View Acknowledgements">
+            <i class="icon-thumbs-up"></i>
+          </a>
+
+          <a href="#license" class="btn btn-info btn-large" title="View License">
+            <i class="icon-file-text-alt"></i>
+          </a>
+
+          <a href="#comments" class="btn btn-info btn-large" title="View Comments">
+            <i class="icon-comments"></i>
+          </a>
+        </div>
+        
+        <div class="sticky hidden-tablet hidden-phone">
+          <a href="#readme" class="btn btn-info btn-large btn-block">
+            <i class="icon-book"></i>
+            &nbsp; Documentation
+          </a>
+          <a href="#examples" class="btn btn-info btn-large btn-block">
+            <i class="icon-beaker"></i>
+            &nbsp; Examples
+          </a>
+          <a href="#acknowlegements" class="btn btn-info btn-large btn-block">
+            <i class="icon-thumbs-up"></i>
+            &nbsp; Acknowlegements
+          </a>
+          <a href="#license" class="btn btn-info btn-large btn-block">
+            <i class="icon-file-text-alt"></i>
+            &nbsp; License
+          </a>
+          <a href="#comments" class="btn btn-info btn-large btn-block">
+            <i class="icon-comments"></i>
+            &nbsp; Comments
+          </a>
+        </div><!-- end of .sticky -->
+      </div><!-- end of #sidebar.span3 -->
+      
+      
+      <div id="index" class="span9">
+      
+        <div id="readme" class="docs">
+          {% include readme.html %}
+        </div>
+        
+        <div id="examples" class="docs">
+          {% include examples.html %}
+        </div>
+        
+        <div id="acknowlegements" class="docs">
+          {% include acknowlegements.html %}
+        </div>
+        
+        <div id="license" class="docs">
+          {% include license.html %}
+        </div>
+        
+        <div id="comments" class="docs">
+          {% include disqus-thread.html %}
+        </div>
+        
+      </div><!-- end of #index.span9 -->
+      
+    </div><!-- end of .row-fluid -->
+  </div><!-- end of .container -->

@@ -1,0 +1,85 @@
+
+  <div class="page-title">
+    <h1><i class="icon-book" style="font-weight: normal;"></i> &nbsp; Readme</h1>
+  </div>
+  
+  <p class="lead">Pongstagr.am is a jQuery plugin that lets display your instagram media to your website using <a href="http://twitter.github.io/bootstrap/" title="Bootstrap v3.2">Bootstrap</a> Front-end styles and modal-plugin.</p>
+
+  <h3>Requirements:</h3>
+  <p>
+    For the most part, Instagram’s API only requires the use of a client_id. 
+    A client_id simply associates your server, script, or program with a 
+    specific application. However, some requests require authentication - 
+    specifically requests made on behalf of a user. Authenticated requests 
+    require an access_token. These tokens are unique to a user and should 
+    be stored securely. Access tokens may expire at any time in the future
+    <a href="http://instagram.com/developer/authentication/">more here</a>.      
+  </p>
+
+  <ol>
+    <li>Instagram account, User ID and Access Token</li>
+    <li>jQuery 1.8+</li>
+    <li>bootstrap-modal.js (or bootstrap.js || bootstrap.min.js )</li>
+  </ol>
+
+  <p>
+    or you can head over here to use the <a href="plugin-only"><strong>plugin-only version</strong></a> (one that doesn't rely on Bootstrap Front-end).
+  </p>
+
+        <h3><strong>usage:</strong></h3>
+
+        <ol>
+          <li>
+            <p>
+              <strong>User ID</strong>:  If you have zero idea what your user id is, you may 
+              head to this <a href="http://jelled.com/instagram/lookup-user-id">link</a>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <strong>Access Token</strong>: to get your access token, you may 
+              head to this <a href="http://jelled.com/instagram/access-token">link</a>, 
+              make sure you follow the instructions on the <strong>"How do I 
+              get my client id?"</strong> link.         
+            </p>
+          </li>
+          <li>
+            <p>
+              Stylesheets, jQuery Library, Bootstrap JS &amp; the Plugin must be
+              initialised before you call on the plugin.
+            </p>
+<pre>
+  <span class="comment">&lt;!-- Include stylesheets to header --&gt;</span>
+  <span class="tag">&lt;link</span> <span class="attr">rel=</span><span class="value">"stylesheet"</span> <span class="attr">href=</span><span class="value">"/path/to/css/boostrap.min.css"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;link</span> <span class="attr">rel=</span><span class="value">"stylesheet"</span> <span class="attr">href=</span><span class="value">"/path/to/css/boostrap-responsive.min.css"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;link</span> <span class="attr">rel=</span><span class="value">"stylesheet"</span> <span class="attr">href=</span><span class="value">"/path/to/css/pongstagr.am.css"</span> <span class="tag">/&gt;</span>
+
+  <span class="comment">&lt;!-- Include Javascripts to footer --&gt;</span>
+  &lt;script</span> <span class="attr">href=</span><span class="value">"//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"</span> <span class="tag">/&gt;</span><span class="tag">&lt;/script&gt;</span>
+  &lt;script</span> <span class="attr">href=</span><span class="value">"/path/to/js/boostrap.min.js"</span> <span class="tag">/&gt;</span><span class="tag">&lt;/script&gt;</span>
+  &lt;script</span> <span class="attr">href=</span><span class="value">"/path/to/js/pongstagr.am.js"</span> <span class="tag">/&gt;</span><span class="tag">&lt;/script&gt;</span>
+</pre>
+
+            <p>
+              <strong>the call on the plugin like this: </strong>
+            </p>
+            
+<pre>
+  &lt;script&gt;</span>
+    $(<span class="value">document</span>)</span>.<span class="attr">ready</span>(<span class="attr">function</span>(){
+
+        $(<span class="value">'div#selector'</span>).<span class="attr">pongstgrm</span>({
+          accessId    : <span class="pair">YourAccessID</span>,
+          accessToken : <span class="pair">YourAccessToken</span>
+        });
+    
+    });  
+  <span class="tag">&lt;/script&gt;</span>
+</pre>
+
+            <p>
+              By default the plugin displays eight (8) most recent media.
+            </p>
+
+          </li>
+        </ol>

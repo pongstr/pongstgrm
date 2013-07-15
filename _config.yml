@@ -1,0 +1,18 @@
+# Site Information
+name:         Pongstagr.am jQuery Plugin
+
+# Include/Exclude
+include:      ['.htaccess']
+exclude:      ['.gitignore', '*.sass-cache', 'scss', '*.txt', '*.rb', '*.md', '*.sh' ]
+
+# Dependencies
+markdown:     rdiscount
+pygments:     true
+
+# Permalinks
+permalink:    pretty
+
+# Server
+source:       ./docs
+destination:  ./gh-pages
+port:         4000

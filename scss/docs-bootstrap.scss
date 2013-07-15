@@ -1,0 +1,104 @@
+// Compass Mixins
+@import "compass/css3";
+
+// I gather this file is a starting point for the project.
+@import "bootstrap";
+
+// Include responsive Bootstrap styles
+@import "bootstrap-responsive";
+
+/*!
+ *
+ * jQuery Pongstagr.am Plugin v2.0.6
+ * Copyright (c) 2013 Pongstr Ordillo
+ * 
+ * Code license under Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Requires: jQuery v1.9 and Bootstrap 3.2 js
+ *
+ */
+ 
+// google font: Lato
+@import url("http://fonts.googleapis.com/css?family=Lato:300,400,700");
+
+// body
+html,
+body { min-height: 100%; }
+
+[role="main"] {
+  padding-top:            40px;
+  padding-bottom:         40px;
+}
+
+// header
+header {
+  width:                  100%;
+  min-height:             140px;
+  margin-top:             0;
+  margin-bottom:          20px;
+  padding:                10px 0 15px 0;
+  
+  font-family:            "Lato", "Helvetica Neue", "Helvetica", Sans-serif;
+  background:             url("../img/img.jpg") top center fixed no-repeat;
+  background-size:        cover;
+  
+  @include box-shadow(0 -5px 20px -7px rgba(#000,0.5) inset);
+  
+  h1 { font-weight: 300; }
+  
+  small { 
+    display:              block;
+    clear:                both;
+    margin:               5px 0;
+    color:                $white;
+    font-size:            14px;
+    font-weight:          300;
+    text-shadow:          0 1px 1px $grayDark;
+    line-height:          1.6;
+  }
+  
+  a { 
+    color:                $white;
+    font-size:            52px;
+    text-decoration:      none !important;
+    text-shadow:          0 1px 1px $grayDark;
+    @include transition(color 100ms linear);
+
+    &:hover,
+    &:active,
+    &:focus {
+      color:              lighten($blue,10%);
+      outline:            0 none !important;
+      @include transition(color 100ms linear);
+    }
+  }
+  
+  [class*="span"]:last-child { 
+    margin-top:           28px;
+    text-align:           right;
+  }
+
+  .btn {
+    display:              inline-block;
+    margin:               0 0 10px 0;
+  }
+
+}
+
+.btn { @include border-radius(0); }
+
+
+@media (max-width: 767px) {
+  
+  body { padding: 0; }
+  
+  header {    
+    [class*="span"] {
+      &:first-child { text-align: center; }
+      &:last-child  { text-align: center; }
+    }
+  }
+  
+  [role="main"] { padding: 10px; }
+      
+}

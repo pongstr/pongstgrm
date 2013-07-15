@@ -15,6 +15,7 @@ Thumbs.db
 # Compiled Stuff
 gh-pages/
 _site/
+.sass-cache
 
 # Test Files
 test.*
