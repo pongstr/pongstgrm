@@ -11,8 +11,9 @@ pygments:     true
 
 # Permalinks
 permalink:    pretty
+baseurl:      /pongstagr.am
 
 # Server
 source:       ./docs
-destination:  ./gh-pages
+destination:  ./gh-pages/pongstagr.am/
 port:         4000

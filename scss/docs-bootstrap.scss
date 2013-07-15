@@ -81,11 +81,10 @@ header {
   .btn {
     display:              inline-block;
     margin:               0 0 10px 0;
+    @include border-radius(0);
   }
 
 }
-
-.btn { @include border-radius(0); }
 
 
 @media (max-width: 767px) {

@@ -48,6 +48,7 @@
               Stylesheets, jQuery Library, Bootstrap JS &amp; the Plugin must be
               initialised before you call on the plugin.
             </p>
+            
 <pre>
   <span class="comment">&lt;!-- Include stylesheets to header --&gt;</span>
   <span class="tag">&lt;link</span> <span class="attr">rel=</span><span class="value">"stylesheet"</span> <span class="attr">href=</span><span class="value">"/path/to/css/boostrap.min.css"</span> <span class="tag">/&gt;</span>
@@ -83,3 +84,10 @@
 
           </li>
         </ol>
+
+  <h2>Other Options</h2>
+  <pre>
+    show   : <span class="pair">null</span>, <span class="comment">// string,  options: 'recent', 'feed', 'liked', 'user'</span>
+    count  : <span class="pair">null</span>, <span class="comment">// integer, options: 1(min) - 40(max), instagram limits the maximum number of photos to 40</span>
+    pager  : <span class="pair">null</span>  <span class="comment">// boolean, options:  true or false (enables/disable load more button)</span>
+  </pre>
