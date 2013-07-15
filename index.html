@@ -19,17 +19,17 @@
 
 
   <!-- Apple touch icons -->
-  <link rel="shortcut icon" type="image/x-icon" href="/assets/ico/favicon.ico" />
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/ico/apple-touch-icon-144-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/ico/apple-touch-icon-114-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/ico/apple-touch-icon-72-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/pongstagr.am/assets/ico/favicon.ico" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/pongstagr.am/assets/ico/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/pongstagr.am/assets/ico/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/pongstagr.am/assets/ico/apple-touch-icon-72-precomposed.png">
   <link rel="apple-touch-icon-precomposed" href="/assets/ico/apple-touch-icon-57-precomposed.png">
    
 
   <!-- Bootstrap v2.3.2 Stylesheet -->
-  <link rel="stylesheet" href="/assets/css/docs.css" />
+  <link rel="stylesheet" href="/pongstagr.am/assets/css/docs.css" />
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" />
-  <script src="/assets/js/vendor/modernizr.min.js"></script>
+  <script src="/pongstagr.am/assets/js/vendor/modernizr.min.js"></script>
 
 
   <!-- Place anything custom after this. -->
@@ -63,10 +63,10 @@
         
         <br />
 
-        <iframe src="http://ghbtns.com/github-btn.html?user=pongstr&amp;repo=pongstagr.am&amp;type=watch" allowtransparency="true" frameborder="0" scrolling="0" width="62" height="20"></iframe>
-        <iframe src="http://ghbtns.com/github-btn.html?user=pongstr&amp;type=follow" allowtransparency="true" frameborder="0" scrolling="0" width="132" height="20"></iframe>
-        <a href="https://twitter.com/pongstr" class="twitter-follow-button" data-show-count="false">Follow @pongstr</a> &nbsp;
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="pongstr" data-count="none">Tweet</a>
+        <iframe src="//ghbtns.com/github-btn.html?user=pongstr&amp;repo=pongstagr.am&amp;type=watch" allowtransparency="true" frameborder="0" scrolling="0" width="62" height="20"></iframe>
+        <iframe src="//ghbtns.com/github-btn.html?user=pongstr&amp;type=follow" allowtransparency="true" frameborder="0" scrolling="0" width="132" height="20"></iframe>
+        <a href="//twitter.com/pongstr" class="twitter-follow-button" data-show-count="false">Follow @pongstr</a> &nbsp;
+        <a href="//twitter.com/share" class="twitter-share-button" data-via="pongstr" data-count="none">Tweet</a>
       </div>    
     </div><!-- end of .row-fluid -->
     </div><!-- end of .conainer -->
@@ -179,6 +179,7 @@
               Stylesheets, jQuery Library, Bootstrap JS &amp; the Plugin must be
               initialised before you call on the plugin.
             </p>
+            
 <pre>
   <span class="comment">&lt;!-- Include stylesheets to header --&gt;</span>
   <span class="tag">&lt;link</span> <span class="attr">rel=</span><span class="value">"stylesheet"</span> <span class="attr">href=</span><span class="value">"/path/to/css/boostrap.min.css"</span> <span class="tag">/&gt;</span>
@@ -214,6 +215,13 @@
 
           </li>
         </ol>
+
+  <h2>Other Options</h2>
+  <pre>
+    show   : <span class="pair">null</span>, <span class="comment">// string,  options: 'recent', 'feed', 'liked', 'user'</span>
+    count  : <span class="pair">null</span>, <span class="comment">// integer, options: 1(min) - 40(max), instagram limits the maximum number of photos to 40</span>
+    pager  : <span class="pair">null</span>  <span class="comment">// boolean, options:  true or false (enables/disable load more button)</span>
+  </pre>
         </div>
         
         <div id="examples" class="docs">
@@ -222,19 +230,12 @@
     <h1><i class="icon-beaker" style="font-weight: normal;"></i> &nbsp; Examples</h1>
   </div>
   
-  <h2>Other Options</h2>
-  <pre>
-    show   : <span class="pair">null</span>, <span class="comment">// string,  options: 'recent', 'feed', 'liked', 'user'</span>
-    count  : <span class="pair">null</span>, <span class="comment">// integer, options: 1(min) - 40(max), instagram limits the maximum number of photos to 40</span>
-    pager  : <span class="pair">null</span>  <span class="comment">// boolean, options:  true or false (enables/disable load more button)</span>
-  </pre>
-  
   <div class="row-fluid">
     <div class="span6">
       <h3 class="pull-left">Recent Media</h3>
     </div>
     <div class="span6">
-      <a href="/bootstrap/bootstrap-recent/" id="load-recent" class="btn btn-success pull-right">Show Recent Media &nbsp; <i class="icon-chevron-sign-right"></i></a>
+      <a href="/pongstagr.am/examples/bootstrap-recent/" id="load-recent" class="btn btn-success pull-right">Show Recent Media &nbsp; <i class="icon-chevron-sign-right"></i></a>
     </div>
   </div>
   <div id="recent"></div>
@@ -247,7 +248,7 @@
       <h3 class="pull-left">Liked Media</h3>
     </div>
     <div class="span6">
-      <a href="/bootstrap/bootstrap-liked/" id="load-liked" class="btn btn-success pull-right">Show Liked Media &nbsp; <i class="icon-chevron-sign-right"></i></a>
+      <a href="/pongstagr.am/examples/bootstrap-liked/" id="load-liked" class="btn btn-success pull-right">Show Liked Media &nbsp; <i class="icon-chevron-sign-right"></i></a>
     </div>
   </div>
   <div id="liked"></div>
@@ -260,7 +261,7 @@
       <h3 class="pull-left">User Feed</h3>
     </div>
     <div class="span6">
-      <a href="/bootstrap/bootstrap-liked/" id="load-feed" class="btn btn-success pull-right">Show User Feed &nbsp; <i class="icon-chevron-sign-right"></i></a>
+      <a href="/pongstagr.am/examples/bootstrap-liked/" id="load-feed" class="btn btn-success pull-right">Show User Feed &nbsp; <i class="icon-chevron-sign-right"></i></a>
     </div>
   </div>
   <div id="feed"></div>
@@ -369,12 +370,12 @@
   <!-- JS and analytics only. -->
   
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery.min.js"><\/script>')</script>
+  <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
   
-  <script src="/assets/js/easing.min.js"></script>
-  <script src="/assets/js/bootstrap.min.js"></script>
-  <script src="/assets/js/pongstagr.am.js"></script>
-  <script src="/assets/js/docs.js"></script>
+  <script src="/pongstagr.am/assets/js/easing.min.js"></script>
+  <script src="/pongstagr.am/assets/js/bootstrap.min.js"></script>
+  <script src="/pongstagr.am/assets/js/pongstagr.am.js"></script>
+  <script src="/pongstagr.am/assets/js/docs.js"></script>
 
   <!-- Load Social Media Plugins Async -->
   <script>
@@ -390,7 +391,7 @@
   </script>
     
   <!-- 
-    * Google Analytics: change UA-XXXXX-X to be your site's ID. 
+    * Google Analytics
     * Based on https://github.com/h5bp/html5-boilerplate
   -->
   <script>
