@@ -1,244 +1,406 @@
 <!doctype html>
-<html lang="en">
-<head>
-
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]--><head>
+  
+  <!-- Meta, title, CSS, favicons, etc. -->
+  
   <meta charset="utf-8">
 
-  <title>Pongstagr.am - jQuery Plugin</title>
-  <meta name="description" content="">
+  <title>Home | Pongstagr.am jQuery Plugin</title>
+  <meta name="author" content="Pongstr - Philip Ordillo" />
+  <meta name="description" content="Pongstagr.am is a jQuery plugin that lets you display Instagram media to your website" />
+  <meta name="keywords" content="jquery,instagram,github,pongstr,ordillo,philip,pongstagram,pongstagr" />
 
   <!-- Mobile viewport optimized: h5bp.com/viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
 
-  <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-  <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png" />
 
-  <link rel="stylesheet" href="bootstrap/css/style.css">
-  <link rel="stylesheet" href="//pongstr.com/projects/pongstagr.am/pongstagr.am.css">
+  <!-- Apple touch icons -->
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/ico/favicon.ico" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/ico/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/ico/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/ico/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="/assets/ico/apple-touch-icon-57-precomposed.png">
+   
 
+  <!-- Bootstrap v2.3.2 Stylesheet -->
+  <link rel="stylesheet" href="/assets/css/docs.css" />
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" />
+  <script src="/assets/js/vendor/modernizr.min.js"></script>
+
+
+  <!-- Place anything custom after this. -->
+  
 </head>
 <body>
 
+  <!--[if lt IE 7]>
+    <p class="browsehappy">
+      You are using an <strong>outdated</strong> browser. 
+      Please <a href="http://browsehappy.com/">upgrade your browser</a> 
+      to improve your experience.
+    </p>
+  <![endif]-->
+
   <!-- HEADER -->
+  
   <header>
-    <div class="hero-unit">
-      <div class="container">
-        <div class="row-fluid">
-          <h1><a href="https://github.com/pongstr/pongstagr.am">Pongstagr.am</a></h1>
-          <p class="lead">
-            a jQuery plugin that lets you display instagram photos to your website.
-          </p>
-        </div><!-- end of .row-fluid -->
-      </div><!-- end of .container -->
+    <div class="container">
+    <div class="row-fluid">
+      <div class="span5">
+        <h1>
+          <a href="//github.com/pongstr/pongstagr.am">pongstagr.am</a>
+          <small>is a jQuery plugin that lets you display instagram media to your website.</small>
+        </h1>        
+      </div>
       
-      <div class="links">
-        <div class="container">
+      <div class="span7">
+        <a href="//github.com/pongstr/pongstagr.am/archive/master.zip" class="btn btn-success btn-large"><i class="icon-download"></i> &nbsp; Download v2.0.6</a>
+        <a href="//github.com/pongstr/pongstagr.am/" class="btn btn-success btn-large"><i class="icon-github"></i> &nbsp; View on Github</a>
+        
+        <br />
 
-          <div class="row-fluid">
-            <div class="social-btn span5">
-              <iframe src="http://ghbtns.com/github-btn.html?user=pongstr&repo=pongstagr.am&type=watch" allowtransparency="true" frameborder="0" scrolling="0" width="62" height="20"></iframe>
-              <iframe src="http://ghbtns.com/github-btn.html?user=pongstr&type=follow" allowtransparency="true" frameborder="0" scrolling="0" width="132" height="20"></iframe>
-              <a href="https://twitter.com/pongstr" class="twitter-follow-button" data-show-count="false">Follow @pongstr</a> &nbsp;
-              <a href="https://twitter.com/share" class="twitter-share-button" data-via="pongstr" data-count="none">Tweet</a>
-            </div>
-            
-            <div class="span5 text-right pull-right">
-              <a href="https://github.com/pongstr/pongstagr.am/zipball/master" class="btn btn-info btn-small">
-                <i class="glyphicon glyphicon-download"></i> &nbsp;.ZIP
-              </a>
-
-              <a href="https://github.com/pongstr/pongstagr.am/tarball/master" class="btn btn-info btn-small">
-                <i class="glyphicon glyphicon-download"></i> &nbsp;.TAR.GZ
-              </a>
-
-              <a href="https://github.com/pongstr/pongstagr.am/fork" class="btn btn-inverse btn-small">
-                <span class="glyphicon glyphicon-plus-sign"></span>  &nbsp; Fork me on GitHub
-              </a>            
-            </div><!-- end of .span5 -->
-            
-          </div><!-- end of .row-fluid -->
-                  
-        </div><!-- end of .container -->
-      </div><!-- end of .links -->
-    </div><!-- end of .hero-unit -->
+        <iframe src="http://ghbtns.com/github-btn.html?user=pongstr&amp;repo=pongstagr.am&amp;type=watch" allowtransparency="true" frameborder="0" scrolling="0" width="62" height="20"></iframe>
+        <iframe src="http://ghbtns.com/github-btn.html?user=pongstr&amp;type=follow" allowtransparency="true" frameborder="0" scrolling="0" width="132" height="20"></iframe>
+        <a href="https://twitter.com/pongstr" class="twitter-follow-button" data-show-count="false">Follow @pongstr</a> &nbsp;
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="pongstr" data-count="none">Tweet</a>
+      </div>    
+    </div><!-- end of .row-fluid -->
+    </div><!-- end of .conainer -->
   </header>
 
   <!-- CONTENT -->
-  <div class="container">
-      <div class="row-fluid">
-      
-        <div role="complementary" class="span3">
-          <br class="phone-hidden" />
-          <ul class="nav nav-tabs nav-stacked">
-            <li class="nav-header">Documentation</li>
-            <li><a href="#readme">Read Me</a></li>
-            <li><a href="#examples">Examples</a></li>
-            <li><a href="#usage">Usage</a></li>
-            <li><a href="#comments">Comments</a></li>
-          </ul>
-        </div><!-- end of [role="complementary"] -->
-        
-        <div role="main" class="span9">
-          <div class="row-fluid">
-            <div id="readme" class="span12">
-              <h2>Read Me</h2>
-              <hr />
-              <p>by <a href="http://www.pongstr.com">Pongstr</a>. Free to use, Code license under <a href="http://www.apache.org/licenses/LICENSE-2.0"> Apache v2.0</a></p>              
-              <p>For the most part, Instagram’s API only requires the use of a client_id. 
-                A client_id simply associates your server, script, or program with a specific application. 
-                However, some requests require authentication - specifically requests made on behalf of a user. 
-                Authenticated requests require an access_token. These tokens are unique to a user and should be stored securely. 
-                Access tokens may expire at any time in the future. <a href="http://instagram.com/developer/authentication/">More here</a>.</p>
-                
-              <h3>Plugin Requirements</h3> 
-              <ul>
-                <li><a href="http://instagram.com/" class="label label-important" title="Instagram.com"> get it here </a> &nbsp; Instagram Account, User ID and Access Token</li>
-                <li><a href="http://jquery.com/download/" class="label label-important" title="jQuery.com"> get it here </a> &nbsp; jQuery 1.9+ </li>  
-                <li><a href="http://twitter.github.io/bootstrap/index.html" class="label label-important" title="Bootstrap front-end"> get it here </a> &nbsp; bootstrap-modal.js (or bootstrap.js || bootstrap.min.js )</li>               
-              </ul>    
-       
-            </div><!-- end of .span12 -->
-          </div><!-- end of .row-fluid -->
-          <div class="row-fluid">
-            <div id="examples" class="span12">
-              <h2>Examples</h2>
-              <hr />
-              
-              <h3><strong>Recent Media</strong></h3>
-              <div id="recent" class="well well-small"></div>
-              
-              <br />
-              <hr />
-              
-              <h3><strong>Liked Media</strong></h3>
-              <div id="liked" class="well well-small"></div>
-
-              <br />
-              <hr />
-
-              <h3><strong>User Feed</strong></h3>
-              <div id="feed" class="well well-small"></div>
-              
-              <br />
-              <hr />
-
-            </div><!-- end of .span12 -->
-          </div><!-- end of .row-fluid -->
-          <div class="row-fluid">
-            <div id="usage" class="span12">
-              <h2>Usage</h2>
-              <hr />
-              <ul>
-                <li>User ID - If you have zero idea what your user id is, you may head to this <a href="http://jelled.com/instagram/lookup-user-id">link</a>.</li>
-                <li>Access Token - If you have zero idea what your access token is, you may head to this <a href="http://jelled.com/instagram/access-token">link</a>, make sure you follow the instructions on the <strong>"How do I get my client id?"</strong> link.</li>
-              </ul>
-              <p><code>jQuery</code><strong> must be initialised first and so as</strong> <code>bootstrap.js</code> <strong>plugins:</strong></p>
-<pre>
-&lt;script src='//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'&gt;&lt;/script>
-&lt;script src='path/to/js/bootstrap.min.js'&gt;&lt;/script&gt;  
-&lt;script src='path/to/js/pongstagr.am.js'&gt;&lt;/script&gt;  
-</pre>
-
-                <p>Display recently uploaded media (displays 8 images):</p>
-<pre>
-$('div#selector').pongstgrm({
-  accessId     : YourAccessID,
-  accessToken  : YourAccessToken
-});
-</pre>
-
-                <p><strong>Other Options:</strong></p>
-<pre style="font-size: 11px;">
-  show  : null, // string,  options: 'recent', 'feed', 'liked', 'user'
-  count : null, // integer, options: 1(min) - 40(max), instagram limits the maximum number of photos to 40
-  pager : null  // boolean, options:  true or false (enables/disable load more button)
-</pre>
-
-                <p><strong>Full usage example:</strong></p>
-<pre>
-&lt;script src='//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'&gt;&lt;/script>
-&lt;script src='path/to/js/bootstrap.min.js'&gt;&lt;/script&gt;  
-&lt;script src='path/to/js/pongstagr.am.js'&gt;&lt;/script&gt;  
-&lt;script&gt;
-  $(document).ready(function(){
-    $('selector').pongstgrm({
-      accessId    : YourAccessID,
-      accessToken : YourAccessToken,
-      show        : 'liked',
-      count       : 8,
-      pager       : true
-    });
-  });
-&lt;/script&gt;  
-</pre>
-
-              <p><strong>Some Notes:</strong><br />
-                In order to add the nice smooth transitions to the modal boxes, you may add 
-                <code>bootstrap-transition.js</code> before <code>bootstrap-modal.js</code>
-                or you may just use the entire plugin included in Bootstrap v2.3.2 by 
-                replacing it with <code>bootstrap.js</code> or <code>bootstrap.min.js</code>
-              </p>
-            </div><!-- end of .span12 -->
-          </div><!-- end of .row-fluid -->
-          
-          <div class="row-fluid">
-            <div id="comments" class="span12">
-            <h1>Comments</h1>
-            <hr />
-            <br />
-            <div class="well">
-                  <div id="disqus_thread"></div>
-                  <script type="text/javascript">
-                      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-                      var disqus_shortname = 'pongstagram'; // required: replace example with your forum shortname
-
-                      /* * * DON'T EDIT BELOW THIS LINE * * */
-                      (function() {
-                          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-                          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                      })();
-                  </script>
-                  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-                  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-            </div>
-            </div><!-- end of .span12 -->
-          </div><!-- end of .row-fluid -->
-        </div><!-- end of [role="main"] -->
-        
-      </div><!-- end of .row-fluid -->
-  </div><!-- end of [role="main"] -->
-
-  <!-- FOOTER -->
-  <footer>
+  <div role="main">
+  
     <div class="container">
-      <div class="row-fluid">
-        <div class="span12 text-center">
-          <p>
-            Pongstagrm - jQuery Plugin. &copy; Copyright 2013 Pongstr Ordillo. Free to use, Code license under <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache v2.0</a> | <a href="http://twitter.github.io/bootstrap/">Bootstrap</a> front-end framework by <a href="http://twitter.com/mdo">@mdo</a> and <a href="http://twitter.com/fat">@fat</a>.
-          </p>
-        </div><!-- end of .span12 -->
-      </div><!-- end of .row-fluid -->
-    </div><!-- end of .container -->
+    <div class="row-fluid">
+
+      <div id="sidebar" class="span3">
+        <div class="substitute-btn text-center visible-tablet visible-phone">
+          <a href="#readme" class="btn btn-info btn-large" title="View Read Me">
+            <i class="icon-book"></i>
+          </a>
+          
+          <a href="#examples" class="btn btn-info btn-large" title="View Examples">
+            <i class="icon-beaker"></i>
+          </a>
+
+          <a href="#acknowlegements" class="btn btn-info btn-large" title="View Acknowledgements">
+            <i class="icon-thumbs-up"></i>
+          </a>
+
+          <a href="#license" class="btn btn-info btn-large" title="View License">
+            <i class="icon-file-text-alt"></i>
+          </a>
+
+          <a href="#comments" class="btn btn-info btn-large" title="View Comments">
+            <i class="icon-comments"></i>
+          </a>
+        </div>
+        
+        <div class="sticky hidden-tablet hidden-phone">
+          <a href="#readme" class="btn btn-info btn-large btn-block">
+            <i class="icon-book"></i>
+            &nbsp; Documentation
+          </a>
+          <a href="#examples" class="btn btn-info btn-large btn-block">
+            <i class="icon-beaker"></i>
+            &nbsp; Examples
+          </a>
+          <a href="#acknowlegements" class="btn btn-info btn-large btn-block">
+            <i class="icon-thumbs-up"></i>
+            &nbsp; Acknowlegements
+          </a>
+          <a href="#license" class="btn btn-info btn-large btn-block">
+            <i class="icon-file-text-alt"></i>
+            &nbsp; License
+          </a>
+          <a href="#comments" class="btn btn-info btn-large btn-block">
+            <i class="icon-comments"></i>
+            &nbsp; Comments
+          </a>
+        </div><!-- end of .sticky -->
+      </div><!-- end of #sidebar.span3 -->
+      
+      
+      <div id="index" class="span9">
+      
+        <div id="readme" class="docs">
+          
+  <div class="page-title">
+    <h1><i class="icon-book" style="font-weight: normal;"></i> &nbsp; Readme</h1>
+  </div>
+  
+  <p class="lead">Pongstagr.am is a jQuery plugin that lets display your instagram media to your website using <a href="http://twitter.github.io/bootstrap/" title="Bootstrap v3.2">Bootstrap</a> Front-end styles and modal-plugin.</p>
+
+  <h3>Requirements:</h3>
+  <p>
+    For the most part, Instagram’s API only requires the use of a client_id. 
+    A client_id simply associates your server, script, or program with a 
+    specific application. However, some requests require authentication - 
+    specifically requests made on behalf of a user. Authenticated requests 
+    require an access_token. These tokens are unique to a user and should 
+    be stored securely. Access tokens may expire at any time in the future
+    <a href="http://instagram.com/developer/authentication/">more here</a>.      
+  </p>
+
+  <ol>
+    <li>Instagram account, User ID and Access Token</li>
+    <li>jQuery 1.8+</li>
+    <li>bootstrap-modal.js (or bootstrap.js || bootstrap.min.js )</li>
+  </ol>
+
+  <p>
+    or you can head over here to use the <a href="plugin-only"><strong>plugin-only version</strong></a> (one that doesn't rely on Bootstrap Front-end).
+  </p>
+
+        <h3><strong>usage:</strong></h3>
+
+        <ol>
+          <li>
+            <p>
+              <strong>User ID</strong>:  If you have zero idea what your user id is, you may 
+              head to this <a href="http://jelled.com/instagram/lookup-user-id">link</a>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <strong>Access Token</strong>: to get your access token, you may 
+              head to this <a href="http://jelled.com/instagram/access-token">link</a>, 
+              make sure you follow the instructions on the <strong>"How do I 
+              get my client id?"</strong> link.         
+            </p>
+          </li>
+          <li>
+            <p>
+              Stylesheets, jQuery Library, Bootstrap JS &amp; the Plugin must be
+              initialised before you call on the plugin.
+            </p>
+<pre>
+  <span class="comment">&lt;!-- Include stylesheets to header --&gt;</span>
+  <span class="tag">&lt;link</span> <span class="attr">rel=</span><span class="value">"stylesheet"</span> <span class="attr">href=</span><span class="value">"/path/to/css/boostrap.min.css"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;link</span> <span class="attr">rel=</span><span class="value">"stylesheet"</span> <span class="attr">href=</span><span class="value">"/path/to/css/boostrap-responsive.min.css"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;link</span> <span class="attr">rel=</span><span class="value">"stylesheet"</span> <span class="attr">href=</span><span class="value">"/path/to/css/pongstagr.am.css"</span> <span class="tag">/&gt;</span>
+
+  <span class="comment">&lt;!-- Include Javascripts to footer --&gt;</span>
+  &lt;script</span> <span class="attr">href=</span><span class="value">"//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"</span> <span class="tag">/&gt;</span><span class="tag">&lt;/script&gt;</span>
+  &lt;script</span> <span class="attr">href=</span><span class="value">"/path/to/js/boostrap.min.js"</span> <span class="tag">/&gt;</span><span class="tag">&lt;/script&gt;</span>
+  &lt;script</span> <span class="attr">href=</span><span class="value">"/path/to/js/pongstagr.am.js"</span> <span class="tag">/&gt;</span><span class="tag">&lt;/script&gt;</span>
+</pre>
+
+            <p>
+              <strong>the call on the plugin like this: </strong>
+            </p>
+            
+<pre>
+  &lt;script&gt;</span>
+    $(<span class="value">document</span>)</span>.<span class="attr">ready</span>(<span class="attr">function</span>(){
+
+        $(<span class="value">'div#selector'</span>).<span class="attr">pongstgrm</span>({
+          accessId    : <span class="pair">YourAccessID</span>,
+          accessToken : <span class="pair">YourAccessToken</span>
+        });
+    
+    });  
+  <span class="tag">&lt;/script&gt;</span>
+</pre>
+
+            <p>
+              By default the plugin displays eight (8) most recent media.
+            </p>
+
+          </li>
+        </ol>
+        </div>
+        
+        <div id="examples" class="docs">
+          
+  <div class="page-title">
+    <h1><i class="icon-beaker" style="font-weight: normal;"></i> &nbsp; Examples</h1>
+  </div>
+  
+  <h2>Other Options</h2>
+  <pre>
+    show   : <span class="pair">null</span>, <span class="comment">// string,  options: 'recent', 'feed', 'liked', 'user'</span>
+    count  : <span class="pair">null</span>, <span class="comment">// integer, options: 1(min) - 40(max), instagram limits the maximum number of photos to 40</span>
+    pager  : <span class="pair">null</span>  <span class="comment">// boolean, options:  true or false (enables/disable load more button)</span>
+  </pre>
+  
+  <div class="row-fluid">
+    <div class="span6">
+      <h3 class="pull-left">Recent Media</h3>
+    </div>
+    <div class="span6">
+      <a href="/bootstrap/bootstrap-recent/" id="load-recent" class="btn btn-success pull-right">Show Recent Media &nbsp; <i class="icon-chevron-sign-right"></i></a>
+    </div>
+  </div>
+  <div id="recent"></div>
+  
+  <br />
+  <hr />
+
+  <div class="row-fluid">
+    <div class="span6">
+      <h3 class="pull-left">Liked Media</h3>
+    </div>
+    <div class="span6">
+      <a href="/bootstrap/bootstrap-liked/" id="load-liked" class="btn btn-success pull-right">Show Liked Media &nbsp; <i class="icon-chevron-sign-right"></i></a>
+    </div>
+  </div>
+  <div id="liked"></div>
+  
+  <br />
+  <hr />
+
+  <div class="row-fluid">
+    <div class="span6">
+      <h3 class="pull-left">User Feed</h3>
+    </div>
+    <div class="span6">
+      <a href="/bootstrap/bootstrap-liked/" id="load-feed" class="btn btn-success pull-right">Show User Feed &nbsp; <i class="icon-chevron-sign-right"></i></a>
+    </div>
+  </div>
+  <div id="feed"></div>
+  
+
+
+        </div>
+        
+        <div id="acknowlegements" class="docs">
+          
+  <div class="page-title">
+    <h2><i class="icon-thumbs-up" style="font-weight: normal;"></i> &nbsp; Acknowledgements</h2>
+  </div>
+
+  <p>
+    <span class="lead"><a href="http://twitter.github.io/bootstrap/">Bootstrap</a> was built
+    by <a href="http://twitter.com/mdo">@mdo</a> &amp; <a href="http://twitter.com/fat">@fat</a>.</span>
+
+    <br />
+
+    <small>
+      Bootstrap is licensed under Apache License v2.0, documentation under CC BY 3.0.
+      <a href="http://glyphicons.com/">Glyphicons</a> Free licensed under CC BY 3.0.
+    </small>
+  </p>
+  
+  <hr />
+  
+  <p>
+    <span class="lead"><a href="https://github.com/thomas-mcdonald/bootstrap-sass">Boostrap Sass</a> is created by <a href="https://github.com/thomas-mcdonald">Thomas McDonald</a>.</span>
+    
+    <br />
+    
+    <small>
+      Bootstrap Sass is Bootstrap for Sass ready to roll.
+    </small>
+  </p>
+        </div>
+        
+        <div id="license" class="docs">
+          
+  <div class="page-title">
+    <h1><i class="icon-file-text-alt" style="font-weight: normal;"></i> &nbsp; License</h1>
+  </div>
+
+  <p>
+    <span class="lead">Copyright 2013 &copy; Pongstagram - Pongstr Ordillo</span>
+  </p>
+
+  <p>
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at:
+  </p>
+
+  <p class="text-center">
+    <code><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></code>
+  </p>
+
+  <p>
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+  </p>
+        </div>
+        
+        <div id="comments" class="docs">
+          
+  <div class="page-title">
+    <h3><i class="icon-comments" style="font-weight: normal;"></i> &nbsp; Comments</h3>
+  </div>
+
+    
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'pongstagram'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+ 
+        </div>
+        
+      </div><!-- end of #index.span9 -->
+      
+    </div><!-- end of .row-fluid -->
+  </div><!-- end of .container -->
+  
+  </div><!-- end of [role="main"] -->
+  
+  <!-- FOOTER -->
+  
+  <footer>
   </footer>
   
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="//pongstr.github.io/pongstagr.am/bootstrap/js/bootstrap.js"></script>
-  <script src="//pongstr.com/projects/pongstagr.am/pongstagr.am.js"></script>
-  <script src="//pongstr.github.io/pongstagr.am/bootstrap/js/script.js"></script> 
-  <script src="http://gitforked.com/api/1.1/button.js" type="text/javascript"></script>   
+  
+  <!-- JS and analytics only. -->
+  
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery.min.js"><\/script>')</script>
+  
+  <script src="/assets/js/easing.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/pongstagr.am.js"></script>
+  <script src="/assets/js/docs.js"></script>
+
+  <!-- Load Social Media Plugins Async -->
   <script>
-    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');    
-
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-39916980-2', 'pongstr.github.io');
-    ga('send', 'pageview');
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');   
+    (function(d, t) {
+      "use strict";
+        var g = d.createElement(t),
+            s = d.getElementsByTagName(t)[0],
+            addthis_config = { 'data_track_addressbar': false };
+        g.src = '//gitforked.com/api/1.1/button.js';
+        s.parentNode.insertBefore(g, s);
+    }(document, 'script'));  
   </script>
+    
+  <!-- 
+    * Google Analytics: change UA-XXXXX-X to be your site's ID. 
+    * Based on https://github.com/h5bp/html5-boilerplate
+  -->
+  <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='//www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-39916980-2');ga('send','pageview');
+  </script>    
 
 </body>
-</html>  
+</html>
