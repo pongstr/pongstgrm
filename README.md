@@ -59,7 +59,7 @@ pager      : null     // boolean, options:  true or false (enables/disable load 
 
 #### Usage Example:
 
-```javascript
+```html
 <script src='//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
 <script src='path/to/js/bootstrap-modal.js'></script>  
 <script src='path/to/js/pongstagr.am.js'></script>
