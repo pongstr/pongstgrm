@@ -1,7 +1,7 @@
 /*!
  * jQuery Pongstagr.am Plugin 
  * Copyright (c) 2013 Pongstr Ordillo
- * Version: 2.0.6
+ * Version: 2.0.8
  * Code license under Apache License v2.0
  * http://www.apache.org/licenses/LICENSE-2.0
  * Requires: jQuery v1.9 and Bootstrap 3.2 js
@@ -24,7 +24,7 @@
     }      
   }
   
-  function renderModal( imageOwner, imageId, imageTitle, imageUrl, imgUser ){
+  function renderModal( imageOwner, imageId, imageTitle, imageUrl, imgUser, video, type ){
 
     var modal  = '<div id="' + imageId + '" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">';
         modal += '<div class="modal-header">';
@@ -34,7 +34,9 @@
         modal += '<div class="row-fluid">';
         
         modal += '<div class="span7">';
-        modal += '<div class="modal-img"><img src="' + imageUrl +'" alt="' + imageTitle + '" /></div>';
+        modal += ( type !== 'video' ) ? '<div class="modal-img"><img src="' + imageUrl +'" alt="' + imageTitle + '" /></div>' :
+                 (!navigator.userAgent.match(/webkit/i) && !navigator.userAgent.match(/(iPod|iPhone|iPad)/) ) ? '<p style="height:460px;" class="text-center"><br><code>Your browser does not support MPEG-4 Videos</code></p>' : 
+                  '<video controls autoplay width="100%" height="auto"><source src="'+ video +'" type="video/mp4">Your browser does not support html5 video</video>';
         modal += '</div>';
         
         modal += '<div class="span5 ">';
@@ -91,10 +93,15 @@
               imageUrl   = value.images.standard_resolution.url,
               imageId    = value.id,
               imgUser    = value.user.profile_picture,
-              imageOwner = value.user.username;
+              imageOwner = value.user.username,
+              mediaType  = value.type,
+              videos     = ( value.videos !== undefined ) ? value.videos.standard_resolution.url : '';
+                            
+                            console.log( videos )
                             
           var thumbBlock  = '<li class="span3">';
               thumbBlock += '<div class="thumbnail">';
+              thumbBlock += ( value.type === 'video' ) ? '<span class="video-icon"><i class="icon-play"></i></span>' : '';
               thumbBlock += '<div id="'+ imageId +'-thmb-ldr" class="loader"></div>';
               thumbBlock += '<a href="#" class="btn btn-mini btn-info btn-likes"><i class="icon-heart icon-white"></i> &nbsp;' + likes + '</a>';
               thumbBlock += '<a href="#" class="btn btn-mini btn-info btn-comments"><i class="icon-comment icon-white"></i> &nbsp;' + comments + '</a>';
@@ -112,7 +119,8 @@
                         
             $('.modal').attr('id', imageId );
             $('body').css({ overflow: 'hidden' });
-            renderModal( imageOwner, imageId, imgCaption, imageUrl, imgUser );
+            
+            renderModal( imageOwner, imageId, imgCaption, imageUrl, imgUser, videos, mediaType );
             
             $.each( value.comments.data, function( group, key ){
               var commentBlock  = '<div class="media">';
