@@ -1,7 +1,7 @@
 /*!
  * jQuery Pongstagr.am Plugin 
  * Copyright (c) 2013 Pongstr Ordillo
- * Version: 2.0.6
+ * Version: 2.0.8
  * Code license under Apache License v2.0
  * http://www.apache.org/licenses/LICENSE-2.0
  * Requires: jQuery v1.9 and Bootstrap 3.2 js
