@@ -30,6 +30,15 @@
     height:   auto;
   }
   
+  .video-icon {
+    @include opacity(0.75);
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    text-shadow: 0 1px 1px rgba(#000,0.25);
+  }
+  
   .btn-likes,
   .btn-comments {
     position:   absolute;
@@ -121,7 +130,9 @@
     padding: 10px; 
     &:nth-of-type(odd)  { background: lighten(#eee,5%); }
     &:nth-of-type(even) { background: #fff; }
-  }  
+  }
+  
+  
 }
 
 

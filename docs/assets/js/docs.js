@@ -63,7 +63,7 @@ $(window).load(function(){
       .addClass('btn-danger text-center');
   }
   
-  loadGram( 'recent', 8 );
+  loadGram( 'recent', 4 );
   loadGram( 'liked',  8 );
   loadGram( 'feed',   8 );
 

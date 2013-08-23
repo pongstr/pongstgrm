@@ -1,5 +1,5 @@
 @import url("http://fonts.googleapis.com/css?family=Lato:300,400,700");
-/*
+/*!
  * Bootstrap v2.3.2
  *
  * Copyright 2012 Twitter, Inc
@@ -2101,7 +2101,7 @@ table th[class*="span"],
   *margin-right: .3em;
   line-height: 14px;
   vertical-align: text-top;
-  background-image: url(../img/glyphicons-halflings.png?1373876504);
+  background-image: url(../img/glyphicons-halflings.png?1374727069);
   background-position: 14px 14px;
   background-repeat: no-repeat;
   margin-top: 1px;
@@ -2125,7 +2125,7 @@ table th[class*="span"],
 .dropdown-submenu:focus > a > [class^="icon-"],
 .dropdown-submenu:hover > a > [class*=" icon-"],
 .dropdown-submenu:focus > a > [class*=" icon-"] {
-  background-image: url(../img/glyphicons-halflings-white.png?1373876504);
+  background-image: url(../img/glyphicons-halflings-white.png?1374727069);
 }
 
 .icon-glass {
@@ -5832,7 +5832,7 @@ a.label:hover, a.label:focus, a.badge:hover, a.badge:focus {
   box-sizing: border-box;
 }
 
-/*
+/*!
  * Bootstrap Responsive v2.3.2
  *
  * Copyright 2012 Twitter, Inc
@@ -7068,7 +7068,7 @@ a.label:hover, a.label:focus, a.badge:hover, a.badge:focus {
     overflow: visible !important;
   }
 }
-/*
+/*!
  *
  * jQuery Pongstagr.am Plugin v2.0.6
  * Copyright (c) 2013 Pongstr Ordillo
@@ -7396,16 +7396,16 @@ code .comment {
 }
 .modal .modal-body {
   position: relative;
-  max-height: 460px;
+  max-height: 470px;
   padding: 0;
   margin: 0;
   overflow: hidden;
 }
 .modal .modal-img {
-  height: 460px;
+  height: 470px;
 }
 .modal .modal-comments {
-  height: 460px;
+  height: 470px;
   margin: 0;
   padding: 0;
   overflow-y: auto;
