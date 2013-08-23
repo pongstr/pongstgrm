@@ -96,9 +96,7 @@
               imageOwner = value.user.username,
               mediaType  = value.type,
               videos     = ( value.videos !== undefined ) ? value.videos.standard_resolution.url : '';
-                            
-                            console.log( videos )
-                            
+                                                        
           var thumbBlock  = '<li class="span3">';
               thumbBlock += '<div class="thumbnail">';
               thumbBlock += ( value.type === 'video' ) ? '<span class="video-icon"><i class="icon-play"></i></span>' : '';
