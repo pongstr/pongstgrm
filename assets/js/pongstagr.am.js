@@ -1,7 +1,7 @@
 /*!
  * jQuery Pongstagr.am Plugin 
  * Copyright (c) 2013 Pongstr Ordillo
- * Version: 2.0.8
+ * Version: 2.0.84
  * Code license under Apache License v2.0
  * http://www.apache.org/licenses/LICENSE-2.0
  * Requires: jQuery v1.9 and Bootstrap 3.2 js
@@ -96,9 +96,7 @@
               imageOwner = value.user.username,
               mediaType  = value.type,
               videos     = ( value.videos !== undefined ) ? value.videos.standard_resolution.url : '';
-                            
-                            console.log( videos )
-                            
+                                                        
           var thumbBlock  = '<li class="span3">';
               thumbBlock += '<div class="thumbnail">';
               thumbBlock += ( value.type === 'video' ) ? '<span class="video-icon"><i class="icon-play"></i></span>' : '';
@@ -164,27 +162,33 @@
   }
   
   function requestData ( request, count, accessID, accessToken, targetElement, pager ){
-    var $apiRequest   = 'https://api.instagram.com/v1/users/',  
+    var $apiRequest   = 'https://api.instagram.com/v1/', 
         $requestCount = ( count !== null ) ?  
           '?count=' +  count + '&access_token=' + accessToken :
           '?count=' +    8   + '&access_token=' + accessToken ,
         loadBtnData  = ( request === null ) ? 'recent' : request ;
     
     if ( request === null || request === 'recent' ){
-      var $recentMedia = $apiRequest + accessID + '/media/recent' + $requestCount; 
+      var $recentMedia =  $apiRequest + 'users/' + accessID + '/media/recent' + $requestCount; 
           // Load Recent Media
           ajaxRequest( $recentMedia, targetElement );
     }
     
-    if ( request === 'liked' ){
-      var $likedMedia = $apiRequest + 'self/media/liked' + $requestCount;
+     else if ( request === 'liked' ){
+      var $likedMedia = $apiRequest + 'users/self/media/liked' + $requestCount;
           // Load Liked Media
           ajaxRequest( $likedMedia, targetElement );
     }
 
-    if ( request === 'feed' ){
-      var $feedMedia = $apiRequest + 'self/feed' + $requestCount;
+    else if ( request === 'feed' ){
+      var $feedMedia = $apiRequest + 'users/self/feed' + $requestCount;
           // Load User Feed
+          ajaxRequest( $feedMedia, targetElement );
+    }
+
+    else {
+      var $feedMedia = $apiRequest + 'tags/' + request + '/media/recent' + $requestCount;
+          // Load Tagged Feed
           ajaxRequest( $feedMedia, targetElement );
     }
         
@@ -221,7 +225,7 @@
     accessToken  : null,  // instagram access-token
 
     // Display options
-    show         : null,  // string,  options: 'recent', 'feed', 'liked', 'user'
+    show         : null,  // string,  options: 'recent', 'feed', 'liked', 'user', 'anytag'
     count        : null,  // integer, options: 1(min) - 40(max), instagram limits the maximum number of photos to 40
     resolution   : null,  // string,  options: 'low_resolution', 'standard_resolution'
     pager        : null   // boolean, options:  true or false (enables/disable load more button)

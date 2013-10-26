@@ -64,8 +64,15 @@ $(window).load(function(){
   }
   
   loadGram( 'recent', 4 );
-  loadGram( 'liked',  8 );
-  loadGram( 'feed',   8 );
+  loadGram( 'liked',  4 );
+  loadGram( 'feed',  4 );
+
+  $('#tags').pongstgrm({
+    accessId: "39666111",
+    accessToken: "39666111.1fb234f.c3901000b4944a549fd5fd2310c63780",
+    show: 'ios7',
+    count: 4
+  })
 
 }); /*! end window.load */
 

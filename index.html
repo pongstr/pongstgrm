@@ -58,7 +58,7 @@
       </div>
       
       <div class="span7">
-        <a href="//github.com/pongstr/pongstagr.am/archive/master.zip" class="btn btn-success btn-large"><i class="icon-download"></i> &nbsp; Download v2.0.8</a>
+        <a href="//github.com/pongstr/pongstagr.am/archive/master.zip" class="btn btn-success btn-large"><i class="icon-download"></i> &nbsp; Download v2.0.84</a>
         <a href="//github.com/pongstr/pongstagr.am/" class="btn btn-success btn-large"><i class="icon-github"></i> &nbsp; View on Github</a>
         
         <br />
@@ -218,7 +218,7 @@
 
   <h2>Other Options</h2>
   <pre>
-    show   : <span class="pair">null</span>, <span class="comment">// string,  options: 'recent', 'feed', 'liked', 'user'</span>
+    show   : <span class="pair">null</span>, <span class="comment">// string,  options: 'recent', 'feed', 'liked', 'user', 'any tags'</span>
     count  : <span class="pair">null</span>, <span class="comment">// integer, options: 1(min) - 40(max), instagram limits the maximum number of photos to 40</span>
     pager  : <span class="pair">null</span>  <span class="comment">// boolean, options:  true or false (enables/disable load more button)</span>
   </pre>
@@ -265,9 +265,19 @@
     </div>
   </div>
   <div id="feed"></div>
-  
 
+  <br />
+  <hr />  
 
+  <div class="row-fluid">
+    <div class="span6">
+      <h3 class="pull-left">Tags</h3>
+    </div>
+    <div class="span6">
+      <a href="/pongstagr.am/examples/bootstrap-tags/" id="load-feed" class="btn btn-success pull-right">Show Tag &nbsp; <i class="icon-chevron-sign-right"></i></a>
+    </div>
+  </div>
+  <div id="tags"></div>
         </div>
         
         <div id="acknowlegements" class="docs">
