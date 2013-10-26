@@ -1,13 +1,3 @@
-/*!==========================================================================
- * jQuery Pongstagr.am Plugin v3.0.0 Documentation Stylesheet
- * ==========================================================================
- * Copyright (c) 2013 Pongstr Ordillo. MIT License
- * Requires: jQuery v1.10.2 and Bootstrap 3.0.0
- * ========================================================================= */
-
-// Compass Mixins
-@import "compass/css3";
-
 /*!
  * Bootstrap v3.0.0
  *
@@ -67,9 +57,3 @@
 // Utility classes
 @import "bootstrap/utilities";
 @import "bootstrap/responsive-utilities";
-
-// Documentation Sections
-@import "page";
-@import "header";
-@import "main";
-@import "overrides"
