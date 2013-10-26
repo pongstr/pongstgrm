@@ -49,7 +49,7 @@ $('div#selector').pongstgrm({
   
   
 ```javascript
-show       : null,    // string,  options: 'recent', 'feed', 'liked', 'user'
+show       : null,    // string,  options: 'recent', 'feed', 'liked', 'user', 'any tag'
 count      : null,    // integer, options: 1(min) - 40(max), instagram limits the maximum number of photos to 40
 pager      : null     // boolean, options:  true or false (enables/disable load more button)
 ```
@@ -83,7 +83,7 @@ pager      : null     // boolean, options:  true or false (enables/disable load 
 
 #### Acknowledgements 
   
-  - **[Bootstrap](http://twitter.github.io/bootstrap/)** is created by [@mdo](http://twitter.com/mdo) & [@fat](http://twitter.com/fat)
+  - **[Bootstrap](http://twitter.github.io/bootstrap/)** is created by [@mdo](http://twitter.com/mdo) &amp; [@fat](http://twitter.com/fat)
 
 ---------
 
