@@ -21,10 +21,19 @@
   <link rel="apple-touch-icon-precomposed"                 href="{{ site.baseurl }}assets/ico/apple-touch-icon-57-precomposed.png">
 
   <link rel="stylesheet" href="{{ site.baseurl }}assets/css/docs.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
+
+
+  <script type="text/javascript" src="//use.typekit.net/ntt8cxd.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
 </head>
 <body>
 
+  {% include hero.html %}
+
+
+  {% comment %}
   <div id="wrapper">
     <!-- HEADER -->
     <header>
@@ -37,6 +46,7 @@
     </div>
 
   </div><!-- end of #wrapper -->
+  {% endcomment %}
 
   <script src="{{ site.baseurl }}assets/js/jquery.js"></script>
   <script src="{{ site.baseurl }}assets/js/bootstrap.js"></script>
