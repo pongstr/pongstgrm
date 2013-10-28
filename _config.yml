@@ -19,4 +19,6 @@ destination:  gh-pages
 port:         4000
 
 # Versions
+repourl:     "https://github.com/pongstr/pongstagr.am/"
 version:     "v3.0.0"
+download:    "https://github.com/pongstr/pongstagr.am/archive/master.zip"

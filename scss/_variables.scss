@@ -18,7 +18,7 @@ $gray-lighter:           lighten(#000, 93.5%) !default; // #eee
 // Brand colors
 // -------------------------
 
-$brand-primary:         #428bca !default;
+$brand-primary:         #4F405F !default;
 $brand-success:         #5cb85c !default;
 $brand-warning:         #f0ad4e !default;
 $brand-danger:          #d9534f !default;
@@ -28,12 +28,12 @@ $brand-info:            #5bc0de !default;
 // -------------------------
 
 $body-bg:               #fff !default;
-$text-color:            $gray-dark !default;
+$text-color:            $gray !default;
 
 // Links
 // -------------------------
 
-$link-color:            $brand-primary !default;
+$link-color:            $brand-danger !default;
 $link-hover-color:      darken($link-color, 15%) !default;
 
 // Typography
@@ -51,7 +51,7 @@ $font-size-small:         ceil($font-size-base * 0.85) !default; // ~12px
 $line-height-base:        1.428571429 !default; // 20/14
 $line-height-computed:    floor($font-size-base * $line-height-base) !default; // ~20px
 
-$headings-font-family:    $font-family-base !default;
+$headings-font-family:    "adelle", $font-family-base !default;
 $headings-font-weight:    500 !default;
 $headings-line-height:    1.1 !default;
 

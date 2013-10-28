@@ -7,7 +7,6 @@
 
   <title>{{ page.title }} | {{ site.name }}</title>
 
-
   <meta name="author" content="Pongstr - Philip Ordillo" />
   <meta name="description" content="Pongstagr.am is a jQuery plugin that lets you display Instagram media to your website">
   <meta name="keywords" content="jquery,instagram,github,pongstr,ordillo,philip,pongstagram,pongstagr">
@@ -23,18 +22,9 @@
   <link rel="stylesheet" href="{{ site.baseurl }}assets/css/docs.css">
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
 
-
-  <script type="text/javascript" src="//use.typekit.net/ntt8cxd.js"></script>
-  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-
 </head>
 <body>
 
-  {% include hero.html %}
-
-
-  {% comment %}
-  <div id="wrapper">
     <!-- HEADER -->
     <header>
       {% include header.html %}
@@ -45,13 +35,28 @@
       {{ content }}
     </div>
 
-  </div><!-- end of #wrapper -->
-  {% endcomment %}
+
+  <script type="text/javascript" src="//use.typekit.net/ntt8cxd.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
   <script src="{{ site.baseurl }}assets/js/jquery.js"></script>
   <script src="{{ site.baseurl }}assets/js/bootstrap.js"></script>
+  <script src="{{ site.baseurl }}assets/js/prettify.js"></script>
+  <script src="{{ site.baseurl }}assets/js/easing.js"></script>
+  
   <script src="{{ site.baseurl }}source/pongstagr.am.js"></script>
   <script src="{{ site.baseurl }}assets/js/docs.js"></script>
+
+  <script>
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+    (function(d, t) {
+        var g = d.createElement(t),
+            s = d.getElementsByTagName(t)[0],
+            addthis_config = { 'data_track_addressbar': false };
+        g.src = '//gitforked.com/api/1.1/button.js';
+        s.parentNode.insertBefore(g, s);
+    }(document, 'script'));
+  </script>
 
   <script>
     (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=

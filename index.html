@@ -3,3 +3,231 @@ layout:  docs
 title:   "Docs &amp; Examples"
 ---
 
+  <div id="docs" class="page-heading">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-xs-12 col-sm-3 col-lg-3">
+          <h3>
+            <a href="#home" data-hash="slide"><i class="fa fa-instagram"></i> Pongstagr.am</a>
+          </h3>
+        </div>
+
+        <div class="col-xs-12 col-sm-5 col-lg-6 text-center">
+          <br>
+          <div class="btn-group text-center">
+            <a href="#examples" class="btn btn-sm btn-primary" data-hash="slide">
+              <i class="fa fa-flask"></i> &nbsp; Examples
+            </a>
+
+            <a href="#readme" class="btn btn-sm btn-primary" data-hash="slide">
+              <i class="fa fa-book"></i> &nbsp;Docs
+            </a>
+
+            <a href="#comments" class="btn btn-sm btn-primary" data-hash="slide">
+              <i class="fa fa-comments"></i> &nbsp;Comments
+            </a>
+
+            <a href="#license" class="btn btn-sm btn-primary" data-hash="slide">
+              <i class="fa fa-file-text"></i> &nbsp;License
+            </a>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-4 col-lg-3 pull-right">
+          <br>
+            <div class="btn-group pull-right">
+            <a href="{{ site.download }}" class="btn btn-sm btn-primary">
+              <i class="fa fa-download"></i> &nbsp; Download {{ site.version }}
+            </a>
+
+            <a href="{{ site.repourl }}" class="btn btn-sm btn-primary">
+              <i class="fa fa-github-alt"></i> &nbsp;Github Project
+            </a>
+          </div>
+        </div>
+      </div><!-- end of .row -->
+    </div><!-- end of .container -->
+  </div>
+
+
+    <div class="container">
+      <div class="row">
+
+          <article id="readme" class="col-lg-12" style="height: 1150px;">
+            <section class="page-header">
+              <h2 class="text-primary">Readme</h2>
+            </section>
+
+            <p class="lead">
+              Pongstagr.am is a jQuery plugin that lets display your instagram 
+              media to your website using <a href="http://twitter.github.io/bootstrap/">Bootstrap</a> 
+              Front-end styles and modal-plugin.
+            </p>
+
+            <h3>Requirements</h3>
+            <p>
+              For the most part, Instagram’s API only requires the use of a client_id.
+              A client_id simply associates your server, script, or program with a
+              specific application. However, some requests require authentication -
+              specifically requests made on behalf of a user. Authenticated requests
+              require an access_token. These tokens are unique to a user and should
+              be stored securely. Access tokens may expire at any time in the future
+              <a href="http://instagram.com/developer/authentication/">more here</a>.
+            </p>
+
+            <ol>
+              <li>Instagram Account &nbsp; <small>[<code>user id</code> &amp; <code>access token</code>]</small></li>
+              <li>jQuery 1.10.x</li>
+              <li>Bootstrap v3.x or head over here to use the <a href="#">plugin-only</a> version</li>
+            </ol>
+
+            <h3>Usage</h3>
+
+            <ol>
+              <li>
+                <p>
+                  <strong>User ID</strong>: If you have zero idea what your user id is, you may
+                  head to this <a href="http://jelled.com/instagram/lookup-user-id">link</a>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong>Access Token</strong>: to get your access token, you may
+                  head to this <a href="http://jelled.com/instagram/access-token">link</a>,
+                  make sure you follow the instructions on the <strong>"How do I
+                  get my client id?"</strong> link.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Stylesheets, jQuery Library, Bootstrap JS &amp; the Plugin must be
+                  initialised before you call on the plugin.
+                </p>
+              </li>
+            </ol>
+
+            <br>
+       
+<pre class="prettyprint linenums">
+&lt;!-- Initialize stylesheets to header --&gt;
+&lt;link rel="stylesheet" href="/path/to/css/bootstrap.css"&gt;
+&lt;link rel="stylesheet" href="/path/to/css/pongstagr.am.css&gt;
+
+&lt;!-- Initialize Javascripts to footer --&gt;
+&lt;script href="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js""&gt;&lt;/script&gt;
+&lt;script href="/path/to/js/boostrap.js"&gt;&lt;/script&gt;
+&lt;script href="/path/to/js/pongstagr.am.js"&gt;&lt;/script&gt;
+</pre>
+
+            <br>
+
+            <h5>Call on the plugin like this:</h5>
+            <small class="help-block text-muted">By default the plugin displays eight (8) most recent media.</small>
+
+<pre class="prettyprint linenums">
+$(document).ready(function () {
+
+  $('#selector').pongstgrm({
+    accessId:     'YOUR-ACCESS-ID',
+    accessToken:  'YOUR-ACCESS-TOKEN'
+  });
+
+});
+</pre>
+            
+            <br>
+            
+            <h5>Other Options</h5>
+
+<pre class="prettyprint linenums">
+show   : null, // string,  options: 'recent', 'feed', 'liked', 'user', 'any tags'
+count  : null, // integer, options: 1(min) - 40(max), instagram limits the maximum number of photos to 40
+pager  : null  // boolean, options:  true or false (enables/disable load more button)
+</pre>
+
+          </article>
+
+            <div id="examples" class="col-xs-12" style="height: 1150px;">
+              <div class="page-header">
+                <h2 class="text-primary">Examples</h2>
+              </div>
+
+              <br>
+
+              <h3>Recent Media</h3>
+              <small class="help-block text-muted">Display your most <strong>recent</strong> <i class="fa fa-camera"></i> media.</small>
+
+              <br>
+
+              <h3>User Likes</h3>
+              <small class="help-block text-muted">Display your most recent <strong>liked</strong> <i class="fa fa-heart"></i> media.</small>
+
+              <br>
+
+              <h3>User Feed</h3>
+              <small class="help-block text-muted">Display the most recent media from the people you <strong>follow</strong> <i class="fa fa-share"></i>.</small>
+
+              <br>
+
+              <h3>Tags</h3>
+              <small class="help-block text-muted">Display the most recent media available using <strong>tags</strong> <i class="fa fa-tag"></i>.</small>
+  
+            </div>
+
+            <div id="comments" class="col-xs-12">
+              <div class="page-header">
+                <h2 class="text-primary">Comments</h2>
+              </div>
+              
+              {% include disqus.html %}
+            </div>
+
+            <div id="license" class="col-xs-12">
+              <br>
+              <hr>
+
+              <h2 class="text-primary">License</h2>
+              <small class="help-block text-muted">Copyright 2013 &copy; Pongstagr.am by Pongstr Ordillo licensed under <a href="http://opensource.org/licenses/MIT">MIT License</a>.</small>
+
+              <div class="row">
+                <div class="col-xs-12 col-lg-12">
+                    <div class="well well-lg text-muted text-justify">
+                      <p>The MIT License (MIT)</p>
+                      <p>Copyright 2013 &copy; Pongstagr.am by Pongstr Ordillo</p>
+                      <p>
+                        <small>
+                        Permission is hereby granted, free of charge, to any person obtaining a copy
+                        of this software and associated documentation files (the "Software"), to deal
+                        in the Software without restriction, including without limitation the rights
+                        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                        copies of the Software, and to permit persons to whom the Software is
+                        furnished to do so, subject to the following conditions:
+                        </small>
+                      </p>
+
+                      <p>
+                        <small>
+                          The above copyright notice and this permission notice shall be included in
+                          all copies or substantial portions of the Software.
+                        </small>
+                      </p>
+
+                      <p>
+                        <small>
+                          THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                          IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                          FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+                          AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                          LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                          OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+                          THE SOFTWARE.
+                        </small>
+                      </p>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+      </div>
+  </div><!-- end of .container -->
