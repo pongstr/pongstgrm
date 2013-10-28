@@ -8,7 +8,7 @@
 +function ($) { "use strict"; 
 
   var Pongstgrm = function (element, options) {
-    this.element = $(element)
+    this.element = element
     this.options = options
   }
 
@@ -22,11 +22,11 @@
 
     // DISPLAY OPTIONS
     // ===========================
-    , count:     8
-    , likes:     true
-    , comments:  true
-    , timestamp: true
-    , show:      "recent"
+    , count:       8
+    , likes:       true
+    , comments:    true
+    , timestamp:   true
+    , show:       "recent"
 
     // HTML OPTIONS
     // ===========================
@@ -59,6 +59,170 @@
     return element
   }
 
+  // Stream Media from Instagram
+  Pongstgrm.prototype.stream = function () {
+    var Pongstr = this
+      , options = this.options
+
+    // Preload images with a spinner
+    function preloadMedia (option) {
+      var  imgId = option.id
+        ,  loadr = option.id +'-loadr'
+        ,  total = $(imgId).length
+        ,  preld = 0
+
+      var loadbtn = $('[data-paginate='+option.show+']')
+        , btnstat = document.createElement('div')
+
+      $(loadbtn)
+        .text('Loading ')
+        .append(btnstat)
+      $(btnstat)
+        .addClass(option.preload)
+
+      $(imgId).hide().load( function () {
+        ++preld === total &&
+          $(this).fadeIn()
+          $(loadr).fadeOut().remove()
+          $(loadbtn).text(option.buttontext)
+          $(btnstat).fadeOut().remove()
+      })
+    }
+
+    // Paginate through media stream
+    function paginateMedia (option) {
+      (option.url === undefined || option.url === null) ? 
+        $('[data-paginate='+ option.show +']').on('click', function (e) {
+          e.preventDefault()
+            $(this)
+              .removeClass()
+              .addClass('btn btn-default')
+              .attr('disabled','disabled')
+        }) :
+        
+        $('[data-paginate='+ option.show +']').on('click', function (e) {
+          e.preventDefault(); 
+          ajaxdata({ url: option.url, opt: option.opt }); $(this).unbind(e);
+        })
+      return        
+    }
+
+    // Loop Media
+    function loopMedia (data, option) {
+      $.each(data.data, function (a, b) {
+        var caption   = (b.caption !== null) ? b.caption.text : ""
+
+        var thumb = { tag: 'img'
+          , attr: { id: b.id+'-thmb', src: b.images.low_resolution.url, alt: caption }
+        }
+
+        var preloader = { tag: 'div'
+          , attr: {id: b.id+'-thmb-loadr', class: option.preload }
+        }
+
+        var link = {
+            tag: 'a'
+          , attr: {id: b.id+'-trigger', href: '#'+b.id+'-modal', 'data-toggle': 'modal'}
+          , parent: true
+          , children: Pongstgrm.prototype.html(thumb)
+        }
+
+        var thumbnail = { 
+              tag: 'div'
+            , css: 'thumbnail'
+            , parent: true
+            , children: [Pongstgrm.prototype.html(link), Pongstgrm.prototype.html(preloader)]
+        }
+
+        var column = {
+            tag: 'div'
+          , css: option.column
+          , append: 'append'
+          , target: Pongstr.element
+          , parent: true
+          , children: Pongstgrm.prototype.html(thumbnail)
+        }
+              
+        Pongstgrm.prototype.html(column)
+        preloadMedia({ id: '#'+ b.id + '-thmb', show: option.show })         
+      })
+
+      // console.log(data.pagination.next_url)
+// console.log(option)
+      paginateMedia({ show: option.show, url: data.pagination.next_url, opt: option })
+      
+    }
+
+    function loopProfile (data, option) {
+      console.log('profile!!')
+    }
+
+    // Retrieve Media via ajax
+    function ajaxdata (option) {
+      $.ajax({
+          url      : option.url
+        , cache    : true    
+        , method   : 'GET'
+        , dataType : 'jsonp' 
+        , success  : function(data){          
+            
+            (option.opt.show !== 'profile') ?
+              loopMedia(data, option.opt) : loopProfile(data.data, option.opt)
+        }
+      })
+    }
+
+    var apiurl = 'https://api.instagram.com/v1/users/'
+    var rcount = '?count=' +  options.count + '&access_token=' + options.accessToken  
+
+    switch (options.show) {
+      case "liked":
+        var liked = {
+            url : apiurl + 'self/media/liked' + rcount
+          , opt : options
+        }
+        ajaxdata(liked)
+      break
+
+      case "feed":
+        var feed = {
+            url: apiurl + 'self/feed' + rcount
+          , opt: options
+        }
+
+        ajaxdata(feed)
+      break
+
+      case "profile":
+        var profile = {
+            url: apiurl + options.accessId + '?access_token=' + options.accessToken
+          , opt: options
+        }
+
+        ajaxdata(profile)
+      break
+
+      case "recent":
+        var recent = {
+            url: apiurl + options.accessId + '/media/recent' + rcount
+          , opt: options
+        }
+
+        ajaxdata(recent)
+      break
+      
+      default:
+        var tag = {
+            url: 'https://api.instagram.com/v1/tags/' + options.show + '/media/recent' + rcount
+          , opt: options
+        }
+        ajaxdata(tag)
+    }
+
+    return
+  }
+
+
   // Create Media Stream
   Pongstgrm.prototype.create = function () {
     var Pongstr = this
@@ -67,7 +231,7 @@
 
     $(element)
       .attr('data-type', options.show)
-      .addClass('pongstgrm row')
+      .addClass('pongstagrm row')
 
     Pongstr.html({
         tag: 'div'
@@ -77,6 +241,8 @@
       , html: '<button class="'+ options.button +'" data-paginate="'+ options.show +'">'+ options.buttontext +'</button>'
     })
 
+    Pongstr.stream()
+
     return
   }
 
@@ -84,9 +250,7 @@
   Pongstgrm.prototype.start = function () {
     var option = this.options
     if (option.accessId !== null || option.accessToken !== null) {
-      this.create(); return true
-    } else {
-       return false
+      this.create(); return
     }
   }
 
