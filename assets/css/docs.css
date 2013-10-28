@@ -2124,18 +2124,18 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
 
 .btn-warning {
   color: white;
-  background-color: #f0ad4e;
-  border-color: #eea236;
+  background-color: #e2175a;
+  border-color: #cb1551;
 }
 .btn-warning:hover, .btn-warning:focus, .btn-warning:active, .btn-warning.active {
   color: white;
-  background-color: #ed9c28;
-  border-color: #d58512;
+  background-color: #bd134b;
+  border-color: #930f3b;
 }
 .open .btn-warning.dropdown-toggle {
   color: white;
-  background-color: #ed9c28;
-  border-color: #d58512;
+  background-color: #bd134b;
+  border-color: #930f3b;
 }
 .btn-warning:active, .btn-warning.active {
   background-image: none;
@@ -2144,8 +2144,8 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
   background-image: none;
 }
 .btn-warning.disabled, .btn-warning.disabled:hover, .btn-warning.disabled:focus, .btn-warning.disabled:active, .btn-warning.disabled.active, .btn-warning[disabled], .btn-warning[disabled]:hover, .btn-warning[disabled]:focus, .btn-warning[disabled]:active, .btn-warning[disabled].active, fieldset[disabled] .btn-warning, fieldset[disabled] .btn-warning:hover, fieldset[disabled] .btn-warning:focus, fieldset[disabled] .btn-warning:active, fieldset[disabled] .btn-warning.active {
-  background-color: #f0ad4e;
-  border-color: #eea236;
+  background-color: #e2175a;
+  border-color: #cb1551;
 }
 
 .btn-danger {
@@ -4393,10 +4393,10 @@ input[type="button"].btn-block {
 }
 
 .label-warning {
-  background-color: #f0ad4e;
+  background-color: #e2175a;
 }
 .label-warning[href]:hover, .label-warning[href]:focus {
-  background-color: #ec971f;
+  background-color: #b41248;
 }
 
 .label-danger {
@@ -4682,7 +4682,7 @@ a.thumbnail:focus {
 }
 
 .progress-bar-warning {
-  background-color: #f0ad4e;
+  background-color: #e2175a;
 }
 .progress-striped .progress-bar-warning {
   background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
@@ -6230,7 +6230,7 @@ body {
 }
 
 [role="main"] {
-  padding-bottom: 200px;
+  padding-bottom: 50px;
 }
 
 body.sticky {
@@ -6247,13 +6247,13 @@ body.sticky {
 
 ::selection {
   background-color: #000;
-  color: #fff;
+  color: #e2175a;
   text-shadow: none;
 }
 
 ::-moz-selection {
   background-color: #000;
-  color: #fff;
+  color: #e2175a;
   text-shadow: none;
 }
 
@@ -6519,7 +6519,11 @@ header .jumbotron small {
 /* Thumbnails */
 .thumbnail {
   position: relative;
-  padding: 10px;
+  padding: 5px 10px;
+}
+
+.thumbnail > a {
+  display: block;
 }
 
 .thumbnail > a > img {
@@ -6529,6 +6533,25 @@ header .jumbotron small {
   margin: 5px 0;
 }
 
+.thumbnail > strong {
+  font-size: 11px;
+  color: #999999;
+}
+
+.thumbnail > span {
+  display: inline-block;
+}
+.thumbnail > span:first-child {
+  margin-right: 10px;
+}
+.thumbnail > span:last-child {
+  margin-left: 10px;
+}
+.thumbnail > span:not(i) {
+  font-size: 11px;
+  font-weight: bold;
+  color: #999999;
+}
 .thumbnail > span.type {
   -webkit-transition: opacity 200ms ease;
   transition: opacity 200ms ease;

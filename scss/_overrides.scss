@@ -23,7 +23,11 @@
 /* Thumbnails */
 .thumbnail {
   position: relative;
-  padding: 10px;
+  padding: 5px 10px;
+}
+
+.thumbnail > a {
+  display: block;
 }
 
 .thumbnail > a > img {
@@ -33,7 +37,25 @@
   margin: 5px 0;
 }
 
+
+.thumbnail > strong {
+  font-size: 11px;
+  color: $gray-light;
+}
+
+
 .thumbnail > span {
+  display: inline-block;
+
+  &:first-child { margin-right: 10px; }
+  &:last-child { margin-left: 10px; }
+
+  &:not(i) {
+    font-size: 11px;
+    font-weight: bold;
+    color: $gray-light;    
+  }
+
   &.type {
     @include transition(opacity 200ms ease);
     position: absolute;

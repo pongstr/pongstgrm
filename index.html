@@ -107,7 +107,7 @@ pager  : null  // boolean, options:  true or false (enables/disable load more bu
 
               <br>
 
-              <h3>Recent Media</h3>
+              <h3 class="text-danger">Recent Media</h3>
               <small class="help-block text-muted">Display your most <strong>recent</strong> <i class="fa fa-camera"></i> media.</small>
 
               <div class="col-xs-12">
@@ -116,7 +116,7 @@ pager  : null  // boolean, options:  true or false (enables/disable load more bu
 
               <br>
 
-              <h3>User Likes</h3>
+              <h3 class="text-danger">User Likes</h3>
               <small class="help-block text-muted">Display your most recent <strong>liked</strong> <i class="fa fa-heart"></i> media.</small>
 
               <div class="col-xs-12">
@@ -125,7 +125,7 @@ pager  : null  // boolean, options:  true or false (enables/disable load more bu
 
               <br>
 
-              <h3>User Feed</h3>
+              <h3 class="text-danger">User Feed</h3>
               <small class="help-block text-muted">Display the most recent media from the people you <strong>follow</strong> <i class="fa fa-share"></i>.</small>
 
               <div class="col-xs-12">
@@ -134,7 +134,7 @@ pager  : null  // boolean, options:  true or false (enables/disable load more bu
 
               <br>
 
-              <h3>Tags</h3>
+              <h3 class="text-danger">Tags</h3>
               <small class="help-block text-muted">Display the most recent media available using <strong>tags</strong> <i class="fa fa-tag"></i>.</small>
 
               <div class="col-xs-12">
@@ -149,7 +149,7 @@ pager  : null  // boolean, options:  true or false (enables/disable load more bu
                 <h2 class="text-primary">Comments</h2>
               </div>
               
-              
+              {% include disqus.html %}
             </div>
 
             <div id="license" class="col-xs-12">

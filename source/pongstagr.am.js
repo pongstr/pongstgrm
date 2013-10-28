@@ -110,9 +110,18 @@
     // Loop Media
     function loopMedia (data, option) {
       $.each(data.data, function (a, b) {
-        var caption   = (b.caption !== null) ? b.caption.text : ""
 
-        var thumb = { tag: 'img'
+        var caption   = (b.caption !== null) ? b.caption.text : ''
+          , timestamp = new Date(b.created_time * 1000)
+          , created   = timestamp.toDateString()
+
+        var mediatype      = (b.type === 'video') ? '<span class="type"><i class="'+ option.videoicon +'"></i></span>' : null
+          , created_time   = option.timestamp === true  && '<strong>' + created + '</strong>'
+          , likes_count    = option.likes === true      && '<span class="likes"><i class="'+ option.likeicon +'"></i> &nbsp;' + b.likes.count + '</span>'
+          , comments_count = option.comments === true   && '<span class="comments"><i class="'+ option.commenticon +'"></i> &nbsp;' + b.comments.count + '</span>'
+
+        var thumb = { 
+            tag: 'img'
           , attr: { id: b.id+'-thmb', src: b.images.low_resolution.url, alt: caption }
         }
 
@@ -129,9 +138,9 @@
 
         var thumbnail = { 
               tag: 'div'
-            , css: 'thumbnail'
+            , css: 'thumbnail text-center'
             , parent: true
-            , children: [Pongstgrm.prototype.html(link), Pongstgrm.prototype.html(preloader)]
+            , children: [created_time, Pongstgrm.prototype.html(link), Pongstgrm.prototype.html(preloader), mediatype, likes_count, comments_count]
         }
 
         var column = {
@@ -147,10 +156,9 @@
         preloadMedia({ id: '#'+ b.id + '-thmb', show: option.show })         
       })
 
-      // console.log(data.pagination.next_url)
-// console.log(option)
       paginateMedia({ show: option.show, url: data.pagination.next_url, opt: option })
       
+      return
     }
 
     function loopProfile (data, option) {
