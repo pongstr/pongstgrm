@@ -6229,6 +6229,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+[role="main"] {
+  padding-bottom: 200px;
+}
+
 body.sticky {
   padding-top: 125px;
 }
@@ -6547,6 +6551,63 @@ header .jumbotron small {
   -webkit-transition: opacity 200ms ease;
   transition: opacity 200ms ease;
   opacity: 1;
+}
+
+/* Moda Overrides */
+.modal-dialog {
+  width: 980px;
+}
+
+.modal-header {
+  padding: 5px 10px;
+}
+
+.modal-body {
+  padding: 0;
+}
+
+.modal-body > .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.media-column,
+.media-comment {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+}
+
+.media-column {
+  width: 65%;
+}
+
+.media-column > img,
+.media-column > video {
+  -moz-border-radius-bottomleft: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  width: 100%;
+}
+
+.media-comment {
+  -moz-border-radius-bottomright: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  width: 35%;
+  max-height: 622px;
+  overflow-y: scroll;
+  background-color: #f4f4f4;
+}
+.media-comment > .media {
+  padding: 15px;
+}
+.media-comment > .media:nth-of-type(odd) {
+  background-color: #fff;
+}
+.media-comment > .media:nth-of-type(even) {
+  background-color: #f4f4f4;
 }
 
 /*! Animation Keyframes 

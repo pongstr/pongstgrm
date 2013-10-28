@@ -58,6 +58,54 @@
 }
 
 
+/* Moda Overrides */
+.modal-dialog {  width: 980px; }
+
+.modal-header {
+  padding: 5px 10px;
+}
+
+.modal-body {
+  padding: 0;
+}
+
+
+.modal-body > .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+.media-column,
+.media-comment {
+  @include box-sizing(border-box);
+  float: left;
+}
+
+.media-column { width: 65%; }
+.media-column > img,
+.media-column > video { 
+  @include border-bottom-left-radius(5px);
+  width: 100%; 
+}
+
+.media-comment {
+  @include border-bottom-right-radius(5px);
+  width: 35%;
+  max-height: 622px;
+  overflow-y: scroll;
+  background-color: #f4f4f4;
+  
+  > .media {
+    padding: 15px;
+    &:nth-of-type(odd) {
+      background-color: #fff;
+    }
+    &:nth-of-type(even) {
+      background-color: #f4f4f4;
+    }
+  }
+}
+
+
 /*! Animation Keyframes 
  * ========================================================================= */
 

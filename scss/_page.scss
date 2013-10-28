@@ -9,6 +9,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+[role="main"] {
+  padding-bottom: 200px;
+}
+
+
 body.sticky {
   padding-top: 125px;
 }
