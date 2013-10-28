@@ -35,4 +35,13 @@ $(window).load(function () { "use strict";
     })
   })
 
+
+  var userid   = '39666111'
+  var usrtoken = '39666111.1fb234f.c3901000b4944a549fd5fd2310c63780'
+
+  $('#recent').pongstgrm({
+    id:    userid,
+    token: usrtoken
+  })
+
 });
