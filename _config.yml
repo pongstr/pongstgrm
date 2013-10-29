@@ -16,7 +16,7 @@ baseurl:      http://pongstr.github.io/pongstagr.am/
 
 # Server
 destination:  gh-pages
-port:         4000
+port:         4001
 
 # Versions
 repourl:     "https://github.com/pongstr/pongstagr.am/"

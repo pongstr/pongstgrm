@@ -19,7 +19,7 @@
  */
 
 // Core variables and mixins
-@import "variables";
+@import "docs/variables";
 @import "bootstrap/mixins";
 
 // Reset
@@ -69,7 +69,7 @@
 @import "bootstrap/responsive-utilities";
 
 // Documentation Sections
-@import "page";
-@import "header";
-@import "main";
-@import "overrides"
+@import "docs/page";
+@import "docs/header";
+@import "docs/main";
+@import "docs/overrides";

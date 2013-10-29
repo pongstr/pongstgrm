@@ -8,8 +8,8 @@
 +function ($) { "use strict"; 
 
   var Pongstgrm = function (element, options) {
-    this.element = element
-    this.options = options
+    this.element  = element
+    this.options  = options
   }
 
   Pongstgrm.defaults = {
@@ -43,8 +43,8 @@
   // Create HTML Tags
   Pongstgrm.prototype.html = function (opt) {
     var element = document.createElement(opt.tag)
-    
-      opt.attr && $(element).attr(opt.attr); opt.html && $(element).html(opt.html)
+
+      opt.attr && $(element).attr(opt.attr); opt.html && $(element).html(opt.html )
       opt.text && $(element).text(opt.text); opt.css  && $(element).addClass(opt.css)
     
       opt.parent === true && $(element).append(opt.children) 
@@ -56,6 +56,12 @@
         case 'prepend': $(opt.target).prepend(element); break
       }
 
+      var callback = (!opt.callback) ? function(){} : opt.callback
+
+    setTimeout(function () {
+      callback()
+    }, 1000)
+
     return element
   }
 
@@ -63,6 +69,40 @@
   Pongstgrm.prototype.stream = function () {
     var Pongstr = this
       , options = this.options
+
+    function modalMedia (option) {
+      $(option.trigger).on('click', function(e) {
+        e.preventDefault()
+
+        var target = $(this).attr('href')
+        var modalDialog = {
+            tag: 'div'
+          , attr: { id: option.id, class: 'modal' }
+          , append: 'append'
+          , target: 'body'
+          , html:   '<div class="modal-dialog"><div class="modal-content"></div></div>'
+          , callback: function () {
+              Pongstgrm.prototype.html({
+                  tag:    'div'
+                , css:    'modal-body'
+                , append: 'append'
+                , target: '.modal-content'
+                , html:   'test'
+              })
+            }
+        }
+
+        $('body').append(Pongstgrm.prototype.html(modalDialog))
+        $(target).modal('show')
+
+        $(target).on('hidden.bs.modal', function() {
+          $(this).remove()
+        })
+      })
+
+      return
+    }
+
 
     // Preload images with a spinner
     function preloadMedia (option) {
@@ -131,7 +171,7 @@
 
         var link = {
             tag: 'a'
-          , attr: {id: b.id+'-trigger', href: '#'+b.id+'-modal', 'data-toggle': 'modal'}
+          , attr: {id: b.id+'-trigger', href: '#'+b.id }
           , parent: true
           , children: Pongstgrm.prototype.html(thumb)
         }
@@ -153,7 +193,8 @@
         }
               
         Pongstgrm.prototype.html(column)
-        preloadMedia({ id: '#'+ b.id + '-thmb', show: option.show })         
+        preloadMedia({ id: '#'+ b.id + '-thmb', show: option.show })
+        modalMedia({ trigger: '#' + b.id + '-trigger', id: b.id })
       })
 
       paginateMedia({ show: option.show, url: data.pagination.next_url, opt: option })
