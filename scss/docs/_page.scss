@@ -22,7 +22,7 @@ body.sticky {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: $zindex-modal + 1;
+  z-index: $zindex-dropdown + 1;
   opacity: 0.98;
 }
 

@@ -6229,11 +6229,16 @@ body {
   padding-bottom: 50px;
 }
 
-/* IE FALLBACK */
-.lt-ie9 .page-heading.sticky {
-  position: absolute;
+body.sticky {
+  padding-top: 125px;
+}
+
+.page-heading.sticky {
+  position: fixed;
   top: 0;
   left: 0;
+  z-index: 1001;
+  opacity: 0.98;
 }
 
 ::selection {
@@ -6250,11 +6255,6 @@ body {
 
 /* Headings */
 .page-heading {
-  -webkit-transform: translate(0, 0);
-  -moz-transform: translate(0, 0);
-  -ms-transform: translate(0, 0);
-  -o-transform: translate(0, 0);
-  transform: translate(0, 0);
   position: relative;
   width: 100%;
   min-height: 120px;
@@ -6262,8 +6262,7 @@ body {
   padding-top: 20px;
   color: #fff;
   background-color: rgba(79, 64, 95, 0.95);
-  border-top: 1px solid #3b3047;
-  border-bottom: 1px solid #3b3047;
+  border: 1px solid #3b3047;
 }
 .page-heading:before {
   position: absolute;
@@ -6576,6 +6575,14 @@ header .jumbotron small {
 }
 
 /* Moda Overrides */
+.modal-content {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
+
 .modal-dialog {
   width: 980px;
 }
@@ -6630,6 +6637,36 @@ header .jumbotron small {
 }
 .media-comment > .media:nth-of-type(even) {
   background-color: #f4f4f4;
+}
+
+/* Profile */
+.media > .thumbnail {
+  padding: 5px;
+}
+
+.media > .thumbnail > .btn {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.media > .media-body > .counts > h4 {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 1px 1px rgba(102, 102, 102, 0.2);
+  box-shadow: 0 1px 1px rgba(102, 102, 102, 0.2);
+  display: inline-block;
+  margin: 2px;
+  padding: 5px 10px;
+  font-size: 22px;
+  color: #d9534f;
+  background-color: #fff;
+}
+.media > .media-body > .counts > h4 > small {
+  display: block;
+  font-size: 11px;
 }
 
 /*! Animation Keyframes 

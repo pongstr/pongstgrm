@@ -48,6 +48,7 @@ $(window).load(function () { "use strict";
     })
   }
 
+  Pongstr({ target: '#profile', show: 'profile' })
   Pongstr({ target: '#recent', show: 'recent', count: 4 })
   Pongstr({ target: '#likes' , show: 'liked' , count: 4 })
   Pongstr({ target: '#feed'  , show: 'feed'  , count: 4 })

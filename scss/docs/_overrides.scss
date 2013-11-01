@@ -81,6 +81,7 @@
 
 
 /* Moda Overrides */
+.modal-content { @include border-radius(3px); }
 .modal-dialog {  width: 980px; }
 
 .modal-header {
@@ -126,6 +127,34 @@
     }
   }
 }
+
+
+/* Profile */
+.media > .thumbnail {
+  padding: 5px;
+}
+.media > .thumbnail > .btn {
+  @include border-top-radius(0);
+}
+
+.media > .media-body > .counts {
+  > h4 {
+    @include border-radius(2px);
+    @include box-shadow(0 1px 1px rgba(#666,0.2));
+    display: inline-block;
+    margin: 2px;
+    padding: 5px 10px;
+    font-size: 22px;
+    color: $brand-danger;
+    background-color: #fff;
+  }
+  
+  > h4 > small {
+    display: block;
+    font-size: 11px;
+  }
+}
+
 
 
 /*! Animation Keyframes 
