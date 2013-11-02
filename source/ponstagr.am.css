@@ -1,0 +1,337 @@
+/* ==========================================================================
+ * jQuery Pongstagr.am Plugin v3.0.0
+ * ==========================================================================
+ * Copyright (c) 2013 Pongstr Ordillo. MIT License
+ * Requires: jQuery v1.10.2 and Bootstrap 3.0.0
+ * ========================================================================= */
+.media > .thumbnail {
+  padding: 5px;
+}
+
+.media > .thumbnail > .btn {
+  -moz-border-radius-topleft: 0;
+  -webkit-border-top-left-radius: 0;
+  border-top-left-radius: 0;
+  -moz-border-radius-topright: 0;
+  -webkit-border-top-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.media > .media-body > .counts > h4 {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 1px 1px rgba(102, 102, 102, 0.2);
+  -moz-box-shadow: 0 1px 1px rgba(102, 102, 102, 0.2);
+  box-shadow: 0 1px 1px rgba(102, 102, 102, 0.2);
+  display: inline-block;
+  margin: 2px;
+  padding: 5px 10px;
+  font-size: 22px;
+  color: #d9534f;
+  background-color: #fff;
+}
+
+.media > .media-body > .counts > h4 > small {
+  display: block;
+  font-size: 11px;
+}
+
+@-webkit-keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+
+  from {
+    -none-transform: rotate(0deg);
+  }
+
+  to {
+    -none-transform: rotate(359deg);
+  }
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+@-moz-keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+
+  from {
+    -none-transform: rotate(0deg);
+  }
+
+  to {
+    -none-transform: rotate(359deg);
+  }
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+@-ms-keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+
+  from {
+    -none-transform: rotate(0deg);
+  }
+
+  to {
+    -none-transform: rotate(359deg);
+  }
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+
+  from {
+    -none-transform: rotate(0deg);
+  }
+
+  to {
+    -none-transform: rotate(359deg);
+  }
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.spinner {
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+  border-radius: 100%;
+  animation: rotation 0.9s infinite linear;
+  -moz-animation: rotation 0.9s infinite linear;
+  -webkit-animation: rotation 0.9s infinite linear;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  margin: 45% auto;
+  border: 5px solid rgba(0, 174, 239, 0.15);
+}
+
+.spinner:before {
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+  border-radius: 100%;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -5px;
+  display: block;
+  height: 100%;
+  width: 100%;
+  border-top: 5px solid rgba(0, 174, 239, 0.8);
+  border-left: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+
+.thumbnail {
+  position: relative;
+  padding: 5px 10px;
+}
+
+.scale {
+  -webkit-transition: -webkit-transform 0.15s ease;
+  -moz-transition: -moz-transform 0.15s ease;
+  -o-transition: -o-transform 0.15s ease;
+  transition: transform 0.15s ease;
+  -webkit-transform: scale(0.96, 0.96);
+  -moz-transform: scale(0.96, 0.96);
+  -ms-transform: scale(0.96, 0.96);
+  -o-transform: scale(0.96, 0.96);
+  transform: scale(0.96, 0.96);
+}
+.scale:hover {
+  -webkit-transition: -webkit-transform 0.15s ease;
+  -moz-transition: -moz-transform 0.15s ease;
+  -o-transition: -o-transform 0.15s ease;
+  transition: transform 0.15s ease;
+  -webkit-transform: scale(1.2, 1.2);
+  -moz-transform: scale(1.2, 1.2);
+  -ms-transform: scale(1.2, 1.2);
+  -o-transform: scale(1.2, 1.2);
+  transform: scale(1.2, 1.2);
+  -webkit-box-shadow: 0 0 4px rgba(102, 102, 102, 0.2);
+  -moz-box-shadow: 0 0 4px rgba(102, 102, 102, 0.2);
+  box-shadow: 0 0 4px rgba(102, 102, 102, 0.2);
+  position: relative;
+  z-index: 2;
+}
+
+.thumbnail > a {
+  display: block;
+}
+
+.thumbnail > a > img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 5px 0;
+}
+
+.thumbnail > strong {
+  font-size: 11px;
+  color: #d5d5d5;
+}
+
+.thumbnail > span {
+  display: inline-block;
+}
+
+.thumbnail > span:first-child {
+  margin-right: 10px;
+}
+
+.thumbnail > span:last-child {
+  margin-left: 10px;
+}
+
+.thumbnail > span:not(i) {
+  font-size: 11px;
+  font-weight: bold;
+  color: #d5d5d5;
+}
+
+.thumbnail > span.type {
+  -webkit-transition: opacity 200ms ease;
+  -moz-transition: opacity 200ms ease;
+  -o-transition: opacity 200ms ease;
+  transition: opacity 200ms ease;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1000;
+  width: 36px;
+  height: 36px;
+  margin-top: -18px;
+  margin-left: -18px;
+  font-size: 36px;
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.55);
+  opacity: 0.3;
+  cursor: pointer;
+}
+
+.modal-content {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.modal-dialog {
+  width: 980px;
+}
+
+.modal-header {
+  padding: 5px 10px;
+}
+
+.modal-body {
+  padding: 0;
+}
+
+.modal-body > .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.media-column,
+.media-comment {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+}
+
+.media-column {
+  width: 65%;
+}
+
+.media-column > img,
+.media-column > video {
+  -moz-border-radius-bottomleft: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.media-comment {
+  -moz-border-radius-bottomright: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  width: 35%;
+  max-height: 622px;
+  overflow-y: scroll;
+  background-color: #f4f4f4;
+}
+
+.media-comment > .media {
+  padding: 15px;
+}
+
+.media-comment > .media:nth-of-type(odd) {
+  background-color: #fff;
+}
+
+.media-comment > .media:nth-of-type(even) {
+  background-color: #f4f4f4;
+}

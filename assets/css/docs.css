@@ -6317,8 +6317,6 @@ td.visible-print {
     display: none !important;
   }
 }
-/* Mixins
- * ========================================================================= */
 .media > .thumbnail {
   padding: 5px;
 }
@@ -6492,6 +6490,7 @@ td.visible-print {
 
 .thumbnail {
   position: relative;
+  margin: 0;
   padding: 5px 10px;
 }
 

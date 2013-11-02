@@ -7,5 +7,10 @@
 
 // Compass Mixins
 @import "compass/css3";
+@import "docs/variables";
 
 // Bootstrap Overrides
+@import "bs_overrides/mixins";
+@import "bs_overrides/common";
+@import "bs_overrides/thumbnail";
+@import "bs_overrides/modal";
