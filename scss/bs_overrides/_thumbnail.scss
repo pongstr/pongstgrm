@@ -10,13 +10,13 @@
 }
 
 .scale {
-  @include transition(transform .15s ease);
-  @include transform(scale(.96, .96));
+  @include transition(transform .1s ease-in);
+  // @include transform(scale(.94, .94));
 
   &:hover {
-    @include transition(transform .15s ease);
+    @include transition(transform .1s ease-out);
     @include transform(scale(1.2, 1.2));
-    @include box-shadow(0 0 4px rgba(#666, 0.2));
+    @include box-shadow(0 0 10px rgba(#666, 0.2));
     position: relative;
     z-index: 2;
   }

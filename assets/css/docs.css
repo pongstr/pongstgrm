@@ -6347,6 +6347,16 @@ td.visible-print {
   font-size: 11px;
 }
 
+.media > .media-body > .user-data > h3 small {
+  font-size: 12px;
+  color: #999999;
+  text-transform: capitalize;
+}
+
+.media > .media-body > .user-data > h3 small a {
+  text-decoration: none;
+}
+
 @-webkit-keyframes rotation {
   from {
     transform: rotate(0deg);
@@ -6488,6 +6498,10 @@ td.visible-print {
   border-right: 5px solid transparent;
 }
 
+*:focus {
+  outline: 0 none !important;
+}
+
 .thumbnail {
   position: relative;
   margin: 0;
@@ -6495,24 +6509,19 @@ td.visible-print {
 }
 
 .scale {
-  -webkit-transition: transform 0.15s ease;
-  transition: transform 0.15s ease;
-  -webkit-transform: scale(0.96, 0.96);
-  -moz-transform: scale(0.96, 0.96);
-  -ms-transform: scale(0.96, 0.96);
-  -o-transform: scale(0.96, 0.96);
-  transform: scale(0.96, 0.96);
+  -webkit-transition: transform 0.1s ease-in;
+  transition: transform 0.1s ease-in;
 }
 .scale:hover {
-  -webkit-transition: transform 0.15s ease;
-  transition: transform 0.15s ease;
+  -webkit-transition: transform 0.1s ease-out;
+  transition: transform 0.1s ease-out;
   -webkit-transform: scale(1.2, 1.2);
   -moz-transform: scale(1.2, 1.2);
   -ms-transform: scale(1.2, 1.2);
   -o-transform: scale(1.2, 1.2);
   transform: scale(1.2, 1.2);
-  -webkit-box-shadow: 0 0 4px rgba(102, 102, 102, 0.2);
-  box-shadow: 0 0 4px rgba(102, 102, 102, 0.2);
+  -webkit-box-shadow: 0 0 10px rgba(102, 102, 102, 0.2);
+  box-shadow: 0 0 10px rgba(102, 102, 102, 0.2);
   position: relative;
   z-index: 2;
 }
