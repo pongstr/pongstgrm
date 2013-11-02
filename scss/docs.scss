@@ -69,7 +69,10 @@
 @import "bootstrap/responsive-utilities";
 
 // Documentation Sections
+@import "bs_overrides/mixins";
+@import "bs_overrides/common";
+@import "bs_overrides/thumbnail";
+@import "bs_overrides/modal";
 @import "docs/page";
 @import "docs/header";
 @import "docs/main";
-@import "docs/overrides";

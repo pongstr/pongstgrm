@@ -1,3 +1,79 @@
 
 // Bootstrap Thumbnail Overrides
 // =============================
+
+// Thumbnail: Container
+.thumbnail {
+  position:   relative;
+  padding:    5px 10px;
+}
+
+.scale {
+  @include transition(transform .15s ease);
+  @include transform(scale(.96, .96));
+
+  &:hover {
+    @include transition(transform .15s ease);
+    @include transform(scale(1.2, 1.2));
+    @include box-shadow(0 0 4px rgba(#666, 0.2));
+    position: relative;
+    z-index: 2;
+  }
+}
+
+// Thumbnail Link[modal trigger]
+.thumbnail > a {
+  display: block;
+}
+
+
+// Thumbnail Image: make sure it fills the entire block container
+.thumbnail > a > img {
+  width:      100%;
+  max-width:  100%;
+  height:     auto;
+  margin:     5px 0;
+}
+
+
+// Thumbnail Time Stamp Text
+.thumbnail > strong {
+  font-size:  11px;
+  color:      darken($gray-lighter, 10%);
+}
+
+
+// Thumbnail Like and Comments Count
+.thumbnail > span { display: inline-block; }
+.thumbnail > span:first-child { margin-right: 10px; }
+.thumbnail > span:last-child  { margin-left:  10px; }
+
+
+// Thumbnail Like and Comments Count, exempt icons from override
+.thumbnail > span:not(i) {
+  font-size:      11px;
+  font-weight:    bold;
+  color:          darken($gray-lighter, 10%);
+}
+
+
+// Thumbnail Media Type
+.thumbnail > span.type {
+  @include transition(opacity 200ms ease);
+  position:     absolute;
+  top:          50%;
+  left:         50%;
+  z-index:      $zindex-dropdown;
+  
+  width:        36px;
+  height:       36px;
+  margin-top:   -18px;
+  margin-left:  -18px;
+  
+  font-size:    36px;
+  color:        #fff;
+  text-shadow:  0 1px 1px rgba(#000,0.55);
+  
+  opacity:      0.3;
+  cursor:       pointer;
+}

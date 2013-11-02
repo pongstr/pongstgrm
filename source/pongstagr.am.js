@@ -26,6 +26,7 @@
     , likes:       true
     , comments:    true
     , timestamp:   true
+    , scale:       true
     , show:       "recent"
 
     // HTML OPTIONS
@@ -150,6 +151,7 @@
         var caption   = (b.caption !== null) ? b.caption.text : ''
           , timestamp = new Date(b.created_time * 1000)
           , created   = timestamp.toDateString()
+          , scaling   = (option.scale !== true) ? 'thumbnail text-center' : 'thumbnail scale text-center'
 
           , mediatype      = (b.type === 'video') ? '<span class="type"><i class="'+ option.videoicon +'"></i></span>' : null
           , created_time   = option.timestamp === true  && '<strong>' + created + '</strong>'
@@ -174,7 +176,7 @@
 
         var thumbnail = { 
               tag: 'div'
-            , css: 'thumbnail text-center'
+            , css: scaling
             , parent: true
             , children: [
                 created_time

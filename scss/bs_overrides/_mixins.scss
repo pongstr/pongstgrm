@@ -1,0 +1,60 @@
+
+/* Mixins
+ * ========================================================================= */
+
+// Selection
+@mixin selection ($bg-color, $txt-color, $txt-shadow) {
+  ::selection {
+    background-color: $bg-color;
+    color: $brand-warning; 
+    text-shadow: none;    
+  }
+
+  ::-moz-selection {
+    background-color: $bg-color;
+    color: $txt-color; 
+    text-shadow: $txt-shadow;    
+  }
+}
+
+// Font Smoothing
+@mixin font-smoothing ($switch) {
+  @if $switch == true {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  @if ($switch == false) {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;    
+  }
+}
+
+
+// Animation Keyframes
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} { @content; }
+  @-moz-keyframes #{$name} { @content; }
+  @-ms-keyframes #{$name} { @content; }
+  @keyframes #{$name} { @content; }
+}
+
+
+// Animation From and To
+@mixin fromTo ($prefix, $transformFrom, $transformTo) {
+  @if $prefix == none {
+    from { -#{$prefix}-transform: $transformFrom; }
+    to   { -#{$prefix}-transform: $transformTo; }
+  } @else {
+    from  { transform: $transformFrom; }
+    to    { transform: $transformTo; }
+  }
+}
+
+
+// Animation
+@mixin animation ($animation) {
+  animation: $animation;
+  -moz-animation: $animation;
+  -webkit-animation: $animation;
+}

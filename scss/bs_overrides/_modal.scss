@@ -1,3 +1,67 @@
 
 // Bootstrap Modal Dialog Overrides
 // ================================
+
+// Modal Content: Reduce border-radius
+.modal-content { @include border-radius(3px); }
+
+
+// Modal Dialog Width for Large Screens
+.modal-dialog { width: 980px; }
+
+
+// Modal Header Props
+.modal-header { padding: 5px 10px; }
+
+
+// Modal Body Props
+.modal-body { padding: 0; }
+
+
+// Modal Body Row
+.modal-body > .row {
+  margin-left:  0;
+  margin-right: 0;
+}
+
+
+// Modal Body Columns
+.media-column,
+.media-comment {
+  @include box-sizing(border-box);
+  float: left;
+}
+
+
+// Modal Body: Media Column
+.media-column { width: 65%; }
+
+
+// Modal Body: Media elements inside Media Column must
+// occupy the entire block, and have the specific rounded-corner
+.media-column > img,
+.media-column > video {
+  @include border-bottom-left-radius(5px);
+  width:      100%;
+  max-width:  100%;
+  height:     auto;
+} 
+
+
+// Modal Body: Media Comments
+.media-comment {
+  @include border-bottom-right-radius(5px);
+  width:            35%;
+  max-height:       622px;
+  overflow-y:       scroll;
+  background-color: #f4f4f4;
+}
+
+
+// Modal Body: Media Comments Container
+.media-comment > .media { padding: 15px; }
+
+
+// Modal Body: Media Comments, alternate background colors for easier reading 
+.media-comment > .media:nth-of-type(odd)  { background-color: #fff; }
+.media-comment > .media:nth-of-type(even) { background-color: #f4f4f4; }
