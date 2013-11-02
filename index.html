@@ -12,7 +12,7 @@ title:   "Docs &amp; Examples"
             </section>
 
             <p class="lead">
-              Pongstagr.am is a jQuery plugin that lets display your instagram 
+              Pongstagr.am is a jQuery plugin that lets you display your Instagram 
               media to your website using <a href="http://twitter.github.io/bootstrap/">Bootstrap</a> 
               Front-end styles and modal-plugin.
             </p>
@@ -93,9 +93,11 @@ $(document).ready(function () {
             <h5>Other Options</h5>
 
 <pre class="prettyprint linenums">
-show   : null, // string,  options: 'recent', 'feed', 'liked', 'user', 'any tags'
-count  : null, // integer, options: 1(min) - 40(max), instagram limits the maximum number of photos to 40
-pager  : null  // boolean, options:  true or false (enables/disable load more button)
+count:      8       // number of media you'd like to display, default is 8. Instagram's maximum is 40
+likes:      boolean // true: show likes count, false: doesn't show it
+comments:   boolean // true: show comments count, false: doesn't show it
+timestamp:  boolean // true: show media timestamp, false: doesn't show it
+show:       string  // show your recent media, likes, feed or any tag you'd like to see
 </pre>
 
           </article>
