@@ -1,0 +1,20 @@
+# Set this to the root of your project when deployed:
+# -----------------------------------------------------------------------------
+http_path       = "/"
+css_dir         = "../assets/css"
+sass_dir        = "."
+images_dir      = "../assets/img"
+javascripts_dir = "../assets/js"
+ 
+# [ :expanded or :nested or :compact or :compressed ]
+# -----------------------------------------------------------------------------
+output_style   = :expanded
+ 
+# To enable relative paths to assets via compass helper functions.
+# Boolean: True or False
+# -----------------------------------------------------------------------------
+relative_assets = true
+ 
+# To disable debugging comments that display the original location of your selectors.
+# -----------------------------------------------------------------------------
+line_comments = false

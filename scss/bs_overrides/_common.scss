@@ -1,0 +1,81 @@
+
+// Profile Styles
+// ================================
+
+
+// Media Thumbnail Box
+.media > .thumbnail { padding: 5px; }
+
+
+// Media Thumbnail, remove border-radius-top
+.media > .thumbnail > .btn { @include border-top-radius(0); }
+
+
+// Media Thumbnail, media-body count stats
+.media > .media-body > .counts > h4 {
+  @include border-radius(2px);
+  @include box-shadow(0 1px 1px rgba(#666,0.2));
+  display:          inline-block;
+  margin:           2px;
+  padding:          5px 10px;
+  font-size:        22px;
+  color:            $brand-danger;
+  background-color: #fff;
+}
+
+.media > .media-body > .counts > h4 > small {
+  display:    block;
+  font-size:  11px;
+}
+
+.media > .media-body > .user-data > h3 small {
+  font-size:      12px;
+  color:          $gray-light;
+  text-transform: capitalize;
+}
+
+.media > .media-body > .user-data > h3 small a {
+  text-decoration:  none;
+}
+
+
+
+
+// Common Stuff
+// =============================
+
+// Animation Keyframe: Rotation
+@include spinner (rotation, rotate(0deg), rotate(359deg));
+
+
+// Spinner: Preload Animation
+.spinner {
+  @include border-radius(100%);
+  @include animation(rotation .9s infinite linear);
+  position:   relative;
+  top:        0;
+  left:       0;
+  width:      30px;
+  height:     30px;
+  margin:     45% auto;
+  border:     5px solid rgba(0,174,239,.15); 
+}
+
+.spinner:before {
+  @include border-radius(100%);
+  content:        "";
+  position:       absolute;
+  left:           0;
+  top:            -5px;
+  display:        block;
+  height:         100%;
+  width:          100%;
+  border-top:     5px solid rgba(0,174,239,.8);
+  border-left:    5px solid transparent;
+  border-bottom:  5px solid transparent;
+  border-right:   5px solid transparent;
+}
+
+
+// Remove outline on all focuses elements
+*:focus { outline: 0 none !important; }

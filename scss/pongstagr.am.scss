@@ -1,0 +1,16 @@
+/* ==========================================================================
+ * jQuery Pongstagr.am Plugin v3.0.0
+ * ==========================================================================
+ * Copyright (c) 2013 Pongstr Ordillo. MIT License
+ * Requires: jQuery v1.10.2 and Bootstrap 3.0.0
+ * ========================================================================= */
+
+// Compass Mixins
+@import "compass/css3";
+@import "docs/variables";
+
+// Bootstrap Overrides
+@import "bs_overrides/mixins";
+@import "bs_overrides/common";
+@import "bs_overrides/thumbnail";
+@import "bs_overrides/modal";

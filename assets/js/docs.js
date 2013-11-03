@@ -1,89 +1,56 @@
-/*! Jekyll Project JS */
-$(window).load(function(){
-  
-  "use strict";
+/* ==========================================================================
+ * jQuery Pongstagr.am Plugin v3.0.0
+ * ==========================================================================
+ * Copyright (c) 2013 Pongstr Ordillo. MIT License
+ * Requires: jQuery v1.10.2 and Bootstrap 3.0.0
+ * ========================================================================= */
 
-  // Sticky Navbar
-  // =============
-  $('.sticky').affix();
+$(window).load(function () { "use strict"; 
 
-  // Smooth scroll for internal links
-  // ================================
-  $('#sidebar a[href^="#"]').on('click',function (e) {
-    e.preventDefault();
-    var target = this.hash,
-       $target = $(target);
-       
-    $('html, body').stop().animate({
-        'scrollTop': $target.offset().top  - 10
-    }, { duration: 1250, easing: 'easeInOutExpo'}, function () {
-        window.location.hash = target;
-        return false;
-    });
+  window.prettyPrint && prettyPrint()
 
-    // Sub-Pages Navigation
-    // ====================
-    if ( $('#sidebar a').length > 0 ){
-      $('#sidebar a').removeClass('active');
-      $(this).addClass('active');
-    } 
-  });
-  
-  // Enable Tooltip for Substitue Nav
-  // ================================
-  $('.substitute-btn a').each(function(){
-    $(this).hover(function(){
-      $(this).tooltip('show');
-    });
-  });
-  
-  
-  // Load Instagram Stuff
-  // ====================
-  // To use this function, the variable target should be the same
-  // as your selector i.e., <div id="<target>"> and the variable
-  // showValue is the number of media you would like to show i.e., 8
-  function loadGram( target, showValue ){
-    var usr = '39666111',
-        tkn = usr + '.1fb234f.c3901000b4944a549fd5fd2310c63780',
-        tgt = '#' + target;
-    
-    if ( $(tgt).length > 0 ){
-      $(tgt).pongstgrm({
-        accessId    : usr,
-        accessToken : tkn,
-        show        : target,
-        count       : showValue,
-        pager       : true
-      });
-    }
-    
-    $('[data-paginate="' + target + '"]')
-      .removeClass('btn-success')
-      .addClass('btn-danger text-center');
-  }
-  
-  loadGram( 'recent', 4 );
-  loadGram( 'liked',  4 );
-  loadGram( 'feed',  4 );
+  var headerHeight = $('header').outerHeight();
 
-  $('#tags').pongstgrm({
-    accessId: "39666111",
-    accessToken: "39666111.1fb234f.c3901000b4944a549fd5fd2310c63780",
-    show: 'ios7',
-    count: 4
+  $(window).scroll( function (){
+    ($(window).scrollTop() > headerHeight) ?
+      $('body, .page-heading').addClass('sticky') :
+      $('body, .page-heading').removeClass('sticky')
   })
 
-}); /*! end window.load */
 
-  
-// Hide iOS/Android address bar after page loads
-// =============================================
-if (navigator.userAgent.match(/(iPod|iPhone|iPad)/) ){  
-  window.addEventListener("load",function() {
-    "use strict";
-    setTimeout(function(){
-      window.scrollTo(0, 0);
-    }, 0);
-  });
-}
+  $('[data-hash=slide]').each(function () {
+    $(this).on('click', function (e) {
+      e.preventDefault()
+
+      var  target = $(this).attr('href')
+        , $target = $(target)
+        ,  offset = ($(this).data('hash-offset') == undefined) ? 160 : $(this).data('hash-offset') 
+
+      $('html, body').stop().animate({
+        'scrollTop': $target.offset().top - offset
+        }, { duration: 1250, easing: 'easeInOutExpo'}, function() {
+          window.location.hash = target
+        return false
+      })
+    })
+  })
+
+
+  function Pongstr (option) {
+    var userid   = '39666111'
+    var usrtoken = '39666111.1fb234f.c3901000b4944a549fd5fd2310c63780'
+
+    $(option.target).pongstgrm({
+        accessId:     userid
+      , accessToken:  usrtoken
+      , show:         option.show
+      , count:        option.count
+    })
+  }
+
+  Pongstr({ target: '#profile', show: 'profile' })
+  Pongstr({ target: '#recent', show: 'recent', count: 4 })
+  Pongstr({ target: '#likes' , show: 'liked' , count: 4 })
+  Pongstr({ target: '#feed'  , show: 'feed'  , count: 4 })
+  Pongstr({ target: '#tags'  , show: 'icloud', count: 4 })
+});

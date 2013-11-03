@@ -1,0 +1,65 @@
+
+// Mixins
+// ================================
+
+
+// Selection
+@mixin selection ($bg-color, $txt-color, $txt-shadow) {
+  ::selection {
+    background-color: $bg-color;
+    color: $brand-warning; 
+    text-shadow: none;    
+  }
+
+  ::-moz-selection {
+    background-color: $bg-color;
+    color: $txt-color; 
+    text-shadow: $txt-shadow;    
+  }
+}
+
+
+// Font Smoothing
+@mixin font-smoothing ($switch) {
+  @if $switch == true {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  @if $switch == false {
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: none;    
+  }
+}
+
+
+// Animation
+@mixin animation ($animation) {
+  animation: $animation;
+  -moz-animation: $animation;
+  -webkit-animation: $animation;
+}
+
+
+// Animation Keyframes
+@mixin spinner ($name, $transformFrom, $transformTo) {
+  @-webkit-keyframes #{$name} {
+    from { -webkit-transform: $transformFrom; }
+    to   { -webkit-transform: $transformTo; }
+  }
+
+  @-moz-keyframes #{$name} {
+    from { -moz-transform: $transformFrom; }
+    to   { -moz-transform: $transformTo; }
+  }
+
+  @-ms-keyframes #{$name} {
+    from { -moz-transform: $transformFrom; }
+    to   { -moz-transform: $transformTo; }
+  }
+
+  @keyframes #{$name} {
+    from { transform: $transformFrom; }
+    to   { transform: $transformTo; }
+  }
+}

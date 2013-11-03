@@ -1,0 +1,24 @@
+# Site Information
+name:         "Pongstagr.am jQuery Plugin"
+desc:         "is a jQuery plugin that lets you display your Instagram media to your website using Bootstrap Front-end styles and modal-plugin."
+
+# Include/Exclude
+include:      ['.htaccess']
+exclude:      ['.gitignore', '*.sass-cache', 'scss', '*.txt', '*.rb', '*.md', '*.sh' ]
+
+# Dependencies
+markdown:     rdiscount
+pygments:     true
+
+# Permalinks
+permalink:    pretty
+baseurl:      http://pongstr.github.io/pongstagr.am/
+
+# Server
+destination:  gh-pages
+port:         4001
+
+# Versions
+repourl:     "https://github.com/pongstr/pongstagr.am/"
+version:     "v3.0"
+download:    "https://github.com/pongstr/pongstagr.am/archive/master.zip"
