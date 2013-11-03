@@ -11,8 +11,8 @@
 
         <br>
 
-        <a href="{{ site.download }}" class="btn btn-lg btn-primary">
-          Download {{ site.version }}
+        <a href="#" class="btn btn-lg btn-primary disabled">
+          Coming Soon {{ site.version }}
         </a>
 
         &nbsp;
@@ -26,6 +26,11 @@
           <hr>
 
           <div class="btn-group">
+            <a href="https://github.com/pongstr/pongstagr.am/releases/tag/2.0.84" class="btn btn-lg btn-link" data-hash="slide" data-hash-offset="0">
+              Download v2.0.84
+            </a>
+
+            {% comment %}
             <a href="#docs" class="btn btn-link" data-hash="slide" data-hash-offset="0">
               Documentation
             </a>
@@ -41,6 +46,7 @@
             <a href="#license" class="btn btn-link" data-hash="slide">
               MIT License
             </a>
+            {% endcomment %}
           </div><!-- end of .btn-group -->
 
           <br>
@@ -82,7 +88,8 @@
     </div><!-- end of .container -->
   </div><!-- end of .jumbotron -->
 </header>
-
+  
+  {% comment %}
   <div id="docs" class="page-heading">
     <div class="container">
       <div class="row">
@@ -130,3 +137,4 @@
       </div><!-- end of .row -->
     </div><!-- end of .container -->
   </div>
+  {% endcomment %}
