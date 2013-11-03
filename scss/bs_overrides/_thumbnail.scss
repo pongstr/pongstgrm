@@ -10,11 +10,11 @@
 }
 
 .scale {
-  @include transition(transform .1s ease-in);
-  // @include transform(scale(.94, .94));
+  @include transition(transform 100ms linear);
+  @include transform(scale(.96, .96));
 
   &:hover {
-    @include transition(transform .1s ease-out);
+    @include transition(transform 100ms linear);
     @include transform(scale(1.2, 1.2));
     @include box-shadow(0 0 10px rgba(#666, 0.2));
     position: relative;

@@ -18,6 +18,7 @@
   }
 }
 
+
 // Font Smoothing
 @mixin font-smoothing ($switch) {
   @if $switch == true {
@@ -25,30 +26,9 @@
     -moz-osx-font-smoothing: grayscale;
   }
   
-  @if ($switch == false) {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;    
-  }
-}
-
-
-// Animation Keyframes
-@mixin keyframes($name) {
-  @-webkit-keyframes #{$name} { @content; }
-  @-moz-keyframes #{$name} { @content; }
-  @-ms-keyframes #{$name} { @content; }
-  @keyframes #{$name} { @content; }
-}
-
-
-// Animation From and To
-@mixin fromTo ($prefix, $transformFrom, $transformTo) {
-  @if $prefix == none {
-    from { -#{$prefix}-transform: $transformFrom; }
-    to   { -#{$prefix}-transform: $transformTo; }
-  } @else {
-    from  { transform: $transformFrom; }
-    to    { transform: $transformTo; }
+  @if $switch == false {
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: none;    
   }
 }
 
@@ -58,4 +38,28 @@
   animation: $animation;
   -moz-animation: $animation;
   -webkit-animation: $animation;
+}
+
+
+// Animation Keyframes
+@mixin spinner ($name, $transformFrom, $transformTo) {
+  @-webkit-keyframes #{$name} {
+    from { -webkit-transform: $transformFrom; }
+    to   { -webkit-transform: $transformTo; }
+  }
+
+  @-moz-keyframes #{$name} {
+    from { -moz-transform: $transformFrom; }
+    to   { -moz-transform: $transformTo; }
+  }
+
+  @-ms-keyframes #{$name} {
+    from { -moz-transform: $transformFrom; }
+    to   { -moz-transform: $transformTo; }
+  }
+
+  @keyframes #{$name} {
+    from { transform: $transformFrom; }
+    to   { transform: $transformTo; }
+  }
 }

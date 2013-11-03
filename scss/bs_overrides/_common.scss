@@ -45,11 +45,7 @@
 // =============================
 
 // Animation Keyframe: Rotation
-@include keyframes (rotation) {
-  @include fromTo (moz, rotate(0deg), rotate(359deg));
-  @include fromTo (none, rotate(0deg), rotate(359deg));
-  @include fromTo (webkit, rotate(0deg), rotate(359deg));
-}
+@include spinner (rotation, rotate(0deg), rotate(359deg));
 
 
 // Spinner: Preload Animation

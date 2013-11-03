@@ -6359,99 +6359,35 @@ td.visible-print {
 
 @-webkit-keyframes rotation {
   from {
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
   }
 
   to {
-    transform: rotate(359deg);
-  }
-
-  from {
-    -none-transform: rotate(0deg);
-  }
-
-  to {
-    -none-transform: rotate(359deg);
-  }
-
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
   }
 }
 
 @-moz-keyframes rotation {
   from {
-    transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
   }
 
   to {
-    transform: rotate(359deg);
-  }
-
-  from {
-    -none-transform: rotate(0deg);
-  }
-
-  to {
-    -none-transform: rotate(359deg);
-  }
-
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(359deg);
+    -moz-transform: rotate(359deg);
   }
 }
 
 @-ms-keyframes rotation {
   from {
-    transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
   }
 
   to {
-    transform: rotate(359deg);
-  }
-
-  from {
-    -none-transform: rotate(0deg);
-  }
-
-  to {
-    -none-transform: rotate(359deg);
-  }
-
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(359deg);
+    -moz-transform: rotate(359deg);
   }
 }
 
 @keyframes rotation {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(359deg);
-  }
-
-  from {
-    -none-transform: rotate(0deg);
-  }
-
-  to {
-    -none-transform: rotate(359deg);
-  }
-
   from {
     transform: rotate(0deg);
   }
@@ -6509,12 +6445,17 @@ td.visible-print {
 }
 
 .scale {
-  -webkit-transition: transform 0.1s ease-in;
-  transition: transform 0.1s ease-in;
+  -webkit-transition: transform 100ms linear;
+  transition: transform 100ms linear;
+  -webkit-transform: scale(0.96, 0.96);
+  -moz-transform: scale(0.96, 0.96);
+  -ms-transform: scale(0.96, 0.96);
+  -o-transform: scale(0.96, 0.96);
+  transform: scale(0.96, 0.96);
 }
 .scale:hover {
-  -webkit-transition: transform 0.1s ease-out;
-  transition: transform 0.1s ease-out;
+  -webkit-transition: transform 100ms linear;
+  transition: transform 100ms linear;
   -webkit-transform: scale(1.2, 1.2);
   -moz-transform: scale(1.2, 1.2);
   -ms-transform: scale(1.2, 1.2);
