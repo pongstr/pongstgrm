@@ -13,8 +13,8 @@ $(window).load(function () { "use strict";
 
   $(window).scroll( function (){
     ($(window).scrollTop() > headerHeight) ?
-      $('body, .page-heading').addClass('sticky') :
-      $('body, .page-heading').removeClass('sticky')
+      $('[role=navigation]').addClass('navbar-fixed-top') :
+      $('[role=navigation]').removeClass('navbar-fixed-top')
   })
 
 
