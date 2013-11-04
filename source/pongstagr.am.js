@@ -40,7 +40,7 @@
     , likeicon:    "glyphicon glyphicon-heart"
     , videoicon:   "glyphicon glyphicon-play"
     , commenticon: "glyphicon glyphicon-comment"
-    , picture_size: 64
+    , picture_size: 42
     , show_counts:  true
   }
 
@@ -96,9 +96,11 @@
             modal += '  <div class="modal-dialog">'
             modal += '    <div class="modal-content">'
             modal += '      <div class="modal-body">'
+            modal += '        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>'
             modal += '        <div class="row">'
 
             modal += '<div class="media-column">'
+
             if (options.type !== 'video') {
               // modal += '<div class="'+ options.dflt.preload +'" id="'+ options.data.id +'-full-loadr" />'
               modal += '<img id="'+ options.data.id +'-full" src="'+ options.data.image +'" alt="'+ options.data.caption +'">'
@@ -111,14 +113,37 @@
             }
 
             modal += '</div>'
-
             modal += '<div class="media-comment">'
-            modal += '  <div class="media">'
-            modal += '    <div class="pull-left">'
-            modal += '    </div>'
-            modal += '    <div class="modal-body" />'
-            modal += '  </div>'
-            modal += '</div>'
+
+            if (options.caption !== null) {
+              modal += '<div class="media">'
+              modal += '  <a href="https://instagram.com/'+ options.data.username +'" class="media-object thumbnail pull-left">'
+              modal += '    <img src="'+ options.data.profile_picture +'" width="'+ options.dflt.picture_size +'" height="'+ options.dflt.picture_size +'" class="">'
+              modal += '  </a>'
+              modal += '  <div class="modal-body">'
+              modal += '      <h4 class="media-heading">'
+              modal += '        <a href="https://instagram.com/'+ options.data.username +'">'+ options.data.username +'</a>'
+              modal += '      </h4>'
+              modal += '      <p>'+ options.data.caption +'</p>'
+              modal += '  </div>'
+              modal += '</div>'
+            }
+
+            if (options.data.comments_count !== 0) {
+              $.each(options.data.comments_data, function(a, b){
+                modal += '<div class="media">'
+                modal += '  <a href="https://instagram.com/'+ b.from.username +'" class="media-object thumbnail pull-left">'
+                modal += '    <img src="'+ b.from.profile_picture +'" width="'+ options.dflt.picture_size +'" height="'+ options.dflt.picture_size +'">'
+                modal += '  </a>'
+                modal += '  <div class="modal-body">'
+                modal += '      <h4 class="media-heading">'
+                modal += '        <a href="https://instagram.com/'+ b.from.username +'">'+ b.from.username +'</a>'
+                modal += '      </h4>'
+                modal += '      <p>'+ b.text +'</p>'
+                modal += '  </div>'
+                modal += '</div>'
+              })
+            }
 
             modal += '        </div>'
             modal += '      </div>'
@@ -199,11 +224,13 @@
                 , video:          b.videos && b.videos.standard_resolution.url
                 , image:          b.images.standard_resolution.url
                 , caption:        b.caption && b.caption.text 
+                , username:       b.user.username
                 , timestamp:      created
                 , thumbnail:      b.images.low_resolution.url
                 , likes_count:    b.likes.count
                 , comments_count: b.comments.count
                 , comments_data:  b.comments.data
+                , profile_picture:b.user.profile_picture
               }
           }
 

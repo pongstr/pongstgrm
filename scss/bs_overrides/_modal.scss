@@ -2,12 +2,23 @@
 // Bootstrap Modal Dialog Overrides
 // ================================
 
+
+// Modal Dialog Transitions
+.modal.fade .modal-dialog {
+  @include transition-transform(0.2s ease-out);
+}
+
+
 // Modal Content: Reduce border-radius
-.modal-content { @include border-radius(3px); }
+.modal-content { @include border-radius(0); }
 
 
 // Modal Dialog Width for Large Screens
-.modal-dialog { width: 980px; }
+.modal-dialog { 
+  width:          980px;
+  padding-top:    50px;
+  padding-bottom: 50px;
+}
 
 
 // Modal Header Props
@@ -25,6 +36,21 @@
 }
 
 
+.modal-body > .close {
+  @include transition(opacity 200ms linear);
+  position:     absolute;
+  top:          -25px;
+  right:        0;
+  color:        #fff;
+  text-shadow:  0 1px 1px #000;
+  opacity: 0.5;
+
+  &:hover {
+    @include transition(opacity 200ms linear);
+    opacity: 1;
+  }
+}
+
 // Modal Body Columns
 .media-column,
 .media-comment {
@@ -41,7 +67,6 @@
 // occupy the entire block, and have the specific rounded-corner
 .media-column > img,
 .media-column > video {
-  @include border-bottom-left-radius(5px);
   width:      100%;
   max-width:  100%;
   height:     auto;
@@ -50,7 +75,7 @@
 
 // Modal Body: Media Comments
 .media-comment {
-  @include border-bottom-right-radius(5px);
+  position:         relative;
   width:            35%;
   max-height:       622px;
   overflow-y:       scroll;
@@ -59,9 +84,19 @@
 
 
 // Modal Body: Media Comments Container
-.media-comment > .media { padding: 15px; }
+.media-comment > .media { 
+  padding: 8px 15px 5px 15px; 
+}
 
+.media-comment > .media .media-heading {
+  text-transform: capitalize;
+}
 
 // Modal Body: Media Comments, alternate background colors for easier reading 
+.media-comment > .media:first-child { 
+  border-top:     5px solid $brand-danger; 
+  border-bottom:  1px solid #eee;
+}
+
 .media-comment > .media:nth-of-type(odd)  { background-color: #fff; }
 .media-comment > .media:nth-of-type(even) { background-color: #f4f4f4; }

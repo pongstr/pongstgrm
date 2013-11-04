@@ -1,288 +1,84 @@
-/* ==========================================================================
- * jQuery Pongstagr.am Plugin v3.0.0
- * ==========================================================================
- * Copyright (c) 2013 Pongstr Ordillo. MIT License
- * Requires: jQuery v1.10.2 and Bootstrap 3.0.0
- * ========================================================================= */
-.media > .thumbnail {
-  padding: 5px;
-}
+/*
+Syntax error: Undefined mixin 'transition-transform'.
+        on line 8 of /Users/Pongstr/Projects/github/pongstagr.am/scss/bs_overrides/_modal.scss, in `transition-transform'
+        from line 8 of /Users/Pongstr/Projects/github/pongstagr.am/scss/bs_overrides/_modal.scss
+        from line 16 of /Users/Pongstr/Projects/github/pongstagr.am/scss/pongstagr.am.scss
 
-.media > .thumbnail > .btn {
-  -moz-border-radius-topleft: 0;
-  -webkit-border-top-left-radius: 0;
-  border-top-left-radius: 0;
-  -moz-border-radius-topright: 0;
-  -webkit-border-top-right-radius: 0;
-  border-top-right-radius: 0;
-}
-
-.media > .media-body > .counts > h4 {
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -o-border-radius: 2px;
-  border-radius: 2px;
-  -webkit-box-shadow: 0 1px 1px rgba(102, 102, 102, 0.2);
-  -moz-box-shadow: 0 1px 1px rgba(102, 102, 102, 0.2);
-  box-shadow: 0 1px 1px rgba(102, 102, 102, 0.2);
-  display: inline-block;
-  margin: 2px;
-  padding: 5px 10px;
-  font-size: 22px;
-  color: #d9534f;
-  background-color: #fff;
-}
-
-.media > .media-body > .counts > h4 > small {
-  display: block;
-  font-size: 11px;
-}
-
-.media > .media-body > .user-data > h3 small {
-  font-size: 12px;
-  color: #999999;
-  text-transform: capitalize;
-}
-
-.media > .media-body > .user-data > h3 small a {
-  text-decoration: none;
-}
-
-@-webkit-keyframes rotation {
-  from {
-    -webkit-transform: rotate(0deg);
-  }
-
-  to {
-    -webkit-transform: rotate(359deg);
-  }
-}
-
-@-moz-keyframes rotation {
-  from {
-    -moz-transform: rotate(0deg);
-  }
-
-  to {
-    -moz-transform: rotate(359deg);
-  }
-}
-
-@-ms-keyframes rotation {
-  from {
-    -moz-transform: rotate(0deg);
-  }
-
-  to {
-    -moz-transform: rotate(359deg);
-  }
-}
-
-@keyframes rotation {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(359deg);
-  }
-}
-
-.spinner {
-  -webkit-border-radius: 100%;
-  -moz-border-radius: 100%;
-  -ms-border-radius: 100%;
-  -o-border-radius: 100%;
-  border-radius: 100%;
-  animation: rotation 0.9s infinite linear;
-  -moz-animation: rotation 0.9s infinite linear;
-  -webkit-animation: rotation 0.9s infinite linear;
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 30px;
-  height: 30px;
-  margin: 45% auto;
-  border: 5px solid rgba(0, 174, 239, 0.15);
-}
-
-.spinner:before {
-  -webkit-border-radius: 100%;
-  -moz-border-radius: 100%;
-  -ms-border-radius: 100%;
-  -o-border-radius: 100%;
-  border-radius: 100%;
-  content: "";
-  position: absolute;
-  left: 0;
-  top: -5px;
-  display: block;
-  height: 100%;
-  width: 100%;
-  border-top: 5px solid rgba(0, 174, 239, 0.8);
-  border-left: 5px solid transparent;
-  border-bottom: 5px solid transparent;
-  border-right: 5px solid transparent;
-}
-
-*:focus {
-  outline: 0 none !important;
-}
-
-.thumbnail {
-  position: relative;
-  margin: 0;
-  padding: 5px 10px;
-}
-
-.scale {
-  -webkit-transition: -webkit-transform 100ms linear;
-  -moz-transition: -moz-transform 100ms linear;
-  -o-transition: -o-transform 100ms linear;
-  transition: transform 100ms linear;
-  -webkit-transform: scale(0.96, 0.96);
-  -moz-transform: scale(0.96, 0.96);
-  -ms-transform: scale(0.96, 0.96);
-  -o-transform: scale(0.96, 0.96);
-  transform: scale(0.96, 0.96);
-}
-.scale:hover {
-  -webkit-transition: -webkit-transform 100ms linear;
-  -moz-transition: -moz-transform 100ms linear;
-  -o-transition: -o-transform 100ms linear;
-  transition: transform 100ms linear;
-  -webkit-transform: scale(1.2, 1.2);
-  -moz-transform: scale(1.2, 1.2);
-  -ms-transform: scale(1.2, 1.2);
-  -o-transform: scale(1.2, 1.2);
-  transform: scale(1.2, 1.2);
-  -webkit-box-shadow: 0 0 10px rgba(102, 102, 102, 0.2);
-  -moz-box-shadow: 0 0 10px rgba(102, 102, 102, 0.2);
-  box-shadow: 0 0 10px rgba(102, 102, 102, 0.2);
-  position: relative;
-  z-index: 2;
-}
-
-.thumbnail > a {
-  display: block;
-}
-
-.thumbnail > a > img {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  margin: 5px 0;
-}
-
-.thumbnail > strong {
-  font-size: 11px;
-  color: #d5d5d5;
-}
-
-.thumbnail > span {
-  display: inline-block;
-}
-
-.thumbnail > span:first-child {
-  margin-right: 10px;
-}
-
-.thumbnail > span:last-child {
-  margin-left: 10px;
-}
-
-.thumbnail > span:not(i) {
-  font-size: 11px;
-  font-weight: bold;
-  color: #d5d5d5;
-}
-
-.thumbnail > span.type {
-  -webkit-transition: opacity 200ms ease;
-  -moz-transition: opacity 200ms ease;
-  -o-transition: opacity 200ms ease;
-  transition: opacity 200ms ease;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 1000;
-  width: 36px;
-  height: 36px;
-  margin-top: -18px;
-  margin-left: -18px;
-  font-size: 36px;
-  color: #fff;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.55);
-  opacity: 0.3;
-  cursor: pointer;
-}
-
-.modal-content {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  border-radius: 3px;
-}
-
-.modal-dialog {
-  width: 980px;
-}
-
-.modal-header {
-  padding: 5px 10px;
-}
-
-.modal-body {
-  padding: 0;
-}
-
-.modal-body > .row {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.media-column,
-.media-comment {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  float: left;
-}
-
-.media-column {
-  width: 65%;
-}
-
-.media-column > img,
-.media-column > video {
-  -moz-border-radius-bottomleft: 5px;
-  -webkit-border-bottom-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-}
-
-.media-comment {
-  -moz-border-radius-bottomright: 5px;
-  -webkit-border-bottom-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  width: 35%;
-  max-height: 622px;
-  overflow-y: scroll;
-  background-color: #f4f4f4;
-}
-
-.media-comment > .media {
-  padding: 15px;
-}
-
-.media-comment > .media:nth-of-type(odd) {
-  background-color: #fff;
-}
-
-.media-comment > .media:nth-of-type(even) {
-  background-color: #f4f4f4;
-}
+Backtrace:
+/Users/Pongstr/Projects/github/pongstagr.am/scss/bs_overrides/_modal.scss:8:in `transition-transform'
+/Users/Pongstr/Projects/github/pongstagr.am/scss/bs_overrides/_modal.scss:8
+/Users/Pongstr/Projects/github/pongstagr.am/scss/pongstagr.am.scss:16
+/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:253:in `visit_mixin'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/base.rb:53:in `map'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:320:in `visit_rule'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:227:in `block in visit_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:227:in `map'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:227:in `visit_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/base.rb:53:in `map'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:128:in `visit_root'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:7:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/tree/root_node.rb:20:in `render'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/engine.rb:315:in `_render'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.2.12/lib/sass/engine.rb:262:in `render'
+/Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/lib/compass/compiler.rb:140:in `block (2 levels) in compile'
+/Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/lib/compass/compiler.rb:126:in `timed'
+/Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/lib/compass/compiler.rb:139:in `block in compile'
+/Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/lib/compass/logger.rb:45:in `red'
+/Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/lib/compass/compiler.rb:138:in `compile'
+/Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/lib/compass/compiler.rb:118:in `compile_if_required'
+/Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/lib/compass/compiler.rb:103:in `block (2 levels) in run'
+/Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/lib/compass/compiler.rb:101:in `each'
+/Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/lib/compass/compiler.rb:101:in `block in run'
+/Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/lib/compass/compiler.rb:126:in `timed'
+/Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/lib/compass/compiler.rb:100:in `run'
+/Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/lib/compass/commands/watch_project.rb:147:in `recompile'
+/Library/Ruby/Gems/2.0.0/gems/fssm-0.2.10/lib/fssm/path.rb:73:in `call'
+/Library/Ruby/Gems/2.0.0/gems/fssm-0.2.10/lib/fssm/path.rb:73:in `run_callback'
+/Library/Ruby/Gems/2.0.0/gems/fssm-0.2.10/lib/fssm/path.rb:55:in `callback_action'
+/Library/Ruby/Gems/2.0.0/gems/fssm-0.2.10/lib/fssm/path.rb:35:in `update'
+/Library/Ruby/Gems/2.0.0/gems/fssm-0.2.10/lib/fssm/state/directory.rb:39:in `block in modified'
+/Library/Ruby/Gems/2.0.0/gems/fssm-0.2.10/lib/fssm/state/directory.rb:37:in `each'
+/Library/Ruby/Gems/2.0.0/gems/fssm-0.2.10/lib/fssm/state/directory.rb:37:in `modified'
+/Library/Ruby/Gems/2.0.0/gems/fssm-0.2.10/lib/fssm/state/directory.rb:18:in `refresh'
+/Library/Ruby/Gems/2.0.0/gems/fssm-0.2.10/lib/fssm/backends/polling.rb:17:in `block (2 levels) in run'
+/Library/Ruby/Gems/2.0.0/gems/fssm-0.2.10/lib/fssm/backends/polling.rb:17:in `each'
+/Library/Ruby/Gems/2.0.0/gems/fssm-0.2.10/lib/fssm/backends/polling.rb:17:in `block in run'
+/Library/Ruby/Gems/2.0.0/gems/fssm-0.2.10/lib/fssm/backends/polling.rb:15:in `loop'
+/Library/Ruby/Gems/2.0.0/gems/fssm-0.2.10/lib/fssm/backends/polling.rb:15:in `run'
+/Library/Ruby/Gems/2.0.0/gems/fssm-0.2.10/lib/fssm/monitor.rb:26:in `run'
+/Library/Ruby/Gems/2.0.0/gems/fssm-0.2.10/lib/fssm.rb:70:in `monitor'
+/Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/lib/compass/commands/watch_project.rb:87:in `perform'
+/Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/lib/compass/commands/base.rb:18:in `execute'
+/Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/lib/compass/commands/project_base.rb:19:in `execute'
+/Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
+/Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/lib/compass/exec/sub_command_ui.rb:15:in `run!'
+/Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/bin/compass:30:in `block in <top (required)>'
+/Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/bin/compass:44:in `call'
+/Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/bin/compass:44:in `<top (required)>'
+/usr/bin/compass:23:in `load'
+/usr/bin/compass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Undefined mixin 'transition-transform'.\A         on line 8 of /Users/Pongstr/Projects/github/pongstagr.am/scss/bs_overrides/_modal.scss, in `transition-transform'\A         from line 8 of /Users/Pongstr/Projects/github/pongstagr.am/scss/bs_overrides/_modal.scss\A         from line 16 of /Users/Pongstr/Projects/github/pongstagr.am/scss/pongstagr.am.scss"; }
