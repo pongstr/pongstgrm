@@ -22,3 +22,6 @@ test.*
 tests.*
 testing.*
 examples
+gh-pages
+
+.DS_Store
