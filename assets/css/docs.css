@@ -2436,8 +2436,8 @@ input[type="button"].btn-block {
 
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url(/assets/fonts/glyphicons-halflings-regular.eot);
-  src: url(/assets/fonts/glyphicons-halflings-regular.eot?#iefix) format("embedded-opentype"), url(/assets/fonts/glyphicons-halflings-regular.woff) format("woff"), url(/assets/fonts/glyphicons-halflings-regular.ttf) format("truetype"), url(/assets/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format("svg");
+  src: url(http://pongstr.github.io/pongstagr.am/assets/fonts/glyphicons-halflings-regular.eot);
+  src: url(http://pongstr.github.io/pongstagr.am/assets/fonts/glyphicons-halflings-regular.eot?#iefix) format("embedded-opentype"), url(http://pongstr.github.io/pongstagr.am/assets/fonts/glyphicons-halflings-regular.woff) format("woff"), url(http://pongstr.github.io/pongstagr.am/assets/fonts/glyphicons-halflings-regular.ttf) format("truetype"), url(http://pongstr.github.io/pongstagr.am/assets/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format("svg");
 }
 
 .glyphicon {
