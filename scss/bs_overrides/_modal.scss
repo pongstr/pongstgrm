@@ -60,17 +60,38 @@
 
 
 // Modal Body: Media Column
-.media-column { width: 65%; }
+.media-column { 
+  position:   relative;
+  width:      65%;
+  max-height: 622px;
+}
 
 
 // Modal Body: Media elements inside Media Column must
 // occupy the entire block, and have the specific rounded-corner
 .media-column > img,
 .media-column > video {
-  width:      100%;
+  width:      622px;
   max-width:  100%;
-  height:     auto;
-} 
+  height:     622px;
+  margin:     0;
+  padding:    0;
+}
+
+// Prevents cached images to overflow 
+// from the modal dialog body
+.media-column > img { display: none; }
+
+// Custom Video Controls
+.video-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  width: 40%;
+  margin-left: -20%;
+  padding: 10px;
+  text-align: center;
+}
 
 
 // Modal Body: Media Comments
@@ -92,7 +113,8 @@
   text-transform: capitalize;
 }
 
-// Modal Body: Media Comments, alternate background colors for easier reading 
+// Modal Body: Media Comments, alternate 
+// background colors for easier reading 
 .media-comment > .media:first-child { 
   border-top:     5px solid $brand-danger; 
   border-bottom:  1px solid #eee;
