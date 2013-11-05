@@ -133,9 +133,9 @@
                 modal += '<video autoplay width="100%" height="auto">'
                 modal += '  <source src="'+ options.data.video +'" type="video/mp4">'
                 modal += '</video>'
-              // modal += '<div class="video-controls text-center">'
-              // modal += '  <button type="button" class="btn btn-default" id="play-pause"><i class="'+ options.dflt.videoicon +'"></i></button>'
-              // modal += '</div>'
+                // modal += '<div class="video-controls text-center">'
+                // modal += '  <button type="button" class="btn btn-default" id="play-pause"><i class="'+ options.dflt.videoicon +'"></i></button>'
+                // modal += '</div>'
             }
 
             modal += '</div>'
