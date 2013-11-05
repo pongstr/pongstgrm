@@ -2,16 +2,11 @@
 /*! Header Section
  * ========================================================================= */
 
-header {
-  min-height: 780px;
-  width: 100%;
-  height: 100%;
-}
+header { height: 100%; }
 
 /* Jumbotron */
 header .jumbotron {
   @include border-radius(0);
-  min-height: 760px;
   height: 100%;
   margin-bottom: 0;
   padding-top: 8%;
@@ -78,24 +73,37 @@ header .jumbotron {
 }
 
 
-@media (max-width: $screen-xs-max) {
+@media (max-width: $screen-md) {
+  header {
+    width: 100%;
+    height: 100%;
+    min-height: 780px;
+  }
+}
+
+
+@media (max-width: 480px) {
+
   /* Jumbotron */
-  header.jumbotron {
+  header .jumbotron {
+    padding: 10px; 
+    
     background-attachment: none;
     background-position: center center;
     background-repeat: repeat;
     background-size: auto;
 
     h1 {
-      font-size: 40px;
-      text-shadow: 1px 1px 0px transparent, 3px 2px 0px rgba(#000,0.15);
+      font-size: 32px;
+      font-weight: 600;
+      text-shadow: 4px 3px 0px transparent, 2px 3px 0px rgba(#000,0.2);
     }
     
     p {
       width: 100%;
-      font-size: 13px;
+      font-size: 18px;
       font-weight: 300;
-      text-shadow: 1px 1px 0px transparent, 2px 1px 0px rgba(#000,0.1);
+      text-shadow: 1px 1px 0px transparent, 1px 3px 0px rgba(#000,0.1);
     }
 
     hr {
@@ -104,5 +112,17 @@ header .jumbotron {
       border-bottom: 1px solid rgba(#fff,0.2)
     }
 
+    .btn,
+    .btn-group,
+    .btn-group .btn {
+      display: block;
+      width: 100%;
+    }
+
+    .btn-group .btn.btn-link { 
+      margin-left: -12px;
+      margin-right: -12px;
+      text-align: left; 
+    }
   }
-} 
+}

@@ -39,9 +39,7 @@
   font-size: 11px;
 }
 
-.media > .media-body > .user-data > h3 small {
-  font-size: 12px;
-  color: #999999;
+.media > .media-body > .user-data > h3 {
   text-transform: capitalize;
 }
 
@@ -218,16 +216,25 @@
   cursor: pointer;
 }
 
+.modal.fade .modal-dialog {
+  -webkit-transition: 0.2s ease-out;
+  -moz-transition: 0.2s ease-out;
+  -o-transition: 0.2s ease-out;
+  transition: 0.2s ease-out;
+}
+
 .modal-content {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  border-radius: 3px;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
 }
 
 .modal-dialog {
   width: 980px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .modal-header {
@@ -241,6 +248,26 @@
 .modal-body > .row {
   margin-left: 0;
   margin-right: 0;
+}
+
+.modal-body > .close {
+  -webkit-transition: opacity 200ms linear;
+  -moz-transition: opacity 200ms linear;
+  -o-transition: opacity 200ms linear;
+  transition: opacity 200ms linear;
+  position: absolute;
+  top: -25px;
+  right: 0;
+  color: #fff;
+  text-shadow: 0 1px 1px #000;
+  opacity: 0.5;
+}
+.modal-body > .close:hover {
+  -webkit-transition: opacity 200ms linear;
+  -moz-transition: opacity 200ms linear;
+  -o-transition: opacity 200ms linear;
+  transition: opacity 200ms linear;
+  opacity: 1;
 }
 
 .media-column,
@@ -257,18 +284,13 @@
 
 .media-column > img,
 .media-column > video {
-  -moz-border-radius-bottomleft: 5px;
-  -webkit-border-bottom-left-radius: 5px;
-  border-bottom-left-radius: 5px;
   width: 100%;
   max-width: 100%;
   height: auto;
 }
 
 .media-comment {
-  -moz-border-radius-bottomright: 5px;
-  -webkit-border-bottom-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  position: relative;
   width: 35%;
   max-height: 622px;
   overflow-y: scroll;
@@ -276,7 +298,16 @@
 }
 
 .media-comment > .media {
-  padding: 15px;
+  padding: 8px 15px 5px 15px;
+}
+
+.media-comment > .media .media-heading {
+  text-transform: capitalize;
+}
+
+.media-comment > .media:first-child {
+  border-top: 5px solid #d9534f;
+  border-bottom: 1px solid #eee;
 }
 
 .media-comment > .media:nth-of-type(odd) {

@@ -10,7 +10,6 @@
 // Media Thumbnail, remove border-radius-top
 .media > .thumbnail > .btn { @include border-top-radius(0); }
 
-
 // Media Thumbnail, media-body count stats
 .media > .media-body > .counts > h4 {
   @include border-radius(2px);
@@ -28,16 +27,13 @@
   font-size:  11px;
 }
 
-.media > .media-body > .user-data > h3 small {
-  font-size:      12px;
-  color:          $gray-light;
+.media > .media-body > .user-data > h3 {
   text-transform: capitalize;
 }
 
 .media > .media-body > .user-data > h3 small a {
   text-decoration:  none;
 }
-
 
 
 

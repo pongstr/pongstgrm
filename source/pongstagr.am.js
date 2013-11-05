@@ -40,19 +40,18 @@
     , likeicon:    "glyphicon glyphicon-heart"
     , videoicon:   "glyphicon glyphicon-play"
     , commenticon: "glyphicon glyphicon-comment"
-    , picture_size: 64
+    , picture_size: 42
     , show_counts:  true
   }
 
   /* HTML TEMPLATES */
   Pongstgrm.prototype.template = {
     loadmore: function (options) {
-      var // Load More Pagination Button
-        _load  = '<div class="row">'
-        _load += '  <button class="'+ options.button +'" data-paginate="'+ options.show +'">'
-        _load +=      options.buttontext
-        _load += '  </button>'
-        _load += '</div>'
+      var _load  = '<div class="row">'
+          _load += '  <button class="'+ options.button +'" data-paginate="'+ options.show +'">'
+          _load +=      options.buttontext
+          _load += '  </button>'
+          _load += '</div>'
 
       options.insert !== 'before' ? 
         $(options.target).after (_load) :
@@ -61,9 +60,33 @@
       return
     }
 
+    , profile: function (options) {
+        var _profile  = '<div class="media">'
+            _profile += ' <div class="thumbnail pull-left">'
+            _profile += '   <img src="'+ options.profile_picture +'" alt="'+ options.username +'">'
+            _profile += '   <a class="btn btn-sm btn-primary" href="http://instagram.com/'+ options.username +'" >View Profile</a>'
+            _profile += ' </div>'
+            _profile += ' <div class="media-body">'
+            _profile += '   <div class="counts">'
+            _profile += '     <h4>'+ options.media +' <small>Posts</small></h4>'
+            _profile += '     <h4>'+ options.followed_by +' <small>Followers</small></h4>'
+            _profile += '     <h4>'+ options.follows +' <small>Following</small></h4>'
+            _profile += '   </div>'
+            _profile += '   <div class="user-data">'
+            _profile += '     <h3>'+ options.username +'</h3>'
+            _profile += '     <small class="help-block">'+ options.full_name +' - <a href="'+ options.website +'">' + options.website +'</a></small>'
+            _profile += '     <p>'+ options.bio +'</p>'
+            _profile += '   </div>'
+            _profile += ' </div>'
+            _profile += '</div>'
+
+          $(options.target).append(_profile)
+
+        return
+      }
+
     , thumb: function (options) {
-        var // Display Options
-            _thumbnail  = '<div class="'+ options.dflt.column +'">'
+        var _thumbnail  = '<div class="'+ options.dflt.column +'">'
             _thumbnail += ' <div class="thumbnail text-center ' + options.dflt.effects + '">'
 
           options.dflt.timestamp !== false ?
@@ -96,9 +119,11 @@
             modal += '  <div class="modal-dialog">'
             modal += '    <div class="modal-content">'
             modal += '      <div class="modal-body">'
+            modal += '        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>'
             modal += '        <div class="row">'
 
             modal += '<div class="media-column">'
+
             if (options.type !== 'video') {
               // modal += '<div class="'+ options.dflt.preload +'" id="'+ options.data.id +'-full-loadr" />'
               modal += '<img id="'+ options.data.id +'-full" src="'+ options.data.image +'" alt="'+ options.data.caption +'">'
@@ -111,14 +136,37 @@
             }
 
             modal += '</div>'
-
             modal += '<div class="media-comment">'
-            modal += '  <div class="media">'
-            modal += '    <div class="pull-left">'
-            modal += '    </div>'
-            modal += '    <div class="modal-body" />'
-            modal += '  </div>'
-            modal += '</div>'
+
+            if (options.caption !== null) {
+              modal += '<div class="media">'
+              modal += '  <a href="https://instagram.com/'+ options.data.username +'" class="media-object thumbnail pull-left">'
+              modal += '    <img src="'+ options.data.profile_picture +'" width="'+ options.dflt.picture_size +'" height="'+ options.dflt.picture_size +'" class="">'
+              modal += '  </a>'
+              modal += '  <div class="modal-body">'
+              modal += '      <h4 class="media-heading">'
+              modal += '        <a href="https://instagram.com/'+ options.data.username +'">'+ options.data.username +'</a>'
+              modal += '      </h4>'
+              modal += '      <p>'+ options.data.caption +'</p>'
+              modal += '  </div>'
+              modal += '</div>'
+            }
+
+            if (options.data.comments_count !== 0) {
+              $.each(options.data.comments_data, function(a, b){
+                modal += '<div class="media">'
+                modal += '  <a href="https://instagram.com/'+ b.from.username +'" class="media-object thumbnail pull-left">'
+                modal += '    <img src="'+ b.from.profile_picture +'" width="'+ options.dflt.picture_size +'" height="'+ options.dflt.picture_size +'">'
+                modal += '  </a>'
+                modal += '  <div class="modal-body">'
+                modal += '      <h4 class="media-heading">'
+                modal += '        <a href="https://instagram.com/'+ b.from.username +'">'+ b.from.username +'</a>'
+                modal += '      </h4>'
+                modal += '      <p>'+ b.text +'</p>'
+                modal += '  </div>'
+                modal += '</div>'
+              })
+            }
 
             modal += '        </div>'
             modal += '      </div>'
@@ -186,9 +234,8 @@
     }
 
     function media (data, option) {
-      $.each(data.data, function (a, b) {
-        var // Data Variables
-            newtime = new Date(b.created_time * 1000)
+      $.each(data, function (a, b) {
+        var newtime = new Date(b.created_time * 1000)
           , created = newtime.toDateString()
           , defaults = {
               dflt: option
@@ -199,11 +246,13 @@
                 , video:          b.videos && b.videos.standard_resolution.url
                 , image:          b.images.standard_resolution.url
                 , caption:        b.caption && b.caption.text 
+                , username:       b.user.username
                 , timestamp:      created
                 , thumbnail:      b.images.low_resolution.url
                 , likes_count:    b.likes.count
                 , comments_count: b.comments.count
                 , comments_data:  b.comments.data
+                , profile_picture:b.user.profile_picture
               }
           }
 
@@ -220,7 +269,17 @@
     }
 
     function profile (data, option) {
-
+      Pongstgrm.prototype.template.profile ({
+          username: data.username
+        , bio: data.bio
+        , media: data.counts.media
+        , follows: data.counts.follows
+        , website: data.website
+        , full_name: data.full_name
+        , followed_by: data.counts.followed_by
+        , profile_picture: data.profile_picture
+        , target: element
+      })
       return
     }
 
@@ -232,8 +291,8 @@
         , dataType : 'jsonp' 
         , success  : function(data){
             option.opt.show !== 'profile' ?
-              media (data, option.opt) :
-              profile (data, option.opt)
+              media   (data.data, option.opt) :
+              profile (data.data, option.opt)
 
             option.opt.show !== 'profile' &&
               paginate ({ 
