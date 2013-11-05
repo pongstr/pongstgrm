@@ -47,12 +47,11 @@
   /* HTML TEMPLATES */
   Pongstgrm.prototype.template = {
     loadmore: function (options) {
-      var // Load More Pagination Button
-        _load  = '<div class="row">'
-        _load += '  <button class="'+ options.button +'" data-paginate="'+ options.show +'">'
-        _load +=      options.buttontext
-        _load += '  </button>'
-        _load += '</div>'
+      var _load  = '<div class="row">'
+          _load += '  <button class="'+ options.button +'" data-paginate="'+ options.show +'">'
+          _load +=      options.buttontext
+          _load += '  </button>'
+          _load += '</div>'
 
       options.insert !== 'before' ? 
         $(options.target).after (_load) :
@@ -61,9 +60,33 @@
       return
     }
 
+    , profile: function (options) {
+        var _profile  = '<div class="media">'
+            _profile += ' <div class="thumbnail pull-left">'
+            _profile += '   <img src="'+ options.profile_picture +'" alt="'+ options.username +'">'
+            _profile += '   <a class="btn btn-sm btn-primary" href="http://instagram.com/'+ options.username +'" >View Profile</a>'
+            _profile += ' </div>'
+            _profile += ' <div class="media-body">'
+            _profile += '   <div class="counts">'
+            _profile += '     <h4>'+ options.media +' <small>Posts</small></h4>'
+            _profile += '     <h4>'+ options.followed_by +' <small>Followers</small></h4>'
+            _profile += '     <h4>'+ options.follows +' <small>Following</small></h4>'
+            _profile += '   </div>'
+            _profile += '   <div class="user-data">'
+            _profile += '     <h3>'+ options.username +'</h3>'
+            _profile += '     <small class="help-block">'+ options.full_name +' - <a href="'+ options.website +'">' + options.website +'</a></small>'
+            _profile += '     <p>'+ options.bio +'</p>'
+            _profile += '   </div>'
+            _profile += ' </div>'
+            _profile += '</div>'
+
+          $(options.target).append(_profile)
+
+        return
+      }
+
     , thumb: function (options) {
-        var // Display Options
-            _thumbnail  = '<div class="'+ options.dflt.column +'">'
+        var _thumbnail  = '<div class="'+ options.dflt.column +'">'
             _thumbnail += ' <div class="thumbnail text-center ' + options.dflt.effects + '">'
 
           options.dflt.timestamp !== false ?
@@ -211,9 +234,8 @@
     }
 
     function media (data, option) {
-      $.each(data.data, function (a, b) {
-        var // Data Variables
-            newtime = new Date(b.created_time * 1000)
+      $.each(data, function (a, b) {
+        var newtime = new Date(b.created_time * 1000)
           , created = newtime.toDateString()
           , defaults = {
               dflt: option
@@ -247,7 +269,17 @@
     }
 
     function profile (data, option) {
-
+      Pongstgrm.prototype.template.profile ({
+          username: data.username
+        , bio: data.bio
+        , media: data.counts.media
+        , follows: data.counts.follows
+        , website: data.website
+        , full_name: data.full_name
+        , followed_by: data.counts.followed_by
+        , profile_picture: data.profile_picture
+        , target: element
+      })
       return
     }
 
@@ -259,8 +291,8 @@
         , dataType : 'jsonp' 
         , success  : function(data){
             option.opt.show !== 'profile' ?
-              media (data, option.opt) :
-              profile (data, option.opt)
+              media   (data.data, option.opt) :
+              profile (data.data, option.opt)
 
             option.opt.show !== 'profile' &&
               paginate ({ 
