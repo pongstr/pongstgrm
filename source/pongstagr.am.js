@@ -124,21 +124,24 @@
 
             modal += '<div class="media-column">'
 
-            if (options.type !== 'video') {
-              // modal += '<div class="'+ options.dflt.preload +'" id="'+ options.data.id +'-full-loadr" />'
+            if (options.data.type !== 'video') {
+              modal += '<div class="'+ options.dflt.preload +'" id="'+ options.data.id +'-full-loadr" />'
               modal += '<img id="'+ options.data.id +'-full" src="'+ options.data.image +'" alt="'+ options.data.caption +'">'
             }
 
-            if (options.type === 'video') {
-                modal += '<video controls autoplay width="100%" height="auto">'
+            if (options.data.type === 'video') {
+                modal += '<video width="100%" height="auto">'
                 modal += '  <source src="'+ options.data.video +'" type="video/mp4">'
                 modal += '</video>'
+                modal += '<div class="video-controls text-center">'
+                modal += '  <button type="button" class="btn btn-default" id="play-pause"><i class="'+ options.dflt.videoicon +'"></i></button>'
+                modal += '</div>'
             }
 
             modal += '</div>'
             modal += '<div class="media-comment">'
 
-            if (options.caption !== null) {
+            if (options.data.caption !== null) {
               modal += '<div class="media">'
               modal += '  <a href="https://instagram.com/'+ options.data.username +'" class="media-object thumbnail pull-left">'
               modal += '    <img src="'+ options.data.profile_picture +'" width="'+ options.dflt.picture_size +'" height="'+ options.dflt.picture_size +'" class="">'
@@ -180,6 +183,16 @@
           $('body').append(modal)
           $('#' + options.data.id)
             .modal('show')
+            .on('shown.bs.modal',  function() {
+              var  total = $('#' + options.data.id +'-full').length
+                ,  start = 0
+
+              $('#' + options.data.id +'-full').hide().load( function () {
+                ++start === total &&
+                  $(this).fadeIn()
+                  $('#' + options.data.id +'-full-loadr').fadeOut().remove()
+              })              
+            })
             .on('hidden.bs.modal', function() {
               $(this).remove()
             })
@@ -270,15 +283,15 @@
 
     function profile (data, option) {
       Pongstgrm.prototype.template.profile ({
-          username: data.username
-        , bio: data.bio
-        , media: data.counts.media
-        , follows: data.counts.follows
-        , website: data.website
-        , full_name: data.full_name
-        , followed_by: data.counts.followed_by
-        , profile_picture: data.profile_picture
-        , target: element
+          target:           element
+        , bio:              data.bio
+        , media:            data.counts.media
+        , website:          data.website
+        , follows:          data.counts.follows
+        , username:         data.username
+        , full_name:        data.full_name
+        , followed_by:      data.counts.followed_by
+        , profile_picture:  data.profile_picture
       })
       return
     }
