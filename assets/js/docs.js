@@ -18,24 +18,6 @@ $(window).load(function () { "use strict";
   })
 
 
-  $('[data-hash=slide]').each(function () {
-    $(this).on('click', function (e) {
-      e.preventDefault()
-
-      var  target = $(this).attr('href')
-        , $target = $(target)
-        ,  offset = ($(this).data('hash-offset') == undefined) ? 160 : $(this).data('hash-offset') 
-
-      $('html, body').stop().animate({
-        'scrollTop': $target.offset().top - offset
-        }, { duration: 1250, easing: 'easeInOutExpo'}, function() {
-          window.location.hash = target
-        return false
-      })
-    })
-  })
-
-
   function Pongstr (option) {
     var userid   = '39666111'
     var usrtoken = '39666111.1fb234f.c3901000b4944a549fd5fd2310c63780'
@@ -53,4 +35,23 @@ $(window).load(function () { "use strict";
   Pongstr({ target: '#likes' , show: 'liked' , count: 4 })
   Pongstr({ target: '#feed'  , show: 'feed'  , count: 4 })
   Pongstr({ target: '#tags'  , show: 'icloud', count: 4 })
+
+
+  $('[data-hash=slide]').each(function () {
+    $(this).on('click', function (e) {
+      e.preventDefault()
+
+      var  target = $(this).attr('href')
+        , $target = $(target)
+        ,  offset = ($(this).data('hash-offset') == undefined) ? 160 : $(this).data('hash-offset') 
+
+      $('html, body').stop().animate({
+        'scrollTop': $target.offset().top - offset
+        }, { duration: 1250, easing: 'easeInOutExpo'}, function() {
+          window.location.hash = target
+        return false
+      })
+    })
+  })
+
 });
