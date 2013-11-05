@@ -46,10 +46,10 @@
           <br>
           
           <div class="hidden-xs">
-            <iframe src="//ghbtns.com/github-btn.html?user=pongstr&amp;repo=pongstagr.am&amp;type=watch" allowtransparency="true" frameborder="0" scrolling="0" width="62" height="20">
+            <iframe src="//ghbtns.com/github-btn.html?user=pongstr&amp;repo=pongstagr.am&amp;type=watch" class="iframe" width="62" height="20">
             </iframe>
 
-            <iframe src="//ghbtns.com/github-btn.html?user=pongstr&amp;type=follow" allowtransparency="true" frameborder="0" scrolling="0" width="132" height="20">
+            <iframe src="//ghbtns.com/github-btn.html?user=pongstr&amp;type=follow" class="iframe" width="132" height="20">
             </iframe>
 
             <a href="//twitter.com/pongstr" class="twitter-follow-button" data-show-count="false">
@@ -87,7 +87,10 @@
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-        <i class="fa fa-reorder"></i>
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
       </button>
       <a href="#home" class="navbar-brand" data-hash="slide">
         Pongstagr.am <small>{{ site.version }}</small>
@@ -103,11 +106,11 @@
 
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            Examples &nbsp; <i class="fa fa-caret-down"></i>
+            Examples &nbsp; <i class="fa fa-caret-down pull-right"></i>
           </a>
           <ul class="dropdown-menu">
             <li>
-              <a href="#example-profile">
+              <a href="#example-profile" data-hash="slide">
                 <i class="fa fa-instagram"></i> &nbsp;Display Profile
               </a>
             </li>
@@ -147,7 +150,7 @@
         </li>
       </ul>
 
-      <div class="btn-group pull-right">
+      <div class="btn-group pull-right hidden-xs hidden-sm">
         <a href="{{ site.download }}" class="btn btn-sm btn-danger">
           <i class="fa fa-download"></i> &nbsp;Download
         </a>

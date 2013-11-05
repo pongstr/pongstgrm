@@ -6661,12 +6661,6 @@ body ::-moz-selection {
 
 /*! Header Section
  * ========================================================================= */
-header {
-  min-height: 780px;
-  width: 100%;
-  height: 100%;
-}
-
 /* Jumbotron */
 header .jumbotron {
   -webkit-border-radius: 0;
@@ -6674,7 +6668,6 @@ header .jumbotron {
   -ms-border-radius: 0;
   -o-border-radius: 0;
   border-radius: 0;
-  min-height: 760px;
   height: 100%;
   margin-bottom: 0;
   padding-top: 8%;
@@ -6733,28 +6726,48 @@ header .jumbotron small {
   opacity: 0.4;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 992px) {
+  header {
+    min-height: 780px;
+    width: 100%;
+    height: 100%;
+  }
+}
+@media (max-width: 480px) {
   /* Jumbotron */
-  header.jumbotron {
+  header .jumbotron {
+    padding: 10px;
     background-attachment: none;
     background-position: center center;
     background-repeat: repeat;
     background-size: auto;
   }
-  header.jumbotron h1 {
-    font-size: 40px;
-    text-shadow: 1px 1px 0px transparent, 3px 2px 0px rgba(0, 0, 0, 0.15);
+  header .jumbotron h1 {
+    font-size: 32px;
+    font-weight: 600;
+    text-shadow: 4px 3px 0px transparent, 2px 3px 0px rgba(0, 0, 0, 0.2);
   }
-  header.jumbotron p {
+  header .jumbotron p {
     width: 100%;
-    font-size: 13px;
+    font-size: 18px;
     font-weight: 300;
-    text-shadow: 1px 1px 0px transparent, 2px 1px 0px rgba(0, 0, 0, 0.1);
+    text-shadow: 1px 1px 0px transparent, 1px 3px 0px rgba(0, 0, 0, 0.1);
   }
-  header.jumbotron hr {
+  header .jumbotron hr {
     margin-top: 20px;
     border-top: 1px solid rgba(0, 0, 0, 0.2);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  header .jumbotron .btn,
+  header .jumbotron .btn-group,
+  header .jumbotron .btn-group .btn {
+    display: block;
+    width: 100%;
+  }
+  header .jumbotron .btn-group .btn.btn-link {
+    margin-left: -12px;
+    margin-right: -12px;
+    text-align: left;
   }
 }
 /* Main Section
@@ -6777,6 +6790,20 @@ body > [role="navigation"] {
 
 .navbar .btn-group {
   margin-top: 11px;
+}
+
+.navbar-default .navbar-toggle {
+  -webkit-transition: background-color, 200ms ease;
+  transition: background-color, 200ms ease;
+  color: #fff;
+  text-shadow: 0 1px 1px #100d13;
+  border: 1px solid #1c1722;
+  background-color: #100d13;
+}
+.navbar-default .navbar-toggle:hover {
+  -webkit-transition: background-color, 200ms ease;
+  transition: background-color, 200ms ease;
+  background-color: #292131;
 }
 
 .navbar .container {
@@ -6868,4 +6895,9 @@ body > [role="navigation"] {
 .lt-ie9 .prettyprint ol.linenums {
   margin: 0;
   margin-left: 33px;
+}
+
+.iframe {
+  border: 0;
+  overflow: hidden;
 }

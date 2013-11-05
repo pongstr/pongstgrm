@@ -23,6 +23,22 @@ body > [role="navigation"] {
 // Button Group for Navbar
 .navbar .btn-group { margin-top: 11px; }
 
+
+// Navbar Toggle Override
+.navbar-default .navbar-toggle {
+  @include transition(background-color, 200ms ease);
+  color: #fff;
+  text-shadow: 0 1px 1px darken($brand-primary, 25%);
+  border: 1px solid darken($brand-primary,20%);
+  background-color: darken($brand-primary, 25%);
+
+  &:hover {
+    @include transition(background-color, 200ms ease);
+    background-color: darken($brand-primary, 15%);
+  }
+}
+
+
 // Navbar container zindex order
 .navbar .container {
   position: relative;
@@ -104,3 +120,8 @@ body > [role="navigation"] {
 }
 
 
+// Social Media Buttons Iframe (Github)
+.iframe {
+  border: 0;
+  overflow: hidden;
+}

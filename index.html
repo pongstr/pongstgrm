@@ -5,19 +5,18 @@ title:   "Docs &amp; Examples"
 
     <div class="container">
       <div class="row">
+        <div id="docs" class="col-xs-12">
+          <article>
+            <h1>Documentation</h1>
 
-          <article id="readme" class="col-lg-12" style="height: 1150px;">
-            <section class="page-header">
-              <h2 class="text-primary">Readme</h2>
-            </section>
-
-            <p class="lead">
+            <p class="lead" style="display: block; width: 65%;">
               Pongstagr.am is a jQuery plugin that lets you display your Instagram 
-              media to your website using <a href="http://twitter.github.io/bootstrap/">Bootstrap</a> 
+              media to your website using <a href="http://twitter.github.io/bootstrap/"><strong>Bootstrap</strong></a> 
               Front-end styles and modal-plugin.
             </p>
 
-            <h3>Requirements</h3>
+            <h2>Requirements</h2>
+
             <p>
               For the most part, Instagram’s API only requires the use of a client_id.
               A client_id simply associates your server, script, or program with a
@@ -34,21 +33,13 @@ title:   "Docs &amp; Examples"
               <li>Bootstrap v3.x or head over here to use the <a href="#">plugin-only</a> version</li>
             </ol>
 
-            <h3>Usage</h3>
+            <h2>Usage</h2>
 
             <ol>
               <li>
                 <p>
-                  <strong>User ID</strong>: If you have zero idea what your user id is, you may
-                  head to this <a href="http://jelled.com/instagram/lookup-user-id">link</a>.
-                </p>
-              </li>
-              <li>
-                <p>
-                  <strong>Access Token</strong>: to get your access token, you may
-                  head to this <a href="http://jelled.com/instagram/access-token">link</a>,
-                  make sure you follow the instructions on the <strong>"How do I
-                  get my client id?"</strong> link.
+                  <strong>USER ID</strong> - head over to <a href="http://jelled.com">Jelled Web Design Blog</a> and <a href="http://jelled.com/instagram/lookup-user-id"><strong>Look up your Instagram ID</strong></a> and
+                  <a href="http://jelled.com/instagram/access-token"><strong>ACCESS TOKEN:</strong></a>.
                 </p>
               </li>
               <li>
@@ -60,7 +51,7 @@ title:   "Docs &amp; Examples"
             </ol>
 
             <br>
-       
+
 <pre class="prettyprint linenums">
 &lt;!-- Initialize stylesheets to header --&gt;
 &lt;link rel="stylesheet" href="/path/to/css/bootstrap.css"&gt;
@@ -72,9 +63,7 @@ title:   "Docs &amp; Examples"
 &lt;script href="/path/to/js/pongstagr.am.js"&gt;&lt;/script&gt;
 </pre>
 
-            <br>
-
-            <h5>Call on the plugin like this:</h5>
+            <h3>Call on the plugin like this:</h3>
             <small class="help-block text-muted">By default the plugin displays eight (8) most recent media.</small>
 
 <pre class="prettyprint linenums">
@@ -87,146 +76,144 @@ $(document).ready(function () {
 
 });
 </pre>
-            
-            <br>
-            
-            <h5>Other Options</h5>
+
+            <h3>Other Options</h3>
+            <small class="help-block text-muted">Override default options.</small>
 
 <pre class="prettyprint linenums">
+show:       string    // show your recent media, likes, feed or any tag you'd like to see
 count:      8         // number of media you'd like to display, default is 8. Instagram's maximum is 40
 likes:      boolean   // true: show likes count, false: doesn't show it
+effects:    string    // add your css3 animation/transition for thumbnails
 comments:   boolean   // true: show comments count, false: doesn't show it
 timestamp:  boolean   // true: show media timestamp, false: doesn't show it
-scale:      boolean   // true: scale thumbnail images to 1.1%
-show:       string    // show your recent media, likes, feed or any tag you'd like to see
 </pre>
 
           </article>
-
-            <div class="col-xs-12">
-              <div class="page-header">
-                <h2 class="text-primary">Examples</h2>
-              </div>
-
-              <br>
-
-              <h3 id="example-profile" class="text-danger">Profile</h3>
-              <small class="help-block text-muted">Display your <i class="fa fa-instagram"></i> <strong>Instagram</strong> basic information.</small>
-              
-              <div class="col-xs-12 col-sm-7">
-                <div id="profile" class="well well-sm"></div>
-              </div>
-
-              <div class="clearfix"></div>
-
-              <h3 id="example-recent" class="text-danger">Recent Media</h3>
-              <small class="help-block text-muted">Display your most <strong>recent</strong> <i class="fa fa-camera"></i> media.</small>
-
-              <div class="col-xs-12">
-                <div id="recent" class="well well-sm"></div>
-              </div>
-
-              <br>
-
-              <h3 id="example-liked"class="text-danger">User Liked</h3>
-              <small class="help-block text-muted">Display your most recent <strong>liked</strong> <i class="fa fa-heart"></i> media.</small>
-
-              <div class="col-xs-12">
-                <div id="likes" class="well well-sm"></div>
-              </div>
-
-              <br>
-
-              <h3 id="example-feed" class="text-danger">User Feed</h3>
-              <small class="help-block text-muted">Display the most recent media from the people you <strong>follow</strong> <i class="fa fa-share"></i>.</small>
-
-              <div class="col-xs-12">
-                <div id="feed" class="well well-sm"></div>
-              </div>
-
-              <br>
-
-              <h3 id="example-tag" class="text-danger">Tag</h3>
-              <small class="help-block text-muted">Display the most recent media available using a <strong>tag</strong> <i class="fa fa-tag"></i>.</small>
-
-              <div class="col-xs-12">
-                <div id="tags" class="well well-sm"></div>
-              </div>
-
-              <br>  
-            </div>
-
-            <div id="acknowledgements" class="col-xs-12">
-              <div class="page-header">
-                <h2 class="text-primary">Acknowledgements</h2>
-              </div>
-
-              <p>
-                <a href="http://getbootstrap.com"><strong>Boostrap</strong></a> 
-                was created by <a href="http://twitter.com/mdo">@mdo</a> &amp; 
-                <a href="http://twitter.com/fat">@fat</a> released under 
-                <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE">Apache 2 License</a>.
-              </p>
-
-              <p>
-                <a href="https://github.com/thomas-mcdonald/bootstrap-sass"><strong>Bootstrap-sass</strong></a> 
-                was created by <a href="https://github.com/thomas-mcdonald/">Thomas McDonald</a> 
-                <a href="https://github.com/thomas-mcdonald/bootstrap-sass/blob/master/LICENSE">licensed under Apache 2 License</a>.
-              </p>
-            </div><!-- end of #acknowledgements -->
-
-            <div id="comments" class="col-xs-12">
-              <div class="page-header">
-                <h2 class="text-primary">Comments</h2>
-              </div>
-              
-              {% include disqus.html %}
-            </div>
-
-            <div id="license" class="col-xs-12">
-              <br>
-              <hr>
-              <h2 class="text-primary">License</h2>
-              <small class="help-block text-muted">Copyright 2013 &copy; Pongstagr.am by Pongstr Ordillo licensed under <a href="http://opensource.org/licenses/MIT">MIT License</a>.</small>
-
-              <div class="row">
-                <div class="col-xs-12 col-lg-12">
-                    <div class="well well-lg text-muted text-justify">
-                      <p>The MIT License (MIT)</p>
-                      <p>Copyright 2013 &copy; Pongstagr.am by Pongstr Ordillo</p>
-                      <p>
-                        <small>
-                        Permission is hereby granted, free of charge, to any person obtaining a copy
-                        of this software and associated documentation files (the "Software"), to deal
-                        in the Software without restriction, including without limitation the rights
-                        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-                        copies of the Software, and to permit persons to whom the Software is
-                        furnished to do so, subject to the following conditions:
-                        </small>
-                      </p>
-
-                      <p>
-                        <small>
-                          The above copyright notice and this permission notice shall be included in
-                          all copies or substantial portions of the Software.
-                        </small>
-                      </p>
-
-                      <p>
-                        <small>
-                          THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-                          IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-                          FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-                          AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-                          LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-                          OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-                          THE SOFTWARE.
-                        </small>
-                      </p>
-                    </div>
-                </div>
-              </div>
-            </div>
-
+        </div>
       </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="page-header">
+            <h1 id="examples" class="text-primary">Examples</h1>
+          </div>
+
+          <h2 id="example-profile" class="text-danger">Profile</h2>
+          <small class="help-block text-muted">Display your <i class="fa fa-instagram"></i> <strong>Instagram</strong> basic information.</small>
+          
+          <div class="col-xs-12 col-sm-7">
+            <div id="profile" class="well well-sm"></div>
+          </div>
+
+          <div class="clearfix"></div>
+
+          <h2 id="example-recent" class="text-danger">Recent Media</h2>
+          <small class="help-block text-muted">Display your most <strong>recent</strong> <i class="fa fa-camera"></i> media.</small>
+
+          <div class="col-xs-12">
+            <div id="recent" class="well well-sm"></div>
+          </div>
+
+          <br>
+
+          <h2 id="example-liked" class="text-danger">User Liked</h2>
+          <small class="help-block text-muted">Display your most recent <strong>liked</strong> <i class="fa fa-heart"></i> media.</small>
+
+          <div class="col-xs-12">
+            <div id="likes" class="well well-sm"></div>
+          </div>
+
+          <br>
+
+          <h2 id="example-feed" class="text-danger">User Feed</h2>
+          <small class="help-block text-muted">Display the most recent media from the people you <strong>follow</strong> <i class="fa fa-share"></i>.</small>
+
+          <div class="col-xs-12">
+            <div id="feed" class="well well-sm"></div>
+          </div>
+
+          <br>
+
+          <h2 id="example-tag" class="text-danger">Tag</h2>
+          <small class="help-block text-muted">Display the most recent media available using a <strong>tag</strong> <i class="fa fa-tag"></i>.</small>
+
+          <div class="col-xs-12">
+            <div id="tags" class="well well-sm"></div>
+          </div>
+
+          <br>  
+        </div>
+
+        <div id="acknowledgements" class="col-xs-12">
+          <div class="page-header">
+            <h2 class="text-primary">Acknowledgements</h2>
+          </div>
+
+          <p>
+            <a href="http://getbootstrap.com"><strong>Boostrap</strong></a> 
+            was created by <a href="http://twitter.com/mdo">@mdo</a> &amp; 
+            <a href="http://twitter.com/fat">@fat</a> released under 
+            <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE">Apache 2 License</a>.
+          </p>
+
+          <p>
+            <a href="https://github.com/thomas-mcdonald/bootstrap-sass"><strong>Bootstrap-sass</strong></a> 
+            was created by <a href="https://github.com/thomas-mcdonald/">Thomas McDonald</a> 
+            <a href="https://github.com/thomas-mcdonald/bootstrap-sass/blob/master/LICENSE">licensed under Apache 2 License</a>.
+          </p>
+        </div><!-- end of #acknowledgements -->
+
+        <div id="comments" class="col-xs-12">
+          <div class="page-header">
+            <h2 class="text-primary">Comments</h2>
+          </div>
+          
+          {% include disqus.html %}
+        </div>
+
+        <div id="license" class="col-xs-12">
+          <hr>
+          <h2 class="text-primary">License</h2>
+          <small class="help-block text-muted">Copyright 2013 &copy; Pongstagr.am by Pongstr Ordillo licensed under <a href="http://opensource.org/licenses/MIT">MIT License</a>.</small>
+
+          <div class="row">
+            <div class="col-xs-12 col-lg-12">
+                <div class="well well-lg text-muted text-justify">
+                  <p>The MIT License (MIT)</p>
+                  <p>Copyright 2013 &copy; Pongstagr.am by Pongstr Ordillo</p>
+                  <p>
+                    <small>
+                    Permission is hereby granted, free of charge, to any person obtaining a copy
+                    of this software and associated documentation files (the "Software"), to deal
+                    in the Software without restriction, including without limitation the rights
+                    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                    copies of the Software, and to permit persons to whom the Software is
+                    furnished to do so, subject to the following conditions:
+                    </small>
+                  </p>
+
+                  <p>
+                    <small>
+                      The above copyright notice and this permission notice shall be included in
+                      all copies or substantial portions of the Software.
+                    </small>
+                  </p>
+
+                  <p>
+                    <small>
+                      THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                      IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                      FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+                      AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                      LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                      OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+                      THE SOFTWARE.
+                    </small>
+                  </p>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- end of .row -->
   </div><!-- end of .container -->
