@@ -60,7 +60,10 @@
 
 
 // Modal Body: Media Column
-.media-column { width: 65%; }
+.media-column { 
+  width:      65%;
+  max-height: 622px;
+}
 
 
 // Modal Body: Media elements inside Media Column must
@@ -70,6 +73,8 @@
   width:      100%;
   max-width:  100%;
   height:     auto;
+  margin:     0;
+  padding:    0;
 } 
 
 
