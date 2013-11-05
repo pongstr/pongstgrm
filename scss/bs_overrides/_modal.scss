@@ -5,7 +5,7 @@
 
 // Modal Dialog Transitions
 .modal.fade .modal-dialog {
-  @include transition-transform(0.2s ease-out);
+  @include transition(0.2s ease-out);
 }
 
 
