@@ -2,6 +2,8 @@
 /*! Header Section
  * ========================================================================= */
 
+header { height: 100%; }
+
 /* Jumbotron */
 header .jumbotron {
   @include border-radius(0);
@@ -73,9 +75,9 @@ header .jumbotron {
 
 @media (max-width: $screen-md) {
   header {
-    min-height: 780px;
     width: 100%;
     height: 100%;
+    min-height: 780px;
   }
 }
 
@@ -84,7 +86,7 @@ header .jumbotron {
 
   /* Jumbotron */
   header .jumbotron {
-    padding:    10px; 
+    padding: 10px; 
     
     background-attachment: none;
     background-position: center center;
