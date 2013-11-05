@@ -17,10 +17,9 @@ gh-pages/
 _site/
 .sass-cache
 
-# Test Files
-test.*
-tests.*
-testing.*
-examples
-gh-pages
-prototypes.*
+# Source Only
+_includes
+_layouts
+assets
+scss
+_config.yml
