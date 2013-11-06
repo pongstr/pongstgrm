@@ -43,7 +43,7 @@ $(window).load(function () { "use strict";
 
       var  target = $(this).attr('href')
         , $target = $(target)
-        ,  offset = ($(this).data('hash-offset') == undefined) ? 160 : $(this).data('hash-offset') 
+        ,  offset = ($(this).data('hash-offset') === undefined) ? 100 : $(this).data('hash-offset') 
 
       $('html, body').stop().animate({
         'scrollTop': $target.offset().top - offset
