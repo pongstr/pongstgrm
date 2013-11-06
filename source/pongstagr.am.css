@@ -202,17 +202,13 @@
   -o-transition: opacity 200ms ease;
   transition: opacity 200ms ease;
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 35px;
+  right: 15px;
   z-index: 1000;
-  width: 36px;
-  height: 36px;
-  margin-top: -18px;
-  margin-left: -18px;
-  font-size: 36px;
+  font-size: 24px;
   color: #fff;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.55);
-  opacity: 0.3;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+  opacity: 0.95;
   cursor: pointer;
 }
 
@@ -297,16 +293,6 @@
   display: none;
 }
 
-.video-controls {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  width: 40%;
-  margin-left: -20%;
-  padding: 10px;
-  text-align: center;
-}
-
 .media-comment {
   position: relative;
   width: 35%;
@@ -317,6 +303,7 @@
 
 .media-comment > .media {
   padding: 8px 15px 5px 15px;
+  font-size: 12px;
 }
 
 .media-comment > .media .media-heading {
@@ -334,4 +321,90 @@
 
 .media-comment > .media:nth-of-type(even) {
   background-color: #f4f4f4;
+}
+
+.media-column > .alert {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 72%;
+  margin-top: -5%;
+  margin-left: -36%;
+  color: #fff;
+  text-shadow: 0 1px 1px #111;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.media-column > .btn {
+  color: white;
+  background-color: rgba(17, 17, 17, 0.55);
+  border-color: rgba(0, 0, 0, 0.25);
+  -webkit-transition: background-color 200ms ease;
+  transition: background-color 200ms ease;
+  position: absolute;
+  text-shadow: 0 1px 1px #000;
+}
+.media-column > .btn:hover, .media-column > .btn:focus, .media-column > .btn:active, .media-column > .btn.active {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.55);
+  border-color: rgba(0, 0, 0, 0.25);
+}
+.open .media-column > .btn.dropdown-toggle {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.55);
+  border-color: rgba(0, 0, 0, 0.25);
+}
+.media-column > .btn:active, .media-column > .btn.active {
+  background-image: none;
+}
+.open .media-column > .btn.dropdown-toggle {
+  background-image: none;
+}
+.media-column > .btn.disabled, .media-column > .btn.disabled:hover, .media-column > .btn.disabled:focus, .media-column > .btn.disabled:active, .media-column > .btn.disabled.active, .media-column > .btn[disabled], .media-column > .btn[disabled]:hover, .media-column > .btn[disabled]:focus, .media-column > .btn[disabled]:active, .media-column > .btn[disabled].active, fieldset[disabled] .media-column > .btn, fieldset[disabled] .media-column > .btn:hover, fieldset[disabled] .media-column > .btn:focus, fieldset[disabled] .media-column > .btn:active, fieldset[disabled] .media-column > .btn.active {
+  background-color: rgba(17, 17, 17, 0.55);
+  border-color: rgba(0, 0, 0, 0.25);
+}
+.media-column > .btn:hover {
+  -webkit-transition: background-color 200ms ease;
+  transition: background-color 200ms ease;
+  color: white;
+  background-color: #111111;
+  border-color: black;
+}
+.media-column > .btn:hover:hover, .media-column > .btn:hover:focus, .media-column > .btn:hover:active, .media-column > .btn:hover.active {
+  color: white;
+  background-color: black;
+  border-color: black;
+}
+.open .media-column > .btn:hover.dropdown-toggle {
+  color: white;
+  background-color: black;
+  border-color: black;
+}
+.media-column > .btn:hover:active, .media-column > .btn:hover.active {
+  background-image: none;
+}
+.open .media-column > .btn:hover.dropdown-toggle {
+  background-image: none;
+}
+.media-column > .btn:hover.disabled, .media-column > .btn:hover.disabled:hover, .media-column > .btn:hover.disabled:focus, .media-column > .btn:hover.disabled:active, .media-column > .btn:hover.disabled.active, .media-column > .btn:hover[disabled], .media-column > .btn:hover[disabled]:hover, .media-column > .btn:hover[disabled]:focus, .media-column > .btn:hover[disabled]:active, .media-column > .btn:hover[disabled].active, fieldset[disabled] .media-column > .btn:hover, fieldset[disabled] .media-column > .btn:hover:hover, fieldset[disabled] .media-column > .btn:hover:focus, fieldset[disabled] .media-column > .btn:hover:active, fieldset[disabled] .media-column > .btn:hover.active {
+  background-color: #111111;
+  border-color: black;
+}
+
+#play-pause {
+  bottom: 20px;
+  left: 20px;
+}
+
+#mute {
+  bottom: 20px;
+  right: 20px;
+}
+#mute > .glyphicon-volume-up {
+  color: #449d44;
+}
+#mute > .glyphicon-volume-off {
+  color: #d43f3a;
 }
