@@ -38,6 +38,7 @@
     , buttontext:  "Load more"
     , column:      "col-xs-6 col-sm-3 col-md-3 col-lg-3"
     , likeicon:    "glyphicon glyphicon-heart"
+    , muteicon:    "glyphicon glyphicon-volume-off"
     , videoicon:   "glyphicon glyphicon-play"
     , commenticon: "glyphicon glyphicon-comment"
     , picture_size: 42
@@ -91,21 +92,19 @@
 
           options.dflt.timestamp !== false ?
             _thumbnail += '<strong>'+ options.data.timestamp +'</strong>' : null
-
             _thumbnail += '   <div class="'+ options.dflt.preload +'" id="'+ options.data.id +'-thmb-loadr" />'
             _thumbnail += '   <a href="#'+ options.data.id +'" id="triggr-'+ options.data.id +'">'
             _thumbnail += '     <img id="'+ options.dflt.show + '-' + options.data.id +'-thmb" src="'+ options.data.thumbnail +'" alt="'+ options.data.caption +'">'
             _thumbnail += '   </a>'
 
           options.data.type === 'video' ? 
-            _thumbnail += '<span class="type"><i class="'+ options.dflt.videoicon +'"></i></span>': null
+            _thumbnail += '<span class="type"><i class="'+ options.dflt.videoicon +'"></i></span>': ""
 
           options.data.likes !== false ?
-            _thumbnail += '<span class="likes"><i class="'+ options.dflt.likeicon +'"></i>&nbsp; '+ options.data.likes_count+'</span>': null
+            _thumbnail += '<span class="likes"><i class="'+ options.dflt.likeicon +'"></i>&nbsp; '+ options.data.likes_count+'</span>': ""
 
           options.data.comments !== false ? 
-            _thumbnail += '<span class="comments"><i class="'+ options.dflt.commenticon +'"></i>&nbsp; '+ options.data.comments_count+'</span>': null
-
+            _thumbnail += '<span class="comments"><i class="'+ options.dflt.commenticon +'"></i>&nbsp; '+ options.data.comments_count+'</span>': ""
             _thumbnail += ' </div>'
             _thumbnail += '</div>'
 
@@ -115,61 +114,62 @@
     }
 
     , modal: function (options) {
+        var alert  = '<div class="alert">Your browser does not support HTML5 Videos or MPEG-4 format.</div>'
+          , image  = '<div class="'+ options.dflt.preload +'" id="'+ options.data.id +'-full-loadr"></div>'
+            image += '<img id="'+ options.data.id +'-full" src="'+ options.data.image +'" alt="'+ options.data.caption +'">'
+
+        var video  = '<video id="'+ options.data.id +'-video" width="100%" height="auto">'
+            video += '  <source src="'+ options.data.video +'" type="video/mp4">'
+            video +=  alert
+            video += '</video>'
+            video += '<button type="button" class="btn btn-lg" id="play-pause"><i class="glyphicon glyphicon-play"></i></button>'
+            video += '<button type="button" class="btn btn-lg" id="mute"><i class="glyphicon glyphicon-volume-up"></i></button>'
+
         var modal  = '<div id="'+ options.data.id +'" class="modal fade">'
             modal += '  <div class="modal-dialog">'
             modal += '    <div class="modal-content">'
             modal += '      <div class="modal-body">'
             modal += '        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>'
             modal += '        <div class="row">'
-
             modal += '<div class="media-column">'
 
-            if (options.data.type !== 'video') {
-              modal += '<div class="'+ options.dflt.preload +'" id="'+ options.data.id +'-full-loadr" />'
-              modal += '<img id="'+ options.data.id +'-full" src="'+ options.data.image +'" alt="'+ options.data.caption +'">'
-            }
-
-            if (options.data.type === 'video') {
-                modal += '<video autoplay width="100%" height="auto">'
-                modal += '  <source src="'+ options.data.video +'" type="video/mp4">'
-                modal += '</video>'
-                // modal += '<div class="video-controls text-center">'
-                // modal += '  <button type="button" class="btn btn-default" id="play-pause"><i class="'+ options.dflt.videoicon +'"></i></button>'
-                // modal += '</div>'
-            }
+          options.data.type !== 'video' ?
+            modal += image : 
+          navigator.userAgent.match(/webkit/i) || navigator.userAgent.match(/(iPod|iPhone|iPad)/) ?
+            modal += video : 
+            modal += image + alert
 
             modal += '</div>'
             modal += '<div class="media-comment">'
 
-            if (options.data.caption !== null) {
+            modal += '<div class="media">'
+            modal += '  <a href="https://instagram.com/'+ options.data.username +'" class="media-object thumbnail pull-left">'
+            modal += '    <img src="'+ options.data.profile_picture +'" width="'+ options.dflt.picture_size +'" height="'+ options.dflt.picture_size +'" class="">'
+            modal += '  </a>'
+            modal += '  <div class="modal-body">'
+            modal += '      <h5 class="media-heading">'
+            modal += '        <a href="https://instagram.com/'+ options.data.username +'">'+ options.data.username +'</a>'
+            modal += '      </h5>'
+
+          options.data.caption !== null ?
+            modal += '      <p>'+ options.data.caption +'</p>': ""
+            modal += '  </div>'
+            modal += '</div>'
+
+          options.data.comments_count !== 0 ?
+            $.each(options.data.comments_data, function(a, b){
               modal += '<div class="media">'
-              modal += '  <a href="https://instagram.com/'+ options.data.username +'" class="media-object thumbnail pull-left">'
-              modal += '    <img src="'+ options.data.profile_picture +'" width="'+ options.dflt.picture_size +'" height="'+ options.dflt.picture_size +'" class="">'
+              modal += '  <a href="https://instagram.com/'+ b.from.username +'" class="media-object thumbnail pull-left">'
+              modal += '    <img src="'+ b.from.profile_picture +'" width="'+ options.dflt.picture_size +'" height="'+ options.dflt.picture_size +'">'
               modal += '  </a>'
               modal += '  <div class="modal-body">'
-              modal += '      <h4 class="media-heading">'
-              modal += '        <a href="https://instagram.com/'+ options.data.username +'">'+ options.data.username +'</a>'
-              modal += '      </h4>'
-              modal += '      <p>'+ options.data.caption +'</p>'
+              modal += '      <h5 class="media-heading">'
+              modal += '        <a href="https://instagram.com/'+ b.from.username +'">'+ b.from.username +'</a>'
+              modal += '      </h5>'
+              modal += '      <p>'+ b.text +'</p>'
               modal += '  </div>'
               modal += '</div>'
-            }
-
-            if (options.data.comments_count !== 0) {
-              $.each(options.data.comments_data, function(a, b){
-                modal += '<div class="media">'
-                modal += '  <a href="https://instagram.com/'+ b.from.username +'" class="media-object thumbnail pull-left">'
-                modal += '    <img src="'+ b.from.profile_picture +'" width="'+ options.dflt.picture_size +'" height="'+ options.dflt.picture_size +'">'
-                modal += '  </a>'
-                modal += '  <div class="modal-body">'
-                modal += '      <h4 class="media-heading">'
-                modal += '        <a href="https://instagram.com/'+ b.from.username +'">'+ b.from.username +'</a>'
-                modal += '      </h4>'
-                modal += '      <p>'+ b.text +'</p>'
-                modal += '  </div>'
-                modal += '</div>'
-              })
-            }
+            }) : ""
 
             modal += '        </div>'
             modal += '      </div>'
@@ -184,14 +184,26 @@
           $('#' + options.data.id)
             .modal('show')
             .on('shown.bs.modal',  function() {
-              var  total = $('#' + options.data.id +'-full').length
-                ,  start = 0
+              var video = document.getElementById(options.data.id +'-video')
 
-              $('#' + options.data.id +'-full').hide().load( function () {
-                ++start === total &&
-                  $(this).fadeIn()
-                  $('#' + options.data.id +'-full-loadr').fadeOut().remove()
-              })              
+              Pongstgrm.prototype.preloadMedia({
+                  imgid : '#' + options.data.id +'-full'
+                , loadr : '#' + options.data.id +'-full-loadr'
+              })
+
+              Pongstgrm.prototype.videoBtn({
+                  trigger: '#play-pause'
+                , child:   'i'
+                , classes: 'glyphicon-play glyphicon-pause'
+              }, function () { video.paused === true ? video.play() : video.pause() })
+
+              Pongstgrm.prototype.videoBtn({
+                  trigger: '#mute'
+                , child:   'i'
+                , classes: 'glyphicon-volume-up glyphicon-volume-off'
+              }, function() { video.muted === false ?  video.muted = true :  video.muted = false })
+
+
             })
             .on('hidden.bs.modal', function() {
               $(this).remove()
@@ -202,25 +214,37 @@
     }
   }
 
-
-  Pongstgrm.prototype.stream = function () {
-    var element = this.element
-      , options = this.options
-      , apiurl  = 'https://api.instagram.com/v1/users/'
-      , rcount  = '?count=' +  options.count + '&access_token=' + options.accessToken  
-
-    function preloadMedia (option) {
-      var  total = $(option.imgid).length
-        ,  start = 0
+  Pongstgrm.prototype.preloadMedia = function (option) {
+    var  total = $(option.imgid).length
+      ,  start = 0
 
       $(option.imgid).hide().load( function () {
         ++start === total &&
           $(this).fadeIn()
           $(option.loadr).fadeOut().remove()
       })
+
+    return
+  }
+
+  Pongstgrm.prototype.videoBtn = function (option, callback) {
+    $(option.trigger).on('click', function(e) {
+
+      e.preventDefault()
       
-      return
-    }
+      callback()
+
+      $(option.child, this).toggleClass(option.classes)
+    })
+
+    return
+  }
+
+  Pongstgrm.prototype.stream = function () {
+    var element = this.element
+      , options = this.options
+      , apiurl  = 'https://api.instagram.com/v1/users/'
+      , rcount  = '?count=' +  options.count + '&access_token=' + options.accessToken
 
     function paginate (option) {
       (option.url === undefined || option.url === null) ? 
@@ -240,7 +264,7 @@
             , opt: option.opt 
           })
 
-          $(this).unbind(e);
+          $(this).unbind(e)
         })
 
       return
@@ -271,7 +295,7 @@
 
         Pongstgrm.prototype.template.thumb (defaults)
 
-        preloadMedia({
+        Pongstgrm.prototype.preloadMedia({
             imgid : '#' + option.show + '-' + b.id + '-thmb'
           , loadr : '#' + b.id + '-thmb-loadr'
         })
