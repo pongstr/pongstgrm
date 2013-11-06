@@ -21,3 +21,6 @@ _site/
 test.*
 tests.*
 testing.*
+examples
+gh-pages
+prototypes.*

@@ -1,108 +1,24 @@
 Pongstagr.am
-==============================================
-by Pongstr [twiz.tickler@gmail.com | www.pongstr.com ]
+============
 
-Pongstagr.am is a jquery plugin that lets you display your instagram media to your website.
+![v3.0 Home Screen](http://pongstr.com/projects/pongstagr.am/v3.0-screen.png)
 
+Pongstagr.am is a jquery plugin that lets you display your instagram media to your website with the help of Bootstrap Front-end.
 
----------
+-----------
 
-#### Plugin Requirements
+#### REQUIREMENTS:
 
-1. jQuery 1.8+
-2. bootstrap-modal.js (or bootstrap.js || bootstrap.min.js )
-
-
----------
-
-#### Usage:
-
-1. User ID - If you have zero idea what your user id is, you may head to this 
-   [link](http://jelled.com/instagram/lookup-user-id).
-
-2. Access Token - If you have zero idea what your access token is, you may head to this
-   [link](http://jelled.com/instagram/access-token) make sure you follow the instructions 
-   on the ***How do I get my client id?*** link. 
-
-3. **jquery** must be initialised first and so as **bootstrap.js** plugins:
-
-```html
-<script src='//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
-<script src='path/to/js/bootstrap.min.js'></script>  
-<script src='path/to/js/pongstagr.am.js'></script>  
-```
+1. Instagram Account [```user id``` &amp; ```access token`` ]
+2. Jquery 1.10.x
+3. Bootstrap v3.x [plugin-only coming in the future]
 
 
+-----------
 
-Display recently uploaded media (displays 8 images):
-  
-```javascript
-$('div#selector').pongstgrm({
-    accessId     : YourAccessID,
-    accessToken  : YourAccessToken
-});
-  ```
+1. **[Bootstrap](http://github.com/twbs/bootstrap/)** was created by [@mdo](http://twitter.com/mdo/) &amp; [@fat](http://twitter.com/fat) licensed under [Apache 2 License](https://github.com/twbs/bootstrap/blob/master/LICENSE).
+2. **[Bootstrap-sass](https://github.com/thomas-mcdonald/bootstrap-sass)** was created by [Thomas McDonald](https://github.com/thomas-mcdonald/) licensed under [Apache 2 License](https://github.com/thomas-mcdonald/bootstrap-sass/blob/master/LICENSE).
 
----------
+-----------
 
-#### Other options:
-  
-  
-```javascript
-show       : null,    // string,  options: 'recent', 'feed', 'liked', 'user', 'any tag'
-count      : null,    // integer, options: 1(min) - 40(max), instagram limits the maximum number of photos to 40
-pager      : null     // boolean, options:  true or false (enables/disable load more button)
-```
-
-
----------
-
-#### Usage Example:
-
-```html
-<script src='//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
-<script src='path/to/js/bootstrap-modal.js'></script>  
-<script src='path/to/js/pongstagr.am.js'></script>
-
-<script>
-  $(document).ready(function(){
-    
-    $('selector').pongstgrm({
-      accessId    : YourAccessID,
-      accessToken : YourAccessToken,
-      show        : 'liked',
-      count       : 8,
-      pager       : true
-    });
-    
-  });
-</script>
-```
-
----------
-
-#### Acknowledgements 
-  
-  - **[Bootstrap](http://twitter.github.io/bootstrap/)** is created by [@mdo](http://twitter.com/mdo) &amp; [@fat](http://twitter.com/fat)
-
----------
-
-**License:**
-
-Free to use, Code license under [Apache v2.0](http://www.apache.org/licenses/LICENSE-2.0).
-
-```
-Copyright 2013 &copy; Pongstr Ordillo
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-  http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-```
+Copyright &copy; Pongstagr.am jQuery Plugin by Pongstr. [MIT License](https://github.com/pongstr/pongstagr.am/blob/v3.0/LICENSE.md)
