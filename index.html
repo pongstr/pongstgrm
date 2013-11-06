@@ -38,14 +38,14 @@ title:   "Docs &amp; Examples"
             <ol>
               <li>
                 <p>
-                  <strong>USER ID</strong> - head over to <a href="http://jelled.com">Jelled Web Design Blog</a> and <a href="http://jelled.com/instagram/lookup-user-id"><strong>Look up your Instagram ID</strong></a> and
+                  Head over to <a href="http://jelled.com">Jelled Web Design Blog</a> and <a href="http://jelled.com/instagram/lookup-user-id"><strong>Look up your Instagram ID</strong></a> and
                   <a href="http://jelled.com/instagram/access-token"><strong>ACCESS TOKEN:</strong></a>.
                 </p>
               </li>
               <li>
                 <p>
-                  Stylesheets, jQuery Library, Bootstrap JS &amp; the Plugin must be
-                  initialised before you call on the plugin.
+                  Initialise stylesheets, jQuery Library, Bootstrap JS libray before calling on the plugin
+                  like the example below:
                 </p>
               </li>
             </ol>
@@ -77,17 +77,34 @@ $(document).ready(function () {
 });
 </pre>
 
-            <h3>Other Options</h3>
+            <h3>Options:</h3>
             <small class="help-block text-muted">Override default options.</small>
 
 <pre class="prettyprint linenums">
-show:       string    // show your recent media, likes, feed or any tag you'd like to see
-count:      8         // number of media you'd like to display, default is 8. Instagram's maximum is 40
-likes:      boolean   // true: show likes count, false: doesn't show it
-effects:    string    // add your css3 animation/transition for thumbnails
-comments:   boolean   // true: show comments count, false: doesn't show it
-timestamp:  boolean   // true: show media timestamp, false: doesn't show it
+{
+  show:       string    // show your recent media, likes, feed or any tag you'd like to see
+  count:      8         // number of media you'd like to display, default is 8. Instagram's maximum is 40
+  likes:      boolean   // true: show likes count, false: doesn't show it
+  effects:    string    // add your css3 animation/transition for thumbnails
+  comments:   boolean   // true: show comments count, false: doesn't show it
+  timestamp:  boolean   // true: show media timestamp, false: doesn't show it
+}
 </pre>
+
+            <h3>More Options</h3>
+            <small class="help-block text-muted">Override default options.</small>
+
+<pre class="prettyprint linenums">
+{
+  preload:     "spinner", // custom selector for preload spinner
+  button:      "btn btn-success", // custom selector for load more button
+  buttontext:  "Load more", // custom text for load more
+  column:      "col-xs-6 col-sm-3 col-md-3 col-lg-3", // custom columns for thumbnail
+  likeicon:    "glyphicon glyphicon-heart", // custom likes icon
+  commenticon: "glyphicon glyphicon-comment" // custom comment icon
+}
+</pre>
+
 
           </article>
         </div>
@@ -96,57 +113,67 @@ timestamp:  boolean   // true: show media timestamp, false: doesn't show it
       <div class="row">
         <div class="col-xs-12">
           <div class="page-header">
-            <h1 id="examples" class="text-primary">Examples</h1>
+            <h1 class="text-primary" id="examples">Examples</h1>
           </div>
 
-          <h2 id="example-profile" class="text-danger">Profile</h2>
-          <small class="help-block text-muted">Display your <i class="fa fa-instagram"></i> <strong>Instagram</strong> basic information.</small>
-          
+          <div class="page-header" id="example-profile" >
+            <h2 class="text-danger">Profile</h2>
+            <small class="help-block text-muted">Display your <i class="fa fa-instagram"></i> <strong>Instagram</strong> basic information.</small>
+          </div>
+
           <div class="col-xs-12 col-sm-7">
-            <div id="profile" class="well well-sm"></div>
+            <div class="well well-sm" id="profile"></div>
           </div>
 
           <div class="clearfix"></div>
 
-          <h2 id="example-recent" class="text-danger">Recent Media</h2>
-          <small class="help-block text-muted">Display your most <strong>recent</strong> <i class="fa fa-camera"></i> media.</small>
-
-          <div class="col-xs-12">
-            <div id="recent" class="well well-sm"></div>
+          <div class="page-header" id="example-recent">
+            <h2 class="text-danger">Recent Media</h2>
+            <small class="help-block text-muted">Display your most <strong>recent</strong> <i class="fa fa-camera"></i> media.</small>
           </div>
 
-          <br>
-
-          <h2 id="example-liked" class="text-danger">User Liked</h2>
-          <small class="help-block text-muted">Display your most recent <strong>liked</strong> <i class="fa fa-heart"></i> media.</small>
-
           <div class="col-xs-12">
-            <div id="likes" class="well well-sm"></div>
+            <div class="well well-sm" id="recent"></div>
           </div>
 
-          <br>
+          <div class="clearfix"></div>
 
-          <h2 id="example-feed" class="text-danger">User Feed</h2>
-          <small class="help-block text-muted">Display the most recent media from the people you <strong>follow</strong> <i class="fa fa-share"></i>.</small>
+          <div class="page-header" id="example-liked">
+            <h2 class="text-danger">User Liked</h2>
+            <small class="help-block text-muted">Display your most recent <strong>liked</strong> <i class="fa fa-heart"></i> media.</small>
+          </div>
+
+          <div class="col-xs-12">
+            <div class="well well-sm" id="likes"></div>
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="page-header" id="example-feed">
+            <h2 class="text-danger">User Feed</h2>
+            <small class="help-block text-muted">Display the most recent media from the people you <strong>follow</strong> <i class="fa fa-share"></i>.</small>
+          </div>
 
           <div class="col-xs-12">
             <div id="feed" class="well well-sm"></div>
           </div>
 
-          <br>
+          <div class="clearfix"></div>
 
-          <h2 id="example-tag" class="text-danger">Tag</h2>
-          <small class="help-block text-muted">Display the most recent media available using a <strong>tag</strong> <i class="fa fa-tag"></i>.</small>
-
-          <div class="col-xs-12">
-            <div id="tags" class="well well-sm"></div>
+          <div class="page-header" id="example-tag">
+            <h2 class="text-danger">Tag</h2>
+            <small class="help-block text-muted">Display the most recent media available using a <strong>tag</strong> <i class="fa fa-tag"></i>.</small>
           </div>
 
-          <br>  
+          <div class="col-xs-12">
+            <div class="well well-sm" id="tags" ></div>
+          </div>
+
+          <div class="clearfix"></div>
         </div>
 
-        <div id="acknowledgements" class="col-xs-12">
-          <div class="page-header">
+        <div class="col-xs-12">
+          <div class="page-header" id="acknowledgements">
             <h2 class="text-primary">Acknowledgements</h2>
           </div>
 
@@ -164,54 +191,55 @@ timestamp:  boolean   // true: show media timestamp, false: doesn't show it
           </p>
         </div><!-- end of #acknowledgements -->
 
-        <div id="comments" class="col-xs-12">
-          <div class="page-header">
+        <div class="col-xs-12">
+          <div class="page-header" id="comments">
             <h2 class="text-primary">Comments</h2>
           </div>
           
           {% include disqus.html %}
         </div>
 
-        <div id="license" class="col-xs-12">
-          <hr>
-          <h2 class="text-primary">License</h2>
-          <small class="help-block text-muted">Copyright 2013 &copy; Pongstagr.am by Pongstr Ordillo licensed under <a href="http://opensource.org/licenses/MIT">MIT License</a>.</small>
+        <div class="col-xs-12">
+          <div class="page-header" id="license">
+            <h2 class="text-primary">License</h2>
+            <small class="help-block text-muted">Copyright 2013 &copy; Pongstagr.am by Pongstr Ordillo licensed under <a href="http://opensource.org/licenses/MIT">MIT License</a>.</small>
+          </div>
 
           <div class="row">
             <div class="col-xs-12 col-lg-12">
-                <div class="well well-lg text-muted text-justify">
-                  <p>The MIT License (MIT)</p>
-                  <p>Copyright 2013 &copy; Pongstagr.am by Pongstr Ordillo</p>
-                  <p>
-                    <small>
+              <div class="well well-lg text-muted text-justify">
+                <p>The MIT License (MIT)</p>
+                <p>Copyright 2013 &copy; Pongstagr.am by Pongstr Ordillo</p>
+                <p>
+                  <small>
                     Permission is hereby granted, free of charge, to any person obtaining a copy
                     of this software and associated documentation files (the "Software"), to deal
                     in the Software without restriction, including without limitation the rights
                     to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
                     copies of the Software, and to permit persons to whom the Software is
                     furnished to do so, subject to the following conditions:
-                    </small>
-                  </p>
+                  </small>
+                </p>
 
-                  <p>
-                    <small>
-                      The above copyright notice and this permission notice shall be included in
-                      all copies or substantial portions of the Software.
-                    </small>
-                  </p>
+                <p>
+                  <small>
+                    The above copyright notice and this permission notice shall be included in
+                    all copies or substantial portions of the Software.
+                  </small>
+                </p>
 
-                  <p>
-                    <small>
-                      THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-                      IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-                      FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-                      AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-                      LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-                      OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-                      THE SOFTWARE.
-                    </small>
-                  </p>
-                </div>
+                <p>
+                  <small>
+                    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+                    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+                    THE SOFTWARE.
+                  </small>
+                </p>
+              </div>
             </div>
           </div>
         </div>

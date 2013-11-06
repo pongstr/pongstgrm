@@ -1,0 +1,48 @@
+
+
+// Custom Video Controls
+// =============================
+
+// Include Bootstrap Mixin
+@import "../bootstrap/mixins";
+
+// Alert for browser's that don't support html5 videos or mpeg-4 format
+.media-column > .alert {
+  position:     absolute;
+  top:          50%;
+  left:         50%;
+  width:        72%;
+  margin-top:   -5%;
+  margin-left:  -36%;
+  color:        #fff;
+  text-shadow:  0 1px 1px #111;
+  text-align:   center;
+  background-color: rgba(#000, 0.75);
+}
+
+// Custom Video Controls
+.media-column > .btn { 
+  @include button-variant(#fff, rgba(#111,0.55), rgba(#000,0.25));
+  @include transition(background-color 200ms ease);
+  position: absolute;
+  text-shadow:  0 1px 1px #000;
+
+  &:hover {
+    @include transition(background-color 200ms ease);
+    @include button-variant(#fff, rgba(#111, 1), rgba(#000, 1));
+  }
+}
+
+
+#play-pause {
+  bottom: 20px;
+  left:   20px;
+}
+
+#mute {
+  bottom: 20px;
+  right: 20px;
+
+  > .glyphicon-volume-up  { color: darken($brand-success, 10%); }
+  > .glyphicon-volume-off { color: darken($brand-danger, 5%); }
+}
