@@ -1,17 +1,9 @@
-Pongstagr.am
-============
+[Pongstagr.am](http://pongstr.github.io/pongstagr.am/)
+==============
 
 ![v3.0 Home Screen](http://pongstr.com/projects/pongstagr.am/v3.0-screen.png)
 
-Pongstagr.am is a jquery plugin that lets you display your instagram media to your website with the help of Bootstrap Front-end.
-
------------
-
-#### REQUIREMENTS:
-
-1. Instagram Account [```user id``` &amp; ```access token`` ]
-2. Jquery 1.10.x
-3. Bootstrap v3.x [plugin-only coming in the future]
+Pongstagr.am is a jquery plugin that lets you display your instagram media to your website with the help of Bootstrap Front-end. Click here for [Docs and how to use](http://pongstr.github.io/pongstagr.am/).
 
 
 -----------
