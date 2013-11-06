@@ -19,6 +19,6 @@ destination:  gh-pages
 port:         4001
 
 # Versions
-repourl:     "https://github.com/pongstr/pongstagr.am/tree/v3.0"
-version:     "v3.0-beta.2"
-download:    "https://github.com/pongstr/pongstagr.am/archive/v3.0-beta.2.zip"
+repourl:     "https://github.com/pongstr/pongstagr.am/"
+version:     "v3.0-rc"
+download:    "https://github.com/pongstr/pongstagr.am/archive/v3.0-rc.zip"
