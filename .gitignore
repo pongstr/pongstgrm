@@ -1,26 +1,36 @@
-# Folder view configuration files
-.DS_Store
-.DS_Store?
-Desktop.ini
-Icon?
-
-# Thumbnail cache files
-._*
-Thumbs.db
-
-# Files that might appear on external disks
-.Spotlight-V100
-.Trashes
-
-# Compiled Stuff
-gh-pages/
-_site/
-.sass-cache
-
-# Test Files
-test.*
+# Ignore docs files
+_gh_pages
+_site
+gh-pages
+.ruby-version
 tests.*
 testing.*
-examples
-gh-pages
+
+Numerous always-ignore extensions
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.zip
+*.vi
+*~
+
+# OS or Editor folders
+.DS_Store
+._*
+Thumbs.db
+.cache
+.project
+.settings
+.tmproj
+*.esproj
+nbproject
+*.sublime-project
+*.sublime-workspace
+
+# Folders to ignore
 node_modules
+.sass-cache
