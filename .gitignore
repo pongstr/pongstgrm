@@ -17,11 +17,10 @@ gh-pages/
 _site/
 .sass-cache
 
-# Source Only
-_includes
-_layouts
-assets
-scss
-_config.yml
+# Test Files
 test.*
-index.*
+tests.*
+testing.*
+examples
+gh-pages
+node_modules
