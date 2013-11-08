@@ -1,6 +1,6 @@
 {
     "name": "Pongstagr.am"
-  , "desc": "Instagram API - jQuery Plugin"
+  , "desc": "jQuery Plugin"
   , "version": "3.0.0"
   , "author": "Pongstr Ordillo"
   , "requires": "Bootstrap 3 CSS, jQuery 1.10.x and Bootstrap 3 JS"
@@ -11,8 +11,8 @@
   }
   , "devDependencies": {
       "grunt": "~0.4.1"
+    , "grunt-recess": "~0.4.0"
     , "grunt-contrib-jshint": "~0.7.0"
-    , "grunt-html-validation": "~0.1.6"
     , "grunt-contrib-compress": "~0.3.0"
   }
 }

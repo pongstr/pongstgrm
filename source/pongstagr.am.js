@@ -203,7 +203,6 @@
                 , classes: 'glyphicon-volume-up glyphicon-volume-off'
               }, function() { video.muted === false ?  video.muted = true :  video.muted = false })
 
-
             })
             .on('hidden.bs.modal', function() {
               $(this).remove()
@@ -218,12 +217,11 @@
     var  total = $(option.imgid).length
       ,  start = 0
 
-      ++start === total ?
-        $(option.imgid).hide() :
-        $(option.imgid).load( function () {
+      $(option.imgid).hide().load( function () {
+        ++start === total &&
           $(this).fadeIn()
           $(option.loadr).fadeOut().remove()
-        })
+      })
 
     return
   }
