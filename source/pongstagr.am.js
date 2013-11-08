@@ -115,7 +115,7 @@
 
     , modal: function (options) {
         var alert  = '<div class="alert">Your browser does not support HTML5 Videos or MPEG-4 format.</div>'
-          , image  = '<div class="'+ options.dflt.preload +'" id="'+ options.data.id +'-full-loadr"></div>'
+          , image  = '<div class="'+ options.dflt.preload +'" id="'+ options.data.id +'-full-loadr" style="display:none;"></div>'
             image += '<img id="'+ options.data.id +'-full" src="'+ options.data.image +'" alt="'+ options.data.caption +'">'
 
         var video  = '<video id="'+ options.data.id +'-video" width="100%" height="auto">'
@@ -203,7 +203,6 @@
                 , classes: 'glyphicon-volume-up glyphicon-volume-off'
               }, function() { video.muted === false ?  video.muted = true :  video.muted = false })
 
-
             })
             .on('hidden.bs.modal', function() {
               $(this).remove()
@@ -218,10 +217,11 @@
     var  total = $(option.imgid).length
       ,  start = 0
 
-      $(option.imgid).hide().load( function () {
-        ++start === total &&
-          $(this).fadeIn()
+      $(option.imgid).hide().on('load', function () {
           $(option.loadr).fadeOut().remove()
+          $(this).fadeIn()
+          
+          console.log($(option.loadr).attr('id'))
       })
 
     return
@@ -229,7 +229,6 @@
 
   Pongstgrm.prototype.videoBtn = function (option, callback) {
     $(option.trigger).on('click', function(e) {
-
       e.preventDefault()
       
       callback()
@@ -278,18 +277,18 @@
               dflt: option
             , target: element
             , data: {
-                  id:             b.id
-                , type:           b.type
-                , video:          b.videos && b.videos.standard_resolution.url
-                , image:          b.images.standard_resolution.url
-                , caption:        b.caption && b.caption.text 
-                , username:       b.user.username
-                , timestamp:      created
-                , thumbnail:      b.images.low_resolution.url
-                , likes_count:    b.likes.count
-                , comments_count: b.comments.count
-                , comments_data:  b.comments.data
-                , profile_picture:b.user.profile_picture
+                  id:              b.id
+                , type:            b.type
+                , video:           b.videos && b.videos.standard_resolution.url
+                , image:           b.images.standard_resolution.url
+                , caption:         b.caption && b.caption.text 
+                , username:        b.user.username
+                , timestamp:       created
+                , thumbnail:       b.images.low_resolution.url
+                , likes_count:     b.likes.count
+                , comments_data:   b.comments.data
+                , comments_count:  b.comments.count
+                , profile_picture: b.user.profile_picture
               }
           }
 
