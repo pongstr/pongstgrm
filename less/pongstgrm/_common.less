@@ -1,0 +1,70 @@
+
+// Common Overrides
+// ==========================================================================
+
+// Media Thumbnail Box
+.media > .thumbnail { padding: 5px; }
+
+
+// Media Thumbnail, remove border-radius-top
+.media > .thumbnail > .btn { .border-top-radius(0); }
+
+// Media Thumbnail, media-body count stats
+.media > .media-body > .counts > h4 {
+  .border-top-radius(2px);
+  .border-bottom-radius(2px);
+  .box-shadow(0 1px 1px rgba(66,66,66, 0.2));
+  display:          inline-block;
+  margin:           2px;
+  padding:          5px 10px;
+  font-size:        22px;
+  color:            @brand-danger;
+  background-color: #fff;
+}
+
+.media > .media-body > .counts > h4 > small {
+  display:    block;
+  font-size:  11px;
+}
+
+.media > .media-body > .user-data > h3 {
+  text-transform: capitalize;
+}
+
+.media > .media-body > .user-data > h3 small a {
+  text-decoration:  none;
+}
+
+
+// Preloader Animation Keyframe
+.preloader(rotate(0deg), rotate(359deg));
+
+// Preloader Styles and Animations
+.spinner {
+  .border-top-radius(100%);
+  .border-bottom-radius(100%);
+  .animation(rotation .9s infinite linear);
+  position:   relative;
+  top:        0;
+  left:       0;
+  width:      30px;
+  height:     30px;
+  margin:     45% auto;
+  border:     5px solid rgba(0,174,239,.15); 
+}
+
+.spinner:before {
+  .border-top-radius(100%);
+  .border-bottom-radius(100%);
+  content:        " ";
+  position:       absolute;
+  left:           0;
+  top:            -5px;
+  display:        block;
+  height:         100%;
+  width:          100%;
+  border-top:     5px solid rgba(0,174,239,.8);
+  border-left:    5px solid transparent;
+  border-bottom:  5px solid transparent;
+  border-right:   5px solid transparent;
+}

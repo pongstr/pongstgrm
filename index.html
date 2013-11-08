@@ -114,6 +114,14 @@ $(document).ready(function () {
         <div class="col-xs-12">
           <div class="page-header">
             <h1 class="text-primary" id="examples">Examples</h1>
+
+            <div class="alert alert-warning">
+              <small>
+                <i class="fa fa-warning"></i> <strong>Limits:</strong>
+                Be nice. If you're sending too many requests too quickly, <strong>Instagram</strong> will send back a 503 error code (server unavailable).
+                You are limited to 5000 requests per hour per <code>access_token</code> or <code>client_id</code> overall. Practically, this means you should (when possible) authenticate users so that limits are well outside the reach of a given user.
+              </small>
+            </div>
           </div>
 
           <div class="page-header" id="example-profile" >
@@ -129,7 +137,7 @@ $(document).ready(function () {
 
           <div class="page-header" id="example-recent">
             <h2 class="text-danger">Recent Media</h2>
-            <small class="help-block text-muted">Display your most <strong>recent</strong> <i class="fa fa-camera"></i> media.</small>
+            <small class="help-block text-muted">Display your most <strong>recent</strong> <i class="fa fa-camera"></i> media.</small>          
           </div>
 
           <div class="col-xs-12">
@@ -196,7 +204,7 @@ $(document).ready(function () {
             <h2 class="text-primary">Comments</h2>
           </div>
           
-          {% include disqus.html %}
+          <!-- {% include disqus.html %} -->
         </div>
 
         <div class="col-xs-12">

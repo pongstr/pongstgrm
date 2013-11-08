@@ -28,7 +28,7 @@
     , likes:       true
     , comments:    true
     , timestamp:   true
-    , effects:    "scale"
+    , effects:    "scaling"
     , show:       "recent"
 
     // HTML OPTIONS
@@ -202,7 +202,6 @@
                 , child:   'i'
                 , classes: 'glyphicon-volume-up glyphicon-volume-off'
               }, function() { video.muted === false ?  video.muted = true :  video.muted = false })
-
 
             })
             .on('hidden.bs.modal', function() {
