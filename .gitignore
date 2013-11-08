@@ -3,7 +3,6 @@ _gh_pages
 _site
 gh-pages
 .ruby-version
-test.*
 tests.*
 testing.*
 
