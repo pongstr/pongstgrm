@@ -1,0 +1,11 @@
+{
+    "name": "pongstagr.am"
+  , "version": "3.0.0"
+  , "requires": "jQuery 1.10.x and Bootstrap 3.0.x"
+  , "devDependencies": {
+      "grunt": "~0.4.1"
+    , "grunt-contrib-jshint": "~0.7.0"
+    , "grunt-html-validation": "~0.1.6"
+    , "grunt-contrib-compress": "~0.3.0"
+  }
+}
