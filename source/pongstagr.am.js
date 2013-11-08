@@ -1,10 +1,10 @@
-/* ==========================================================================
- * jQuery Pongstagr.am Plugin v3.0.0
- * ==========================================================================
- * Copyright (c) 2013 Pongstr Ordillo. MIT License
- * Requires: jQuery v1.10.2 and Bootstrap 3.0.0
+/*! ========================================================================== 
+ * Pongstagr.am v3.0.0 Instagram API - jQuery Plugin
+ * ========================================================================== 
+ * Copyright (c) 2013 Pongstr Ordillo. Licensed under MIT License. 
+ * Requires: jQuery 1.10.x and Bootstrap 3.0.x 
  * ========================================================================= */
- 
+
 +function ($) { "use strict"; 
 
   var Pongstgrm = function (element, options) {
@@ -28,7 +28,7 @@
     , likes:       true
     , comments:    true
     , timestamp:   true
-    , effects:    "scale"
+    , effects:    "scaling"
     , show:       "recent"
 
     // HTML OPTIONS
@@ -202,7 +202,6 @@
                 , child:   'i'
                 , classes: 'glyphicon-volume-up glyphicon-volume-off'
               }, function() { video.muted === false ?  video.muted = true :  video.muted = false })
-
 
             })
             .on('hidden.bs.modal', function() {
