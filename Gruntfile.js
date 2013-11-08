@@ -4,11 +4,11 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     banner: '/*! ========================================================================== \n' +
-            ' * jQuery Pongstagr.am v<%= pkg.version %> \n' +
+            ' * <%= pkg.name %> v<%= pkg.version %> <%= pkg.desc %>\n' +
             ' * ========================================================================== \n' +
-            ' * Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author %> \n' +
+            ' * Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author %>. Licensed under MIT License. \n' +
             ' * Requires: <%= pkg.requires %> \n' +
-            ' * ========================================================================= */\n\n\n',
+            ' * ========================================================================= */\n\n',
     jqueryCheck: 'if (typeof jQuery === "undefined") { throw new Error("<%= pkg.name %> <%= pkg.requires %>") }',
     jshint: {
       options: { jshintrc: 'source/.jshintrc' },
