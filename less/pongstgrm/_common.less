@@ -1,24 +1,24 @@
 
-// Profile Styles
-// ================================
-
+// Common Overrides
+// ==========================================================================
 
 // Media Thumbnail Box
 .media > .thumbnail { padding: 5px; }
 
 
 // Media Thumbnail, remove border-radius-top
-.media > .thumbnail > .btn { @include border-top-radius(0); }
+.media > .thumbnail > .btn { .border-top-radius(0); }
 
 // Media Thumbnail, media-body count stats
 .media > .media-body > .counts > h4 {
-  @include border-radius(2px);
-  @include box-shadow(0 1px 1px rgba(#666,0.2));
+  .border-top-radius(2px);
+  .border-bottom-radius(2px);
+  .box-shadow(0 1px 1px rgba(66,66,66, 0.2));
   display:          inline-block;
   margin:           2px;
   padding:          5px 10px;
   font-size:        22px;
-  color:            $brand-danger;
+  color:            @brand-danger;
   background-color: #fff;
 }
 
@@ -36,18 +36,14 @@
 }
 
 
+// Preloader Animation Keyframe
+.preloader(rotate(0deg), rotate(359deg));
 
-// Common Stuff
-// =============================
-
-// Animation Keyframe: Rotation
-@include spinner (rotation, rotate(0deg), rotate(359deg));
-
-
-// Spinner: Preload Animation
+// Preloader Styles and Animations
 .spinner {
-  @include border-radius(100%);
-  @include animation(rotation .9s infinite linear);
+  .border-top-radius(100%);
+  .border-bottom-radius(100%);
+  .animation(rotation .9s infinite linear);
   position:   relative;
   top:        0;
   left:       0;
@@ -58,8 +54,9 @@
 }
 
 .spinner:before {
-  @include border-radius(100%);
-  content:        "";
+  .border-top-radius(100%);
+  .border-bottom-radius(100%);
+  content:        " ";
   position:       absolute;
   left:           0;
   top:            -5px;
@@ -71,7 +68,3 @@
   border-bottom:  5px solid transparent;
   border-right:   5px solid transparent;
 }
-
-
-// Remove outline on all focuses elements
-*:focus { outline: 0 none !important; }

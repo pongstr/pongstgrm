@@ -4,13 +4,14 @@
 
 
 // Modal Dialog Transitions
-.modal.fade .modal-dialog {
-  @include transition(0.2s ease-out);
-}
+.modal.fade .modal-dialog { .transition(0.2s ease-out); }
 
 
 // Modal Content: Reduce border-radius
-.modal-content { @include border-radius(0); }
+.modal-content { 
+  .border-bottom-radius(0); 
+  .border-top-radius(0); 
+}
 
 
 // Modal Dialog Width for Large Screens
@@ -37,7 +38,7 @@
 
 
 .modal-body > .close {
-  @include transition(opacity 200ms linear);
+  .transition(opacity 200ms linear);
   position:     absolute;
   top:          -25px;
   right:        0;
@@ -46,7 +47,7 @@
   opacity: 0.5;
 
   &:hover {
-    @include transition(opacity 200ms linear);
+    .transition(opacity 200ms linear);
     opacity: 1;
   }
 }
@@ -54,7 +55,7 @@
 // Modal Body Columns
 .media-column,
 .media-comment {
-  @include box-sizing(border-box);
+  .box-sizing(border-box);
   float: left;
 }
 
@@ -106,9 +107,55 @@
 // Modal Body: Media Comments, alternate 
 // background colors for easier reading 
 .media-comment > .media:first-child { 
-  border-top:     5px solid $brand-danger; 
+  border-top:     5px solid @brand-danger; 
   border-bottom:  1px solid #eee;
 }
 
 .media-comment > .media:nth-of-type(odd)  { background-color: #fff; }
 .media-comment > .media:nth-of-type(even) { background-color: #f4f4f4; }
+
+
+// Alert for browser's that don't support html5 videos or mpeg-4 format
+.media-column > .alert {
+  position:     absolute;
+  top:          50%;
+  left:         50%;
+  width:        72%;
+  margin-top:   -5%;
+  margin-left:  -36%;
+  color:        #fff;
+  text-shadow:  0 1px 1px #111;
+  text-align:   center;
+  background-color: rgba(0,0,0, 0.75);
+}
+
+
+
+// Custom Video Controls
+// ==========================================================================
+
+.media-column > .btn { 
+  .button-variant(#fff, rgba(11,11,11, 0.55), rgba(0,0,0,0.25));
+  .transition(background-color 200ms ease);
+  position: absolute;
+  text-shadow:  0 1px 1px #000;
+
+  &:hover {
+    .transition(background-color 200ms ease);
+    .button-variant(#fff, rgba(11,11,11, 1), rgba(0,0,0, 1));
+  }
+}
+
+
+#play-pause {
+  bottom: 20px;
+  left:   20px;
+}
+
+#mute {
+  bottom: 20px;
+  right: 20px;
+
+  > .glyphicon-volume-up  { color: darken(@brand-success, 10%); }
+  > .glyphicon-volume-off { color: darken(@brand-danger, 5%); }
+}

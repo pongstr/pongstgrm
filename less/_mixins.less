@@ -1,0 +1,41 @@
+
+// Mixins
+// ==========================================================================
+
+// Selection
+.selection (@bg-color, @txt-color, @txt-shadow) {
+  ::selection {
+    background-color: @bg-color;
+    color: @brand-warning;
+    text-shadow: @txt-shadow;
+  }
+  ::-moz-selection {
+    background-color: @bg-color;
+    color: @brand-warning;
+    text-shadow: @txt-shadow;
+  }
+}
+
+
+// Spinner
+.preloader (@to, @from) {
+  @-webkit-keyframes rotation {
+    from { -webkit-transform: @from; }
+    to   { -webkit-transform: @to;  }
+  }
+
+  @-moz-keyframes rotation {
+    from { -moz-transform: @from; }
+    to   { -moz-transform: @to;  }
+  }
+
+  @-ms-keyframes rotation {
+    from { -ms-transform: @from; }
+    to   { -ms-transform: @to;  }
+  }
+
+  @keyframes rotation {
+    from { transform: @from; }
+    to   { transform: @to;  }
+  }
+}

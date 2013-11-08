@@ -3,7 +3,8 @@
   , "desc": "Instagram API - jQuery Plugin"
   , "version": "3.0.0"
   , "author": "Pongstr Ordillo"
-  , "requires": "jQuery 1.10.x and Bootstrap 3.0.x"
+  , "requires": "Bootstrap 3 CSS, jQuery 1.10.x and Bootstrap 3 JS"
+  , "homepage": "http://pongstr.github.io/pongstagr.am/"
   , "repository": {
       "type": "git"
     , "url": "https://github.com/pongstr/pongstagr.am.git"

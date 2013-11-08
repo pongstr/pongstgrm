@@ -1,3 +1,4 @@
+
 /*! ========================================================================== 
  * Pongstagr.am v3.0.0 Instagram API - Documentation Stylesheet
  * ========================================================================== 
@@ -5,13 +6,17 @@
  * Requires: jQuery 1.10.x and Bootstrap 3.0.x 
  * ========================================================================= */
 
-// Components
-@import "docs/page.less";
-@import "docs/main.less";
-@import "docs/header.less";
+// Bootstrap Stuff
+@import "_variables.less";
+@import "bootstrap.less";
 
-// Pongstgrm
-@import "pongstgrm/mixins.less";
-@import "pongstgrm/common.less";
-@import "pongstgrm/modals.less";
-@import "pongstgrm/thumbnail.less";
+// Plugin Components
+@import "_mixins.less";
+@import "pongstgrm/_common.less";
+@import "pongstgrm/_modals.less";
+@import "pongstgrm/_thumbnails.less";
+
+// Docs Components
+@import "docs/_page.less";
+@import "docs/_main.less";
+@import "docs/_header.less";

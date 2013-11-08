@@ -1,6 +1,6 @@
 
-// Bootstrap Thumbnail Overrides
-// =============================
+// Thumbnail Overrides
+// ==========================================================================
 
 // Thumbnail: Container
 .thumbnail {
@@ -9,18 +9,20 @@
   padding:    5px 10px;
 }
 
-.scale {
-  @include transition(transform 100ms linear);
-  @include transform(scale(.96, .96));
+// Scale Thumbnails on hover
+.scaling {
+  .transition(transform 100ms linear);
+  .scale(0.96);
 
   &:hover {
-    @include transition(transform 100ms linear);
-    @include transform(scale(1.2, 1.2));
-    @include box-shadow(0 0 10px rgba(#666, 0.2));
+    .transition(transform 100ms linear);
+    .scale(1.2);
+    .box-shadow(0 2px 14px rgba(66,66,66, 0.2));
     position: relative;
     z-index: 2;
   }
 }
+
 
 // Thumbnail Link[modal trigger]
 .thumbnail > a {
@@ -40,7 +42,7 @@
 // Thumbnail Time Stamp Text
 .thumbnail > strong {
   font-size:  11px;
-  color:      darken($gray-lighter, 10%);
+  color:      darken(@gray-lighter, 10%);
 }
 
 
@@ -54,20 +56,20 @@
 .thumbnail > span:not(i) {
   font-size:      11px;
   font-weight:    bold;
-  color:          darken($gray-lighter, 10%);
+  color:          darken(@gray-lighter, 10%);
 }
 
 
 // Thumbnail Media Type
 .thumbnail > span.type {
-  @include transition(opacity 200ms ease);
+  .transition(opacity 200ms ease);
   position:     absolute;
   top:          35px;
   right:        15px;
-  z-index:      $zindex-dropdown;
+  z-index:      @zindex-dropdown;
   font-size:    24px;
   color:        #fff;
-  text-shadow:  0 1px 1px rgba(#000,0.75);
+  text-shadow:  0 1px 1px rgba(66,66,66, 0.75);
   opacity:      0.95;
   cursor:       pointer;
 }
