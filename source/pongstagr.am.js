@@ -90,7 +90,7 @@
 
           options.dflt.timestamp !== false ?
             _thumbnail += '<strong>'+ options.data.timestamp +'</strong>' : null
-            _thumbnail += '   <div class="'+ options.dflt.preload +'" id="'+ options.data.id +'-thmb-loadr" />'
+            _thumbnail += '   <div class="'+ options.dflt.preload +'" id="'+ options.dflt.show + '-' + options.data.id +'-thmb-loadr" />'
             _thumbnail += '   <a href="#'+ options.data.id +'" id="triggr-'+ options.data.id +'">'
             _thumbnail += '     <img id="'+ options.dflt.show + '-' + options.data.id +'-thmb" src="'+ options.data.thumbnail +'" alt="'+ options.data.caption +'">'
             _thumbnail += '   </a>'
@@ -215,10 +215,10 @@
     var $image = $(option.imgid)
       ,  start = 0
 
-    $image.hide().one('load', function () {
+    $image.one('load', function () {
       ++start === $image.length &&
-        $(this).fadeIn()
-        $(option.loadr).fadeOut().remove()
+        $(option.loadr).fadeOut()
+        $(this).addClass('fade')
     }).each(function () {
       this.complete && $(this).load()
     })
@@ -295,7 +295,7 @@
 
         Pongstgrm.prototype.preloadMedia({
             imgid : '#' + option.show + '-' + b.id + '-thmb'
-          , loadr : '#' + b.id + '-thmb-loadr'
+          , loadr : '#' + option.show + '-' + b.id + '-thmb-loadr'
         })
 
         Pongstgrm.prototype.template.modal (defaults)
