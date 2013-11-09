@@ -184,8 +184,16 @@
 }
 
 .media-column > img {
-  display: none;
+  opacity: 0;
 }
+
+@include transition(opacity 200ms ease);
+
+.media-column > img.fade {
+  opacity: 1;
+}
+
+@include transition(opacity 200ms ease);
 
 .media-comment {
   position: relative;
@@ -228,6 +236,14 @@
   text-align: center;
   text-shadow: 0 1px 1px #111;
   background-color: rgba(0, 0, 0, 0.75);
+}
+
+.media-column > .spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -15px;
+  margin-left: -15px;
 }
 
 .media-column > .btn {
@@ -362,6 +378,11 @@ fieldset[disabled] .media-column > .btn:hover.active {
           transition: transform 100ms linear;
 }
 
+.thumbnail > a:not(.btn) {
+  display: block;
+  min-height: 150px;
+}
+
 .thumbnail > a {
   display: block;
 }
@@ -371,6 +392,15 @@ fieldset[disabled] .media-column > .btn:hover.active {
   height: auto;
   max-width: 100%;
   margin: 5px 0;
+  opacity: 0;
+  -webkit-transition: opacity 700ms ease;
+          transition: opacity 700ms ease;
+}
+
+.thumbnail > a > img.fade {
+  opacity: 1;
+  -webkit-transition: opacity 700ms ease;
+          transition: opacity 700ms ease;
 }
 
 .thumbnail > strong {
@@ -408,4 +438,12 @@ fieldset[disabled] .media-column > .btn:hover.active {
   opacity: 0.95;
   -webkit-transition: opacity 200ms ease;
           transition: opacity 200ms ease;
+}
+
+.thumbnail .spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -15px;
+  margin-left: -15px;
 }

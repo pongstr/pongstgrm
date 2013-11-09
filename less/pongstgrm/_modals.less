@@ -81,7 +81,15 @@
 
 // Prevents cached images to overflow 
 // from the modal dialog body
-.media-column > img { display: none; }
+.media-column > img {
+  @include transition(opacity 200ms ease);
+  opacity: 0;
+
+  &.fade {
+    @include transition(opacity 200ms ease);
+    opacity: 1;
+  }
+}
 
 
 // Modal Body: Media Comments
@@ -127,6 +135,16 @@
   text-shadow:  0 1px 1px #111;
   text-align:   center;
   background-color: rgba(0,0,0, 0.75);
+}
+
+
+// Spinner
+.media-column > .spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -15px;
+  margin-left: -15px;
 }
 
 
