@@ -21,7 +21,6 @@
       accessId:     null
     , accessToken:  null
 
-
     // DISPLAY OPTIONS
     // ===========================
     , count:       8
@@ -45,6 +44,7 @@
     , show_counts:  true
   }
 
+
   /* HTML TEMPLATES */
   Pongstgrm.prototype.template = {
     loadmore: function (options) {
@@ -60,7 +60,6 @@
 
       return
     }
-
     , profile: function (options) {
         var _profile  = '<div class="media">'
             _profile += ' <div class="thumbnail pull-left">'
@@ -85,7 +84,6 @@
 
         return
       }
-
     , thumb: function (options) {
         var _thumbnail  = '<div class="'+ options.dflt.column +'">'
             _thumbnail += ' <div class="thumbnail text-center ' + options.dflt.effects + '">'
@@ -112,7 +110,6 @@
 
       return
     }
-
     , modal: function (options) {
         var alert  = '<div class="alert">Your browser does not support HTML5 Videos or MPEG-4 format.</div>'
           , image  = '<div class="'+ options.dflt.preload +'" id="'+ options.data.id +'-full-loadr"></div>'
@@ -213,27 +210,29 @@
     }
   }
 
+
   Pongstgrm.prototype.preloadMedia = function (option) {
-    var  total = $(option.imgid).length
+    var $image = $(option.imgid)
       ,  start = 0
 
-      $(option.imgid).hide().load( function () {
-        ++start === total &&
-          $(this).fadeIn()
-          $(option.loadr).fadeOut().remove()
-      })
+    $image.hide().one('load', function () {
+      ++start === $image.length &&
+        $(this).fadeIn()
+        $(option.loadr).fadeOut().remove()
+    }).each(function () {
+      this.complete && $(this).load()
+    })
 
     return
   }
 
+
   Pongstgrm.prototype.videoBtn = function (option, callback) {
     $(option.trigger).on('click', function(e) {
+      e.preventDefault(); callback();
 
-      e.preventDefault()
-      
-      callback()
-
-      $(option.child, this).toggleClass(option.classes)
+      $(option.child, this)
+        .toggleClass(option.classes)
     })
 
     return

@@ -1,8 +1,8 @@
-/* ==========================================================================
- * jQuery Pongstagr.am Plugin v3.0.0
- * ==========================================================================
- * Copyright (c) 2013 Pongstr Ordillo. MIT License
- * Requires: jQuery v1.10.2 and Bootstrap 3.0.0
+/*! ========================================================================== 
+ * Pongstagr.am v3.0.0 jQuery Plugin | http://pongstr.github.io/pongstagr.am/ 
+ * ========================================================================== 
+ * Copyright (c) 2013 Pongstr Ordillo. Licensed under MIT License. 
+ * Requires: Bootstrap 3 CSS, jQuery 1.10.x and Bootstrap 3 JS 
  * ========================================================================= */
 
 $(window).load(function () { "use strict"; 
@@ -30,11 +30,11 @@ $(window).load(function () { "use strict";
     })
   }
 
-  // Pongstr({ target: '#profile', show: 'profile' })
+  Pongstr({ target: '#profile', show: 'profile' })
   Pongstr({ target: '#recent', show: 'recent', count: 4 })
-  // Pongstr({ target: '#likes' , show: 'liked' , count: 4 })
-  // Pongstr({ target: '#feed'  , show: 'feed'  , count: 4 })
-  // Pongstr({ target: '#tags'  , show: 'icloud', count: 4 })
+  Pongstr({ target: '#likes' , show: 'liked' , count: 4 })
+  Pongstr({ target: '#feed'  , show: 'feed'  , count: 4 })
+  Pongstr({ target: '#tags'  , show: 'icloud', count: 4 })
 
 
   $('[data-hash=slide]').each(function () {
