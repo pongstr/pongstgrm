@@ -7,20 +7,45 @@ title:   "Docs &amp; Examples"
       <div class="row">
         <div id="docs" class="col-xs-12">
           <article>
-            <h1>Documentation</h1>
+            <h1>Pongstagr.am Docs</h1>
 
-            <p class="lead" style="display: block; width: 65%;">
-              Pongstagr.am is a jQuery plugin that lets you display your Instagram 
-              media to your website using <a href="http://twitter.github.io/bootstrap/"><strong>Bootstrap</strong></a> 
-              Front-end styles and modal-plugin.
-            </p>
+            <div class="row">
+              <div class="col-xs-12 col-sm-7">
+                <p class="lead">
+                  Pongstagr.am is a jQuery plugin that lets you display your Instagram 
+                  media to your website using <a href="http://twitter.github.io/bootstrap/"><strong>Bootstrap</strong></a> 
+                  Front-end styles and modal-plugin.
+                </p>
 
-            <small>
-              <a href="http://getbootstrap.com"><strong>Boostrap</strong></a> 
-              is created by <a href="http://twitter.com/mdo">@mdo</a> &amp; 
-              <a href="http://twitter.com/fat">@fat</a> with all the <i class="fa fa-heart text-danger"></i>
-              in the world, released under <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE">Apache 2 License</a>.
-            </small>
+                <small>
+                  <a href="http://getbootstrap.com"><strong>Boostrap</strong></a> 
+                  is created by <a href="http://twitter.com/mdo">@mdo</a> &amp; 
+                  <a href="http://twitter.com/fat">@fat</a> with all the <i class="fa fa-heart text-danger"></i>
+                  in the world, released under <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE">Apache 2 License</a>.
+                </small>
+              </div>
+
+              <div class="col-xs-12 col-sm-4 pull-right">
+                
+                  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                    <p class="text-info text-center">
+                      <small>
+                        If you like my work &amp; would want to show your appreciation <i class="fa fa-heart text-danger"></i>
+                      </small>
+                    </p>
+
+                    <div class="form-group well well-sm">
+                      <input type="hidden" name="cmd" value="_s-xclick">
+                      <input type="hidden" name="hosted_button_id" value="WYTFCH663SZX6">
+
+                      <button type="submit" name="submit" class="btn btn-lg btn-block btn-info pull-right">
+                        Buy me a &nbsp;<i class="fa fa-coffee"></i>&nbsp;Coffee
+                      </button>
+                      <div class="clearfix"></div>
+                    </div>
+                  </form>
+              </div>
+            </div>
 
             <h2>Requirements</h2>
 
@@ -123,8 +148,8 @@ $(document).ready(function () {
 
             <div class="alert alert-warning">
               <small>
-                <i class="fa fa-warning"></i> <strong>Limits:</strong>
-                Be nice. If you're sending too many requests too quickly, <strong>Instagram</strong> will send back a 503 error code (server unavailable).
+                <i class="fa fa-warning"></i> <strong>Limits</strong><br>
+                <strong>Instagram</strong> wants you to be nice. If you're sending too many requests too quickly, <strong>Instagram</strong> will send back a 503 error code (server unavailable).
                 You are limited to 5000 requests per hour per <code>access_token</code> or <code>client_id</code> overall. Practically, this means you should (when possible) authenticate users so that limits are well outside the reach of a given user.
               </small>
             </div>
@@ -185,21 +210,6 @@ $(document).ready(function () {
 
           <div class="clearfix"></div>
         </div>
-
-        <div class="col-xs-12">
-          <div class="page-header"></div>
-
-          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-            <input type="hidden" name="cmd" value="_s-xclick">
-            <input type="hidden" name="hosted_button_id" value="WYTFCH663SZX6">
-
-            <button type="submit" name="submit" class="btn btn-msd btn-info pull-right">
-              Like my work? Buy me a &nbsp;<i class="fa fa-coffee"></i>&nbsp;Coffee
-            </button>
-          </form>
-
-          <div class="clearfix"></div>
-        </div><!-- end of #buy-me-a-coffee -->
 
         <div class="col-xs-12">
           <div class="page-header" id="comments">
