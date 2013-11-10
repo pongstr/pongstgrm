@@ -82,6 +82,7 @@
   position: relative;
   top: 0;
   left: 0;
+  z-index: 1051;
   width: 30px;
   height: 30px;
   margin: 45% auto;
@@ -113,8 +114,8 @@
 }
 
 .modal.fade .modal-dialog {
-  -webkit-transition: 0.2s ease-out;
-          transition: 0.2s ease-out;
+  -webkit-transition: 300ms ease-out;
+          transition: 300ms ease-out;
 }
 
 .modal-content {
@@ -172,10 +173,13 @@
   position: relative;
   width: 65%;
   max-height: 622px;
+  background-color: #f4f4f4;
 }
 
 .media-column > img,
 .media-column > video {
+  position: relative;
+  z-index: 1051;
   width: 622px;
   height: 622px;
   max-width: 100%;
@@ -350,6 +354,28 @@ fieldset[disabled] .media-column > .btn:hover.active {
 
 #mute > .glyphicon-volume-off {
   color: #d43f3a;
+}
+
+@media (max-width: 991px) {
+  .modal-dialog {
+    width: 100%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+  }
+  .media-column,
+  .media-comment {
+    float: none;
+    width: 100%;
+    height: auto;
+    min-height: auto;
+    clear: both;
+  }
+  .media-column > img,
+  .media-column > video {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+  }
 }
 
 .thumbnail {
