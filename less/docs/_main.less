@@ -128,3 +128,25 @@ body > [role="navigation"] {
   border: 0;
   overflow: hidden;
 }
+
+
+// Instagram Logo
+.media-column {
+  &:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index:  @zindex-modal - 2;
+    width: 132px;
+    height: 132px;
+    margin-top: -71px;
+    margin-left: -66px;
+    content: "\f16d ";
+    font-family: "FontAwesome";
+    font-size: 100px;
+    color: @gray-light;
+    text-align: center;
+    text-shadow: 0 1px 1px #fff;
+    opacity: 0.25;
+  }
+}
