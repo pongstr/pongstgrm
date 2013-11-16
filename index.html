@@ -3,86 +3,57 @@ layout:  docs
 title:   "Docs &amp; Examples"
 ---
 
+  <div id="get-started" class="section">
     <div class="container">
       <div class="row">
-        <div id="docs" class="col-xs-12">
-          <article>
-            <h1>Pongstagr.am Docs</h1>
+        <div class="col-xs-12 col-md-3 col-lg-3">
+          <br>
+          <h1>
+            &nbsp; <i class="fa fa-download"></i>&nbsp; Download
+          </h1>
 
-            <div class="row">
-              <div class="col-xs-12 col-sm-7">
-                <p class="lead">
-                  Pongstagr.am is a jQuery plugin that lets you display your Instagram 
-                  media to your website using <a href="http://twitter.github.io/bootstrap/"><strong>Bootstrap</strong></a> 
-                  Front-end styles and modal-plugin.
-                </p>
+          <div class="list-group">
+            <a class="list-group-item" href="{{ site.download }}">
+              <small class="badge badge-danger">new</small>
+              <strong>Download version {{ site.version }}</strong><br>
+              <small class="text-muted">Requires jQuery 1.10.x and Bootstrap 3.0.x</small>
+            </a>
+            <a class="list-group-item text-muted" href="https://github.com/pongstr/pongstagr.am/archive/2.0.84.zip">
+              <strong>Download version 2.0.8</strong><br>
+              <small>Requires jQuery 1.8+ and Bootstrap 2.3.2+</small>
+            </a>
+          </div>
 
-                <small>
-                  <a href="http://getbootstrap.com"><strong>Boostrap</strong></a> 
-                  is created by <a href="http://twitter.com/mdo">@mdo</a> &amp; 
-                  <a href="http://twitter.com/fat">@fat</a> with all the <i class="fa fa-heart text-danger"></i>
-                  in the world, released under <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE">Apache 2 License</a>.
-                </small>
-              </div>
+        </div>
 
-              <div class="col-xs-12 col-sm-4 pull-right">
-                
-                  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-                    <p class="text-info text-center">
-                      <small>
-                        If you like my work &amp; would want to show your appreciation <i class="fa fa-heart text-danger"></i>
-                      </small>
-                    </p>
-
-                    <div class="form-group well well-sm">
-                      <input type="hidden" name="cmd" value="_s-xclick">
-                      <input type="hidden" name="hosted_button_id" value="WYTFCH663SZX6">
-
-                      <button type="submit" name="submit" class="btn btn-lg btn-block btn-info pull-right">
-                        Buy me a &nbsp;<i class="fa fa-coffee"></i>&nbsp;Coffee
-                      </button>
-                      <div class="clearfix"></div>
-                    </div>
-                  </form>
-              </div>
-            </div>
-
-            <h2>Requirements</h2>
-
-            <p>
-              For the most part, Instagram’s API only requires the use of a client_id.
-              A client_id simply associates your server, script, or program with a
-              specific application. However, some requests require authentication -
-              specifically requests made on behalf of a user. Authenticated requests
-              require an access_token. These tokens are unique to a user and should
-              be stored securely. Access tokens may expire at any time in the future
-              <a href="http://instagram.com/developer/authentication/">more here</a>.
-            </p>
-
-            <ol>
-              <li>Instagram Account &nbsp; <small>[<code>user id</code> &amp; <code>access token</code>]</small></li>
-              <li>jQuery 1.10.x</li>
-              <li>Bootstrap v3.x or head over here to use the <a href="#">plugin-only</a> version</li>
-            </ol>
-
-            <h2>Usage</h2>
-
-            <ol>
-              <li>
-                <p>
-                  Head over to <a href="http://jelled.com">Jelled Web Design Blog</a> and <a href="http://jelled.com/instagram/lookup-user-id"><strong>Look up your Instagram ID</strong></a> and
-                  <a href="http://jelled.com/instagram/access-token"><strong>ACCESS TOKEN:</strong></a>.
-                </p>
-              </li>
-              <li>
-                <p>
-                  Initialise stylesheets, jQuery Library, Bootstrap JS libray before calling on the plugin
-                  like the example below:
-                </p>
-              </li>
-            </ol>
-
-            <br>
+        <div class="col-xs-12 col-md-8 col-lg-8 col-md-offset-1 col-lg-offset-1">
+          <br>
+          <h2>Getting started</h2>
+          <p>
+            For the most part, Instagram’s API only requires the use of a client_id.
+            A client_id simply associates your server, script, or program with a
+            specific application. However, some requests require authentication -
+            specifically requests made on behalf of a user. Authenticated requests
+            require an access_token. These tokens are unique to a user and should
+            be stored securely. Access tokens may expire at any time in the future
+            <a href="http://instagram.com/developer/authentication/">more here</a>.
+          </p>
+          <br>
+          <p>
+            Head over to <a href="http://jelled.com">Jelled Web Design Blog</a> and <a href="http://jelled.com/instagram/lookup-user-id"><strong>Look up your Instagram ID</strong></a> and
+            <a href="http://jelled.com/instagram/access-token"><strong>ACCESS TOKEN:</strong></a>.
+          </p>
+          <ul>
+            <li>Instagram Account &nbsp; <small>[<code>user id</code> &amp; <code>access token</code>]</small></li>
+            <li>jQuery 1.10.x</li>
+            <li>Bootstrap v3.x or head over here to use the <a href="#">plugin-only</a> version</li>
+          </ul>
+          <br>
+          <h2>
+            Initialize resources &amp; and call on the plugin
+          </h2>
+          <small class="help-block text-muted">By default the plugin displays eight (8) most recent media.</small>
+          <br>
 
 <pre class="prettyprint linenums">
 &lt;!-- Initialize stylesheets to header --&gt;
@@ -93,12 +64,7 @@ title:   "Docs &amp; Examples"
 &lt;script href="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js""&gt;&lt;/script&gt;
 &lt;script href="/path/to/js/boostrap.js"&gt;&lt;/script&gt;
 &lt;script href="/path/to/js/pongstagr.am.js"&gt;&lt;/script&gt;
-</pre>
-
-            <h3>Call on the plugin like this:</h3>
-            <small class="help-block text-muted">By default the plugin displays eight (8) most recent media.</small>
-
-<pre class="prettyprint linenums">
+&lt;script&gt;
 $(document).ready(function () {
 
   $('#selector').pongstgrm({
@@ -107,161 +73,131 @@ $(document).ready(function () {
   });
 
 });
+&lt;/script&gt;
 </pre>
 
-            <h3>Options:</h3>
-            <small class="help-block text-muted">Override default options.</small>
 
-<pre class="prettyprint linenums">
-{
-  show:       string    // show your recent media, likes, feed or any tag you'd like to see
-  count:      8         // number of media you'd like to display, default is 8. Instagram's maximum is 40
-  likes:      boolean   // true: show likes count, false: doesn't show it
-  effects:    string    // add your css3 animation/transition for thumbnails
-  comments:   boolean   // true: show comments count, false: doesn't show it
-  timestamp:  boolean   // true: show media timestamp, false: doesn't show it
-}
-</pre>
-
-            <h3>More Options</h3>
-            <small class="help-block text-muted">Override default options.</small>
-
-<pre class="prettyprint linenums">
-{
-  preload:     "spinner", // custom selector for preload spinner
-  button:      "btn btn-success", // custom selector for load more button
-  buttontext:  "Load more", // custom text for load more
-  column:      "col-xs-6 col-sm-3 col-md-3 col-lg-3", // custom columns for thumbnail
-  likeicon:    "glyphicon glyphicon-heart", // custom likes icon
-  commenticon: "glyphicon glyphicon-comment" // custom comment icon
-}
-</pre>
-
-          </article>
         </div>
+      </div>
+    </div>
+  </div><!-- end of .section -->
+
+
+  <div class="section">
+    <div class="container">
+      {% include examples.html %}
+    </div>
+  </div>
+
+
+  <div class="section">
+    <div class="container">
+      <div id="comments" class="page-header">
+        <h1 class="text-primary">Comments</h1>
       </div>
 
       <div class="row">
         <div class="col-xs-12">
-          <div class="page-header">
-            <h1 class="text-primary" id="examples">Examples</h1>
-
-            <div class="alert alert-warning">
-              <small>
-                <i class="fa fa-warning"></i> <strong>Limits</strong><br>
-                <strong>Instagram</strong> wants you to be nice. If you're sending too many requests too quickly, <strong>Instagram</strong> will send back a 503 error code (server unavailable).
-                You are limited to 5000 requests per hour per <code>access_token</code> or <code>client_id</code> overall. Practically, this means you should (when possible) authenticate users so that limits are well outside the reach of a given user.
-              </small>
-            </div>
-          </div>
-
-          <div class="page-header" id="example-profile" >
-            <h2 class="text-danger">Profile</h2>
-            <small class="help-block text-muted">Display your <i class="fa fa-instagram"></i> <strong>Instagram</strong> basic information.</small>
-          </div>
-
-          <div class="col-xs-12 col-sm-7">
-            <div class="well well-sm" id="profile"></div>
-          </div>
-
-          <div class="clearfix"></div>
-
-          <div class="page-header" id="example-recent">
-            <h2 class="text-danger">Recent Media</h2>
-            <small class="help-block text-muted">Display your most <strong>recent</strong> <i class="fa fa-camera"></i> media.</small>          
-          </div>
-
-          <div class="col-xs-12">
-            <div class="well well-sm" id="recent"></div>
-          </div>
-
-          <div class="clearfix"></div>
-
-          <div class="page-header" id="example-liked">
-            <h2 class="text-danger">User Liked</h2>
-            <small class="help-block text-muted">Display your most recent <strong>liked</strong> <i class="fa fa-heart"></i> media.</small>
-          </div>
-
-          <div class="col-xs-12">
-            <div class="well well-sm" id="likes"></div>
-          </div>
-
-          <div class="clearfix"></div>
-
-          <div class="page-header" id="example-feed">
-            <h2 class="text-danger">User Feed</h2>
-            <small class="help-block text-muted">Display the most recent media from the people you <strong>follow</strong> <i class="fa fa-share"></i>.</small>
-          </div>
-
-          <div class="col-xs-12">
-            <div id="feed" class="well well-sm"></div>
-          </div>
-
-          <div class="clearfix"></div>
-
-          <div class="page-header" id="example-tag">
-            <h2 class="text-danger">Tag</h2>
-            <small class="help-block text-muted">Display the most recent media available using a <strong>tag</strong> <i class="fa fa-tag"></i>.</small>
-          </div>
-
-          <div class="col-xs-12">
-            <div class="well well-sm" id="tags" ></div>
-          </div>
-
-          <div class="clearfix"></div>
-        </div>
-
-        <div class="col-xs-12">
-          <div class="page-header" id="comments">
-            <h2 class="text-primary">Comments</h2>
-          </div>
-          
           {% include disqus.html %}
         </div>
+      </div>
+    </div>
+  </div>
 
-        <div class="col-xs-12">
-          <div class="page-header" id="license">
-            <h2 class="text-primary">License</h2>
-            <small class="help-block text-muted">Copyright 2013 &copy; Pongstagr.am by Pongstr Ordillo licensed under <a href="http://opensource.org/licenses/MIT">MIT License</a>.</small>
-          </div>
 
-          <div class="row">
-            <div class="col-xs-12 col-lg-12">
-              <div class="well well-lg text-muted text-justify">
-                <p>The MIT License (MIT)</p>
-                <p>Copyright 2013 &copy; Pongstagr.am by Pongstr Ordillo</p>
-                <p>
-                  <small>
-                    Permission is hereby granted, free of charge, to any person obtaining a copy
-                    of this software and associated documentation files (the "Software"), to deal
-                    in the Software without restriction, including without limitation the rights
-                    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-                    copies of the Software, and to permit persons to whom the Software is
-                    furnished to do so, subject to the following conditions:
-                  </small>
-                </p>
+  <div class="section">
+    <div class="container">
+      <div id="github-project" class="page-header">
+        <h1 class="text-info">
+          <a href="{{ site.repourl }}" target="_blank">
+            <i class="fa fa-github-alt"></i> Github Project
+          </a>
+        </h1>
+      </div>
 
-                <p>
-                  <small>
-                    The above copyright notice and this permission notice shall be included in
-                    all copies or substantial portions of the Software.
-                  </small>
-                </p>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 box">
+          <p class="lead">
+            Pongstagr.am is a jQuery plugin that lets you display your Instagram 
+            media to your website using <a href="http://twitter.github.io/bootstrap/"><strong>Bootstrap</strong></a> 
+            Front-end styles and modal-plugin.
+          </p>
 
-                <p>
-                  <small>
-                    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-                    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-                    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-                    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-                    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-                    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-                    THE SOFTWARE.
-                  </small>
-                </p>
-              </div>
+          <small>
+            <a href="http://getbootstrap.com"><strong>Boostrap</strong></a> 
+            is created by <a href="http://twitter.com/mdo">@mdo</a> &amp; 
+            <a href="http://twitter.com/fat">@fat</a> with all the <i class="fa fa-heart text-danger"></i>
+            in the world, released under <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE">Apache 2 License</a>.
+          </small>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-md-offset-1 col-lg-offset-1 box">
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+            <p class="text-info text-center">
+              <small>
+                If you like my work &amp; would want to show your appreciation <i class="fa fa-heart text-danger"></i>, you can
+              </small>
+            </p>
+
+            <div class="form-group">
+              <input type="hidden" name="cmd" value="_s-xclick">
+              <input type="hidden" name="hosted_button_id" value="WYTFCH663SZX6">
+
+              <button type="submit" name="submit" class="btn btn-lg btn-block btn-info pull-right">
+                Buy me a &nbsp;<i class="fa fa-coffee"></i>&nbsp;Coffee
+              </button>
+              <div class="clearfix"></div>
             </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="section">
+    <div class="container">
+      <div id="license" class="page-header" style="margin-top: 0;">
+        <h1 class="text-primary">License</h1>
+        <small class="help-block text-muted">Copyright 2013 &copy; Pongstagr.am by Pongstr Ordillo licensed under <a href="http://opensource.org/licenses/MIT">MIT License</a>.</small>
+      </div>
+      
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="text-muted text-justify">
+            <p>
+              <small>
+                Permission is hereby granted, free of charge, to any person obtaining a copy
+                of this software and associated documentation files (the "Software"), to deal
+                in the Software without restriction, including without limitation the rights
+                to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                copies of the Software, and to permit persons to whom the Software is
+                furnished to do so, subject to the following conditions:
+              </small>
+            </p>
+
+            <p>
+              <small>
+                The above copyright notice and this permission notice shall be included in
+                all copies or substantial portions of the Software.
+              </small>
+            </p>
+
+            <p>
+              <small>
+                THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+                AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+                THE SOFTWARE.
+              </small>
+            </p>
+          </div>
           </div>
         </div>
-      </div><!-- end of .row -->
-  </div><!-- end of .container -->
+
+    </div>
+  </div>
