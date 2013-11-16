@@ -19,8 +19,8 @@ $(window).load(function () { "use strict";
 
 
   function Pongstr (option) {
-    var userid   = '39666111'
-    var usrtoken = '39666111.1fb234f.c3901000b4944a549fd5fd2310c63780'
+    var userid   = '679256982'
+    var usrtoken = '679256982.401c5ac.0a183542db5f4ae1b51caae21acadc1e'
 
     $(option.target).pongstgrm({
         accessId:     userid
@@ -34,7 +34,7 @@ $(window).load(function () { "use strict";
   Pongstr({ target: '#recent', show: 'recent', count: 4 })
   Pongstr({ target: '#likes' , show: 'liked' , count: 4 })
   Pongstr({ target: '#feed'  , show: 'feed'  , count: 4 })
-  Pongstr({ target: '#tags'  , show: 'icloud', count: 4 })
+  Pongstr({ target: '#tags'  , show: 'nofilter', count: 4 })
 
 
   $('[data-hash=slide]').each(function () {
