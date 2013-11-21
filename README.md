@@ -1,7 +1,7 @@
 [Pongstagr.am](http://pongstr.github.io/pongstagr.am/)
 ==============
 
-![v3.0 Home Screen](http://pongstr.com/projects/pongstagr.am/v3.0-screen.png)
+![v3.0 Home Screen](http://pongstr.github.io/pongstagr.am/assets/img/v3.0-screen.png)
 
 Pongstagr.am is a jQuery plugin that lets you display your Instagram media to your website using **[Bootstrap](http://twitter.github.io/bootstrap/)** front-end styles and modal-plugin.
 
