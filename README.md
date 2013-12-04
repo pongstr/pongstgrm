@@ -1,4 +1,4 @@
-[Pongstagr.am](http://pongstr.github.io/pongstagr.am/)
+[Pongstagr.am JS](http://pongstr.github.io/pongstagr.am/)
 ==============
 
 ![v3.0 Home Screen](http://pongstr.github.io/pongstagr.am/assets/img/v3.0-screen.png)
