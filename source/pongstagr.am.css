@@ -296,6 +296,11 @@ fieldset[disabled] .media-column > .btn.active {
   border-color: rgba(0, 0, 0, 0.25);
 }
 
+.media-column > .btn .badge {
+  color: rgba(11, 11, 11, 0.55);
+  background-color: #fff;
+}
+
 .media-column > .btn:hover {
   color: #ffffff;
   background-color: #0b0b0b;
@@ -339,6 +344,11 @@ fieldset[disabled] .media-column > .btn:hover.active {
   border-color: #000000;
 }
 
+.media-column > .btn:hover .badge {
+  color: #0b0b0b;
+  background-color: #fff;
+}
+
 #play-pause {
   bottom: 20px;
   left: 20px;
@@ -357,7 +367,7 @@ fieldset[disabled] .media-column > .btn:hover.active {
   color: #d43f3a;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 767px) {
   .modal-dialog {
     width: 100%;
     padding-top: 10%;
@@ -368,7 +378,7 @@ fieldset[disabled] .media-column > .btn:hover.active {
     float: none;
     width: 100%;
     height: auto;
-    min-height: auto;
+    max-height: 100%;
     clear: both;
   }
   .media-column > img,
