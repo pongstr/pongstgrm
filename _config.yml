@@ -20,5 +20,5 @@ port:         4001
 
 # Versions
 repourl:     "https://github.com/pongstr/pongstagr.am/"
-version:     "3.0.1"
-download:    "https://github.com/pongstr/pongstagr.am/archive/3.0.1.zip"
+version:     "3.0.2"
+download:    "https://github.com/pongstr/pongstagr.am/archive/3.0.2.zip"
