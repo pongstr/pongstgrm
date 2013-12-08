@@ -67,7 +67,7 @@
 // Iconography
 // -------------------------
 
-@icon-font-path:          "http://pongstr.github.io/pongstagr.am/assets/fonts/";
+@icon-font-path:          "/assets/fonts/";
 @icon-font-name:          "glyphicons-halflings-regular";
 
 
@@ -83,6 +83,9 @@
 
 @padding-small-vertical:         5px;
 @padding-small-horizontal:       10px;
+
+@padding-xs-vertical:            1px;
+@padding-xs-horizontal:          5px;
 
 @line-height-large:              1.33;
 @line-height-small:              1.5;
@@ -157,7 +160,7 @@
 @input-color-placeholder:        @gray-light;
 
 @input-height-base:              (@line-height-computed + (@padding-base-vertical * 2) + 2);
-@input-height-large:             (floor(@font-size-large * @line-height-large) + (@padding-large-vertical * 2) + 2);
+@input-height-large:             (ceil(@font-size-large * @line-height-large) + (@padding-large-vertical * 2) + 2);
 @input-height-small:             (floor(@font-size-small * @line-height-small) + (@padding-small-vertical * 2) + 2);
 
 @legend-color:                   @gray-dark;
@@ -246,8 +249,13 @@
 @grid-columns:              12;
 // Padding, to be divided by two and applied to the left and right of all columns
 @grid-gutter-width:         30px;
-// Point at which the navbar stops collapsing
+
+// Navbar collapse
+
+// Point at which the navbar becomes uncollapsed
 @grid-float-breakpoint:     @screen-sm-min;
+// Point at which the navbar begins collapsing
+@grid-float-breakpoint-max: (@grid-float-breakpoint - 1);
 
 
 // Navbar

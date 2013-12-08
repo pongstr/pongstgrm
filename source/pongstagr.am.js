@@ -110,7 +110,7 @@
 
       return
     }
-    , modal: function (options) {
+    , bsmodal: function (options) {
         var alert  = '<div class="alert">Your browser does not support HTML5 Videos or MPEG-4 format.</div>'
           , image  = '<div class="'+ options.dflt.preload +'" id="'+ options.data.id +'-full-loadr"></div>'
             image += '<img id="'+ options.data.id +'-full" src="'+ options.data.image +'" alt="'+ options.data.caption +'">'
@@ -298,7 +298,7 @@
           , loadr : '#' + option.show + '-' + b.id + '-thmb-loadr'
         })
 
-        Pongstgrm.prototype.template.modal (defaults)
+        Pongstgrm.prototype.template.bsmodal (defaults)
 
       })
     }
