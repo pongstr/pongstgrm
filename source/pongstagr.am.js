@@ -134,7 +134,7 @@
             modal += image : 
           navigator.userAgent.match(/webkit/i) || navigator.userAgent.match(/(iPod|iPhone|iPad)/) ?
             modal += video : 
-            modal += image + alert
+            modal += alert + image
 
             modal += '</div>'
             modal += '<div class="media-comment">'
