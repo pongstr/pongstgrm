@@ -1,8 +1,8 @@
 /*! ========================================================================== 
  * pongstagr.am v3.0.4 jQuery Plugin | http://pongstr.github.io/pongstagr.am/ 
- * ========================================================================== 
+ * =========================================================================== 
  * Copyright (c) 2014 Pongstr Ordillo. Licensed under MIT License. 
- * ========================================================================= */
+ * =========================================================================== */
 
 +function ($) { "use strict"; 
 
@@ -31,16 +31,18 @@
 
     // HTML OPTIONS
     // ===========================
-    , preload:     "spinner"
-    , button:      "btn btn-success pull-right"
-    , buttontext:  "Load more"
-    , column:      "col-xs-12 col-sm-3 col-md-3 col-lg-3"
-    , likeicon:    "glyphicon glyphicon-heart"
-    , muteicon:    "glyphicon glyphicon-volume-off"
-    , videoicon:   "glyphicon glyphicon-play"
-    , commenticon: "glyphicon glyphicon-comment"
-    , picture_size: 42
-    , show_counts:  true
+    , preload:          "spinner"
+    , button:           "btn btn-success pull-right"
+    , buttontext:       "Load more"
+    , column:           "col-xs-12 col-sm-3 col-md-3 col-lg-3"
+    , likeicon:         "glyphicon glyphicon-heart"
+    , muteicon:         "glyphicon glyphicon-volume-off"
+    , videoicon:        "glyphicon glyphicon-play"
+    , commenticon:      "glyphicon glyphicon-comment"
+    , picture_size:     64
+    , show_counts:      true
+    , profile_bg_img:   null
+    , profile_bg_color: "#d9534f"
   }
 
 
@@ -60,26 +62,29 @@
       return
     }
     , profile: function (options) {
-        var _profile  = '<div class="media">'
-            _profile += ' <div class="thumbnail pull-left">'
-            _profile += '   <img src="'+ options.profile_picture +'" alt="'+ options.username +'">'
-            _profile += '   <a class="btn btn-sm btn-primary" href="http://instagram.com/'+ options.username +'" >View Profile</a>'
-            _profile += ' </div>'
-            _profile += ' <div class="media-body">'
+        var _profile  = '<div class="row pongstgrm-profile">'
+            _profile += ' <div class="col-xs-12 text-center">'
+            _profile += '   <div class="thumbnail">'
+            _profile += '     <img src="'+ options.profile_picture +'" width="'+ options.picture_size +'"  height="'+ options.picture_size +'" alt="'+ options.username +'">'
+            _profile += '   </div>'
             _profile += '   <div class="counts">'
-            _profile += '     <h4>'+ options.media +' <small>Posts</small></h4>'
-            _profile += '     <h4>'+ options.followed_by +' <small>Followers</small></h4>'
-            _profile += '     <h4>'+ options.follows +' <small>Following</small></h4>'
+            _profile += '     <span class="h4">'+ options.media +' <small>Posts</small></span>'
+            _profile += '     <span class="h4">'+ options.followed_by +' <small>Followers</small></span>'
+            _profile += '     <span class="h4">'+ options.follows +' <small>Following</small></span>'
             _profile += '   </div>'
             _profile += '   <div class="user-data">'
             _profile += '     <h3>'+ options.username +'</h3>'
-            _profile += '     <small class="help-block">'+ options.full_name +' - <a href="'+ options.website +'">' + options.website +'</a></small>'
+            _profile += '     <small>'+ options.full_name +' - <a href="'+ options.website +'">' + options.website +'</a></small>'
             _profile += '     <p>'+ options.bio +'</p>'
             _profile += '   </div>'
             _profile += ' </div>'
             _profile += '</div>'
-
-          $(options.target).append(_profile)
+          $(options.target)
+            .append(_profile)
+            .css({
+                'background-image': 'url(' + options.profile_bg_img + ')'
+              , 'background-color':  options.profile_bg_color
+            })
 
         return
       }
@@ -304,15 +309,18 @@
 
     function profile (data, option) {
       Pongstgrm.prototype.template.profile ({
-          target:           element
-        , bio:              data.bio
-        , media:            data.counts.media
-        , website:          data.website
-        , follows:          data.counts.follows
-        , username:         data.username
-        , full_name:        data.full_name
-        , followed_by:      data.counts.followed_by
-        , profile_picture:  data.profile_picture
+          target:             element
+        , bio:                data.bio
+        , media:              data.counts.media
+        , website:            data.website
+        , follows:            data.counts.follows
+        , username:           data.username
+        , full_name:          data.full_name
+        , followed_by:        data.counts.followed_by
+        , picture_size:       option.picture_size
+        , profile_bg_img:     option.profile_bg_img
+        , profile_picture:    data.profile_picture
+        , profile_bg_color:   option.profile_bg_color
       })
       return
     }

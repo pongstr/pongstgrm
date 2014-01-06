@@ -1,18 +1,19 @@
   <div id="example-profile" class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+    <div class="col-xs-12">
       <h2 class="text-danger">Profile</h2>
       <small class="help-block text-muted">Display your <i class="fa fa-instagram"></i> <strong>Instagram</strong> basic information.</small>
       <br>
 
+      <div class="pre-wrap pre-wrap-example">
 <pre class="prettyprint linenums">
 $('#selector').pongstgrm({
-  show:  'profile'
+  show:             'profile',
+  picture_size:     '64'                  // sets profile picture to 64x64 pixels, no need to add px
+  profile_bg_img:   '/path/to/image.jpg', // image url
+  profile_bg_color: '#d9534f'             // background color
 });
 </pre>
-
-    </div>
-
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-7 col-lg-offset-1">
+      </div><!-- end of .pre-wrap -->
       <div class="col-xs-12">
         <div id="profile" class="well well-sm"></div>
       </div>
@@ -28,9 +29,12 @@ $('#selector').pongstgrm({
       <small class="help-block text-muted">Display your most <strong>recent</strong> <i class="fa fa-camera"></i> media.</small>
       <br>
 
+      <div class="pre-wrap pre-wrap-example">
 <pre class="prettyprint linenums">
 $('#selector').pongstgrm({ show: 'recent' });
 </pre>
+      </div><!-- end of .pre-wrap -->
+
       <div class="col-xs-12">
         <div id="recent" class="well well-sm"></div>
       </div>
@@ -45,9 +49,12 @@ $('#selector').pongstgrm({ show: 'recent' });
       <small class="help-block text-muted">Display your most recent <strong>liked</strong> <i class="fa fa-heart"></i> media.</small>
       <br>
 
+      <div class="pre-wrap pre-wrap-example">
 <pre class="prettyprint linenums">
 $('#selector').pongstgrm({ show: 'liked' });
 </pre>
+      </div>
+
       <div class="col-xs-12">
         <div id="likes" class="well well-sm"></div>
       </div>
@@ -62,9 +69,12 @@ $('#selector').pongstgrm({ show: 'liked' });
       <small class="help-block text-muted">Display the most recent media from the people you <strong>follow</strong> <i class="fa fa-share"></i>.</small>      <br>
       <br>
 
+      <div class="pre-wrap pre-wrap-example">
 <pre class="prettyprint linenums">
 $('#selector').pongstgrm({ show: 'feed' });
 </pre>
+      </div>
+
       <div class="col-xs-12">
         <div id="feed" class="well well-sm"></div>
       </div>
@@ -79,9 +89,12 @@ $('#selector').pongstgrm({ show: 'feed' });
       <small class="help-block text-muted">Display the most recent media available using a <strong>tag</strong> <i class="fa fa-tag"></i>.</small>
       <br>
 
+      <div class="pre-wrap pre-wrap-example">
 <pre class="prettyprint linenums">
 $('#selector').pongstgrm({ show: 'any-tag-you-like' }); // Now Showing: #nofilter
 </pre>
+      </div>
+
       <div class="col-xs-12">
         <div id="tags" class="well well-sm"></div>
       </div>

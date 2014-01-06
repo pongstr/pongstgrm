@@ -1,49 +1,34 @@
 
 <header>
   <div id="home" class="jumbotron">
-    <div class="container">
-      <div class="row">
-        
+    <div class="container">        
         <h1>
            <i class="fa fa-instagram"></i> Pongstagr.am
+           <small class="visible-xs">version {{ site.version }}</small>
         </h1>
         <p>{{ site.desc }}</p>
 
-        <br>
+        <div class="hidden-xs">
+          <br>
+          <a href="{{ site.download }}" class="btn btn-lg btn-primary">Download {{ site.version }}</a> &nbsp;
+          <a href="{{ site.repourl }}" class="btn btn-lg btn-primary">Github Project</a>
+        </div>
 
-        <a href="{{ site.download }}" class="btn btn-lg btn-primary">
-          Download {{ site.version }}
-        </a>
+        <div class="visible-xs">
+          <a href="{{ site.repourl }}" class="btn btn-lg btn-primary">
+            <i class="fa fa-github-alt"></i> &nbsp;Github Project
+          </a>
+        </div>
 
-        &nbsp;
-        
-        <a href="{{ site.repourl }}" class="btn btn-lg btn-primary">
-          Github Project
-        </a>
-
-
-        <div class="col-xs-12">
+        <div class="col-xs-12 hidden-xs">
           <hr>
 
           <div class="btn-group">
-            <a href="#get-started" class="btn btn-link" data-hash="slide" data-hash-offset="0">
-              Getting Started
-            </a>
-
-            <a href="#examples" class="btn btn-link" data-hash="slide">
-              Examples
-            </a>
-
-            <a href="#comments" class="btn btn-link" data-hash="slide">
-              Comments
-            </a>
-
-            <a href="#license" class="btn btn-link" data-hash="slide">
-              MIT License
-            </a>
+            <a href="#get-started" class="btn btn-link" data-hash="slide" data-hash-offset="0">Getting Started</a>
+            <a href="#examples" class="btn btn-link" data-hash="slide">Examples</a>
+            <a href="#comments" class="btn btn-link" data-hash="slide">Comments</a>
+            <a href="#license" class="btn btn-link" data-hash="slide">MIT License</a>
           </div><!-- end of .btn-group -->
-
-          <br>
           
           <div class="hidden-xs">
             <iframe src="//ghbtns.com/github-btn.html?user=pongstr&amp;repo=pongstagr.am&amp;type=watch&amp;count=true" class="iframe" width="80" height="20">
@@ -52,21 +37,13 @@
             <iframe src="//ghbtns.com/github-btn.html?user=pongstr&amp;type=follow" class="iframe" width="122" height="20">
             </iframe>
 
-            <a href="//twitter.com/pongstr" class="twitter-follow-button" data-show-count="false">
-              Follow @pongstr
-            </a> 
-
+            <a href="//twitter.com/pongstr" class="twitter-follow-button" data-show-count="false">Follow @pongstr</a> 
             &nbsp;
-
-            <a href="//twitter.com/share" class="twitter-share-button" data-via="pongstr" data-count="none">
-              Tweet
-            </a>
+            <a href="//twitter.com/share" class="twitter-share-button" data-via="pongstr" data-count="none">Tweet</a>
           </div>
 
         </div>
       </div>
-
-      <br>
 
       <div class="row hidden-xs">
         <div class="col-xs-12 col-md-10 col-md-offset-1">
@@ -78,7 +55,6 @@
             </small>
         </div>
 
-      </div><!-- end of .row -->
     </div><!-- end of .container -->
   </div><!-- end of .jumbotron -->
 </header>
@@ -92,9 +68,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="#home" class="navbar-brand" data-hash="slide">
-        Pongstagr.am <small>{{ site.version }}</small>
-      </a>
+      
+      <a href="#home" class="navbar-brand" data-hash="slide">Pongstagr.am</a>
     </div>
     <div class="collapse navbar-collapse" id="navbar-collapse-1">
       <ul class="nav navbar-nav navbar-left">

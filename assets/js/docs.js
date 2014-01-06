@@ -9,15 +9,13 @@ $(window).load(function () { "use strict";
 
   window.prettyPrint && prettyPrint()
 
-  var headerHeight = $('header').outerHeight();
+  var elementHeight = $('body').outerHeight()
 
-  $(window).scroll( function (){
-    ($(window).scrollTop() > headerHeight) ?
+  $(window).scroll(function () {
+    $(this).scrollTop() > elementHeight + 20 ?
       $('[role=navigation]').addClass('navbar-fixed-top') :
       $('[role=navigation]').removeClass('navbar-fixed-top')
   })
-
-
 
   function Pongstr (option) {
   /*! Although I've created a application test account on instagram,
@@ -31,11 +29,14 @@ $(window).load(function () { "use strict";
     var usrtoken = '679256982.401c5ac.0a183542db5f4ae1b51caae21acadc1e'
 
     $(option.target).pongstgrm({
-        accessId:     userid
-      , accessToken:  usrtoken
-      , show:         option.show
-      , count:        option.count
+        accessId:         userid
+      , accessToken:      usrtoken
+      , show:             option.show
+      , count:            option.count
+      , profile_bg_img:   'http://pongstr.github.io/pongstagr.am/assets/img/img.jpg'
+      , profile_bg_color: '#4F405F'
     })
+
   }
 
   Pongstr({ target: '#profile', show: 'profile' })

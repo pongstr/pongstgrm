@@ -14,11 +14,48 @@
 }
 
 
-// Modal Dialog Width for Large Screens
 .modal-dialog { 
   width:          980px;
   padding-top:    50px;
   padding-bottom: 50px;
+
+  @media (max-width: @screen-sm) {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    .media-column { 
+      min-height: 306px; 
+    }
+
+    .media-column,
+    .media-comment {
+      width: 100%;
+      clear: both;
+      float: none;
+      height: auto;
+      max-height: 100%;
+    }
+
+    .media-column > img,
+    .media-column > video {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  @media (min-width: @screen-sm) and (max-width: @screen-md) {
+    width: 90%;
+
+    .media-column > img,
+    .media-column > video {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+    } 
+  }
+
 }
 
 
@@ -39,17 +76,25 @@
 
 .modal-body > .close {
   .transition(opacity 200ms linear);
-  position:     absolute;
-  top:          -25px;
-  right:        0;
-  color:        #fff;
-  text-shadow:  0 1px 1px #000;
+  position: absolute;
+  top: -25px;
+  right: 0;
+  color: #fff;
+  text-shadow: 0 1px 1px #000;
   opacity: 0.5;
 
   &:hover {
     .transition(opacity 200ms linear);
     opacity: 1;
   }
+
+  @media (max-width: @screen-xs){
+    top: 5px;
+    right: 12px;
+    z-index: @zindex-modal + 10;
+    font-size: 30px;
+  }
+
 }
 
 // Modal Body Columns
@@ -185,28 +230,3 @@
 
 
 
-// Smaller Screens
-@media (max-width: @screen-xs-max) {
-
-  .modal-dialog {
-    width:          100%;
-    padding-top:    10%;
-    padding-bottom: 10%;
-  }
-
-  .media-column,
-  .media-comment {
-    width:      100%;
-    clear:      both;
-    float:      none;
-    height:     auto;
-    max-height: 100%;
-  }
-
-  .media-column > img,
-  .media-column > video {
-    width:      100%;
-    max-width:  100%;
-    height:     auto;
-  }
-}
