@@ -20,13 +20,13 @@ $(window).load(function () { "use strict";
 
 
   function Pongstr (option) {
-    /*! Although I've created a application test account on instagram,
-     * I'd like to ask nicely that you use your own access id and token
-     * and use your own media/feed from you or the the people you follow.
-     *
-     * I'd really appreciate that! Thank you!
-     * 
-     */
+  /*! Although I've created a application test account on instagram,
+   * I'd like to ask nicely that you use your own access id and token
+   * and use your own media/feed from you or the the people you follow.
+   *
+   * I'd really appreciate that! Thank you!
+   * 
+   */
     var userid   = '679256982'
     var usrtoken = '679256982.401c5ac.0a183542db5f4ae1b51caae21acadc1e'
 

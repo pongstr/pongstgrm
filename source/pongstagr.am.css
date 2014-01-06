@@ -1,10 +1,8 @@
 /*! ========================================================================== 
- * Pongstagr.am v3.0.0 jQuery Plugin | http://pongstr.github.io/pongstagr.am/ 
+ * pongstagr.am v3.0.4 jQuery Plugin | http://pongstr.github.io/pongstagr.am/ 
  * ========================================================================== 
- * Copyright (c) 2013 Pongstr Ordillo. Licensed under MIT License. 
- * Requires: Bootstrap 3 CSS, jQuery 1.10.x and Bootstrap 3 JS 
+ * Copyright (c) 2014 Pongstr Ordillo. Licensed under MIT License. 
  * ========================================================================= */
-
 .media > .thumbnail {
   padding: 5px;
 }
@@ -233,6 +231,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
+  z-index: 1055;
   width: 72%;
   margin-top: -5%;
   margin-left: -36%;
