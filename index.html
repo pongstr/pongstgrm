@@ -29,7 +29,7 @@ title:   "Docs &amp; Examples"
 
         <div class="col-xs-12 col-md-8 col-lg-8 col-md-offset-1 col-lg-offset-1">
           <br>
-          <h2>Getting started</h2>
+          <h2 class="text-danger">Getting started</h2>
           <p>
             For the most part, Instagram’s API only requires the use of a client_id.
             A client_id simply associates your server, script, or program with a
@@ -49,20 +49,27 @@ title:   "Docs &amp; Examples"
             <li>jQuery 1.10.x</li>
             <li>Bootstrap v3.x or head over here to use the <a href="#">plugin-only</a> version</li>
           </ul>
-          <br>
-          <h2>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <hr>
+
+          <h3 class="text-danger text-center">
             Initialize resources &amp; and call on the plugin
-          </h2>
-          <small class="help-block text-muted">By default the plugin displays eight (8) most recent media.</small>
+          </h3>
+          <small class="help-block text-info text-center">By default the plugin displays eight (8) most recent media.</small> 
           <br>
 
+          <div class="pre-wrap">
 <pre class="prettyprint linenums">
 &lt;!-- Initialize stylesheets to header --&gt;
 &lt;link rel="stylesheet" href="/path/to/css/bootstrap.css"&gt;
 &lt;link rel="stylesheet" href="/path/to/css/pongstagr.am.css&gt;
 
 &lt;!-- Initialize Javascripts to footer --&gt;
-&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js""&gt;&lt;/script&gt;
+&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js"&gt;&lt;/script&gt;
 &lt;script src="/path/to/js/boostrap.js"&gt;&lt;/script&gt;
 &lt;script src="/path/to/js/pongstagr.am.js"&gt;&lt;/script&gt;
 &lt;script&gt;
@@ -76,8 +83,7 @@ $(document).ready(function () {
 });
 &lt;/script&gt;
 </pre>
-
-
+          </div><!-- end of .pre-wrap -->
         </div>
       </div>
     </div>
@@ -99,7 +105,7 @@ $(document).ready(function () {
 
       <div class="row">
         <div class="col-xs-12">
-          {% include disqus.html %}
+          <!-- {% include disqus.html %} -->
         </div>
       </div>
     </div>
@@ -154,7 +160,6 @@ $(document).ready(function () {
       </div>
     </div>
   </div>
-
 
 
   <div class="section">

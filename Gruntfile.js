@@ -5,9 +5,9 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     banner: '/*! ========================================================================== \n' +
             ' * <%= pkg.name %> v<%= pkg.version %> <%= pkg.desc %> | <%= pkg.homepage %> \n' +
-            ' * ========================================================================== \n' +
+            ' * =========================================================================== \n' +
             ' * Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author %>. Licensed under MIT License. \n' +
-            ' * ========================================================================= */\n',
+            ' * =========================================================================== */\n',
     copy: {
       jquery: {
         files: [
@@ -81,16 +81,6 @@ module.exports = function(grunt) {
         }
       }      
     },
-    uglify: {
-      options: {
-        banner: '<%= banner %>',
-        stripBanners: false
-      },
-      plugin_min: { 
-        src:  'source/<%= pkg.name %>.js',
-        dest: 'source-min/<%= pkg.name %>.min.js'
-      }
-    },
     concat: {
       options: {
         stripBanners: true,
@@ -101,11 +91,24 @@ module.exports = function(grunt) {
         src: [
           'assets/js/prettify.js',
           'assets/js/easing.js',
-          'source/pongstagr.am.js',
           'assets/js/docs.js'         
         ],
         dest: 'assets/js/plugins.js'
       },
+    },
+    uglify: {
+      options: {
+        banner: '<%= banner %>',
+        stripBanners: true
+      },
+      plugin_min: { 
+        src:  'source/<%= pkg.name %>.js',
+        dest: 'source-min/<%= pkg.name %>.min.js'
+      },
+      docs: {
+        src: 'assets/js/plugins.js',
+        dest: 'assets/js/plugins.js'
+      }
     },
     recess: {
       options: { 
@@ -173,7 +176,7 @@ module.exports = function(grunt) {
 
   // Optimise Images
   grunt.registerTask('optimize-image', ['imagemin']);
-
+  grunt.registerTask('build-css', ['recess:docs']);
 
   // Compress Sources
   grunt.registerTask('default', ['jshint', 'usebanner', 'concat', 'uglify', 'recess', 'imagemin']);
