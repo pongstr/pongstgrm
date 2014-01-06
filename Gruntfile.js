@@ -83,7 +83,8 @@ module.exports = function(grunt) {
     },
     uglify: {
       options: {
-        stripBanners: true
+        banner: '<%= banner %>',
+        stripBanners: false
       },
       plugin_min: { 
         src:  'source/<%= pkg.name %>.js',
