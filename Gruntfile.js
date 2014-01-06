@@ -67,10 +67,23 @@ module.exports = function(grunt) {
       gruntfile: { src: 'Gruntfile.js' },
       src: { src: ['source/*.js' ] }
     },
+    usebanner: {
+      dist: {
+        options: {
+          position: 'top',
+          banner: '<%= banner %>'
+        },
+        files: {
+          src: [
+            'source/<%= pkg.name %>.css',
+            'source/<%= pkg.name %>.js',
+          ]
+        }
+      }      
+    },
     uglify: {
       options: {
-        banner: '<%= banner %>',
-        stripBanners: false
+        stripBanners: true
       },
       plugin_min: { 
         src:  'source/<%= pkg.name %>.js',
@@ -80,7 +93,7 @@ module.exports = function(grunt) {
     concat: {
       options: {
         stripBanners: true,
-        // separator: ';',
+        separator: ';',
         banner:  '<%= banner %> \n'
       },
       docsjs: {
@@ -146,6 +159,7 @@ module.exports = function(grunt) {
   });
 
   // These plugins provide necessary tasks.
+  grunt.loadNpmTasks('grunt-banner');
   grunt.loadNpmTasks('grunt-recess');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-concat');
@@ -161,6 +175,6 @@ module.exports = function(grunt) {
 
 
   // Compress Sources
-  grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'recess', 'imagemin']);
+  grunt.registerTask('default', ['jshint', 'usebanner', 'concat', 'uglify', 'recess', 'imagemin']);
 
 };

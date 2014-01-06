@@ -16,6 +16,7 @@
   , "devDependencies": {
       "bower":                  "~1.2.8"
     , "grunt":                  "~0.4.2"
+    , "grunt-banner":           "~0.2.0"
     , "grunt-recess":           "~0.5.0"
     , "grunt-contrib-copy":     "~0.5.0"
     , "grunt-contrib-concat":   "~0.3.0"
