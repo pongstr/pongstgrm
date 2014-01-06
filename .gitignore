@@ -1,7 +1,6 @@
 # Ignore docs files
 _gh_pages
 _site
-gh-pages
 .ruby-version
 tests.*
 testing.*
@@ -33,4 +32,4 @@ nbproject
 
 # Folders to ignore
 node_modules
-.sass-cache
+bower_components
