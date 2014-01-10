@@ -64,8 +64,7 @@ module.exports = function(grunt) {
     },
     jshint: {
       options: { jshintrc: 'source/.jshintrc' },
-      gruntfile: { src: 'Gruntfile.js' },
-      src: { src: ['source/*.js' ] }
+      src: { src: ['source/pongstagr.am.js'] }
     },
     usebanner: {
       dist: {
@@ -98,12 +97,12 @@ module.exports = function(grunt) {
     },
     uglify: {
       options: {
-        banner: '<%= banner %>',
+        banner: '<%= banner %> \n',
         stripBanners: true
       },
       plugin_min: { 
         src:  'source/<%= pkg.name %>.js',
-        dest: 'source-min/<%= pkg.name %>.min.js'
+        dest: 'source/<%= pkg.name %>.min.js'
       },
       docs: {
         src: 'assets/js/plugins.js',
@@ -112,7 +111,7 @@ module.exports = function(grunt) {
     },
     recess: {
       options: { 
-        banner: '<%= banner %>',
+        banner: '<%= banner %> \n',
         compile: true,
         noIDs: true,
         zeroUnits: true
@@ -135,7 +134,7 @@ module.exports = function(grunt) {
       plugin_min: {
         options: { compress: true },
         src: ['assets/less/<%= pkg.name %>.less'],
-        dest: 'source-min/<%= pkg.name %>.min.css'
+        dest: 'source/<%= pkg.name %>.min.css'
       }
     },
     imagemin: {
