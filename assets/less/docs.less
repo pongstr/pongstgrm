@@ -106,8 +106,8 @@ header .jumbotron {
   background-image:       url("http://pongstr.github.io/pongstagr.am/assets/img/img.jpg");
   background-attachment:  fixed;
   background-position:    bottom center;
-  background-repeat:      repeat;
-  background-size:        auto;
+  background-repeat:      no-repeat;
+  background-size:        100%;
 
 
   hr {
@@ -155,6 +155,13 @@ header .jumbotron {
     line-height: 1;
     opacity: 0.4;
   } 
+
+  @media (max-width: @screen-md),
+         (max-width: @screen-xs) {
+    background-position:    bottom center;
+    background-repeat:      no-repeat;
+    background-size:        auto;    
+  }
 
   @media (max-width: @screen-xs) {
     padding-left: 0;

@@ -54,12 +54,13 @@ $(window).load(function () { "use strict";
         , $target = $(target)
         ,  offset = ($(this).data('hash-offset') === undefined) ? 100 : $(this).data('hash-offset') 
 
-      $('html, body').stop().animate({
-        'scrollTop': $target.offset().top - offset
-        }, { duration: 1250, easing: 'easeInOutExpo'}, function() {
-          window.location.hash = target
-        return false
-      })
+      $target.length !== 0 &&
+        $('html, body').stop().animate({
+          'scrollTop': $target.offset().top - offset
+          }, 500, function() {
+            window.location.hash = target
+          return false
+        })
     })
   })
 
