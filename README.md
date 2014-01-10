@@ -5,6 +5,8 @@
 
 Pongstagr.am is a jQuery plugin that lets you display your Instagram media to your website using **[Bootstrap](http://twitter.github.io/bootstrap/)** front-end styles and modal-plugin.
 
+**Download latest [here](https://github.com/pongstr/pongstagr.am/archive/v3.0.4.zip)** or via **Bower**: ```$ bower install pongstagr.am``` 
+
 -----------
 
 #### Basic Usage:
