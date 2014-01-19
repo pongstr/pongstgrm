@@ -1,4 +1,4 @@
-[Pongstagr.am](http://pongstr.github.io/pongstagr.am/) [![Build Status](https://travis-ci.org/pongstr/pongstagr.am.png?branch=v3.0)](https://travis-ci.org/pongstr/pongstagr.am) [![devDependency Status](https://david-dm.org/pongstr/pongstagr.am.png)]
+[Pongstagr.am](http://pongstr.github.io/pongstagr.am/) [![Build Status](https://travis-ci.org/pongstr/pongstagr.am.png?branch=v3.0)](https://travis-ci.org/pongstr/pongstagr.am) ![devDependency Status](https://david-dm.org/pongstr/pongstagr.am.png)
 ==============
 
 Pongstagr.am is a jQuery plugin that lets you display your Instagram media to your website using **[Bootstrap](http://twitter.github.io/bootstrap/)** front-end styles and modal-plugin.
