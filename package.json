@@ -9,12 +9,6 @@
         "type":   "git"
       , "url":    "https://github.com/pongstr/pongstagr.am.git"
     }
-  , "scripts": {
-      "install" : "bower install jquery bootstrap font-awesome"
-    }
-  , "dependencies": {
-    
-    }
   , "devDependencies": {
       "bower":                  "~1.2.8"
     , "grunt":                  "~0.4.2"
