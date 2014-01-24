@@ -8,7 +8,7 @@
     "source/pongstagr.am.css", 
     "source/pongstagr.am.min.css", 
     "source/pongstagr.am.js",
-    "source/pongstagr.am.min.js",
+    "source/pongstagr.am.min.js"
   ],
   "keywords": [
     "instagram",
@@ -19,7 +19,7 @@
   "license": "MIT",
   "ignore": [
     "**/.*",
-    "source/.jshintrc"
+    "source/.jshintrc",
     "node_modules",
     "bower_components"
   ],
