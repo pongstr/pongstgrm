@@ -109,32 +109,36 @@ module.exports = function(grunt) {
         dest: 'assets/js/plugins.js'
       }
     },
-    recess: {
-      options: { 
-        banner: '<%= banner %> \n',
-        compile: true,
-        noIDs: true,
-        zeroUnits: true
-      },
+    less: {
       docs: {
-        options: { compress: true },
-        src: ['assets/less/docs.less'],
-        dest: 'assets/css/docs.css'
+        options: {
+          strictMath: true,
+          sourceMap: false,
+          compress: true
+        },
+        files: {
+          'assets/css/docs.css': 'assets/less/docs.less',
+          'assets/css/font-awesome.css': 'assets/less/font-awesome/font-awesome.less'
+        }
       },
-      fontawesome: {
-        options: { compress: true },
-        src: ['assets/less/font-awesome/font-awesome.less'],
-        dest: 'assets/css/font-awesome.css'
-      },
-      plugin: {
-        options: { compress: false },
-        src: ['assets/less/<%= pkg.name %>.less'],
-        dest: 'source/<%= pkg.name %>.css'
+      plugin_full: {
+        options: {
+          strictMath: true,
+          sourceMap: false
+        },
+        files: {
+          'source/<%= pkg.name %>.css':'source/<%= pkg.name %>.css'
+        }
       },
       plugin_min: {
-        options: { compress: true },
-        src: ['assets/less/<%= pkg.name %>.less'],
-        dest: 'source/<%= pkg.name %>.min.css'
+        options: {
+          strictMath: true,
+          sourceMap: false,
+          compress: true
+        },
+        files: {
+          'source/<%= pkg.name %>.min.css':'source/<%= pkg.name %>.css'
+        }
       }
     },
     imagemin: {
@@ -163,8 +167,8 @@ module.exports = function(grunt) {
 
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-banner');
-  grunt.loadNpmTasks('grunt-recess');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -175,9 +179,9 @@ module.exports = function(grunt) {
 
   // Optimise Images
   grunt.registerTask('optimize-image', ['imagemin']);
-  grunt.registerTask('build-css', ['recess:docs']);
+  grunt.registerTask('build-css', ['less']);
 
   // Compress Sources
-  grunt.registerTask('default', ['jshint', 'usebanner', 'concat', 'uglify', 'recess', 'imagemin']);
+  grunt.registerTask('default', ['jshint', 'usebanner', 'concat', 'uglify', 'less', 'imagemin']);
 
 };

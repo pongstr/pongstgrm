@@ -25,13 +25,7 @@
 </head>
 <body>
 
-    <!-- HEADER -->
-    {% include header.html %}
-
-    <!-- CONTENT -->
-    <div role="main">
-      {{ content }}
-    </div>
+  {{ content }}
 
   <script type="text/javascript" src="//use.typekit.net/ntt8cxd.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
@@ -39,7 +33,7 @@
   <script src="{{ site.baseurl }}/assets/js/jquery.min.js"></script>
   <script src="{{ site.baseurl }}/assets/js/bootstrap.min.js"></script>
   <script src="{{ site.baseurl }}/source/pongstagr.am.js"></script>  
-  <script src="{{ site.baseurl }}/assets/js/plugins.js"></script>  
+  <script src="{{ site.baseurl }}/assets/js/docs.js"></script>  
 
   <script>
     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');

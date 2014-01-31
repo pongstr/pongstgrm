@@ -5,14 +5,16 @@
       <br>
 
       <div class="pre-wrap pre-wrap-example">
-<pre class="prettyprint linenums">
-$('#selector').pongstgrm({
-  show:             'profile',
-  picture_size:     '64'                  // sets profile picture to 64x64 pixels, no need to add px
-  profile_bg_img:   '/path/to/image.jpg', // image url
-  profile_bg_color: '#d9534f'             // background color
-});
-</pre>
+{% highlight html linenos %}
+<script>
+  $('#selector').pongstgrm({
+    show:             'profile',
+    picture_size:     '64'                  // sets profile picture to 64x64 pixels, no need to add px
+    profile_bg_img:   '/path/to/image.jpg', // image url
+    profile_bg_color: '#d9534f'             // background color
+  });
+</script>
+{% endhighlight %}
       </div><!-- end of .pre-wrap -->
       <div class="col-xs-12">
         <div id="profile" class="well well-sm"></div>
@@ -30,9 +32,11 @@ $('#selector').pongstgrm({
       <br>
 
       <div class="pre-wrap pre-wrap-example">
-<pre class="prettyprint linenums">
-$('#selector').pongstgrm({ show: 'recent' });
-</pre>
+{% highlight html %}
+<script>
+  $('#selector').pongstgrm({ show: 'recent' });
+</script>
+{% endhighlight %}
       </div><!-- end of .pre-wrap -->
 
       <div class="col-xs-12">
@@ -50,9 +54,11 @@ $('#selector').pongstgrm({ show: 'recent' });
       <br>
 
       <div class="pre-wrap pre-wrap-example">
-<pre class="prettyprint linenums">
-$('#selector').pongstgrm({ show: 'liked' });
-</pre>
+{% highlight html %}
+<script>
+  $('#selector').pongstgrm({ show: 'liked' });
+</script>
+{% endhighlight %}
       </div>
 
       <div class="col-xs-12">
@@ -70,9 +76,12 @@ $('#selector').pongstgrm({ show: 'liked' });
       <br>
 
       <div class="pre-wrap pre-wrap-example">
-<pre class="prettyprint linenums">
-$('#selector').pongstgrm({ show: 'feed' });
-</pre>
+{% highlight html %}
+<script>
+  $('#selector').pongstgrm({ show: 'feed' });
+</script>
+{% endhighlight %}
+
       </div>
 
       <div class="col-xs-12">
@@ -90,9 +99,12 @@ $('#selector').pongstgrm({ show: 'feed' });
       <br>
 
       <div class="pre-wrap pre-wrap-example">
-<pre class="prettyprint linenums">
-$('#selector').pongstgrm({ show: 'any-tag-you-like' }); // Now Showing: #nofilter
-</pre>
+{% highlight html %}
+<script>
+  $('#selector').pongstgrm({ show: 'any-tag-you-like' }); // Now Showing: #nofilter
+</script>
+{% endhighlight %}
+
       </div>
 
       <div class="col-xs-12">

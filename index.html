@@ -1,5 +1,5 @@
 ---
-layout:  default
+layout:  page
 title:   "Docs &amp; Examples"
 ---
 
@@ -18,8 +18,6 @@ title:   "Docs &amp; Examples"
               <strong>Download version {{ site.version }}</strong><br>
               <small class="text-muted">Requires jQuery 1.10.x and Bootstrap 3.0.x</small>
             </a>
-
-
           </div>
 
         </div>
@@ -60,16 +58,16 @@ title:   "Docs &amp; Examples"
           <br>
 
           <div class="pre-wrap">
-<pre class="prettyprint linenums">
-&lt;!-- Initialize stylesheets to header --&gt;
-&lt;link rel="stylesheet" href="/path/to/css/bootstrap.css"&gt;
-&lt;link rel="stylesheet" href="/path/to/css/pongstagr.am.css&gt;
+{% highlight html linenos %}
+<!-- Initialize stylesheets to header -->
+<link rel="stylesheet" href="/path/to/css/bootstrap.css">
+<link rel="stylesheet" href="/path/to/css/pongstagr.am.css">
 
-&lt;!-- Initialize Javascripts to footer --&gt;
-&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js"&gt;&lt;/script&gt;
-&lt;script src="/path/to/js/boostrap.js"&gt;&lt;/script&gt;
-&lt;script src="/path/to/js/pongstagr.am.js"&gt;&lt;/script&gt;
-&lt;script&gt;
+<!-- Initialize Javascripts to footer -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js"></script>
+<script src="/path/to/js/boostrap.js"></script>
+<script src="/path/to/js/pongstagr.am.js"></script>
+<script>
 $(document).ready(function () {
 
   $('#selector').pongstgrm({
@@ -78,8 +76,8 @@ $(document).ready(function () {
   });
 
 });
-&lt;/script&gt;
-</pre>
+</script>
+{% endhighlight %}
           </div><!-- end of .pre-wrap -->
         </div>
       </div>
@@ -102,7 +100,7 @@ $(document).ready(function () {
 
       <div class="row">
         <div class="col-xs-12">
-          <!-- {% include disqus.html %} -->
+          {% include disqus.html %}
         </div>
       </div>
     </div>

@@ -7,7 +7,7 @@
 
 $(window).load(function () { "use strict"; 
 
-  window.prettyPrint && prettyPrint()
+  // window.prettyPrint && prettyPrint()
 
   var elementHeight = $('body').outerHeight()
 

@@ -1,5 +1,5 @@
 # Site Information
-name:         "Pongstagr.am jQuery Plugin"
+name:         "Pongstagr.am"
 desc:         "is a jQuery plugin that lets you display your Instagram media to your website using Bootstrap Front-end styles and modal-plugin."
 
 author:       "Pongstr - Philip Ordillo"
@@ -10,7 +10,7 @@ keywords:     "jquery, instagram, github, pongstr, ordillo, philip, pongstagram,
 exclude:      ['.gitignore', '*.sass-cache', 'scss', '*.txt', '*.rb', '*.sh', '_images', 'node_modules', 'bower_components', 'Gruntfile.js', 'package.json' ]
 
 # Dependencies
-markdown:     rdiscount
+markdown:     kramdown
 pygments:     true
 
 # Permalinks
@@ -23,5 +23,5 @@ port:         4001
 
 # Versions
 repourl:     "https://github.com/pongstr/pongstagr.am/"
-version:     "3.0.4"
+version:     "3.0.5"
 download:    "https://github.com/pongstr/pongstagr.am/archive/v3.0.4.zip"

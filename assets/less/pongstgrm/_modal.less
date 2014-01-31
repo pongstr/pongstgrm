@@ -91,7 +91,7 @@
   @media (max-width: @screen-xs){
     top: 5px;
     right: 12px;
-    z-index: @zindex-modal + 10;
+    z-index: (@zindex-modal + 10);
     font-size: 30px;
   }
 
@@ -119,7 +119,7 @@
 .media-column > img,
 .media-column > video {
   position:   relative;
-  z-index:    @zindex-modal + 1;
+  z-index:    (@zindex-modal + 1);
   width:      622px;
   max-width:  100%;
   height:     622px;
@@ -176,7 +176,7 @@
   position:     absolute;
   top:          50%;
   left:         50%;
-  z-index:      @zindex-modal + 5;
+  z-index:      (@zindex-modal + 5);
   width:        72%;
   margin-top:   -5%;
   margin-left:  -36%;
@@ -205,7 +205,7 @@
   .button-variant(#fff, rgba(11,11,11, 0.55), rgba(0,0,0,0.25));
   .transition(background-color 200ms ease);
   position:     absolute;
-  z-index: @zindex-modal + 10;
+  z-index: (@zindex-modal + 10);
   text-shadow:  0 1px 1px #000;
 
   &:hover {
