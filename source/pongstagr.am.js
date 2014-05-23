@@ -185,7 +185,7 @@
           $('#' + options.data.id)
             .modal('show')
             .on('shown.bs.modal',  function() {
-              var video = document.getElementById(options.data.id +'-video')
+              var video = $('#' + options.data.id +'-video')
 
               Pongstgrm.prototype.preloadMedia({
                   imgid : '#' + options.data.id +'-full'
@@ -254,7 +254,7 @@
             $(this)
               .removeClass()
               .addClass('btn btn-default')
-              .attr('disabled','disabled')
+              .prop('disabled','disabled')
           e.preventDefault()
         }) :
 
