@@ -1,0 +1,57 @@
+.border-top-radius (@radius) {
+  -webkit-border-top-left-radius: @radius;
+  -moz-border-top-left-radius: @radius;
+  -ms-border-top-left-radius: @radius;
+  border-top-left-radius: @radius;
+
+  -webkit-border-top-right-radius: @radius;
+  -moz-border-top-right-radius: @radius;
+  -ms-border-top-right-radius: @radius;
+  border-top-right-radius: @radius;
+}
+
+.border-bottom-radius (@radius) {
+  -webkit-border-bottom-left-radius: @radius;
+  -moz-border-bottom-left-radius: @radius;
+  -ms-border-topbottom-left-right-radius: @radius;
+  border-bottom-left-radius: @radius;
+
+  -webkit-border-bottom-right-radius: @radius;
+  -moz-border-bottom-right-radius: @radius;
+  -ms-border-topbottom-right-right-radius: @radius;
+  border-bottom-right-radius: @radius;
+}
+
+.box-shadow (@box-shadow) {
+  -webkit-box-shadow: @box-shadow;
+  -moz-box-shadow: @box-shadow;
+  -ms-box-shadow: @box-shadow;
+  box-shadow: @box-shadow;
+}
+
+.scale (@scale) {
+  -webkit-transform: scale(@scale);
+  -moz-transform: scale(@scale);
+  -ms-transform: scale(@scale);
+  -o-transform: scale(@scale);
+  transform: scale(@scale);
+}
+
+.transition (@process) {
+  -webkit-transition: @process;
+  -moz-transition: @process;
+  -ms-transition: @process;
+  transition: @process;
+}
+
+.filter (@process) {
+  -webkit-filter: @process;
+  -moz-filter: @process;
+  -o-filter: @process;
+  -ms-filter: @process;
+  filter: @process;
+}
+
+.remodal-filter-effect () when (@remodal-effect = true) {
+  .filter(@remodal-filter);
+}

@@ -1,0 +1,165 @@
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html.remodal_lock,
+body.remodal_lock {
+  overflow: hidden;
+}
+.remodal,
+[data-remodal-id] {
+  visibility: hidden;
+}
+.remodal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1500;
+  display: none;
+  overflow: auto;
+  text-align: center;
+  -webkit-overflow-scrolling: touch;
+}
+.remodal-overlay:after {
+  display: inline-block;
+  height: 100%;
+  margin-left: -0.05em;
+  content: " ";
+}
+.remodal-overlay > * {
+  -webkit-transform: translateZ(0px);
+}
+.remodal {
+  position: relative;
+  display: inline-block;
+}
+.remodal,
+.remodal * {
+  font-family: inherit;
+}
+.remodal-bg {
+  -webkit-transition: filter 0.2s linear;
+  -moz-transition: filter 0.2s linear;
+  -ms-transition: filter 0.2s linear;
+  transition: filter 0.2s linear;
+}
+body.remodal_active .remodal-bg {
+  -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+  -o-filter: blur(3px);
+  -ms-filter: blur(3px);
+  filter: blur(3px);
+}
+.remodal-overlay {
+  -webkit-transition: opacity 0.2s linear;
+  -moz-transition: opacity 0.2s linear;
+  -ms-transition: opacity 0.2s linear;
+  transition: opacity 0.2s linear;
+  opacity: 0;
+  background: rgba(33, 36, 46, 0.65);
+}
+body.remodal_active .remodal-overlay {
+  opacity: 1;
+}
+.remodal {
+  -webkit-border-top-left-radius: 6px;
+  -moz-border-top-left-radius: 6px;
+  -ms-border-top-left-radius: 6px;
+  border-top-left-radius: 6px;
+  -webkit-border-top-right-radius: 6px;
+  -moz-border-top-right-radius: 6px;
+  -ms-border-top-right-radius: 6px;
+  border-top-right-radius: 6px;
+  -webkit-border-bottom-left-radius: 6px;
+  -moz-border-bottom-left-radius: 6px;
+  -ms-border-topbottom-left-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  -webkit-border-bottom-right-radius: 6px;
+  -moz-border-bottom-right-radius: 6px;
+  -ms-border-topbottom-right-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  -webkit-transform: scale(0.95);
+  -moz-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  -o-transform: scale(0.95);
+  transform: scale(0.95);
+  padding: 35px;
+  background-color: #ffffff;
+  background-clip: padding-box;
+  box-shadow: 0px 0px 20px rgba(33, 36, 46, 0.95);
+  -webkit-transition: -webkit-transform 0.2s linear;
+  -moz-transition: -moz-transform 0.2s linear;
+  -o-transition: -o-transform 0.2s linear;
+  transition: transform 0.2s linear;
+}
+body.remodal_active .remodal {
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+.remodal,
+.remodal-overlay:after {
+  vertical-align: middle;
+}
+.remodal-close {
+  -webkit-transition: background 0.1s ease;
+  -moz-transition: background 0.1s ease;
+  -ms-transition: background 0.1s ease;
+  transition: background 0.1s ease;
+  -webkit-border-top-left-radius: 100%;
+  -moz-border-top-left-radius: 100%;
+  -ms-border-top-left-radius: 100%;
+  border-top-left-radius: 100%;
+  -webkit-border-top-right-radius: 100%;
+  -moz-border-top-right-radius: 100%;
+  -ms-border-top-right-radius: 100%;
+  border-top-right-radius: 100%;
+  -webkit-border-bottom-left-radius: 100%;
+  -moz-border-bottom-left-radius: 100%;
+  -ms-border-topbottom-left-right-radius: 100%;
+  border-bottom-left-radius: 100%;
+  -webkit-border-bottom-right-radius: 100%;
+  -moz-border-bottom-right-radius: 100%;
+  -ms-border-topbottom-right-right-radius: 100%;
+  border-bottom-right-radius: 100%;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 30px;
+  height: 30px;
+  text-decoration: none;
+  border: 2px solid #3e5368;
+}
+.remodal-close:after {
+  display: block;
+  font-size: 28px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  content: "\d7";
+  line-height: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #3e5368;
+}
+.remodal-close:hover,
+.remodal-close:active {
+  background: #3e5368;
+}
+.remodal-close:hover.remodal-close:after,
+.remodal-close:active.remodal-close:after {
+  color: #f4f4f4;
+}
+@media (min-width: 320px), (min-width: 768px) {
+  .remodal {
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+}

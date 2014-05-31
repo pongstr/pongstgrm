@@ -1,0 +1,172 @@
+
+// Remodal Mixins
+@import "remodal-mixins.less";
+
+// Remodal Variables
+// =================
+
+@remodal-modal-padding:        35px;
+@remodal-modal-bgcolor:        #fff;
+@remodal-modal-border-radius:  6px;
+@remodal-modal-boxshadow:      0px 0px 20px rgba(33, 36, 46, 0.95);
+
+@remodal-btn-color:           #f4f4f4;
+@remodal-btn-border:          2px solid #3e5368;
+@remodal-btn-hover-bg:        #3e5368;
+@remodal-btn-default-bg:      transparent;
+
+@remodal-filter:              blur(3px);
+@remodal-effect:              true;
+@remodal-ease-method:         linear;
+@remodal-transition-speed:    .2s;
+
+@remodal-overlay-bgcolor:     rgba(33, 36, 46, 0.65);
+@remodal-overlay-zindex:      1500;
+
+
+// Remodal Core Styles
+// ==========================================================================
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+// Hide scrollbar
+html.remodal_lock,
+body.remodal_lock {
+  overflow:hidden;
+}
+
+// Anti Flash of unstyled content
+.remodal,
+[data-remodal-id] {
+  visibility: hidden;
+}
+
+// Overlay
+.remodal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: @remodal-overlay-zindex;
+  display: none;
+  // width: 100%;
+  // height: 100%;
+  overflow: auto;
+  text-align: center;
+  -webkit-overflow-scrolling: touch;
+
+  &:after {
+    display: inline-block;
+    height: 100%;
+    margin-left: -0.05em;
+    content: " ";
+  }
+
+  // Fix iPad, iPhone glitches
+  > * { -webkit-transform: translateZ(0px); }
+}
+
+// Modal Dialog
+.remodal {
+  position: relative;
+  display: inline-block;
+}
+
+
+// Remodal Scaffold
+// ==========================================================================
+
+.remodal,
+.remodal * {
+  font-family: inherit;
+}
+
+.remodal-bg {
+  .transition(filter @remodal-transition-speed @remodal-ease-method);
+}
+
+body.remodal_active .remodal-bg {
+  .remodal-filter-effect();
+}
+
+// Overlay default theme styles
+.remodal-overlay {
+  .transition(opacity @remodal-transition-speed @remodal-ease-method);
+  opacity: 0;
+  background: @remodal-overlay-bgcolor;
+}
+
+body.remodal_active .remodal-overlay { opacity: 1; }
+
+// Modal dialog default theme styles
+.remodal {
+  // this transition mixin is shitty!
+  // .transition(transform @remodal-transition-speed @remodal-ease-method);
+  .border-top-radius(@remodal-modal-border-radius);
+  .border-bottom-radius(@remodal-modal-border-radius);
+  .scale(0.95);
+  padding: @remodal-modal-padding;
+  background-color: @remodal-modal-bgcolor;
+  background-clip: padding-box;
+  box-shadow: @remodal-modal-boxshadow;
+
+  -webkit-transition: -webkit-transform @remodal-transition-speed @remodal-ease-method;
+  -moz-transition: -moz-transform @remodal-transition-speed @remodal-ease-method;
+  -o-transition: -o-transform @remodal-transition-speed @remodal-ease-method;
+  transition: transform @remodal-transition-speed @remodal-ease-method;
+}
+
+body.remodal_active .remodal { .scale(1); }
+
+// Modal dialog vertical align
+.remodal,
+.remodal-overlay:after { vertical-align: middle; }
+
+// Close button
+.remodal-close {
+  .transition(background .1s ease);
+  .border-top-radius(100%);
+  .border-bottom-radius(100%);
+  position: absolute;
+  top:  15px;
+  left: 15px;
+  width: 30px;
+  height: 30px;
+  text-decoration: none;
+  border: @remodal-btn-border;
+
+  &:after {
+    display: block;
+    font-size: 28px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    content: "\d7";
+    line-height: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: @remodal-btn-hover-bg;
+  }
+
+  &:hover,
+  &:active { background: @remodal-btn-hover-bg; }
+  &:hover.remodal-close:after,
+  &:active.remodal-close:after { color: @remodal-btn-color; }
+}
+
+// Media Queries
+// ==========================================================================
+
+@media
+  (min-width: 320px),
+  (min-width: 768px) {
+    .remodal {
+      margin-top: 15px;
+      margin-left: 15px;
+      margin-right: 15px;
+    }
+}

@@ -1,7 +1,0 @@
-/*! ========================================================================== 
- * pongstagr.am v3.0.4 jQuery Plugin | http://pongstr.github.io/pongstagr.am/ 
- * =========================================================================== 
- * Copyright (c) 2014 Pongstr Ordillo. Licensed under MIT License. 
- * =========================================================================== */
- 
-$(window).load(function(){"use strict";function a(a){var b="679256982",c="679256982.401c5ac.0a183542db5f4ae1b51caae21acadc1e";$(a.target).pongstgrm({accessId:b,accessToken:c,show:a.show,count:a.count,profile_bg_img:"http://pongstr.github.io/pongstagr.am/assets/img/img.jpg",profile_bg_color:"#4F405F"})}var b=$("body").outerHeight();$(window).scroll(function(){$(this).scrollTop()>b+20?$("[role=navigation]").addClass("navbar-fixed-top"):$("[role=navigation]").removeClass("navbar-fixed-top")}),a({target:"#profile",show:"profile"}),a({target:"#recent",show:"recent",count:4}),a({target:"#likes",show:"liked",count:4}),a({target:"#feed",show:"feed",count:4}),a({target:"#tags",show:"nofilter",count:4}),$("[data-hash=slide]").each(function(){$(this).on("click",function(a){a.preventDefault();var b=$(this).attr("href"),c=$(b),d=void 0===$(this).data("hash-offset")?100:$(this).data("hash-offset");0!==c.length&&$("html, body").stop().animate({scrollTop:c.offset().top-d},500,function(){return window.location.hash=b,!1})})})});

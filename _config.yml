@@ -11,17 +11,18 @@ exclude:      ['.gitignore', '*.sass-cache', 'scss', '*.txt', '*.rb', '*.sh', '_
 
 # Dependencies
 markdown:     kramdown
-pygments:     true
+highlighter:  true
 
 # Permalinks
 permalink:    pretty
 baseurl:      http://pongstr.github.io/pongstagr.am
 
 # Server
+source:       app
 destination:  _gh_pages
 port:         4001
 
 # Versions
 repourl:     "https://github.com/pongstr/pongstagr.am/"
-version:     "3.0.5"
-download:    "https://github.com/pongstr/pongstagr.am/archive/v3.0.4.zip"
+version:     "3.1.0"
+download:    "https://github.com/pongstr/pongstagr.am/archive/v3.1.9.zip"

@@ -1,71 +1,137 @@
+/*! =========================================================================
+ * Grunt Tasks for AngularJS web apps v0.1.0
+ * Copyright 2014 (c) Pongstr Ordillo. MIT License.
+ * ========================================================================= */
+
 module.exports = function(grunt) {
 
-  // Project configuration.
+  // Project Configuration
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    banner: '/*! ========================================================================== \n' +
-            ' * <%= pkg.name %> v<%= pkg.version %> <%= pkg.desc %> | <%= pkg.homepage %> \n' +
-            ' * =========================================================================== \n' +
-            ' * Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author %>. Licensed under MIT License. \n' +
-            ' * =========================================================================== */\n',
+    banner: '/*! ========================================================================\n' +
+            ' * <%= pkg.name %> v<%= pkg.version %> \n' +
+            ' * =========================================================================\n' +
+            ' * <%= pkg.description %> \n'+
+            ' * Authored by <%= pkg.author %> [<%= pkg.email %>] \n' +
+            ' * ========================================================================= */\n',
+
+    // Copy assets that don't need processing
+    // ======================================
     copy: {
-      jquery: {
+      app: {
         files: [
-          { // jQuery latest (unminified)
-            flatten:  true,
-            src:      ['bower_components/jquery/jquery.min.js'],
-            dest:      'assets/js/jquery.min.js',
-            filter:    'isFile'
+          {
+            expand: true,
+            flatten: true,
+            src: [
+              'source/javascript/pongstagr.am.js'
+            ],
+            dest: 'application/assets/js/',
+            filter: 'isFile'
           }
         ]
       },
-      bootstrap: {
+      libs: {
         files: [
-          { // Bootstrap JS 
-            flatten:  true,
-            src:      ['bower_components/bootstrap/dist/js/bootstrap.min.js'],
-            dest:      'assets/js/bootstrap.min.js',
-            filter:    'isFile'
-          },
-          { // Copy Bootstrap Less files
-            expand:   true,
-            flatten:  true,
-            src:      ['bower_components/bootstrap/less/*'],
-            dest:      'assets/less/bootstrap/',
-            filter:    'isFile'            
-          },
-          { // Bootstrap Glyphicons
-            expand:   true,
-            flatten:  true,
-            src:      ['bower_components/bootstrap/dist/fonts/*'],
-            dest:      'assets/fonts/bootstrap/',
-            filter:    'isFile'
-          }
-        ]
-      },
-      fontawesome: {
-        files: [
-         { // Font-Awesome Less
-            expand:   true,
-            flatten:  true,
-            src:      ['bower_components/font-awesome/less/*'],
-            dest:      'assets/less/font-awesome/',
-            filter:    'isFile'
+          { // Copy jQuery library
+            expand: true,
+            flatten: true,
+            src: [
+              'bower_components/jquery/dist/jquery.js',
+              'bower_components/jquery/dist/jquery.min.js'
+            ],
+            dest: 'application/assets/js/jquery/',
+            filter: 'isFile'
           },
           { // Font-Awesome Glyphs
-            expand:   true,
-            flatten:  true,
-            src:      ['bower_components/font-awesome/fonts/*'],
-            dest:      'assets/fonts/font-awesome/',
-            filter:    'isFile'
+            expand: true,
+            flatten: true,
+            src: ['bower_components/font-awesome/fonts/*'],
+            dest: 'application/assets/fonts/font-awesome/',
+            filter: 'isFile'
+          }
+        ]
+      },
+      lessfiles: {
+        files: [
+          { // Font-awesome less stylesheets
+            expand: true,
+            flatten: true,
+            src: ['bower_components/font-awesome/less/*'],
+            dest: 'source/less/font-awesome',
+            filter: 'isFile'
           }
         ]
       }
     },
-    jshint: {
-      options: { jshintrc: 'source/.jshintrc' },
-      src: { src: ['source/pongstagr.am.js'] }
+
+    // Compile Less stylesheets
+    // =====================================
+    less: {
+      development: {
+        options: {
+          strictMath: true,
+          sourceMap: false
+        },
+        files: {
+          'application/assets/css/<%= pkg.name %>.css' : 'source/less/bootstrap.less',
+          'application/assets/css/remodal.css' : 'source/less/remodal/remodal.less',
+          'application/assets/css/font-awesome.css': 'source/less/font-awesome/font-awesome.less'
+        }
+      },
+      production: {
+        options: {
+          strictMath: true,
+          sourceMap: false,
+          compress: true
+        },
+        files: {
+          'application/assets/css/<%= pkg.name %>.min.css' : 'source/less/bootstrap.less',
+          'application/assets/css/remodal.min.css' : 'source/less/remodal/remodal.less',
+          'application/assets/css/font-awesome.min.css': 'source/less/font-awesome/font-awesome.less'
+        }
+      }
     },
+
+    // Watch Tasks
+    // =====================================
+    watch: {
+      less: {
+        files: ['source/less/**/*.less'],
+        tasks: ['less:development']
+      },
+      jshint: {
+        files: ['source/javascript/*.js'],
+        tasks: ['jshint:app']
+      },
+      copy: {
+        files: ['source/javascript/*.js'],
+        tasks: ['copy:app']
+      }
+    },
+
+    // Optimise Image Assets
+    // =====================================
+    imagemin: {
+      dynamic: {
+        options: {
+          pngquant: true,
+          optimizationLevel: 3
+        },
+        files:[
+          {
+            expand: true,
+            src: ['*.{png,jpg,gif}'],
+            cwd: 'source/img/',
+            dest: 'application/assets/img/'
+          }
+        ]
+      }
+    },
+
+    // Add Banners for Application Build info
+    // ======================================
     usebanner: {
       dist: {
         options: {
@@ -74,114 +140,60 @@ module.exports = function(grunt) {
         },
         files: {
           src: [
-            'source/<%= pkg.name %>.css',
-            'source/<%= pkg.name %>.js',
+            'dist/css/**',
+            'dist/js/**',
+            'Gruntfile.js'
           ]
         }
-      }      
+      }
     },
-    concat: {
-      options: {
-        stripBanners: true,
-        separator: ';',
-        banner:  '<%= banner %> \n'
+
+    // Lint gruntfile and js apps
+    jshint: {
+      grunt: {
+        src: ['Gruntfile.js']
       },
-      docsjs: {
+      app: {
+        options: {
+          jshintrc: 'application/assets/js/app/.jshintrc'
+        },
         src: [
-          'assets/js/prettify.js',
-          'assets/js/easing.js',
-          'assets/js/docs.js'         
-        ],
-        dest: 'assets/js/plugins.js'
-      },
-    },
-    uglify: {
-      options: {
-        banner: '<%= banner %> \n',
-        stripBanners: true
-      },
-      plugin_min: { 
-        src:  'source/<%= pkg.name %>.js',
-        dest: 'source/<%= pkg.name %>.min.js'
-      },
-      docs: {
-        src: 'assets/js/plugins.js',
-        dest: 'assets/js/plugins.js'
-      }
-    },
-    less: {
-      docs: {
-        options: {
-          strictMath: true,
-          sourceMap: false,
-          compress: true
-        },
-        files: {
-          'assets/css/docs.css': 'assets/less/docs.less',
-          'assets/css/font-awesome.css': 'assets/less/font-awesome/font-awesome.less'
-        }
-      },
-      plugin_full: {
-        options: {
-          strictMath: true,
-          sourceMap: false
-        },
-        files: {
-          'source/<%= pkg.name %>.css':'source/<%= pkg.name %>.css'
-        }
-      },
-      plugin_min: {
-        options: {
-          strictMath: true,
-          sourceMap: false,
-          compress: true
-        },
-        files: {
-          'source/<%= pkg.name %>.min.css':'source/<%= pkg.name %>.css'
-        }
-      }
-    },
-    imagemin: {
-      img: {
-        files: [
-          {
-            expand: true,
-            cwd: '_images/img',
-            src: ['*.{png,jpg,gif}'],
-            dest: 'assets/img'
-          }
-        ]        
-      },
-      ico: {
-        files: [
-          {
-            expand: true,
-            cwd: '_images/ico',
-            src: ['*.{png,jpg,gif}'],
-            dest: 'assets/ico'
-          }
-        ]        
+          'application/assets/js/app/app.js'
+        ]
       }
     }
+
   });
 
-  // These plugins provide necessary tasks.
+  // These grunt plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-banner');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
 
-  // Update Deps
-  grunt.registerTask('update-packages', ['copy']);
 
-  // Optimise Images
-  grunt.registerTask('optimize-image', ['imagemin']);
-  grunt.registerTask('build-css', ['less']);
+  // Update Frontend Packages
+  grunt.registerTask('updatepkg', ['copy']);
 
-  // Compress Sources
-  grunt.registerTask('default', ['jshint', 'usebanner', 'concat', 'uglify', 'less', 'imagemin']);
+  // Less CSS Tasks
+  grunt.registerTask('watchless', ['watch:less']);
+  grunt.registerTask('buildless', ['less']);
+
+  // Javascript Tasks
+  grunt.registerTask('lintjs', ['jshint']);
+  grunt.registerTask('watchjs', ['watch:jshint']);
+
+  // Optimise and Build images for production
+  grunt.registerTask('buildimg', ['imagemin']);
+
+  // Default Task Less
+  grunt.registerTask('default', ['less', 'imagemin', 'jshint']);
+
+  // Default Task Compas
+  // grunt.registerTask('default', ['compass', 'imagemin', 'jshint']);
 
 };
