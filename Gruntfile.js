@@ -9,6 +9,12 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    site: {
+      app:  'app',
+      bower: 'bower_components',
+      dist_dir: 'dist',
+      src: 'src'
+    },
     banner: '/*! ========================================================================\n' +
             ' * <%= pkg.name %> v<%= pkg.version %> \n' +
             ' * =========================================================================\n' +
@@ -75,9 +81,7 @@ module.exports = function(grunt) {
           sourceMap: false
         },
         files: {
-          'application/assets/css/<%= pkg.name %>.css' : 'source/less/bootstrap.less',
-          'application/assets/css/remodal.css' : 'source/less/remodal/remodal.less',
-          'application/assets/css/font-awesome.css': 'source/less/font-awesome/font-awesome.less'
+          '<%= site.app %>/assets/css/<%= pkg.name %>.css' : '<%= site.src %>/less/bootstrap.less'
         }
       },
       production: {
@@ -87,9 +91,7 @@ module.exports = function(grunt) {
           compress: true
         },
         files: {
-          'application/assets/css/<%= pkg.name %>.min.css' : 'source/less/bootstrap.less',
-          'application/assets/css/remodal.min.css' : 'source/less/remodal/remodal.less',
-          'application/assets/css/font-awesome.min.css': 'source/less/font-awesome/font-awesome.less'
+          '<%= site.app %>/assets/css/<%= pkg.name %>.min.css' : '<%= site.src %>/less/bootstrap.less'
         }
       }
     },

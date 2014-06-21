@@ -1,0 +1,32 @@
+
+
+.pongstagrm {
+  .make-row();
+  margin-top: @grid-gutter-width;
+  margin-bottom: @grid-gutter-width;
+
+  > div {
+    .make-xs-column(12; @gutter: @grid-gutter-width);
+    .make-sm-column(6; @gutter: @grid-gutter-width);
+    .make-md-column(3; @gutter: @grid-gutter-width);
+    .make-lg-column(3; @gutter: @grid-gutter-width);
+  }
+
+  > div > img {
+    .transition(all .1s ease-in-out);
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    cursor: pointer;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 6px -1px fade(#000, 15%);
+
+    &:hover {
+      .scale(1.2, 1.2);
+      .transition(all .1s ease-in-out);
+      border-width: 5px;
+      box-shadow: 0 0 10px fade(#000, 35%);
+    }
+  }
+}
