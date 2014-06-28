@@ -1,4 +1,4 @@
-
+@import "_mixins.less";
 
 .pongstagrm {
   .make-row();
@@ -10,23 +10,96 @@
     .make-sm-column(6; @gutter: @grid-gutter-width);
     .make-md-column(3; @gutter: @grid-gutter-width);
     .make-lg-column(3; @gutter: @grid-gutter-width);
+    position: relative;
+    min-height: 240px;
+    margin-top: (@grid-gutter-width / 2);
+    margin-bottom: ( @grid-gutter-width / 2);
   }
 
   > div > img {
-    .transition(all .1s ease-in-out);
+    // .transition(all .1s ease-in-out);
     position: relative;
+    z-index: 125;
     width: 100%;
     max-width: 100%;
     height: auto;
     cursor: pointer;
-    border: 3px solid #fff;
-    box-shadow: 0 4px 6px -1px fade(#000, 15%);
+    // border: 5px solid #fff;
+    // border-top-left-radius: 6px;
+    // border-bottom-left-radius: 6px;
+    // border-top-right-radius: 6px;
+    // border-bottom-right-radius: 6px;
+  }
 
-    &:hover {
-      .scale(1.2, 1.2);
-      .transition(all .1s ease-in-out);
-      border-width: 5px;
-      box-shadow: 0 0 10px fade(#000, 35%);
+
+  @icon-margin: 15px;
+
+  .icon {
+    display: block;
+    position: absolute;
+    z-index: 110;
+
+    &:before {
+      margin-right: 5px;
+      font-family: "FontAwesome";
+      font-style: normal;
+      font-weight: normal;
+      line-height: 1;
+    }
+
+    &.icon-type:before {
+      content: "\f01d";
+    }
+
+    &.icon-comment {
+      left: (@icon-margin + 5);
+      bottom: (@icon-margin + 5);
+
+      &:before { content: "\f075"; }
+    }
+
+    &.icon-like {
+      right: (@icon-margin + 5);
+      bottom: (@icon-margin + 5);
+
+      &:before { content: "\f087"; }
     }
   }
+
+  // Preloader Animation Keyframe
+  .preloader(rotate(0deg), rotate(359deg));
+
+  // Preloader Styles and Animations
+  .spinner {
+    .border-top-radius(100%);
+    .border-bottom-radius(100%);
+    .animation(rotation .9s infinite linear);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: (@zindex-modal + 1);
+    display:    block;
+    width:      30px;
+    height:     30px;
+    margin-top: -15px;
+    margin-left: -15px;
+    border:     5px solid rgba(0,174,239,.15);
+  }
+
+  .spinner:before {
+    .border-top-radius(100%);
+    .border-bottom-radius(100%);
+    content:        " ";
+    position:       absolute;
+    left:           0;
+    top:            -5px;
+    display:        block;
+    height:         100%;
+    width:          100%;
+    border-top:     5px solid rgba(0,174,239,.8);
+    border-left:    5px solid transparent;
+    border-bottom:  5px solid transparent;
+    border-right:   5px solid transparent;
+  }
 }
+

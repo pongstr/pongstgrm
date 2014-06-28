@@ -35,11 +35,25 @@
   // HTML Markup
   Pongstgrm.prototype.template = {
     thumbnail: function (options) {
-      var _thumbnail  = '<div id="' + options.data.id + '">'
-          _thumbnail += '<img src="'+ options.data.image +'" alt="'+ options.data.caption +'">'
+      var $target     = options.target,
+          _thumbnail  = '<div id="' + options.data.id + '">'
+          _thumbnail += '<span class="spinner" />'
+
+          _thumbnail += '<div class="meta">'
+        options.data.type === 'video' ?
+          _thumbnail += '<span class="icon icon-type"></span>' : ''
+
+        options.dflt.like ?
+          _thumbnail += '<span class="icon icon-like">' + options.data.likes_count + '</span>' : ''
+
+        options.dflt.comment ?
+          _thumbnail += '<span class="icon icon-comment">' + options.data.comments_count + '</span>' : ''
           _thumbnail += '</div>'
 
-      $(options.target).append(_thumbnail)
+          _thumbnail += '<img data-toggle="media" src="'+ options.data.image +'" alt="'+ options.data.caption +'">'
+          _thumbnail += '</div>'
+
+      $target.append(_thumbnail)
     }
   };
 
@@ -52,7 +66,8 @@
 
     $image.one('load', function () {
       ++start === $image.length &&
-        $(this).fadeIn()
+        $image.fadeIn()
+        $('.spinner').fadeOut()
     }).each(function () {
       this.complete && $(this).load()
     })

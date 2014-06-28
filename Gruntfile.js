@@ -30,10 +30,8 @@ module.exports = function(grunt) {
           {
             expand: true,
             flatten: true,
-            src: [
-              'source/javascript/pongstagr.am.js'
-            ],
-            dest: 'application/assets/js/',
+            src: ['<%= site.app %>/assets/js/pongstagr.am.js'],
+            dest: '<%= site.src %>/javascript/',
             filter: 'isFile'
           }
         ]
@@ -48,24 +46,6 @@ module.exports = function(grunt) {
               'bower_components/jquery/dist/jquery.min.js'
             ],
             dest: 'application/assets/js/jquery/',
-            filter: 'isFile'
-          },
-          { // Font-Awesome Glyphs
-            expand: true,
-            flatten: true,
-            src: ['bower_components/font-awesome/fonts/*'],
-            dest: 'application/assets/fonts/font-awesome/',
-            filter: 'isFile'
-          }
-        ]
-      },
-      lessfiles: {
-        files: [
-          { // Font-awesome less stylesheets
-            expand: true,
-            flatten: true,
-            src: ['bower_components/font-awesome/less/*'],
-            dest: 'source/less/font-awesome',
             filter: 'isFile'
           }
         ]
@@ -142,9 +122,9 @@ module.exports = function(grunt) {
         },
         files: {
           src: [
-            'dist/css/**',
-            'dist/js/**',
-            'Gruntfile.js'
+            '<%= site.src %>/less/**',
+            '<%= site.src %>/css/**',
+            '<%= site.src %>/js/**'
           ]
         }
       }
@@ -157,10 +137,10 @@ module.exports = function(grunt) {
       },
       app: {
         options: {
-          jshintrc: 'application/assets/js/app/.jshintrc'
+          jshintrc: '<%= site.src %>/js/.jshintrc'
         },
         src: [
-          'application/assets/js/app/app.js'
+          '<%= site.app %>/assets/js'
         ]
       }
     }
