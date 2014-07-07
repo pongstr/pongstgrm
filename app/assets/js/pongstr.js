@@ -36,7 +36,7 @@
   Pongstgrm.prototype.template = {
     thumbnail: function (options) {
       var $target     = options.target,
-          _thumbnail  = '<div id="' + options.data.id + '">'
+          _thumbnail  = '<div data-toggle="_modal" id="' + options.data.id + '">'
           _thumbnail += '<span class="spinner" />'
 
           _thumbnail += '<div class="meta">'
@@ -54,6 +54,37 @@
           _thumbnail += '</div>'
 
       $target.append(_thumbnail)
+
+      return
+    },
+    modal: function (options) {
+      var $triggr   = $('[data-toggle=_modal]'),
+          $close    = $('._close'),
+          $modal    = '<div class=_modal    />',
+          $backdrop = '<div class=_backdrop />'
+
+      $triggr.on('click', function (e) {
+
+        $('body')
+          .append($modal, $backdrop)
+          .toggleClass('active')
+
+        setTimeout (function () {
+          $('._modal, ._backdrop')
+            .addClass('in')
+
+          $('._modal').append('<button class="_close" />')
+        }, 100)
+
+        e.preventDefault()
+      })
+    },
+    close: function (options) {
+      $('._backdrop').on('click', function(e) {
+        e.preventDefault();
+
+        console.log('test')
+      })
     }
   };
 
@@ -62,17 +93,16 @@
     var $image = $('#' + option.data.id + ' > img')
       ,  start = 0
 
-    $image.hide()
-
     $image.one('load', function () {
       ++start === $image.length &&
-        $image.fadeIn()
+        $image.addClass('in')
         $('.spinner').fadeOut()
     }).each(function () {
       this.complete && $(this).load()
     })
   };
 
+  // Begin Photostream
   Pongstgrm.prototype.start = function () {
     var $element = $(this.element)
       ,  options =  this.options
@@ -129,6 +159,9 @@
 
       })
 
+      Pongstgrm.prototype.template.modal();
+      Pongstgrm.prototype.template.close();
+
       return
     }
 
@@ -142,7 +175,6 @@
             option.opt.show !== 'profile' ?
               media   (data.data, option.opt) :
               profile (data.data, option.opt)
-
         }
       })
     }

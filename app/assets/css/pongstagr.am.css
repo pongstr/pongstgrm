@@ -5857,12 +5857,20 @@ td.visible-print {
   }
 }
 .pongstagrm > div > img {
+  -webkit-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
   position: relative;
   z-index: 125;
+  opacity: 0;
   width: 100%;
   max-width: 100%;
   height: auto;
   cursor: pointer;
+}
+.pongstagrm > div > img.in {
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  opacity: 1;
 }
 .pongstagrm .icon {
   display: block;
@@ -5959,4 +5967,79 @@ td.visible-print {
   border-left: 5px solid transparent;
   border-bottom: 5px solid transparent;
   border-right: 5px solid transparent;
+}
+._backdrop {
+  -webkit-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  cursor: default;
+}
+._backdrop.in {
+  -webkit-transition: opacity 0.5 ease-in-out;
+  transition: opacity 0.5 ease-in-out;
+  opacity: 1;
+}
+._modal {
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-transform: scale(0.5, 0.5);
+  -ms-transform: scale(0.5, 0.5);
+  transform: scale(0.5, 0.5);
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  z-index: 1001;
+  width: 640px;
+  height: 640px;
+  margin-left: -320px;
+  background-color: #fff;
+  border-radius: 4px;
+  opacity: 0;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+}
+._modal.in {
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-transform: scale(1, 1);
+  -ms-transform: scale(1, 1);
+  transform: scale(1, 1);
+  opacity: 1;
+}
+._close {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  position: absolute;
+  top: 0;
+  right: -40px;
+  z-index: 1002;
+  display: block;
+  width: 28px;
+  height: 28px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: transparent;
+  border: 3px solid #fff;
+  border-radius: 100%;
+  opacity: .85;
+}
+._close:before {
+  position: absolute;
+  top: -2px;
+  left: 5px;
+  content: "\00d7";
+  line-height: 1;
+  color: #ffffff;
+}
+._close:hover {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  opacity: 1;
 }

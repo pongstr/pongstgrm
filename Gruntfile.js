@@ -84,7 +84,7 @@ module.exports = function(grunt) {
         tasks: ['less:development']
       },
       jshint: {
-        files: ['source/javascript/*.js'],
+        files: ['src/js/*.js'],
         tasks: ['jshint:app']
       },
       copy: {
@@ -137,10 +137,12 @@ module.exports = function(grunt) {
       },
       app: {
         options: {
-          jshintrc: '<%= site.src %>/js/.jshintrc'
+          jshintrc: '.jshintrc'
         },
         src: [
-          '<%= site.app %>/assets/js'
+          '<%= site.app %>/app/assets/js/{,*/}*.js',
+          '<%= site.src %>/js/{,*/}*.js',
+          'test/{,*/}*.js'
         ]
       }
     }
