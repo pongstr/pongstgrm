@@ -25,6 +25,6 @@
   // Pongstr({ target: '#recent',  show: 'recent',   count: 4 })
   // Pongstr({ target: '#likes' ,  show: 'liked' ,   count: 4 })
   // Pongstr({ target: '#feed'  ,  show: 'feed'  ,   count: 4 })
-  Pongstr({ target: '#feed'  ,  show: 'nofilter', count: 2 })
+  Pongstr({ target: '#feed'  ,  show: 'nofilter', count: 18 })
 
 }(window.jQuery);

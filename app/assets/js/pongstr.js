@@ -4,6 +4,7 @@
   var Pongstgrm = function (element, options) {
     this.element  = element
     this.options  = options
+    this.toggle   = '[data-toggle=_modal]'
 
     return this
   }
@@ -21,71 +22,86 @@
     , show:       'recent'
 
     // PLUGIN COMPONENTS
-    , like:              true
-    , mute:              true
-    , button:            true
+    , like:               true
+    , mute:               true
+    , button:             true
     , counts:             true
-    , picture:           64
-    , comment:           true
-    , preload:           true
-    , profile_bg_img:    null
-    , profile_bg_color:  '#d9534f'
+    , preload:            true
+    , comment:            true
+    , picture:            64
+    , profile_bg_img:     null
+    , profile_bg_color:   '#d9534f'
   };
 
   // HTML Markup
-  Pongstgrm.prototype.template = {
-    thumbnail: function (options) {
-      var $target     = options.target,
-          _thumbnail  = '<div data-toggle="_modal" id="' + options.data.id + '">'
-          _thumbnail += '<span class="spinner" />'
+  Pongstgrm.prototype.template = function (options, target) {
+    var _image = $(document.createElement('img'))
+          .attr({ src: options.data.thumbnail, alt: options.data.caption })
 
-          _thumbnail += '<div class="meta">'
-        options.data.type === 'video' ?
-          _thumbnail += '<span class="icon icon-type"></span>' : ''
+      , _spinner = $(document.createElement('span'))
+          .attr({ class: 'spinner' })
 
-        options.dflt.like ?
-          _thumbnail += '<span class="icon icon-like">' + options.data.likes_count + '</span>' : ''
+      , _likes  = !options.likes ? '' : $(document.createElement('span'))
+          .attr({ class: 'icon icon-like' })
 
-        options.dflt.comment ?
-          _thumbnail += '<span class="icon icon-comment">' + options.data.comments_count + '</span>' : ''
-          _thumbnail += '</div>'
+      , _comment = !options.comments ? '' : $(document.createElement('span'))
+          .attr({ class: 'icon icon-comment'})
 
-          _thumbnail += '<img data-toggle="media" src="'+ options.data.image +'" alt="'+ options.data.caption +'">'
-          _thumbnail += '</div>'
+      , _type = $(document.createElement('span'))
+          .attr({ class: 'icon icon-video' })
 
-      $target.append(_thumbnail)
+    var thumbnail = $(document.createElement('div'))
+          .attr({ id: options.data.id, 'data-toggle': '_modal' })
+          .append(_spinner, _likes, _comment, _type, _image)
 
-      return
-    },
-    modal: function (options) {
-      var $triggr   = $('[data-toggle=_modal]'),
-          $close    = $('._close'),
-          $modal    = '<div class=_modal    />',
-          $backdrop = '<div class=_backdrop />'
+    $(target).append(thumbnail)
 
-      $triggr.on('click', function (e) {
+    return
+  };
 
-        $('body')
-          .append($modal, $backdrop)
-          .toggleClass('active')
+  // Modal Window
+  Pongstgrm.prototype.modal = function (options) {
+    var $trigger  = $('#' + options.data.id)
+      , _modal    = $(document.createElement('div')).attr({ class: '_modal' })
+      , _close    = $(document.createElement('button')).attr({ class: '_close' })
+      , _backdrop = $(document.createElement('div')).attr({ class: '_backdrop' }).append(_modal)
 
-        setTimeout (function () {
-          $('._modal, ._backdrop')
-            .addClass('in')
+    var _image  = $(document.createElement('img'))
+          .attr({ src: options.data.image, alt: options.data.caption }),
+        _video  = '<video width="100%" height="auto">'
+        _video += '<source src="'+ options.data.video +'" type="video/mp4">'
+        _video += '</video>'
 
-          $('._modal').append('<button class="_close" />')
-        }, 100)
+    $trigger.on('click', function (e) {
+      $('body')
+        .append(_backdrop)
+        .addClass('active')
+
+      setTimeout (function () {
+        $('._modal, ._backdrop').addClass('in')
+        $('._modal').append(_close)
+      }, 100)
+
+      options.data.type !== 'video' ?
+        $('._modal').append(_image) :
+          navigator.userAgent.match(/webkit/i) || navigator.userAgent.match(/(iPod|iPhone|iPad)/) ?
+            $('._modal').append(video) : $('._modal').append(_image);
+
+      e.preventDefault()
+    })
+
+      $(document).on('click', '._close', function (e) {
+        $('body').removeClass('active')
+        $('._modal, ._backdrop').removeClass('in')
+
+        setTimeout(function () {
+          $(_backdrop).remove()
+        }, 500)
 
         e.preventDefault()
       })
-    },
-    close: function (options) {
-      $('._backdrop').on('click', function(e) {
-        e.preventDefault();
 
-        console.log('test')
-      })
-    }
+    return
   };
 
   // Lazyloading Images
@@ -105,7 +121,7 @@
   // Begin Photostream
   Pongstgrm.prototype.start = function () {
     var $element = $(this.element)
-      ,  options =  this.options
+      ,  options = this.options
       ,  apiurl  = 'https://api.instagram.com/v1/users/'
       ,  rcount  = '?count=' +  options.count + '&access_token=' + options.accessToken
 
@@ -154,13 +170,10 @@
               }
           }
 
-        Pongstgrm.prototype.template.thumbnail (defaults)
+        Pongstgrm.prototype.template (defaults, $element)
         Pongstgrm.prototype.lazyload (defaults)
-
+        Pongstgrm.prototype.modal (defaults)
       })
-
-      Pongstgrm.prototype.template.modal();
-      Pongstgrm.prototype.template.close();
 
       return
     }
@@ -228,5 +241,6 @@
     })
   };
 
+  $.fn.pongstgrm.defaults = Pongstgrm.options
 
 }(window.jQuery);

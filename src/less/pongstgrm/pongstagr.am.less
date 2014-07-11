@@ -109,8 +109,12 @@
   }
 }
 
+body.active {
+  overflow: hidden;
+}
+
 ._backdrop {
-  .transition(opacity .5s ease-in-out);
+  .transition(opacity .3s linear);
   position: fixed;
   top: 0;
   left: 0;
@@ -120,39 +124,50 @@
   opacity: 0;
   background-color: fade(#000, 75%);
   cursor: default;
+  overflow-y: scroll;
 
   &.in {
-    .transition(opacity .5 ease-in-out);
+    .transition(opacity .2 ease-out);
     opacity: 1;
   }
 }
 
 ._modal {
-  .transition(all .5s ease-in-out);
+  .transition(all .3s ease-out);
   .scale(.5, .5);
-  position: absolute;
-  top: 15%;
-  left: 50%;
-  z-index: 1001;
+  // position: absolute;
+  // top: 15%;
+  // left: 50%;
+  // z-index: 1001;
   width: 640px;
-  height: 640px;
-  margin-left: (640px / -2);
+  height: auto;
+  margin: 100px auto;
+  // margin-left: (640px / -2);
+  // margin-bottom: (640px / -2);
   background-color: #fff;
   border-radius: 4px;
   opacity: 0;
   box-shadow: 0 0 25px fade(#000, 25%);
+
   &.in {
-    .transition(all .5s ease-in-out);
+    .transition(all .2s ease-in);
     .scale(1, 1);
     opacity: 1;
+  }
+
+  img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 2px;
   }
 }
 
 ._close {
   .transition(all .3s ease);
   position: absolute;
-  top: 0;
-  right: -40px;
+  top: -30px;
+  right: -30px;
   z-index: 1002;
   display: block;
   width: 28px;
@@ -177,5 +192,10 @@
   &:hover {
     .transition(all .3s ease);
     opacity: 1;
+    color: @brand-primary;
+  }
+
+  &:focus {
+    outline: 0 none;
   }
 }
