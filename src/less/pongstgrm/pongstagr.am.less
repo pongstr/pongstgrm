@@ -114,7 +114,7 @@ body.active {
 }
 
 ._backdrop {
-  .transition(opacity .3s linear);
+  .transition(opacity .2s ease-out);
   position: fixed;
   top: 0;
   left: 0;
@@ -133,14 +133,14 @@ body.active {
 }
 
 ._modal {
-  .transition(all .3s ease-out);
+  .transition(all .2s ease-out);
   .scale(.5, .5);
   // position: absolute;
   // top: 15%;
   // left: 50%;
   // z-index: 1001;
   width: 640px;
-  height: auto;
+  height: 640px;
   margin: 100px auto;
   // margin-left: (640px / -2);
   // margin-bottom: (640px / -2);
@@ -163,7 +163,7 @@ body.active {
   }
 }
 
-._close {
+button._close {
   .transition(all .3s ease);
   position: absolute;
   top: -30px;
@@ -175,10 +175,16 @@ body.active {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
   font-size: 20px;
+  color: #fff;
   background-color: transparent;
   border: 3px solid #fff;
   border-radius: 100%;
   opacity: .85;
+
+  &:hover {
+    .transition(all .3s ease);
+    opacity: 1;
+  }
 
   &:before {
     position: absolute;
@@ -186,16 +192,16 @@ body.active {
     left: 5px;
     content: "\00d7";
     line-height: 1;
-    color: #fff
   }
 
-  &:hover {
-    .transition(all .3s ease);
-    opacity: 1;
-    color: @brand-primary;
-  }
+  &:focus { outline: 0 none; }
+}
 
-  &:focus {
-    outline: 0 none;
-  }
+.loadmore {
+  .clearfix();
+  display: block;
+  // width: 100%;
+  margin-left: (@grid-gutter-width / 2);
+  margin-right: (@grid-gutter-width / 2);
+  padding: @grid-gutter-width;
 }

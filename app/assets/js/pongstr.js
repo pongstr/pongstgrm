@@ -1,7 +1,7 @@
 
-+function ($) { 'use strict'
++function ($) { 'use strict';
 
-  var Pongstgrm = function (element, options) {
+  var O_o = function (element, options) {
     this.element  = element
     this.options  = options
     this.toggle   = '[data-toggle=_modal]'
@@ -9,7 +9,7 @@
     return this
   }
 
-  Pongstgrm.defaults = {
+  O_o.defaults = {
     // USER AUTHENTICATION
       accessId:     null
     , accessToken:  null
@@ -34,24 +34,24 @@
   };
 
   // HTML Markup
-  Pongstgrm.prototype.template = function (options, target) {
+  O_o.prototype.markup = function (data, meta, target) {
     var _image = $(document.createElement('img'))
-          .attr({ src: options.data.thumbnail, alt: options.data.caption })
+          .attr({ src: data.images.low_resolution.url, alt: meta.caption })
 
       , _spinner = $(document.createElement('span'))
           .attr({ class: 'spinner' })
 
-      , _likes  = !options.likes ? '' : $(document.createElement('span'))
+      , _likes  = !meta.opt.likes ? null : $(document.createElement('span'))
           .attr({ class: 'icon icon-like' })
 
-      , _comment = !options.comments ? '' : $(document.createElement('span'))
+      , _comment = !meta.opt.comments ? null : $(document.createElement('span'))
           .attr({ class: 'icon icon-comment'})
 
-      , _type = $(document.createElement('span'))
+      , _type = meta.opt.type === 'video' && $(document.createElement('span'))
           .attr({ class: 'icon icon-video' })
 
     var thumbnail = $(document.createElement('div'))
-          .attr({ id: options.data.id, 'data-toggle': '_modal' })
+          .attr({ id: data.id, 'data-toggle': '_modal' })
           .append(_spinner, _likes, _comment, _type, _image)
 
     $(target).append(thumbnail)
@@ -59,54 +59,74 @@
     return
   };
 
-  // Modal Window
-  Pongstgrm.prototype.modal = function (options) {
-    var $trigger  = $('#' + options.data.id)
-      , _modal    = $(document.createElement('div')).attr({ class: '_modal' })
-      , _close    = $(document.createElement('button')).attr({ class: '_close' })
-      , _backdrop = $(document.createElement('div')).attr({ class: '_backdrop' }).append(_modal)
+  O_o.prototype.modal = function (data, meta) {
+    var $trigger  = $('#' + data.id)
+      ,  modal    = '._modal'
+      ,  bckdrp   = '._backdrop'
+      , _backdrop = $(document.createElement('div'))
+                      .attr({ class: '_backdrop' })
 
-    var _image  = $(document.createElement('img'))
-          .attr({ src: options.data.image, alt: options.data.caption }),
-        _video  = '<video width="100%" height="auto">'
-        _video += '<source src="'+ options.data.video +'" type="video/mp4">'
-        _video += '</video>'
+    function soClose (e) {
+        $('body').removeClass('active')
+        $(bckdrp).removeClass('in')
+        $(modal).removeClass('in')
+
+        setTimeout(function () {
+          $(modal).remove()
+          $(bckdrp).remove()
+        }, 500)
+
+      e.preventDefault();
+    }
+
 
     $trigger.on('click', function (e) {
+      var _modal  = $(document.createElement('div'))
+                      .attr({ class: '_modal', id: data.id + '_modal'})
+
+        , _close  = $(document.createElement('button'))
+                      .attr({ class: '_close' })
+
+        , _image  = $(document.createElement('img'))
+                      .attr({ src: data.images.standard_resolution.url, alt: meta.caption })
+
+        , _video  = '<video width="100%" height="auto">'
+          _video += '<source src="'+ meta.video +'" type="video/mp4">'
+          _video += '</video>'
+
       $('body')
         .append(_backdrop)
         .addClass('active')
 
+      $(bckdrp)
+        .append(_modal)
+
       setTimeout (function () {
-        $('._modal, ._backdrop').addClass('in')
-        $('._modal').append(_close)
+        $(modal)
+          .addClass('in')
+          .append(_close)
+
+        $(bckdrp)
+          .addClass('in')
       }, 100)
 
-      options.data.type !== 'video' ?
-        $('._modal').append(_image) :
+      data.type !== 'video' ?
+        $(modal).append(_image) :
           navigator.userAgent.match(/webkit/i) || navigator.userAgent.match(/(iPod|iPhone|iPad)/) ?
-            $('._modal').append(video) : $('._modal').append(_image);
+            $(modal).append(_video) : $(modal).append(_image);
 
       e.preventDefault()
     })
 
-      $(document).on('click', '._close', function (e) {
-        $('body').removeClass('active')
-        $('._modal, ._backdrop').removeClass('in')
-
-        setTimeout(function () {
-          $(_backdrop).remove()
-        }, 500)
-
-        e.preventDefault()
-      })
+      $(document)
+        .on('click', '._close', function (e) { soClose(e) })
+        .on('keydown', function (e) { e.which === 27 && soClose(e) })
 
     return
   };
 
-  // Lazyloading Images
-  Pongstgrm.prototype.lazyload = function (option) {
-    var $image = $('#' + option.data.id + ' > img')
+  O_o.prototype.lazyload = function (data) {
+    var $image = $('#' + data.id + ' img')
       ,  start = 0
 
     $image.one('load', function () {
@@ -118,129 +138,112 @@
     })
   };
 
-  // Begin Photostream
-  Pongstgrm.prototype.start = function () {
-    var $element = $(this.element)
-      ,  options = this.options
-      ,  apiurl  = 'https://api.instagram.com/v1/users/'
-      ,  rcount  = '?count=' +  options.count + '&access_token=' + options.accessToken
+  O_o.prototype.instagram = {
+    fetch: function (url, options, target) {
+      var _ig   = this
 
-    $element
-      .attr('data-type', options.show)
-      .addClass('pongstagrm')
+      $.ajax({
+          url       : url
+        , cache     : true
+        , method    : 'GET'
+        , dataType  : 'jsonp'
+        , success  : function(data){
+            options.show !== 'profile' ?
+            _ig.media(data, options, target) : null
+          }
+      })
 
-    function paginate (option) {
-      var triggr = $('[data-paginate='+ option.show +']')
+    },
+    media: function (data, options, target) {
+      var _ig = this
 
-      (option.url === undefined || option.url === null) ?
-        triggr.on('click', function (e) {
-          $(this).attr('disabled', 'disabled')
-
-          e.preventDefault()
-        }) :
-
-        triggr.on('click', function(e) {
-
-          e.preventDefault()
-        })
-
-      return
-    }
-
-    function media (data, option) {
-      $.each(data, function (a, b) {
+      $.each(data.data, function (a, b) {
         var newtime = new Date(b.created_time * 1000)
           , created = newtime.toDateString()
-          , defaults = {
-              dflt: option
-            , target: $element
-            , data: {
-                  id:             b.id
-                , type:           b.type
-                , video:          b.videos && b.videos.standard_resolution.url
-                , image:          b.images.standard_resolution.url
-                , caption:        b.caption && b.caption.text
-                , username:       b.user.username
-                , timestamp:      created
-                , thumbnail:      b.images.low_resolution.url
-                , likes_count:    b.likes.count
-                , comments_count: b.comments.count
-                , comments_data:  b.comments.data
-                , profile_picture:b.user.profile_picture
-              }
+          , data    = b
+          , meta    = {
+              opt:          options
+            , type:         b.type
+            , video:        b.videos && b.videos.standard_resolution.url
+            , caption:      b.caption && b.caption.text
+            , timestamp:    created
+            , profile_img:  b.user.profile_picture
           }
 
-        Pongstgrm.prototype.template (defaults, $element)
-        Pongstgrm.prototype.lazyload (defaults)
-        Pongstgrm.prototype.modal (defaults)
+        O_o.prototype.markup(data, meta, target)
+        O_o.prototype.modal(data, meta)
+        O_o.prototype.lazyload(data)
       })
 
-      return
-    }
+      _ig.paginate(data.pagination.next_url, options, target)
 
-    function ajaxdata (option) {
-      $.ajax({
-          url      : option.url
-        , cache    : true
-        , method   : 'GET'
-        , dataType : 'jsonp'
-        , success  : function(data){
-            option.opt.show !== 'profile' ?
-              media   (data.data, option.opt) :
-              profile (data.data, option.opt)
-        }
+    },
+    paginate: function (data, options, target) {
+      var _ig = this
+
+      $('[data-paginate=' + options.show + ']').on('click', function (e) {
+        (data === undefined || data === null) ?
+          console.log('no more') : _ig.fetch(data, options, target);
+
+        $(this).unbind(e)
+
+        e.preventDefault()
       })
     }
+  };
 
-    switch (options.show) {
-      case 'liked':
-        ajaxdata({
-            url : apiurl + 'self/media/liked' + rcount
-          , opt : options
-        })
-      break
+  O_o.prototype.start = function () {
+    var o_O   = this
+      , $_el  = o_O.element
+      , api   = 'https://api.instagram.com/v1/'
+      , count = '?count=' + o_O.options.count + '&access_token=' + o_O.options.accessToken
+      , btnmo = $(document.createElement('button'))
+          .attr({ class: 'loadmore', 'data-paginate': o_O.options.show })
+          .html('Load More')
 
+    $(o_O.element)
+      .attr({ class: 'pongstagrm', 'data-show': o_O.options.show })
+
+    switch (o_O.options.show) {
       case 'feed':
-        ajaxdata({
-            url: apiurl + 'self/feed' + rcount
-          , opt: options
-        })
+        o_O.instagram.fetch(api + 'self/feed' + count, o_O.options, $_el)
       break
 
-      case 'profile':
-        ajaxdata({
-            url: apiurl + options.accessId + '?access_token=' + options.accessToken
-          , opt: options
-        })
+      case 'liked':
+        o_O.instagram.fetch(api + 'self/media/liked' + count, o_O.options, $_el)
       break
 
       case 'recent':
-        ajaxdata({
-            url: apiurl + options.accessId + '/media/recent' + rcount
-          , opt: options
-        })
+        o_O.instagram.fetch(api + 'users/' + o_O.options.accessId + '/media/recent' + count, o_O.options, $_el)
+      break
+
+      case 'profile':
       break
 
       default:
-        ajaxdata({
-            url: 'https://api.instagram.com/v1/tags/' + options.show + '/media/recent' + rcount
-          , opt: options
-        })
+        o_O.instagram.fetch(api + 'tags/' + o_O.options.show + '/media/recent' + count, o_O.options, $_el)
+      break
     }
 
-    return
+    $(o_O.element).append(btnmo)
   };
 
+  O_o.prototype.auth = function () {
+    (this.options.accessId !== null || this.options.accessToken !== null) &&
+      this.start(); return;
+  }
 
+  // Plugin Definition
   $.fn.pongstgrm = function (option) {
-    var options  = $.extend({}, Pongstgrm.defaults, option)
+    var options  = $.extend({}, O_o.defaults, option)
 
     return this.each(function () {
-      var media = new Pongstgrm($(this)[0], options)
-          media.start()
+      var o_O = new O_o($(this)[0], options)
+          o_O.auth()
     })
   };
 
-  $.fn.pongstgrm.defaults = Pongstgrm.options
+  // Default Options
+  $.fn.pongstgrm.defaults = O_o.options;
 
 }(window.jQuery);

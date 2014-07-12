@@ -39,3 +39,11 @@
     to   { transform: @to;  }
   }
 }
+
+.filter (@process) {
+  -webkit-filter: @process;
+  -moz-filter: @process;
+  -o-filter: @process;
+  -ms-filter: @process;
+  filter: @process;
+}

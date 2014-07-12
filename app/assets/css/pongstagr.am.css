@@ -5972,8 +5972,8 @@ body.active {
   overflow: hidden;
 }
 ._backdrop {
-  -webkit-transition: opacity 0.3s linear;
-  transition: opacity 0.3s linear;
+  -webkit-transition: opacity 0.2s ease-out;
+  transition: opacity 0.2s ease-out;
   position: fixed;
   top: 0;
   left: 0;
@@ -5991,13 +5991,13 @@ body.active {
   opacity: 1;
 }
 ._modal {
-  -webkit-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
   -webkit-transform: scale(0.5, 0.5);
   -ms-transform: scale(0.5, 0.5);
   transform: scale(0.5, 0.5);
   width: 640px;
-  height: auto;
+  height: 640px;
   margin: 100px auto;
   background-color: #fff;
   border-radius: 4px;
@@ -6018,7 +6018,7 @@ body.active {
   height: auto;
   border-radius: 2px;
 }
-._close {
+button._close {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   position: absolute;
@@ -6031,25 +6031,46 @@ body.active {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
   font-size: 20px;
+  color: #fff;
   background-color: transparent;
   border: 3px solid #fff;
   border-radius: 100%;
   opacity: .85;
 }
-._close:before {
+button._close:hover {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  opacity: 1;
+}
+button._close:before {
   position: absolute;
   top: -2px;
   left: 5px;
   content: "\00d7";
   line-height: 1;
-  color: #ffffff;
 }
-._close:hover {
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-  opacity: 1;
-  color: #3a4055;
-}
-._close:focus {
+button._close:focus {
   outline: 0 none;
+}
+.loadmore {
+  display: block;
+  margin-left: 15px;
+  margin-right: 15px;
+  padding: 30px;
+}
+.loadmore:before,
+.loadmore:after {
+  content: " ";
+  display: table;
+}
+.loadmore:after {
+  clear: both;
+}
+.loadmore:before,
+.loadmore:after {
+  content: " ";
+  display: table;
+}
+.loadmore:after {
+  clear: both;
 }
