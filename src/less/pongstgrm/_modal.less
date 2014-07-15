@@ -1,232 +1,82 @@
 
-// Bootstrap Modal Dialog Overrides
-// ================================
-
-
-// Modal Dialog Transitions
-.modal.fade .modal-dialog { .transition(300ms ease-out); }
-
-
-// Modal Content: Reduce border-radius
-.modal-content { 
-  .border-bottom-radius(0); 
-  .border-top-radius(0); 
+body.active {
+  overflow: hidden;
 }
 
-
-.modal-dialog { 
-  width:          980px;
-  padding-top:    50px;
-  padding-bottom: 50px;
-
-  @media (max-width: @screen-sm) {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-
-    .media-column { 
-      min-height: 306px; 
-    }
-
-    .media-column,
-    .media-comment {
-      width: 100%;
-      clear: both;
-      float: none;
-      height: auto;
-      max-height: 100%;
-    }
-
-    .media-column > img,
-    .media-column > video {
-      width: 100%;
-      max-width: 100%;
-      height: auto;
-    }
-  }
-
-  @media (min-width: @screen-sm) and (max-width: @screen-md) {
-    width: 90%;
-
-    .media-column > img,
-    .media-column > video {
-      width: 100%;
-      max-width: 100%;
-      height: auto;
-    } 
-  }
-
-}
-
-
-// Modal Header Props
-.modal-header { padding: 5px 10px; }
-
-
-// Modal Body Props
-.modal-body { padding: 0; }
-
-
-// Modal Body Row
-.modal-body > .row {
-  margin-left:  0;
-  margin-right: 0;
-}
-
-
-.modal-body > .close {
-  .transition(opacity 200ms linear);
-  position: absolute;
-  top: -25px;
-  right: 0;
-  color: #fff;
-  text-shadow: 0 1px 1px #000;
-  opacity: 0.5;
-
-  &:hover {
-    .transition(opacity 200ms linear);
-    opacity: 1;
-  }
-
-  @media (max-width: @screen-xs){
-    top: 5px;
-    right: 12px;
-    z-index: (@zindex-modal + 10);
-    font-size: 30px;
-  }
-
-}
-
-// Modal Body Columns
-.media-column,
-.media-comment {
-  .box-sizing(border-box);
-  float: left;
-}
-
-
-// Modal Body: Media Column
-.media-column { 
-  position:   relative;
-  width:      65%;
-  max-height: 622px;
-  background-color: #f4f4f4;
-}
-
-
-// Modal Body: Media elements inside Media Column must
-// occupy the entire block, and have the specific rounded-corner
-.media-column > img,
-.media-column > video {
-  position:   relative;
-  z-index:    (@zindex-modal + 1);
-  width:      622px;
-  max-width:  100%;
-  height:     622px;
-  margin:     0;
-  padding:    0;
-}
-
-// Prevents cached images to overflow 
-// from the modal dialog body
-.media-column > img {
-  @include transition(opacity 200ms ease);
+._backdrop {
+  .transition(opacity .2s ease-out);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
   opacity: 0;
+  background-color: fade(#000, 75%);
+  cursor: default;
+  overflow-y: scroll;
 
-  &.fade {
-    @include transition(opacity 200ms ease);
+  &.in {
+    .transition(opacity .2 ease-out);
     opacity: 1;
   }
 }
 
+._modal {
+  .transition(all .2s ease-out);
+  .scale(.5, .5);
+  width: 640px;
+  height: 640px;
+  margin: 100px auto;
+  background-color: #fff;
+  border-radius: 4px;
+  opacity: 0;
+  box-shadow: 0 0 25px fade(#000, 25%);
 
-// Modal Body: Media Comments
-.media-comment {
-  position:         relative;
-  width:            35%;
-  max-height:       622px;
-  overflow-y:       scroll;
-  background-color: #f4f4f4;
-}
+  &.in {
+    .transition(all .2s ease-in);
+    .scale(1, 1);
+    opacity: 1;
+  }
 
-
-// Modal Body: Media Comments Container
-.media-comment > .media { 
-  padding:    8px 15px 5px 15px; 
-  font-size:  12px;
-}
-
-.media-comment > .media .media-heading {
-  text-transform: capitalize;
-}
-
-// Modal Body: Media Comments, alternate 
-// background colors for easier reading 
-.media-comment > .media:first-child { 
-  border-top:     5px solid @brand-danger; 
-  border-bottom:  1px solid #eee;
-}
-
-.media-comment > .media:nth-of-type(odd)  { background-color: #fff; }
-.media-comment > .media:nth-of-type(even) { background-color: #f4f4f4; }
-
-
-// Alert for browser's that don't support html5 videos or mpeg-4 format
-.media-column > .alert {
-  position:     absolute;
-  top:          50%;
-  left:         50%;
-  z-index:      (@zindex-modal + 5);
-  width:        72%;
-  margin-top:   -5%;
-  margin-left:  -36%;
-  color:        #fff;
-  text-shadow:  0 1px 1px #111;
-  text-align:   center;
-  background-color: rgba(0,0,0, 0.75);
-}
-
-
-// Spinner
-.media-column > .spinner {
-  position: absolute;
-  top:          50%;
-  left:         50%;
-  margin-top:  -15px;
-  margin-left: -15px;
-}
-
-
-
-// Custom Video Controls
-// ==========================================================================
-
-.media-column > .btn { 
-  .button-variant(#fff, rgba(11,11,11, 0.55), rgba(0,0,0,0.25));
-  .transition(background-color 200ms ease);
-  position:     absolute;
-  z-index: (@zindex-modal + 10);
-  text-shadow:  0 1px 1px #000;
-
-  &:hover {
-    .transition(background-color 200ms ease);
-    .button-variant(#fff, rgba(11,11,11, 1), rgba(0,0,0, 1));
+  img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 2px;
   }
 }
 
+button._close {
+  .transition(all .3s ease);
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  z-index: 1002;
+  display: block;
+  width: 28px;
+  height: 28px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  color: #fff;
+  background-color: transparent;
+  border: 3px solid #fff;
+  border-radius: 100%;
+  opacity: .85;
 
-#play-pause {
-  bottom: 20px;
-  left:   20px;
+  &:hover {
+    .transition(all .3s ease);
+    opacity: 1;
+  }
+
+  &:before {
+    position: absolute;
+    top: -2px;
+    left: 5px;
+    content: "\00d7";
+    line-height: 1;
+  }
+
+  &:focus { outline: 0 none; }
 }
-
-#mute {
-  bottom: 20px;
-  right: 20px;
-
-  > .glyphicon-volume-up  { color: darken(@brand-success, 10%); }
-  > .glyphicon-volume-off { color: darken(@brand-danger, 5%); }
-}
-
-
-

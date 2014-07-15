@@ -200,7 +200,6 @@
       , btnmo = $(document.createElement('button'))
           .attr({ class: 'loadmore', 'data-paginate': o_O.options.show })
           .html('Load More')
-
     $(o_O.element)
       .attr({ class: 'pongstagrm', 'data-show': o_O.options.show })
 
@@ -225,7 +224,9 @@
       break
     }
 
-    $(o_O.element).append(btnmo)
+    $(o_O.element)
+      .after('<div class="loader" />')
+    $('.loader').append(btnmo)
   };
 
   O_o.prototype.auth = function () {

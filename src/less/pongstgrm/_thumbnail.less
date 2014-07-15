@@ -1,0 +1,105 @@
+
+@icon-margin: 15px;
+
+.pongstagrm {
+  .make-row();
+}
+
+.pongstagrm > div {
+  .make-xs-column(12; @gutter: @grid-gutter-width);
+  .make-sm-column(6;  @gutter: @grid-gutter-width);
+  .make-md-column(3;  @gutter: @grid-gutter-width);
+  .make-lg-column(3;  @gutter: @grid-gutter-width);
+  position: relative;
+  min-height: 240px;
+  margin-top: (@grid-gutter-width / 2);
+  margin-bottom: ( @grid-gutter-width / 2);
+}
+
+.pongstagrm > div > img {
+  .transition(opacity .5s ease-in-out);
+  position: relative;
+  z-index: 125;
+  opacity: 0;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  cursor: pointer;
+
+  &.in {
+    .transition(opacity .2s ease-in-out);
+    opacity: 1;
+  }
+}
+
+.pongstagrm .icon {
+  display: block;
+  position: absolute;
+  z-index: 110;
+
+  &:before {
+    margin-right: 5px;
+    font-family: "FontAwesome";
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+  }
+
+  &.icon-type:before {
+    content: "\f01d";
+  }
+
+  &.icon-comment {
+    left: (@icon-margin + 5);
+    bottom: (@icon-margin + 5);
+
+    &:before { content: "\f075"; }
+  }
+
+  &.icon-like {
+    right: (@icon-margin + 5);
+    bottom: (@icon-margin + 5);
+
+    &:before { content: "\f087"; }
+  }
+}
+
+// Preloader Animation Keyframe
+.preloader(rotate(0deg), rotate(359deg));
+
+// Preloader Styles and Animations
+.spinner {
+  .border-top-radius(100%);
+  .border-bottom-radius(100%);
+  .animation(rotation .9s infinite linear);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: (@zindex-modal + 1);
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin-top: -15px;
+  margin-left: -15px;
+  border: 5px solid rgba(0,174,239,.15);
+}
+
+.spinner:before {
+  .border-top-radius(100%);
+  .border-bottom-radius(100%);
+  content: " ";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: block;
+  height: 30px;
+  width: 30px;
+  margin-top: -15px;
+  margin-left: -15px;
+  border-style: solid;
+  border-width: 5px;
+  border-top-color: rgba(0,174,239,.8);
+  border-left-color: transparent;
+  border-bottom-color: rgba(0,174,239,.8);
+  border-right-color: transparent;
+}

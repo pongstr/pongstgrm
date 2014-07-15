@@ -61,7 +61,7 @@ module.exports = function(grunt) {
           sourceMap: false
         },
         files: {
-          '<%= site.app %>/assets/css/<%= pkg.name %>.css' : '<%= site.src %>/less/bootstrap.less'
+          '<%= site.app %>/assets/css/<%= pkg.name %>.css' : '<%= site.src %>/less/pongstgrm/<%= pkg.name %>.less'
         }
       },
       production: {
@@ -71,7 +71,7 @@ module.exports = function(grunt) {
           compress: true
         },
         files: {
-          '<%= site.app %>/assets/css/<%= pkg.name %>.min.css' : '<%= site.src %>/less/bootstrap.less'
+          '<%= site.app %>/assets/css/<%= pkg.name %>.min.css' : '<%= site.src %>/less/pongstgrm/<%= pkg.name %>.less'
         }
       }
     },
