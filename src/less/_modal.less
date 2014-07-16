@@ -80,3 +80,41 @@ button._close {
 
   &:focus { outline: 0 none; }
 }
+
+._pager {
+  position: absolute;
+  top: 50%;
+  width: 72px;
+  height: 0;
+  margin-top: -30px;
+  padding-top: 72px;
+  font-weight: 300;
+  text-decoration: none;
+  color: #fff;
+  overflow: hidden;
+
+  &.prev {
+    left: 20px;
+  }
+
+  &.next {
+    right: 20px;
+  }
+
+  &:before {
+    position: absolute;
+    top: 0;
+    font-family: "FontAwesome";
+    font-size: 60px;
+  }
+
+  &.prev:before {
+    text-align: right;
+    content: "\f137";
+  }
+
+  &.next:before {
+    text-align: left;
+    content: "\f138";
+  }
+}

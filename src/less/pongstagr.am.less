@@ -5,14 +5,12 @@
 @import "_thumbnail.less";
 @import "_modal.less";
 
-* {
-  .box-sizing(border-box);
-}
-*:before,
-*:after {
-  .box-sizing(border-box);
-}
-
+.pongstagrm,
+.pongstagrm:before,
+.pongstagrm:after,
+.pongstagrm *,
+.pongstagrm *:before,
+.pongstagrm *:after { .box-sizing(border-box); }
 
 .pongstagrm {
   .make-row();
@@ -36,17 +34,24 @@
   margin-left: (@grid-gutter-width / -2);
   margin-right: (@grid-gutter-width / -2);
   padding: @grid-gutter-width;
+  text-align: center;
   background-color: lighten(#eee, 2%);
 }
 
 .loadmore {
+  .transition(color .2s ease);
   padding: 8px 16px;
   font-size: 11px;
   font-weight: bold;
-  color: #666;
+  color: darken(#ccc, 10%);
   text-transform: uppercase;
   border: 0 none;
   background-color: transparent;
+
+  &:hover {
+    .transition(color .2s ease);
+    color: darken(#ccc, 50%);
+  }
 
   &:focus { outline: 0 none; }
 }
