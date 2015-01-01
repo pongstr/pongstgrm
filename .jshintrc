@@ -1,11 +1,10 @@
 {
   "asi"      : true,
-  "boss"     : true,
   "browser"  : true,
   "curly"    : false,
   "debug"    : true,
   "devel"    : true,
-  "eqeqeq"   : false,
+  "eqeqeq"   : true,
   "eqnull"   : true,
   "expr"     : true,
   "laxbreak" : true,

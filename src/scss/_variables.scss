@@ -1,0 +1,17 @@
+
+$screen-xs: 480px;
+$screen-sm: 768px;
+$screen-md: 992px;
+$screen-lg: 1200px;
+
+$screen-xs-max: ($screen-sm - 1);
+$screen-sm-max: ($screen-md - 1);
+$screen-md-max: ($screen-lg - 1);
+
+$brand-linkBlue: #4183c4;
+$brand-lightGrey: #999;
+$brand-medGrey: #666;
+$brand-darkGrey: #333;
+$brand-green: #6CC644;
+$brand-red: #BD2C00;
+$brand-orange: #f93;

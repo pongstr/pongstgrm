@@ -1,0 +1,82 @@
+
+@mixin clearfix () {
+  &:before,
+  &:after {
+    display: table;
+    content: " ";
+  }
+
+  &:after { clear: both; }
+}
+
+@mixin thumbnail ($width-height: 100%) {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  img {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@mixin flexbox ($flex-width: $screen-md, $flex-margin: auto, $child-square: 250px) {
+  @include clearfix();
+  display: flex;
+  display: -webkit-flex;
+  width: $flex-width;
+  margin-left: $flex-margin;
+  margin-right: $flex-margin;
+
+  // Flex Props
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: stretch;
+
+  -webkit-flex-flow: row wrap;
+  -webkit-justify-content: center;
+  -webkit-align-content: center;
+  -webkit-align-items: stretch;
+
+  > div {
+    @include clearfix();
+    position: relative;
+    width: $child-square;
+    min-height: $child-square;
+
+    // Flex Props
+    flex-grow: 0;
+    -webkit-flex-grow: 0;
+
+    @media (max-width: $screen-xs) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  &.flexgrow {
+
+  }
+
+  &.flexgrow > div {
+    flex-grow: 1;
+    flex-shrink: 2;
+    -webkit-flex-grow: 1;
+    -webkit-flex-shrink: 2;
+  }
+}
+
+
+@mixin container ($container-padding: 15px, $container-margin: auto) {
+  @include clearfix();
+  margin-left: $container-margin;
+  margin-right: $container-margin;
+  padding-left: $container-padding;
+  padding-right: $container-padding;
+
+  > div {
+    float: left;
+    width: percentage((4 / 12));
+  }
+}

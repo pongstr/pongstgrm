@@ -13,17 +13,23 @@
     "instagram",
     "jquery",
     "plugin",
-    "pongstr"
+    "pongstr",
     "pongstagram"
   ],
   "license": "MIT",
   "ignore": [
     "**/.*",
-    "source/.jshintrc",
+    ".jshintrc",
+    "tests",
+    "examples",
     "node_modules",
     "bower_components"
   ],
   "dependencies": {
-    "jquery": ">= 1.11.0"
+    "jquery": ">= 1.11.0",
+    "normalize.css": "~3.0.2"
+  },
+  "devDependencies": {
+    "qunit": "~1.16.0"
   }
 }
