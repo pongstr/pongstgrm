@@ -19,6 +19,4 @@ $(function () { 'use strict';
     ok($.fn.pongstgrm.defaults, 'default options are defined')
   })
 
-
-
 });
