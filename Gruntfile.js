@@ -1,183 +1,66 @@
 module.exports = function(grunt) {
 
-  // Project configuration.
+  // Load grunt tasks automatically
+  require('load-grunt-tasks')(grunt);
+
+  // Time how long tasks take. Can help when optimizing build times
+  require('time-grunt')(grunt);
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    banner: '/*! ========================================================================== \n' +
-            ' * <%= pkg.name %> v<%= pkg.version %> <%= pkg.desc %> | <%= pkg.homepage %> \n' +
-            ' * =========================================================================== \n' +
-            ' * Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author %>. Licensed under MIT License. \n' +
-            ' * =========================================================================== */\n',
-    copy: {
-      jquery: {
-        files: [
-          { // jQuery latest (unminified)
-            flatten:  true,
-            src:      ['bower_components/jquery/jquery.min.js'],
-            dest:      'assets/js/jquery.min.js',
-            filter:    'isFile'
-          }
-        ]
-      },
-      bootstrap: {
-        files: [
-          { // Bootstrap JS 
-            flatten:  true,
-            src:      ['bower_components/bootstrap/dist/js/bootstrap.min.js'],
-            dest:      'assets/js/bootstrap.min.js',
-            filter:    'isFile'
-          },
-          { // Copy Bootstrap Less files
-            expand:   true,
-            flatten:  true,
-            src:      ['bower_components/bootstrap/less/*'],
-            dest:      'assets/less/bootstrap/',
-            filter:    'isFile'            
-          },
-          { // Bootstrap Glyphicons
-            expand:   true,
-            flatten:  true,
-            src:      ['bower_components/bootstrap/dist/fonts/*'],
-            dest:      'assets/fonts/bootstrap/',
-            filter:    'isFile'
-          }
-        ]
-      },
-      fontawesome: {
-        files: [
-         { // Font-Awesome Less
-            expand:   true,
-            flatten:  true,
-            src:      ['bower_components/font-awesome/less/*'],
-            dest:      'assets/less/font-awesome/',
-            filter:    'isFile'
-          },
-          { // Font-Awesome Glyphs
-            expand:   true,
-            flatten:  true,
-            src:      ['bower_components/font-awesome/fonts/*'],
-            dest:      'assets/fonts/font-awesome/',
-            filter:    'isFile'
-          }
-        ]
-      }
+    site: {
+      app:    'app',
+      src:    'src',
+      dist:   'dist-<%= pkg.name %>',
+      test:   'tests',
+      bower:  'bower_components'
     },
-    jshint: {
-      options: { jshintrc: 'source/.jshintrc' },
-      src: { src: ['source/pongstagr.am.js'] }
-    },
-    usebanner: {
-      dist: {
+    banner: '/*! <%= pkg.name %> v<%= pkg.version %> <%= pkg.description %> '+
+            ' * <%= pkg.license %> \n' +
+            ' */',
+    // Less Pre-processor
+    less: {
+      dev: {
         options: {
-          position: 'top',
-          banner: '<%= banner %>'
+          sourceMap: false,
+          strictMath: true
         },
         files: {
-          src: [
-            'source/<%= pkg.name %>.css',
-            'source/<%= pkg.name %>.js',
-          ]
+          '<%= site.src %>/css/<%= pkg.name %>.css': '<%= site.src %>/less/<%= pkg.name %>.less'
         }
-      }      
-    },
-    concat: {
-      options: {
-        stripBanners: true,
-        separator: ';',
-        banner:  '<%= banner %> \n'
       },
-      docsjs: {
-        src: [
-          'assets/js/prettify.js',
-          'assets/js/easing.js',
-          'assets/js/docs.js'         
-        ],
-        dest: 'assets/js/plugins.js'
-      },
-    },
-    uglify: {
-      options: {
-        banner: '<%= banner %> \n',
-        stripBanners: true
-      },
-      plugin_min: { 
-        src:  'source/<%= pkg.name %>.js',
-        dest: 'source/<%= pkg.name %>.min.js'
-      },
-      docs: {
-        src: 'assets/js/plugins.js',
-        dest: 'assets/js/plugins.js'
+      dist: {
+        options: {
+          compress: true,
+          sourceMap: true,
+          strictMath: true
+        },
+        files: {
+          '<%= site.src %>/css/<%= pkg.name %>.min.css': '<%= site.src %>/less/<%= pkg.name %>.less'
+        }
       }
     },
-    recess: {
-      options: { 
-        banner: '<%= banner %> \n',
-        compile: true,
-        noIDs: true,
-        zeroUnits: true
+
+    // Jshint
+    jshint: {
+      options: {
+        jshintrc: '.jshintrc'
       },
-      docs: {
-        options: { compress: true },
-        src: ['assets/less/docs.less'],
-        dest: 'assets/css/docs.css'
-      },
-      fontawesome: {
-        options: { compress: true },
-        src: ['assets/less/font-awesome/font-awesome.less'],
-        dest: 'assets/css/font-awesome.css'
-      },
-      plugin: {
-        options: { compress: false },
-        src: ['assets/less/<%= pkg.name %>.less'],
-        dest: 'source/<%= pkg.name %>.css'
-      },
-      plugin_min: {
-        options: { compress: true },
-        src: ['assets/less/<%= pkg.name %>.less'],
-        dest: 'source/<%= pkg.name %>.min.css'
-      }
+      files: ['<%= site.src %>/js/*.js']
     },
-    imagemin: {
-      img: {
-        files: [
-          {
-            expand: true,
-            cwd: '_images/img',
-            src: ['*.{png,jpg,gif}'],
-            dest: 'assets/img'
-          }
-        ]        
-      },
-      ico: {
-        files: [
-          {
-            expand: true,
-            cwd: '_images/ico',
-            src: ['*.{png,jpg,gif}'],
-            dest: 'assets/ico'
-          }
-        ]        
+
+    // Watch Less stylesheets
+    watch: {
+      less: {
+        files: '<%= site.src %>/less/**/*.less',
+        tasks: ['less']
       }
     }
   });
 
-  // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-banner');
-  grunt.loadNpmTasks('grunt-recess');
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-imagemin');
-
-  // Update Deps
-  grunt.registerTask('update-packages', ['copy']);
-
-  // Optimise Images
-  grunt.registerTask('optimize-image', ['imagemin']);
-  grunt.registerTask('build-css', ['recess:docs']);
-
-  // Compress Sources
-  grunt.registerTask('default', ['jshint', 'usebanner', 'concat', 'uglify', 'recess', 'imagemin']);
-
+  // Run CSS Tasks
+  grunt.registerTask('buildcss', [
+    'less',
+    'watch:less'
+  ]);
 };

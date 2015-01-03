@@ -1,31 +1,35 @@
 {
-  "name":         "pongstagr.am",
-  "version":      "3.0.4",
-  "author":       "Pongstr <twiz.tickler@gmail.com>",
-  "homepage":     "http://pongstr.github.io/pongstagr.am/",
-  "description":  "a jquery plugin that lets you display instagram media to your website.",
+  "name": "pongstagr.am",
+  "version": "0.1.0",
+  "author": "Pongstr <twiz.tickler@gmail.com>",
+  "homepage": "http://pongstr.github.io/pongstagr.am/",
+  "description": "a jquery plugin that lets you display instagram media to your website.",
   "main": [
-    "source/pongstagr.am.css", 
-    "source/pongstagr.am.min.css", 
-    "source/pongstagr.am.js",
-    "source/pongstagr.am.min.js"
+    "src/scss",
+    "src/css",
+    "src/js"
   ],
   "keywords": [
     "instagram",
     "jquery",
     "plugin",
-    "bootstrap"
+    "pongstr",
+    "pongstagram"
   ],
   "license": "MIT",
   "ignore": [
     "**/.*",
-    "source/.jshintrc",
+    ".jshintrc",
+    "tests",
+    "examples",
     "node_modules",
     "bower_components"
   ],
   "dependencies": {
-    "jquery": ">= 1.9.0",
-    "bootstrap": "~3.0.3",
-    "font-awesome": "~4.0.3"
+    "jquery": ">= 1.11.0",
+    "normalize.css": "~3.0.2"
+  },
+  "devDependencies": {
+    "qunit": "~1.16.0"
   }
 }
