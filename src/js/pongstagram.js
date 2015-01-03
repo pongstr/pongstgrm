@@ -28,22 +28,61 @@
     , btn_mute:           true      // boolean: show/hide mute button (for video)
     , btn_comment:        true      // boolean: show/hide comment field
     , profile_bg_img:     null      // string:  valid image uri
-    , profile_picture:    64        // integer: profile picture dimensions e.g., (128 == 128x128 pixels)
+    , profile_picture:    64        // number: profile picture dimensions in square format e.g., (128 == 128x128 pixels)
     , profile_bg_color:   '#d9534f' // string: hex value of profile's background-color
   };
 
   Pongstagram.prototype.thumbnail = function (data) {
-    var pongstr = this
-      , options = this.options
+    var
+      pongstr = this
+    , options = this.options
+    , markup  = {};
+
+    markup.date = $('<span>', {
+      class: 'item-date',
+      text: data.created_time
+    })
+
+    markup.image = $('<img/>', {
+        src: data.images.low_resolution.url
+      , alt: data.caption ? data.caption.text : ''
+      , class: 'p-container-thumbnail'
+    }).hide()
+
+    markup.likes = $('<span/>', {
+      class: 'item-like',
+      text: data.likes.count
+    })
+
+    markup.comments = $('<span/>', {
+      class: 'item-comments',
+      text: data.comments.count
+    })
+
+    markup.stats = $('<div/>')
+      .addClass('item-stats')
+      .append(markup.comments, markup.likes)
+
+    markup.image.one('load', function () {
+      var $image = $(this)
+        ,  start = 0
+      ++start === $image.length &&
+        $image.fadeIn()
+    })
+
+    $('<div/>', { class: 'p-container-item' })
+      .append(markup.date, markup.image, markup.stats)
+      .appendTo(pongstr.element)
 
     return this
   };
 
   Pongstagram.prototype.paginator = function () {
-    var pongstr = this
-      , options = this.options
-      , pgrblck = $('<div/>')
-      , pgrbttn = $('<button/>')
+    var
+      pongstr = this
+    , options = this.options
+    , pgrblck = $('<div/>')
+    , pgrbttn = $('<button/>')
 
     pgrbttn
       .html('<span>more</span>')
@@ -82,8 +121,9 @@
   };
 
   Pongstagram.prototype.media = function (endpoint) {
-    var pongstr = this
-      , options = this.options
+    var
+      pongstr = this
+    , options = this.options
 
     function iterateMedia (data) {
       data.pagination.next_url = !$.isEmptyObject(data.pagination.next_url) ?
@@ -94,7 +134,6 @@
 
       $.each(data.data, function (a, b) {
         b.created_time = new Date(b.created_time * 1000).toDateString()
-
         pongstr.thumbnail(b)
       })
     }
@@ -114,10 +153,10 @@
   };
 
   Pongstagram.prototype.start = function () {
-    var pongstr   = this
-      , options   = this.options
-      , mediatype = ['feed', 'liked', 'profile', 'recent']
-      , instagram = 'https://api.instagram.com/v1/'
+    var
+      pongstr = this
+    , options = this.options
+    , instagram = 'https://api.instagram.com/v1/'
 
     var typemedia = {
       feed: function () {
@@ -167,8 +206,9 @@
   };
 
   Pongstagram.prototype.authenticate = function (callback) {
-    var access = (this.options.accessId || '' &&
-                  this.options.accessToken || '') ? true : false
+    var
+      access = (this.options.accessId || '' &&
+                this.options.accessToken || '') ? true : false
     if (access)
       this.start(); return true
 
