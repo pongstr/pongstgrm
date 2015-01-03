@@ -32,6 +32,41 @@
     , profile_bg_color:   '#d9534f' // string: hex value of profile's background-color
   };
 
+  Pongstagram.prototype.thumbnail = function (data) {
+    var pongstr = this
+      , options = this.options
+
+    return this
+  };
+
+  Pongstagram.prototype.paginator = function () {
+    var pongstr = this
+      , options = this.options
+      , pgrblck = $('<div/>')
+      , pgrbttn = $('<button/>')
+
+    pgrbttn
+      .html('<span>more</span>')
+      .addClass('p-paginator-button')
+      .end()
+
+    pgrblck
+      .append(pgrbttn)
+      .addClass('p-paginator-block')
+      .insertAfter(pongstr.element)
+      .end()
+
+    pgrbttn.on('click', function (e) {
+      var next = $(pongstr.element).data('nextPage')
+
+      if (!next)
+        pgrbttn.attr('disabled', 'disabled')
+      else
+        pongstr.media(next)
+
+      e.preventDefault()
+    })
+  };
 
   Pongstagram.prototype.utils = {
     stringify: function (object) {
@@ -46,26 +81,21 @@
     }
   };
 
-  Pongstagram.prototype.template = {
-    thumbnail: function () {
-      console.log('thumbnail')
-    },
-    modal: function () {
-
-    },
-    paginator: function () {
-
-    }
-  };
-
   Pongstagram.prototype.media = function (endpoint) {
     var pongstr = this
       , options = this.options
 
     function iterateMedia (data) {
+      data.pagination.next_url = !$.isEmptyObject(data.pagination.next_url) ?
+        data.pagination.next_url : null
+
+      $(pongstr.element)
+        .data('nextPage', data.pagination.next_url)
+
       $.each(data.data, function (a, b) {
         b.created_time = new Date(b.created_time * 1000).toDateString()
-        console.log(b)
+
+        pongstr.thumbnail(b)
       })
     }
 
@@ -75,8 +105,8 @@
       , method:   'GET'
       , dataType: 'jsonp'
       , success:  function (data) {
-          (options !== 'profile') ?
-            iterateMedia(data) : null
+        if (options.show !== 'profile')
+          iterateMedia(data)
       }
     })
 
@@ -86,7 +116,26 @@
   Pongstagram.prototype.start = function () {
     var pongstr   = this
       , options   = this.options
+      , mediatype = ['feed', 'liked', 'profile', 'recent']
       , instagram = 'https://api.instagram.com/v1/'
+
+    var typemedia = {
+      feed: function () {
+        return endpoint('users/self/feed?')
+      },
+      liked: function () {
+        return endpoint('users/self/media/liked?')
+      },
+      recent: function () {
+        return endpoint('users/'+ options.accessId +'/media/recent?')
+      },
+      profile: function () {
+        return endpoint()
+      },
+      tag: function () {
+        return endpoint('tags/' + options.show + '/media/recent?')
+      }
+    };
 
     function endpoint (endpoint) {
       if (!endpoint) {
@@ -102,33 +151,19 @@
         })
       }
 
+      pongstr.paginator()
       pongstr.media(instagram)
+
       return
     }
 
-    var typemedia = {
-      feed: function () {
-        return endpoint('users/self/media/liked?')
-      },
-      liked: function () {
-        return endpoint('users/self/media/liked?')
-      },
-      profile: function () {
-        return endpoint()
-      },
-      recent: function () {
-        return endpoint('users/'+ options.accessId +'/media/recent?')
-      }
-    }
+      $(pongstr.element)
+        .data('paginate', options.show)
+        .addClass('p-container-flexbox')
 
-    if (['feed', 'liked', 'profile', 'recent'].indexOf(options.show) == options.show)
-      console.log(options.show)
-      // typemedia[options.show] && typemedia[options.show]()
-    else
-      endpoint('tags/' + options.show + '/media/recent?')
+    typemedia[options.show] && typemedia[options.show]()
 
-
-    return this;
+    return this
   };
 
   Pongstagram.prototype.authenticate = function (callback) {
@@ -156,7 +191,6 @@
   };
 
   // Plugin default Options
-  $.fn.pongstgrm.defaults = Pongstagram.defaults;
-
+  $.fn.pongstgrm.defaults = Pongstagram.defaults
 
 }(jQuery);

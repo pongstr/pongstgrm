@@ -12,7 +12,7 @@ module.exports = function(grunt) {
       app:    'app',
       src:    'src',
       dist:   'dist-<%= pkg.name %>',
-      test:   'test',
+      test:   'tests',
       bower:  'bower_components'
     },
     banner: '/*! <%= pkg.name %> v<%= pkg.version %> <%= pkg.description %> '+
