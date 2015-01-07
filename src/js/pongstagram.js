@@ -4,6 +4,7 @@
   var Pongstagram = function (element, option) {
     this.element = element || '';
     this.options = option;
+    this.ig_api  = 'https://api.instagram.com/v1/'
 
     return this
   };
@@ -47,7 +48,7 @@
         src: data.images.low_resolution.url
       , alt: data.caption ? data.caption.text : ''
       , class: 'p-container-thumbnail'
-    }).hide()
+    }).lazyload()
 
     markup.likes = $('<span/>', {
       class: 'item-like',
@@ -63,18 +64,71 @@
       .addClass('item-stats')
       .append(markup.comments, markup.likes)
 
-    markup.image.one('load', function () {
-      var $image = $(this)
-        ,  start = 0
-      ++start === $image.length &&
-        $image.fadeIn()
-    })
+    markup.image
+      .data(data)
+
 
     $('<div/>', { class: 'p-container-item' })
       .append(markup.date, markup.image, markup.stats)
       .appendTo(pongstr.element)
 
     return this
+  };
+
+  Pongstagram.prototype.modal = function () {
+    var
+      pongstr   = this
+    , options   = this.options
+    , instagram = this.ig_api
+
+    var close    = $('<button>', { class: 'p-modal-close', text: '&times;' })
+      , backdrop = $('<div/>', { class: 'p-modal-container' })
+      , content  = $('<div/>', { class: 'p-modal-content', append: close })
+
+    function showModalWindow () {
+      backdrop
+        .append(content.addClass('active'))
+        .addClass('in')
+
+      setTimeout(function () {
+        content.addClass('in')
+      }, 200)
+    }
+
+    function hideModalWindow () {
+      content
+        .removeClass('in')
+        .removeAttr('id')
+        .removeClass('active')
+        .empty()
+
+      setTimeout(function () {
+        backdrop.removeClass('in')
+      }, 500)
+
+      setTimeout(function () {
+        backdrop
+          .removeClass('active')
+          .remove()
+      }, 900)
+
+    }
+
+    $(document)
+      .on('pongstr.showmodal', showModalWindow)
+      .on('pongstr.hidemodal', hideModalWindow)
+
+      .on('click', '.p-container-thumbnail', function (e) {
+        $('body').append(backdrop.addClass('active'))
+        $(this).trigger('pongstr.showmodal')
+
+        e.preventDefault()
+      })
+      .on('click', '.p-modal-close', function (e) {
+        $(this).trigger('pongstr.hidemodal')
+
+        e.preventDefault()
+      })
   };
 
   Pongstagram.prototype.paginator = function () {
@@ -146,6 +200,7 @@
       , success:  function (data) {
         if (options.show !== 'profile')
           iterateMedia(data)
+
       }
     })
 
@@ -154,9 +209,9 @@
 
   Pongstagram.prototype.start = function () {
     var
-      pongstr = this
-    , options = this.options
-    , instagram = 'https://api.instagram.com/v1/'
+      pongstr   = this
+    , options   = this.options
+    , instagram = this.ig_api
 
     var typemedia = {
       feed: function () {
@@ -190,6 +245,7 @@
         })
       }
 
+      pongstr.modal()
       pongstr.paginator()
       pongstr.media(instagram)
 
@@ -218,7 +274,16 @@
       return false
   };
 
+  $.fn.lazyload = function (callback) {
+    return this.each(function () {
+      var $image = $(this)
+        ,  start = 0
 
+      if (++start == $image.length)
+        $image.fadeIn()
+        callback && callback()
+    })
+  };
 
   // Plugin Definition
   $.fn.pongstgrm = function (option) {
