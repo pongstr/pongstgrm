@@ -8,12 +8,8 @@
     "type": "git",
     "url": "https://github.com/pongstr/pongstagr.am.git"
   },
-  "scripts": {
-    "start": "nodemon index.js"
-  },
   "dependencies": {
-    "express": "^4.10.6",
-    "nodemon": "^1.2.1"
+    "express": "^4.10.6"
   },
   "devDependencies": {
     "bower": "^1.2.8",
