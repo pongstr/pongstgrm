@@ -4,10 +4,9 @@
     this.element = element || '<div/>'
     this.options = options || Pongstagram.DEFAULTS
     this.instgrm = 'https://api.instagram.com/v1'
-
+    
     this.authenticate()
 
-    console.log(this)
     return this
   }
 
