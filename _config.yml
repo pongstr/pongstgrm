@@ -15,7 +15,7 @@ pygments:     true
 
 # Permalinks
 permalink:    pretty
-baseurl:      http://pongstr.github.io/pongstagr.am
+baseurl:      https://pongstr.github.io/pongstagr.am
 
 # Server
 destination:  _gh_pages
