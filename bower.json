@@ -1,14 +1,11 @@
 {
   "name": "pongstagr.am",
+  "description": "a jQuery Plugin that let's you display instagram media to your website.",
   "version": "0.1.0",
-  "author": "Pongstr <twiz.tickler@gmail.com>",
-  "homepage": "http://pongstr.github.io/pongstagr.am/",
-  "description": "a jquery plugin that lets you display instagram media to your website.",
-  "main": [
-    "src/scss",
-    "src/css",
-    "src/js"
+  "authors": [
+    "Pongstr Ordillo <twiz.tickler@gmail.com>"
   ],
+  "license": "MIT",
   "keywords": [
     "instagram",
     "jquery",
@@ -16,20 +13,18 @@
     "pongstr",
     "pongstagram"
   ],
-  "license": "MIT",
+  "moduleType": [],
+  "homepage": "https://pongstr.github.io/pongstagr.am",
   "ignore": [
     "**/.*",
-    ".jshintrc",
-    "tests",
-    "examples",
     "node_modules",
-    "bower_components"
+    "bower_components",
+    "test",
+    "tests"
   ],
-  "dependencies": {
-    "jquery": ">= 1.11.0",
-    "normalize.css": "~3.0.2"
-  },
   "devDependencies": {
-    "qunit": "~1.16.0"
+    "bootstrap": "v4.0.0-alpha.2",
+    "jquery": "~2.1.4",
+    "tether": "~1.1.1"
   }
 }

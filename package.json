@@ -1,6 +1,6 @@
 {
   "name": "pongstagr.am",
-  "desc": "jQuery Plugin that let's you display instagram media to your website.",
+  "desc": "a jQuery Plugin that let's you display instagram media to your website.",
   "version": "0.1.0",
   "author": "Pongstr Ordillo",
   "homepage": "http://pongstr.github.io/pongstagr.am/",
@@ -8,24 +8,12 @@
     "type": "git",
     "url": "https://github.com/pongstr/pongstagr.am.git"
   },
-  "dependencies": {
-    "express": "^4.10.6"
-  },
   "devDependencies": {
-    "bower": "^1.2.8",
-    "grunt": "^0.4.5",
-    "grunt-banner": "~0.2.0",
-    "grunt-contrib-concat": "^0.3.0",
-    "grunt-contrib-copy": "^0.5.0",
-    "grunt-contrib-imagemin": "^0.4.1",
-    "grunt-contrib-jshint": "^0.10.0",
-    "grunt-contrib-less": "^1.0.0",
-    "grunt-contrib-qunit": "^0.5.2",
-    "grunt-contrib-sass": "^0.8.1",
-    "grunt-contrib-uglify": "^0.2.7",
-    "grunt-contrib-watch": "^0.6.1",
-    "load-grunt-tasks": "^2.0.0",
-    "requirejs": "^2.1.20",
-    "time-grunt": "^1.0.0"
+    "gulp": "^3.9.0",
+    "gulp-coffee": "^2.3.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-util": "^3.0.7",
+    "gulp-sass": "^2.1.1",
+    "gulp-watch": "^4.3.5"
   }
 }
