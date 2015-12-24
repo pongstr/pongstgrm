@@ -1,43 +1,32 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-
+  <!-- Required meta tags always come first -->
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>Pongstagram: Display Recent Media</title>
+  <title>Pongstagr.am</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-
-  <!-- Vanilla Stuff, Normalize Only -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/octicons/2.1.2/octicons.min.css" rel="stylesheet">
-
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-    <script src="http://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-  <![endif]-->
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../dist/css/pongstagr.am.css">
 
 </head>
 <body>
 
-  <div id="test"></div>
+  <div id="pongstr"></div>
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script src="/src/js/pongstagram.js"></script>
+  <!-- jQuery first, then Bootstrap JS. -->
+  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../bower_components/tether/dist/js/tether.min.js"></script>
+  <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="../dist/js/pongstagr.am.js"></script>
   <script>
-  $(document).ready(function () {
-    $('#test').pongstgrm({
-      accessId: 679256982,
-      accessToken: '679256982.401c5ac.0a183542db5f4ae1b51caae21acadc1e',
-      // show: '#nofilter #pongstagram'
-      // show: 'test'
-      // show: 'profile'
-      // count: 1
-    })
-  })
+      $('#pongstr').pongstgrm({
+        accessId: '679256982',
+        accessToken: '679256982.401c5ac.0a183542db5f4ae1b51caae21acadc1e',
+        show: 'recent'
+      })
   </script>
 
 </body>
