@@ -8,13 +8,16 @@
 
   <title>Pongstagr.am</title>
 
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,900,500"> -->
   <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="../dist/css/pongstagr.am.css">
 
 </head>
 <body>
 
-  <div id="pongstr"></div>
+  <div class="container p-y-3">
+    <div id="pongstr"></div>
+  </div>
 
   <!-- jQuery first, then Bootstrap JS. -->
   <script src="../bower_components/jquery/dist/jquery.min.js"></script>
@@ -25,7 +28,8 @@
       $('#pongstr').pongstgrm({
         accessId: '679256982',
         accessToken: '679256982.401c5ac.0a183542db5f4ae1b51caae21acadc1e',
-        show: 'recent'
+        show: 'recent',
+        count: 2
       })
   </script>
 

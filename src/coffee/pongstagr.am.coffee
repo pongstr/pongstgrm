@@ -15,12 +15,12 @@ do ->
     accessToken:  undefined   # {String}: Access token acquired from Instagram.
 
     # Display Options
-    show:         'recent'    # {String}: possible options are feed, likes, media, profile and tag.
+    show:         'recent'    # {String}: possible options are liked, recent, profile and tag.
     count:        5           # {Number}: default number of media to be displayed.
     likes:        true        # {Boolean}: show/hide likes count.
     comments:     true        # {Boolean}: show/hide comments
     timestamp:    true        # {Boolean}: show/hide media timestamp.
-    flexbox:      true        # {Boolean|String}: if true/false
+    flexbox:      true        # {Boolean|String}: if true/false it uses the built-in flexbox in the css, otherwise it will use custom-styles set for that selector
 
     # Plugin Components
     avatar_size:  64          # {String}: profile picture dimensions in square format e.g., (128 == 128x128 pixels)
@@ -94,6 +94,19 @@ do ->
           return callback and callback(data)
       ), 'jsonp'
 
+    ###
+    # @name
+    # @desc
+    # @params
+    # @returns
+    ###
+    @gallery.feed = () ->
+      that.mode = 'gallery'
+      that.instgrm += 'self/feed?' + $.param
+        count: that.options.count
+        access_token: that.options.access_token
+      return getMedia "#{that.instgrm}", (data) ->
+        return
 
     ###
     # @name Liked Media
@@ -114,7 +127,7 @@ do ->
         count: that.options.count
         access_token: that.options.accessToken
       return getMedia "#{that.instgrm}", (data) ->
-        # $(that.element).append "<pre>#{JSON.stringify data.data, null, 2}</pre>"
+        $(that.element).append "<pre>#{JSON.stringify data.data, null, 2}</pre>"
         return
 
 
