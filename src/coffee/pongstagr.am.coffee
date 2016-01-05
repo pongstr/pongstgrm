@@ -130,6 +130,18 @@ do ->
         $(that.element).append "<pre>#{JSON.stringify data.data, null, 2}</pre>"
         return
 
+    ###
+    # @name
+    # @desc
+    # @params
+    # @returns
+    ###
+    @gallery.profile = () ->
+      that.mode     = 'profile'
+      that.instgrm += "#{that.options.accessId}?" + $.param
+        access_token: that.options.accessToken
+      return getMedia "#{that.instgrm}", (data) ->
+        $(that.element).append "<pre>#{JSON.stringify data.data, null, 2}</pre>"
 
     ###
     # @name Recent Media
