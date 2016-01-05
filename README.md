@@ -9,9 +9,7 @@ if ever you're still interested in this plugin.
 
 > More info on [Instagram Platform Policy](https://www.instagram.com/about/legal/terms/api/).
 
-In other news, It's christmas vacation so I've dedicated some of my
-free time to update the plugin and move away from its dependecy to Bootstrap.
-Here are some of the updates coming:
+Upcoming Updates:
 
 - Coffeescript (Been wanting to learn it)
 - Switch from Grunt to Gulp
