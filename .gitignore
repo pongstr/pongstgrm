@@ -33,10 +33,3 @@ nbproject
 # Folders to ignore
 node_modules
 bower_components
-src/scss/bourbon
-
-# Untrack source maps and minified files
-src/css/*.min.css
-src/css/*.min.css.map
-src/js/*.min.js
-src/js/*.min.js.map
