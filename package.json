@@ -24,6 +24,7 @@
     "gulp-watch": "^4.3.5",
     "html-minify-loader": "^1.1.0",
     "imports-loader": "^0.6.5",
+    "node-static": "^0.7.7",
     "raw-loader": "^0.5.1",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1",
