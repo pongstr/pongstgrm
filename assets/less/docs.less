@@ -25,7 +25,7 @@ body {
 .selection(#000, @brand-warning, none);
 
 [role="main"] {
-  padding-top:      0; 
+  padding-top:      0;
   padding-bottom:   0;
 }
 
@@ -55,10 +55,10 @@ body {
     border-top: 0 none;
     background-color: rgba(237, 236, 228, 0.2);
 
-    .btn { 
+    .btn {
       padding-left:   20px;
       padding-right:  20px;
-      text-align:     left; 
+      text-align:     left;
     }
   }
 
@@ -74,7 +74,7 @@ body {
 @media (max-width: @screen-sm-max ) {
   .section,
   .section:nth-of-type(2),
-  .section:nth-of-type(3) { 
+  .section:nth-of-type(3) {
     padding: 20px 0;
     margin-left: -5px;
     margin-right: -5px;
@@ -103,11 +103,11 @@ header .jumbotron {
 
   border:                 0 none;
   background-color:       #000;
-  background-image:       url("http://pongstr.github.io/pongstagr.am/assets/img/img.jpg");
+  background-image:       url("https://pongstr.io/pongstgrm/assets/img/img.jpg");
   background-attachment:  fixed;
   background-position:    bottom center;
   background-repeat:      no-repeat;
-  background-size:        100%;
+  background-size:        cover;
 
 
   hr {
@@ -116,13 +116,13 @@ header .jumbotron {
     border-bottom:      1px solid rgba(255,255,255,0.2)
   }
 
-  h1 { 
-    font-family:      @headings-font-family; 
+  h1 {
+    font-family:      @headings-font-family;
     font-size:        90px;
     margin-bottom:    25px;
     text-shadow:      4px 3px 0px transparent, 6px 5px 0px rgba(0,0,0,0.2);
   }
-  
+
   p {
     display:        block;
     width:          64%;
@@ -154,13 +154,13 @@ header .jumbotron {
     text-shadow: 0 1px 1px rgba(0,0,0,0.55);
     line-height: 1;
     opacity: 0.4;
-  } 
+  }
 
   @media (max-width: @screen-md),
          (max-width: @screen-xs) {
     background-position:    bottom center;
     background-repeat:      no-repeat;
-    background-size:        auto;    
+    background-size:        auto;
   }
 
   @media (max-width: @screen-xs) {
@@ -208,7 +208,7 @@ header .jumbotron {
 }
 
 
-// Main 
+// Main
 // ==========================================================================
 
 // Navigation Overrides
@@ -298,7 +298,7 @@ body > [role="navigation"] {
 
     &.pre-wrap-example {
       margin-bottom: -10px;
-    }    
+    }
   }
   .pre-wrap > pre {
     min-width: 480px;
@@ -310,28 +310,28 @@ body > [role="navigation"] {
 // Google Prettify Code Colors
 // ==========================================================================
 
-.str, 
+.str,
 .atv { color: #D14; }
 
-.pun, 
-.opn, 
+.pun,
+.opn,
 .clo { color: #93a1a1; }
 
-.kwd, 
-.prettyprint 
+.kwd,
+.prettyprint
 .tag { color: #1e347b; }
 
-.typ, 
-.atn, 
-.dec, 
+.typ,
+.atn,
+.dec,
 .var { color: teal; }
 
 .lit { color: #195f91; }
 .fun { color: #dc322f; }
 .pln { color: #48484c; }
-.com { 
+.com {
   font-style: italic;
-  color: #93a1a1; 
+  color: #93a1a1;
 }
 
 
@@ -346,14 +346,14 @@ body > [role="navigation"] {
 }
 
 // Pretty Print with Line Numbers shadow
-.prettyprint.linenums { 
+.prettyprint.linenums {
   .box-shadow(inset 40px 0 0 #fbfbfc);
 }
 
 
-.prettyprint ol.linenums { 
+.prettyprint ol.linenums {
   margin:         0;
-  margin-left:  -10px; 
+  margin-left:  -10px;
 }
 
 .prettyprint ol.linenums > li {
@@ -364,9 +364,9 @@ body > [role="navigation"] {
 }
 
 // Line Numbers IE Specific: IE indents via margin-left
-.lt-ie9 .prettyprint ol.linenums { 
+.lt-ie9 .prettyprint ol.linenums {
   margin:       0;
-  margin-left:  33px; 
+  margin-left:  33px;
 }
 
 

@@ -10,12 +10,15 @@ keywords:     "jquery, instagram, github, pongstr, ordillo, philip, pongstagram,
 exclude:      ['.gitignore', '*.sass-cache', 'scss', '*.txt', '*.rb', '*.sh', '_images', 'node_modules', 'bower_components', 'Gruntfile.js', 'package.json' ]
 
 # Dependencies
-markdown:     rdiscount
-pygments:     true
+redcarpet:
+  extensions: []
+
+highlighter:  rouge
+
 
 # Permalinks
 permalink:    pretty
-baseurl:      https://pongstr.github.io/pongstagr.am
+baseurl:      https://pongstr.io/pongstgrm
 
 # Server
 destination:  _gh_pages
